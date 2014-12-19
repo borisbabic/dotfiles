@@ -9,12 +9,16 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'Shougo/unite.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular'
+Plugin 'scrooloose/nerdcommenter'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
 """"" OPTIONS
 
 let mapleader="\<space>"
+
+
+colorscheme mustang
 
 " search
 set incsearch     " incremental search as you type
