@@ -4,12 +4,16 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'tpope/vim-fugitive'
-Plugin 'flazz/vim-colorschemes'
+
 Plugin 'Shougo/unite.vim'
-Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/vimproc'
+Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'spf13/PIV'
+Plugin 'tpope/vim-fugitive'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -35,6 +39,9 @@ set rnu           " relative numbers with absolute current
 set mouse=a       " turn on mouse
 
 """"" MAPPINGS
+
+""" unite
+nnoremap <C-p> :Unite file_rec<CR>
 
 """ macro-ish stuff
 
