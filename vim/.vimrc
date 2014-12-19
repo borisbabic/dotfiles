@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc'
+Plugin 'Shougo/vimfiler'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdcommenter'
@@ -38,10 +39,25 @@ set nowrap        " no wrapping on long lines
 set rnu           " relative numbers with absolute current
 set mouse=a       " turn on mouse
 
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c%m
+endif
+""" PLUGINS
+
+" unite
+if executable('ag')
+    let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+endif
+
 """"" MAPPINGS
 
 """ unite
-nnoremap <C-p> :Unite file_rec<CR>
+
+nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+
+""" vimfiler
+nnoremap <leader>n :VimFilerExplorer<CR>
 
 """ macro-ish stuff
 
