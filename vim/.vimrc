@@ -6,12 +6,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimproc'
 Plugin 'Shougo/vimfiler'
+Plugin 'Shougo/vimproc'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
 Plugin 'spf13/PIV'
 Plugin 'tpope/vim-fugitive'
 
@@ -58,6 +59,10 @@ nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
 
 """ vimfiler
 nnoremap <leader>n :VimFilerExplorer<CR>
+
+""" gundo
+
+nnoremap <F5> :GundoToggle<CR>
 
 """ macro-ish stuff
 
