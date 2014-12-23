@@ -14,6 +14,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'spf13/PIV'
+Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
