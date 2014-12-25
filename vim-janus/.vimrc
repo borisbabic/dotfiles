@@ -1,1 +1,0 @@
-/home/boris/.vim/janus/vim/vimrc
