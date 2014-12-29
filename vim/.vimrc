@@ -8,14 +8,18 @@ call vundle#begin()
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimfiler'
 Plugin 'Shougo/vimproc'
+Plugin 'ervandew/supertab'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
+Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'spf13/PIV'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
+"Plugin 'xolox/vim-easytags'
+"Plugin 'xolox/vim-misc'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -47,12 +51,22 @@ if executable('ag')
 endif
 """ PLUGINS
 
-" unite
+"" unite
+
 if executable('ag')
     let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
 endif
 
+"" easy-tags
+
+" asznc easytags
+let g:easytags_async=1
+
 """"" MAPPINGS
+
+""" tagbar
+
+nnoremap <F8> :TagbarToggle<CR>
 
 """ unite
 
