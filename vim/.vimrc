@@ -42,7 +42,8 @@ set expandtab     " use spaces for tabs
 set shiftwidth=4  " number of tabs for authindent
 " misc
 set nowrap        " no wrapping on long lines
-set rnu           " relative numbers with absolute current
+set rnu           " relative numbers 
+set number        " absolute current
 set mouse=a       " turn on mouse
 
 if executable('ag')
