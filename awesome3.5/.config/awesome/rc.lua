@@ -736,5 +736,5 @@ function run_once(cmd)
 end
 
 -- {{{ MY AUTOSTARTS:
-    require('local.autorun')
+    require('autorun')
 -- }}}
