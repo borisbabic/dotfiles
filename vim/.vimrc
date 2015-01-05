@@ -8,6 +8,7 @@ call vundle#begin()
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimfiler'
 Plugin 'Shougo/vimproc'
+Plugin 'derekwyatt/vim-scala'
 Plugin 'ervandew/supertab'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
