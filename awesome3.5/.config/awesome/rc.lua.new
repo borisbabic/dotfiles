@@ -10,6 +10,7 @@ local drop      = require("scratchdrop")
 
 local keybindings = require("keybindings")
 local specific = require("specific")
+local mywidgets = require("mywidgets")
 -- }}}
 
 
@@ -150,15 +151,8 @@ for s = 1, screen.count() do
     left_layout:add(mypromptbox[s])
     left_layout:add(spr)
 
-    -- Widgets that are aligned to the upper right
-    right_layout = wibox.layout.fixed.horizontal()
-    if s == 1 then right_layout:add(wibox.widget.systray()) end
-    for _, w in ipairs(specific.right_widgets) do
-        right_layout:add(w)
-    end
-    right_layout:add(mylayoutbox[s])
 
-    -- Now bring it all together (with the tasklist in the middle)
+    right_layout = mywidgets.getRightLayout(specific.right_widgets, s)
     local layout = wibox.layout.align.horizontal()
     layout:set_left(left_layout)
     layout:set_middle(mytasklist[s])
@@ -271,15 +265,27 @@ for s = 1, screen.count() do screen[s]:connect_signal("arrange", function ()
 end
 -- }}}
 --
-function run_once(cmd)
-  findme = cmd
-  firstspace = cmd:find(" ")
-  if firstspace then
-     findme = cmd:sub(0, firstspace-1)
-  end
-  awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+
+
+function run_commands(commands, run)
+    if (type(commands) == "table") then
+        for _, command in ipairs(commands) do
+            run(command)
+        end
+    end
 end
 
--- {{{ MY AUTOSTARTS:
-    --require('local.autorun')
--- }}}
+function run(cmd)
+    awful.util.spawn_with_shell(cmd)
+end
+function run_once(cmd)
+    findme = cmd
+    firstspace = cmd:find(" ")
+    if firstspace then
+        findme = cmd:sub(0, firstspace-1)
+    end
+    awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
+run_commands(specific.commands_once, run_once)
+run_commands(specific.commands_alwas, run)

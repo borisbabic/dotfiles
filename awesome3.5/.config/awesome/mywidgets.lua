@@ -13,7 +13,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/t
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
 mytextclock = awful.widget.textclock(" %a %d %b  %H:%M")
 
--- calendar
+ --calendar
 --lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
 
 ---- Mail IMAP check
@@ -137,6 +137,17 @@ netwidget = lain.widgets.net({
     end
 })
 
+function getLayoutBox(s)
+    local ret = awful.widget.layoutbox(s)
+    ret:buttons(awful.util.table.join(
+                            awful.button({ }, 1, function () awful.layout.inc(layouts, 1) end),
+                            awful.button({ }, 3, function () awful.layout.inc(layouts, -1) end),
+                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
+                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
+    return ret
+
+end
+
 -- Separators
 spr = wibox.widget.textbox(' ')
 arrl = wibox.widget.imagebox()
@@ -154,47 +165,13 @@ M.fswidget = {fsicon, fswidget}
 M.batwidget = {baticon, batwidget}
 M.cpuwidget = {cpuicon, cpuwidget}
 M.netwidget = {neticon, netwidget}
---M.clockwidget = {mytextclock}
+M.clockwidget = {clockicon, mytextclock}
 --M.mpdwidget = {mpdicon, mpdwidget}
 
-M.addWidgetsToLayout = function(add, widgetList, separate)
-    if (separate == nil) then
-        separate = false
-    end
-    arrow = {
-        arrType = 0,
-        getType = function()
-            if (arrow.arrType == 0) then
-                returnType = arrl_ld
-            else
-                returnType = arrl_dl
-            end
-            arrow.arrType = arrow.arrType + 1 % 2
-            return returnType
-        end
-    }
-    arrtype = 1
-    if (separate) then
-        add(spr)
-        layout:add(arrl)
-    end
-    for _, w in ipairs(widgetList) do
-        layout:add(arrow:getType())
-        for _, widget in ipairs(w) do
-            layout:add(widget)
-        end
-
-    end
-    if (separate) then
-        layout:add(spr)
-        layout:add(arrow:getType())
-    end
-end
-M.createList = function(widgetList, separate)
-    ret = {}
-    if (separate == nil) then
-        separate = true
-    end
+lightbackground = "#313131" -- if changed change the color in the arrow icons
+M.getRightLayout = function(widgetList, s)
+    layout = wibox.layout.fixed.horizontal()
+    if s == 1 then layout:add(wibox.widget.systray()) end
     function getArrowType(currentTurn)
         if (currentTurn == 0) then
             return arrl_ld
@@ -212,30 +189,23 @@ M.createList = function(widgetList, separate)
             return (turn.curr + 1) % 2
         end
     }
-    arrtype = 1
-    if (separate) then
-        table.insert(ret, spr)
+    layout:add(spr)
+    function addWidget(w)
+        currentTurn = turn.getTurn()
+        layout:add(getArrowType(currentTurn))
+        for i, widget in ipairs(w) do
+            if (needsLightBackground(currentTurn)) then
+                widget = wibox.widget.background(widget, lightbackground)
+            end
+            layout:add(widget)
+        end
     end
     for _, w in ipairs(widgetList) do
-        currentTurn = turn.getTurn()
-        table.insert(ret, getArrowType(currentTurn))
-        for i, widget in ipairs(w) do
-            --if (needsLightBackground(currentTurn)) then
-                --widget = wibox.widget.background(widget,  "#313131")
-            --end
-            table.insert(ret, widget)
-        end
-
+        addWidget(w)
     end
-    currentTurn = turn.getTurn()
-    if (separate) then
-        table.insert(ret, spr)
+    if (not(s == nil)) then
+        addWidget({getLayoutBox(s)})
     end
-    table.insert(ret, getArrowType(currentTurn))
-    return ret
-end
-
-function addRightWidgets(layout)
-    addWidgetsToLayout(layout, specific.right_widgets)
+    return layout
 end
 return M

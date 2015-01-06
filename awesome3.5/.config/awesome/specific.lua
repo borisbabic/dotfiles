@@ -1,12 +1,22 @@
 local mywidgets = require("mywidgets")
 local M = {}
-M.right_widgets = mywidgets.createList{
+right_widgets = {
     mywidgets.volumewidget,
     mywidgets.memwidget,
     mywidgets.cpuwidget,
     mywidgets.tempwidget,
     mywidgets.batwidget,
     mywidgets.netwidget,
-    --mywidgets.clockwidget
+    mywidgets.clockwidget,
 }
+commands_once =
+    {
+        'lxqt-session',
+    }
+commands_always = {
+        '/usr/bin/setxkbmap -option "caps:escape"',
+    }
+M.right_widgets = right_widgets
+M.commands = commands
+
 return M
