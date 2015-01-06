@@ -14,9 +14,11 @@ commands_once =
         'lxqt-session',
     }
 commands_always = {
-        '/usr/bin/setxkbmap -option "caps:escape"',
+        'setxkbmap -option "caps:escape"',
     }
+
 M.right_widgets = right_widgets
-M.commands = commands
+M.commands_always = commands_always
+M.commands_once = commands_once
 
 return M

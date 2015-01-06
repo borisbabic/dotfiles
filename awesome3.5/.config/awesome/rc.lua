@@ -287,5 +287,5 @@ function run_once(cmd)
     awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
 end
 
+run_commands(specific.commands_always, run)
 run_commands(specific.commands_once, run_once)
-run_commands(specific.commands_alwas, run)
