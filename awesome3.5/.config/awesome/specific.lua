@@ -12,6 +12,7 @@ right_widgets = {
 commands_once =
     {
         'lxqt-session',
+        'nm-applet',
     }
 commands_always = {
         'setxkbmap -option "caps:escape"',
