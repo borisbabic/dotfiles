@@ -11,6 +11,7 @@ local drop      = require("scratchdrop")
 local keybindings = require("keybindings")
 local specific = require("specific")
 local mywidgets = require("mywidgets")
+local test = require("test")
 -- }}}
 
 
