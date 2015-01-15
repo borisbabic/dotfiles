@@ -5,20 +5,38 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"general
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimfiler'
 Plugin 'Shougo/vimproc'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'ervandew/supertab'
-Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
-Plugin 'spf13/PIV'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
+
+"PHP
+Plugin 'spf13/PIV'
+
+"javascript
+Plugin 'moll/vim-node'
+Plugin 'jelera/vim-javascript-syntax'
+
+"scala
+Plugin 'derekwyatt/vim-scala'
+
+"colorschemes
+Plugin 'flazz/vim-colorschemes'
+
+"snipmate 
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'tomtom/tlib_vim'
+
 "Plugin 'xolox/vim-easytags'
 "Plugin 'xolox/vim-misc'
 
