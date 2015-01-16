@@ -13,6 +13,12 @@ local specific = require("specific")
 local mywidgets = require("mywidgets")
 -- }}}
 
+-- Widget updaters -- fix this
+gitwidget = {}
+gitwidget.clientupdate = mywidgets.updaters.gitwidget
+nmanager = {} 
+nmanager.newclientupdate = mywidgets.updaters.nmanager
+
 
 -- {{{ Error handling
 if awesome.startup_errors then

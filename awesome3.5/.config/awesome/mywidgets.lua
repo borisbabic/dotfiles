@@ -148,6 +148,126 @@ function getLayoutBox(s)
 
 end
 
+--MINE
+
+function getNumberWidget()
+    numberwidget = {}
+    numberwidget.widget = wibox.widget.textbox()
+    numberwidget.basetext = ('Git: <span color =%q>%d</span>')
+    numberwidget.color = "yellow"
+    numberwidget.emptycolor = "white"
+    numberwidget.value = 0
+    numberwidget.settext = function ()
+        if(numberwidget.value <1) then
+            color = numberwidget.emptycolor
+        else
+            color = numberwidget.color
+        end
+        numberwidget.widget:set_markup(string.format(numberwidget.basetext, color, numberwidget.value))
+    end
+    numberwidget.clientupdate = function (value)
+        numberwidget.value = value
+        numberwidget:settext()
+    end
+    numberwidget.settext()
+    return numberwidget
+end
+gitwidget = getNumberWidget()
+
+function getTimeStartStopWidget()
+    startstop ={}
+    startstop.widget = wibox.widget.textbox() --
+    --startstop.timeoutminutes = 1 --in minutes
+    startstop.timeout = 1
+    startstop.seconds = true
+    startstop.running = false --(whether it is running or not)
+    startstop.status = "0"
+    startstop.basetext = "<span color =%q>%s</span>"
+    startstop.currenttime = {["hour"] = 0, ["minute"] = 0, ["seconds"] = 0}
+    startstop.settext = function()
+        local color = startstop.getColor()
+
+        local time_string = string.format("%d:%02d", startstop.currenttime.hour, startstop.currenttime.minute)
+        if (startstop.seconds) then
+            time_string = time_string .. string.format(":%02d", startstop.currenttime.seconds)
+        end
+        startstop.widget:set_markup(string.format(startstop.basetext, color, time_string))
+    end
+    startstop.getColor = function()
+        if (startstop.status ==0) then
+            return "#EB1B28"
+        end
+        if (startstop.status ==1) then
+            return "#00923D"
+        end
+        if (startstop.status ==2) then
+            return "#0389CE"
+        end
+        if (startstop.status ==3) then
+            return "#F9A81F"
+        end
+        if (startstop.status ==4) then
+            return "#A8095E"
+        end
+        return "white"
+    end
+
+    startstop.isRunning = function()
+        if (startstop.status ==0) then
+            return false
+        end
+        if (startstop.status ==1) then
+            return true
+        end
+        if (startstop.status ==2) then
+            return true
+        end
+        if (startstop.status ==3) then
+            return true
+        end
+        if (startstop.status ==4) then
+            return true
+        end
+        return false
+    end
+    startstop.clientupdate = function(hour, minute, seconds, running)
+        startstop.currenttime.hour=hour
+        startstop.currenttime.minute=minute
+        startstop.currenttime.seconds=seconds
+        startstop.status = "0"
+        if (running) then
+            startstop.status = "1"
+        end
+        startstop.running=running
+        startstop.settext()
+    end
+
+    startstop.newclientupdate = function(hour, minute, seconds, status)
+        startstop.currenttime.hour=hour
+        startstop.currenttime.minute=minute
+        startstop.currenttime.seconds=seconds
+        startstop.status = status
+        startstop.running = startstop.isRunning()
+        startstop.settext()
+    end
+    startstop.update = function()
+        if (startstop.running) then
+            local seconds = startstop.currenttime.seconds + startstop.timeout
+            local minute = startstop.currenttime.minute + math.floor(seconds / 60)
+            startstop.currenttime.minute = minute % 60
+            startstop.currenttime.hour = startstop.currenttime.hour + math.floor(minute/60)
+            startstop.currenttime.seconds = seconds % 60
+            startstop.settext()
+        end
+    end
+    startstop.timer= timer({timeout = startstop.timeout})
+    startstop.timer:connect_signal("timeout",startstop.update)
+    startstop.timer:start()
+    startstop.settext()
+    return startstop
+end
+nmanagerwidget = getTimeStartStopWidget()
+
 -- Separators
 spr = wibox.widget.textbox(' ')
 arrl = wibox.widget.imagebox()
@@ -156,6 +276,7 @@ arrl_dl = wibox.widget.imagebox()
 arrl_dl:set_image(beautiful.arrl_dl)
 arrl_ld = wibox.widget.imagebox()
 arrl_ld:set_image(beautiful.arrl_ld)
+
 
 local M = {}
 M.memwidget = {memicon, memwidget}
@@ -166,7 +287,16 @@ M.batwidget = {baticon, batwidget}
 M.cpuwidget = {cpuicon, cpuwidget}
 M.netwidget = {neticon, netwidget}
 M.clockwidget = {clockicon, mytextclock}
+M.gitwidget = {gitwidget.widget}
+M.nmanagerwidget = {nmanagerwidget.widget}
+M.updaters = {
+    gitwidget = gitwidget.clientupdate,
+    nmanager = nmanagerwidget.newclientupdate,
+}
 --M.mpdwidget = {mpdicon, mpdwidget}
+
+
+
 
 lightbackground = "#313131" -- if changed change the color in the arrow icons
 M.getRightLayout = function(widgetList, s)
