@@ -11,7 +11,7 @@ beautiful.init(os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-darker/t
 
 -- Textclock
 clockicon = wibox.widget.imagebox(beautiful.widget_clock)
-mytextclock = awful.widget.textclock(" %a %d %b  %H:%M")
+mytextclock = awful.widget.textclock(" %a %d %b  %H:%M", 1)
 
  --calendar
 --lain.widgets.calendar:attach(mytextclock, { font_size = 10 })
