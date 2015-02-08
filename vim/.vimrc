@@ -18,6 +18,10 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 
+"Haskell
+
+Plugin 'raichoo/haskell-vim'
+
 "PHP
 Plugin 'spf13/PIV'
 
@@ -70,6 +74,17 @@ if executable('ag')
     set grepformat=%f:%l:%c%m
 endif
 """ PLUGINS
+
+"" PIV
+let g:DisableAutoPHPFolding = 1
+
+"" haskell-vim
+
+let g:haskell_enable_quantification = 1
+let g:haskell_enable_recursivedo = 1
+let g:haskell_enable_arrowsyntax = 1
+let g:haskell_enable_pattern_synonyms = 1
+let g:haskell_enable_typeroles = 1
 
 "" unite
 
