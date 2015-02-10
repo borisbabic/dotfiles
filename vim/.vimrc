@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'raichoo/haskell-vim'
 
 "PHP
+Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'spf13/PIV'
 
 "javascript
@@ -98,6 +99,10 @@ endif
 let g:easytags_async=1
 
 """"" MAPPINGS
+
+"" vim-php-namespace
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
 
 """ tagbar
 
