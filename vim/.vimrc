@@ -101,8 +101,7 @@ let g:easytags_async=1
 """"" MAPPINGS
 
 "" vim-php-namespace
-inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
-noremap <Leader>u :call PhpInsertUse()<CR>
+nnoremap <Leader>u :call PhpInsertUse()<CR>
 
 """ tagbar
 
