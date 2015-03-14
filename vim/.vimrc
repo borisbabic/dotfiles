@@ -18,6 +18,9 @@ Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 
+"thrift
+Plugin 'solarnz/thrift.vim'
+
 "Haskell
 
 Plugin 'raichoo/haskell-vim'
@@ -98,7 +101,17 @@ endif
 " asznc easytags
 let g:easytags_async=1
 
+""""" COMMANDS
+
+"" write as vagrant user
+command! VagrantWrite w !sudo -u \\#500 -g \\#500 tee > /dev/null %
+
+"" write root
+command! SudoWrite w !sudo tee > /dev/null %
+
 """"" MAPPINGS
+
+
 
 "" vim-php-namespace
 nnoremap <Leader>u :call PhpInsertUse()<CR>
