@@ -18,6 +18,8 @@ gitwidget = {}
 gitwidget.clientupdate = mywidgets.updaters.gitwidget
 nmanager = {} 
 nmanager.newclientupdate = mywidgets.updaters.nmanager
+nabdnswidget = {}
+nabdnswidget.update = mywidgets.updaters.nabdnswidget
 
 
 -- {{{ Error handling

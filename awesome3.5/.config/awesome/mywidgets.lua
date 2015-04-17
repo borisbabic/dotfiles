@@ -174,6 +174,18 @@ function getNumberWidget()
 end
 gitwidget = getNumberWidget()
 
+function getBasicTextWidget()
+    basic = {}
+    basic.widget = wibox.widget.textbox()
+    basic.basetext = "<span color =%q>%s</span>"
+    basic.update = function(text, color)
+        color = color or 'white'
+        basic.widget:set_markup(string.format(basic.basetext, color, text))
+    end
+    return basic
+end
+
+
 function getTimeStartStopWidget()
     startstop ={}
     startstop.widget = wibox.widget.textbox() --
@@ -278,6 +290,7 @@ arrl_ld = wibox.widget.imagebox()
 arrl_ld:set_image(beautiful.arrl_ld)
 
 
+nabdnswidget = getBasicTextWidget()
 local M = {}
 M.memwidget = {memicon, memwidget}
 M.volumewidget = {volicon, volumewidget}
@@ -289,9 +302,11 @@ M.netwidget = {neticon, netwidget}
 M.clockwidget = {clockicon, mytextclock}
 M.gitwidget = {gitwidget.widget}
 M.nmanagerwidget = {nmanagerwidget.widget}
+M.nabdnswidget = {nabdnswidget.widget}
 M.updaters = {
     gitwidget = gitwidget.clientupdate,
     nmanager = nmanagerwidget.newclientupdate,
+    nabdnswidget = nabdnswidget.update
 }
 --M.mpdwidget = {mpdicon, mpdwidget}
 
