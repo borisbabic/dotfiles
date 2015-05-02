@@ -187,7 +187,7 @@ end
 
 
 function getTimeStartStopWidget()
-    startstop ={}
+    local startstop ={}
     startstop.widget = wibox.widget.textbox() --
     --startstop.timeoutminutes = 1 --in minutes
     startstop.timeout = 1
@@ -280,6 +280,53 @@ function getTimeStartStopWidget()
 end
 nmanagerwidget = getTimeStartStopWidget()
 
+function keepAliveWidget(errorLimit, warningLimit, preText, postText)
+    local keepAlive ={}
+    keepAlive.widget = wibox.widget.textbox() --
+    keepAlive.errorLimit = errorLimit or 60;
+    keepAlive.warningLimit = warningLimit or 10;
+    keepAlive.preText = preText or "";
+    keepAlive.postText = postText or "";
+    keepAlive.timeout = 1;
+    keepAlive.seconds = 0;
+    keepAlive.running = false;
+    keepAlive.warningColor = 'yellow';
+    keepAlive.errorColor = 'red';
+    keepAlive.normalColor = 'white';
+    keepAlive.update = function()
+        if (keepAlive.running) then
+            keepAlive.seconds = keepAlive.seconds + keepAlive.timeout
+            keepAlive.setCurrent()
+        end
+    end
+    keepAlive.basetext = "<span color =%q>%s%s%s</span>"
+    keepAlive.setCurrent = function ()
+        if (keepAlive.errorLimit and keepAlive.seconds >= keepAlive.errorLimit) then
+            color = keepAlive.errorColor
+        elseif (keepAlive.warningLimit and keepAlive.seconds >= keepAlive.warningLimit) then
+            color = keepAlive.warningColor
+        else 
+            color = keepAlive.normalColor
+        end
+        keepAlive.updateText(keepAlive.seconds, color);
+    end
+    keepAlive.updateText = function(text, color)
+        color = color or 'white'
+        keepAlive.widget:set_markup(string.format(keepAlive.basetext, color, keepAlive.preText, text, keepAlive.postText))
+    end
+    keepAlive.reset = function () 
+        keepAlive.running = true;
+        keepAlive.seconds = 0;
+    end
+    keepAlive.timer= timer({timeout = keepAlive.timeout})
+    keepAlive.timer:connect_signal("timeout", keepAlive.update)
+    keepAlive.timer:start()
+    return keepAlive
+end
+
+liveKeepAlive = keepAliveWidget(60,15, "nab-dev: ");
+ncmPlatformAlive = keepAliveWidget(60,15, "platform: ");
+
 -- Separators
 spr = wibox.widget.textbox(' ')
 arrl = wibox.widget.imagebox()
@@ -303,10 +350,14 @@ M.clockwidget = {clockicon, mytextclock}
 M.gitwidget = {gitwidget.widget}
 M.nmanagerwidget = {nmanagerwidget.widget}
 M.nabdnswidget = {nabdnswidget.widget}
+M.liveKeepAlive = {liveKeepAlive.widget}
+M.ncmPlatformAlive = {ncmPlatformAlive.widget}
 M.updaters = {
     gitwidget = gitwidget.clientupdate,
     nmanager = nmanagerwidget.newclientupdate,
-    nabdnswidget = nabdnswidget.update
+    nabdnswidget = nabdnswidget.update,
+    liveKeepAlive = liveKeepAlive.reset,
+    ncmPlatformAlive = ncmPlatformAlive.reset,
 }
 --M.mpdwidget = {mpdicon, mpdwidget}
 

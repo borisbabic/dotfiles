@@ -21,6 +21,12 @@ nmanager.newclientupdate = mywidgets.updaters.nmanager
 nabdnswidget = {}
 nabdnswidget.update = mywidgets.updaters.nabdnswidget
 
+liveKeepAlive = {} 
+liveKeepAlive.reset = mywidgets.updaters.liveKeepAlive
+
+ncmPlatformAlive = {} 
+ncmPlatformAlive.reset = mywidgets.updaters.ncmPlatformAlive
+
 
 -- {{{ Error handling
 if awesome.startup_errors then
