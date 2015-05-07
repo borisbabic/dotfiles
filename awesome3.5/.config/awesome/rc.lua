@@ -24,8 +24,8 @@ nabdnswidget.update = mywidgets.updaters.nabdnswidget
 liveKeepAlive = {} 
 liveKeepAlive.reset = mywidgets.updaters.liveKeepAlive
 
-ncmPlatformAlive = {} 
-ncmPlatformAlive.reset = mywidgets.updaters.ncmPlatformAlive
+--ncmPlatformAlive = {} 
+--ncmPlatformAlive.reset = mywidgets.updaters.ncmPlatformAlive
 
 
 -- {{{ Error handling
