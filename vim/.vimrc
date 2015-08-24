@@ -6,9 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "general
-Plugin 'Shougo/unite.vim'
-Plugin 'Shougo/vimfiler'
-Plugin 'Shougo/vimproc'
+"Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/vimfiler'
+"Plugin 'Shougo/vimproc'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'majutsushi/tagbar'
@@ -17,6 +17,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kien/ctrlp.vim'
 
 "thrift
 Plugin 'solarnz/thrift.vim'
@@ -51,10 +52,12 @@ Plugin 'tomtom/tlib_vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+
 """"" OPTIONS
 
 let mapleader="\<space>"
 
+set regexpengine=1 "attempts to solve high CPU usage (on fedora 21)
 
 colorscheme mustang
 
@@ -79,6 +82,11 @@ if executable('ag')
 endif
 """ PLUGINS
 
+
+""" syntastic
+
+let g:syntastic_php_phpcs_args="--standard=PSR2"
+
 "" PIV
 let g:DisableAutoPHPFolding = 1
 
@@ -90,6 +98,12 @@ let g:haskell_enable_arrowsyntax = 1
 let g:haskell_enable_pattern_synonyms = 1
 let g:haskell_enable_typeroles = 1
 
+"" ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\app\/cache$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
 "" unite
 
 if executable('ag')
@@ -109,8 +123,27 @@ command! VagrantWrite w !sudo -u \\#500 -g \\#500 tee > /dev/null %
 "" write root
 command! SudoWrite w !sudo tee > /dev/null %
 
+""""" FUNCTIONS
+
+""" python wrappers
+
+fun! SingleToMultilineMethodDefinition() range
+    exec ":'<,'> ! python2 ~/.vim-python/to-multiline-method-definition.py"
+endfun
+
+
+fun! FinishSingleLineConstruct() range
+    exec ":'<,'> ! python2 ~/.vim-python/construct-finisher.py"
+endfun
+
 """"" MAPPINGS
 
+""" functions
+
+nnoremap <Leader>ml Vj :call SingleToMultilineMethodDefinition()<CR>
+
+nnoremap <Leader>fc V :call FinishSingleLineConstruct()<CR>
+vnoremap <Leader>fc :call FinishSingleLineConstruct()<CR>
 
 
 "" vim-php-namespace
@@ -122,10 +155,10 @@ nnoremap <F8> :TagbarToggle<CR>
 
 """ unite
 
-nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
+"nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
 
 """ vimfiler
-nnoremap <leader>n :VimFilerExplorer<CR>
+"nnoremap <leader>n :VimFilerExplorer<CR>
 
 """ gundo
 
