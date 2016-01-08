@@ -175,7 +175,7 @@ end
 gitwidget = getNumberWidget()
 
 function getBasicTextWidget()
-    basic = {}
+    local basic = {}
     basic.widget = wibox.widget.textbox()
     basic.basetext = "<span color =%q>%s</span>"
     basic.update = function(text, color)
@@ -338,6 +338,7 @@ arrl_ld:set_image(beautiful.arrl_ld)
 
 
 nabdnswidget = getBasicTextWidget()
+lastPhabricatorTask = getBasicTextWidget()
 local M = {}
 M.memwidget = {memicon, memwidget}
 M.volumewidget = {volicon, volumewidget}
@@ -350,12 +351,14 @@ M.clockwidget = {clockicon, mytextclock}
 M.gitwidget = {gitwidget.widget}
 M.nmanagerwidget = {nmanagerwidget.widget}
 M.nabdnswidget = {nabdnswidget.widget}
+M.lastPhabricatorTask = {lastPhabricatorTask.widget}
 M.liveKeepAlive = {liveKeepAlive.widget}
 M.ncmPlatformAlive = {ncmPlatformAlive.widget}
 M.updaters = {
     gitwidget = gitwidget.clientupdate,
     nmanager = nmanagerwidget.newclientupdate,
     nabdnswidget = nabdnswidget.update,
+    lastPhabricatorTask = lastPhabricatorTask.update,
     liveKeepAlive = liveKeepAlive.reset,
     ncmPlatformAlive = ncmPlatformAlive.reset,
 }

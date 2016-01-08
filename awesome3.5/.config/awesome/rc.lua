@@ -21,6 +21,9 @@ nmanager.newclientupdate = mywidgets.updaters.nmanager
 nabdnswidget = {}
 nabdnswidget.update = mywidgets.updaters.nabdnswidget
 
+lastPhabricatorTask = {}
+lastPhabricatorTask.update = mywidgets.updaters.lastPhabricatorTask
+
 liveKeepAlive = {} 
 liveKeepAlive.reset = mywidgets.updaters.liveKeepAlive
 
