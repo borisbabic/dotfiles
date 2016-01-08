@@ -1,4 +1,5 @@
 [global_config]
+  enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   tab_position = hidden
 [keybindings]
   switch_to_tab_6 = <Alt>6
