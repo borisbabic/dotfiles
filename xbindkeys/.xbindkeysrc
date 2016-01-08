@@ -37,23 +37,23 @@
 
 #nManager meeting
 "lockexec -s -l 'nmanager -ma' -u 'nmanager -wa'"
-    m:0x1d + c:58
-    Control+Shift+Alt+Mod2 + m 
+    m:0x1c + c:57
+    Control+Alt+Mod2 + n
 
 #nManager fun
 "lockexec -s -l 'nmanager -fa' -u 'nmanager -wa'"
-    m:0x1d + c:41
-    Control+Shift+Alt+Mod2 + f 
+    m:0x1c + c:41
+    Control+Alt+Mod2 + f 
 
 #nManager lunch
 "lockexec -s -l 'nmanager -la' -u 'nmanager -wa'"
-    m:0x1d + c:46
-    Control+Shift+Alt+Mod2 + l 
+    m:0x1c + c:46
+    Control+Alt+Mod2 + l 
 
 #nManager stop
 "lockexec -s -l 'nmanager -sa' -u 'nmanager -wa'"
-    m:0x1d + c:39
-    Control+Shift+Alt+Mod2 + s 
+    m:0x1c + c:39
+    Control+Alt+Mod2 + s 
 
 #xscreensaver lock
 "xscreensaver-command -lock"
