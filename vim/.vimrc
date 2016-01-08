@@ -6,12 +6,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "general
-"Plugin 'Shougo/unite.vim'
-"Plugin 'Shougo/vimfiler'
-"Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimfiler'
+Plugin 'Shougo/vimproc'
 Plugin 'ervandew/supertab'
 Plugin 'godlygeek/tabular'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
@@ -123,6 +124,9 @@ command! VagrantWrite w !sudo -u \\#500 -g \\#500 tee > /dev/null %
 "" write root
 command! SudoWrite w !sudo tee > /dev/null %
 
+"" write root
+command! FixPhp w !phpcbf tee > /dev/null %
+
 """"" FUNCTIONS
 
 """ python wrappers
@@ -158,7 +162,11 @@ nnoremap <F8> :TagbarToggle<CR>
 "nnoremap <C-p> :Unite -start-insert file_rec/async<CR>
 
 """ vimfiler
-"nnoremap <leader>n :VimFilerExplorer<CR>
+nnoremap <leader>n :VimFilerExplorer<CR>
+
+""" nerdtree
+
+map <C-n> :NERDTreeToggle<CR>
 
 """ gundo
 
