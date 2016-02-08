@@ -56,11 +56,11 @@ filetype plugin indent on    " required
 
 """"" OPTIONS
 
+colorscheme Monokai
 let mapleader="\<space>"
 
 set regexpengine=1 "attempts to solve high CPU usage (on fedora 21)
 
-colorscheme mustang
 
 " search
 set incsearch     " incremental search as you type
