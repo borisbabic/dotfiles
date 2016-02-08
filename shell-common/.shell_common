@@ -1,0 +1,108 @@
+#!/usr/bin/bash
+#### Environment
+if command -v gvim >/dev/null 2>/dev/null; then
+    export EDITOR='gvim -v'
+elif command -v vim >/dev/null 2>/dev/null; then
+    export EDITOR='vim'
+else 
+    export EDITOR='nano'
+fi
+
+#descending desire
+POTENTIAL_BROWSERS=("google-chrome" "chromium" "firefox");
+for CANDIDATE_BROWSER in "${POTENTIAL_BROWSERS[@]}"; do
+    if command -v $CANDIDATE_BROWSER >/dev/null 2>/dev/null; then
+        export BROWSER=$CANDIDATE_BROWSER
+        break;
+    fi
+done
+
+if [ -d ~/programs/bin/ ]; then
+    export PATH=$PATH:~/programs/bin
+fi
+
+#install python programs as the user
+BORIS_PIP_HOME=~/programs/pip
+BORIS_PIP_BIN=$BORIS_GEM_HOME/bin
+if [ -d $BORIS_PIP_HOME ]; then
+    export PYTHONUSERBASE=$BORIS_PIP_HOME
+    if [ -d $BORIS_PIP_BIN ]; then
+        export PATH=$PATH:$BORIS_PIP_BIN
+    fi
+fi
+
+#install gem programs as the user
+BORIS_GEM_HOME=~/programs/gem
+BORIS_GEM_BIN=$BORIS_GEM_HOME/bin
+if [ -d $BORIS_GEM_HOME ]; then
+    export GEM_HOME=$BORIS_GEM_HOME
+    if [ -d $BORIS_GEM_BIN ]; then
+        export PATH=$PATH:$BORIS_GEM_BIN
+    fi
+fi
+
+
+####thefuck
+#eval $(thefuck --alias)
+
+#### functions
+
+function mdcd {
+    mkdir -p $@
+    for last; do true; done
+    cd $last
+}
+
+function dx {
+    container=$1
+    docker exec -it 'dockerdeployergit_'$container'_1' /bin/bash
+}
+
+function git_ignore_all {
+    echo "$(git status --porcelain | grep '^??' | cut -c4-)" >>.gitignore
+    # source:
+    # http://stackoverflow.com/questions/11542687/git-how-to-ignore-all-present-untracked-files
+}
+
+#### aliases
+alias pgrep="pgrep -l"
+alias uzbl="uzbl-tabbed"
+alias rebootstop="startstop stop -c reboot"
+alias flushswap="sudo swapoff -a && sudo swapon -a"
+alias vagrant_boot="which vagrant_boot && sudo systemctl restart docker && cd ~/Projects/novaplatforma/vagrant-docker-dev/ && vagrant up --no-parallel && vagrant ssh lighttpd  -c 'cd /var/www/admin-service-dev && bash'"
+#alias docker_boot="which docker_boot && sudo ls && cd ~/Projects/novaplatforma/docker-compose-projects/docker-deployer-git && docker-compose up -d && sudo chown -R boris:boris /home/boris/Projects/novaplatforma/node-service-dev && dx lighttpd "
+#alias docker_boot="which docker_boot && sudo ls && cd ~/Projects/novaplatforma/docker-compose-projects/docker-deployer-git && docker-compose start && sudo chown -R boris:boris /home/boris/Projects/novaplatforma/node-service-dev && find /home/boris/Projects/novaplatforma/node-service-dev/ -type f -print0 | xargs -0 chmod 644 && dx lighttpd "
+alias fix_scm="sudo find /home/boris/Projects/novaplatforma/node-service-dev/ -type f -print0 | sudo xargs -0 chmod 644 && sudo chmod 755 /home/boris/Projects/novaplatforma/node-service-dev/ncm.init && sudo chown -R 1000:1000 /home/boris/Projects/novaplatforma/node-service-dev "  #FIX SCM 
+alias docker_boot="which docker_boot && sudo ls && sudo setenforce 0; cd ~/Projects/novaplatforma/docker-compose-projects/docker-deployer-git && docker-compose start && fix_scm && dx lighttpd "
+#alias docker_boot="which docker_boot && sudo ls && cd ~/Projects/novaplatforma/docker-compose-projects/docker-deployer-git && docker-compose start && sudo chown -R boris:boris /home/boris/Projects/novaplatforma/node-service-dev && find /home/boris/Projects/novaplatforma/node-service-dev/ -type f -print0 | xargs -0 chmod 644 && chmod 755 /home/boris/Projects/novaplatforma/node-service-dev/ncm.init && dx lighttpd "
+#alias vagrant_boot_reload="sudo ls && cd ~/Projects/novaplatforma/vagrant-docker-dev/ && vagrant up --no-parallel && vagrant ssh lighttpd -c 'cd /var/www/admin-service-dev && bin/reload -gt && tmux attach || tmux'"
+alias nm_log="tailf ~/.config/nmanager/logs/$(date +%Y-%m-%d).log "
+alias vup="vagrant up --no-parallel"
+alias nab_local="sudo sed -i 's/#*\(.*VAGRANT.*\)/\1/g' /etc/hosts "
+alias nab_server="sudo sed -i 's/\(.*VAGRANT.*\)/#\1/g' /etc/hosts "
+alias work_displays="xrandr --output eDP1 --auto --output VGA1 --auto --above eDP1 --output HDMI1 --auto --right-of VGA1 "
+alias start_work="work_displays && workstart "
+alias vvim="gvim -v "
+alias upowerbat="upower -i /org/freedesktop/UPower/devices/battery_BAT0 "
+alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'"
+alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
+alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'"
+alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
+
+# Projects
+alias nps="cd ~/Projects/novaplatforma/admin-service-dev "
+alias ncm="cd ~/Projects/novaplatforma/node-service-dev "
+alias ngs="cd ~/Projects/novaplatforma/nab-games-service "
+alias admin="cd ~/Projects/novaplatforma/nab-admin-dev "
+alias shop="cd ~/Projects/novaplatforma/nabshop-core-git "
+alias tits="cd ~/Projects/novaplatforma/stress-test "
+
+alias vnps="cd ~/Projects/novaplatforma/admin-service-dev && $EDITOR "
+alias vncm="cd ~/Projects/novaplatforma/node-service-dev && $EDITOR "
+alias vngs="cd ~/Projects/novaplatforma/nab-games-service && $EDITOR "
+alias vadmin="cd ~/Projects/novaplatforma/nab-admin-dev && $EDITOR "
+alias vshop="cd ~/Projects/novaplatforma/nabshop-core && $EDITOR "
+
+
+#TEMP STUFF
+alias dupl="node /home/boris/Projects/novaplatforma/node-service-dev/testScripts/duplicateTestClient.js"
