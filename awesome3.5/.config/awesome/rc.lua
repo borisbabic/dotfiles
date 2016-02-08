@@ -127,7 +127,7 @@ end
 -- }}}
 
 -- {{{ Menu
-require("freedesktop/freedesktop")
+--require("freedesktop/freedesktop")
 -- }}}
 
 -- Create a wibox for each screen and add it
