@@ -76,6 +76,7 @@ set nowrap        " no wrapping on long lines
 set rnu           " relative numbers 
 set number        " absolute current
 set mouse=a       " turn on mouse
+set ruler         " sets the ruler at the bottom
 
 if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --column
