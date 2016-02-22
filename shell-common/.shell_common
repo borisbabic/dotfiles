@@ -22,24 +22,35 @@ if [ -d ~/programs/bin/ ]; then
 fi
 
 #install python programs as the user
-BORIS_PIP_HOME=~/programs/pip
-BORIS_PIP_BIN=$BORIS_PIP_HOME/bin
-if [ -d $BORIS_PIP_HOME ]; then
-    export PYTHONUSERBASE=$BORIS_PIP_HOME
-    if [ -d $BORIS_PIP_BIN ]; then
-        export PATH=$PATH:$BORIS_PIP_BIN
+CUSTOM_PIP_HOME=~/programs/pip
+CUSTOM_PIP_BIN=$CUSTOM_PIP_HOME/bin
+if [ -d $CUSTOM_PIP_HOME ]; then
+    export PYTHONUSERBASE=$CUSTOM_PIP_HOME
+    if [ -d $CUSTOM_PIP_BIN ]; then
+        export PATH=$PATH:$CUSTOM_PIP_BIN
     fi
 fi
 
 #install gem programs as the user
-BORIS_GEM_HOME=~/programs/gem
-BORIS_GEM_BIN=$BORIS_GEM_HOME/bin
-if [ -d $BORIS_GEM_HOME ]; then
-    export GEM_HOME=$BORIS_GEM_HOME
-    if [ -d $BORIS_GEM_BIN ]; then
-        export PATH=$PATH:$BORIS_GEM_BIN
+CUSTOM_GEM_HOME=~/programs/gem
+CUSTOM_GEM_BIN=$CUSTOM_GEM_HOME/bin
+if [ -d $CUSTOM_GEM_HOME ]; then
+    export GEM_HOME=$CUSTOM_GEM_HOME
+    if [ -d $CUSTOM_GEM_BIN ]; then
+        export PATH=$PATH:$CUSTOM_GEM_BIN
     fi
 fi
+
+#install composer programs as the user
+CUSTOM_COMPOSER_HOME=~/programs/composer
+CUSTOM_COMPOSER_BIN=$CUSTOM_COMPOSER_HOME/vendor/bin
+if [ -d $CUSTOM_COMPOSER_HOME ]; then
+    export COMPOSER_HOME=$CUSTOM_COMPOSER_HOME
+    if [ -d $CUSTOM_COMPOSER_BIN ]; then
+        export PATH=$PATH:$CUSTOM_COMPOSER_BIN
+    fi
+fi
+
 
 
 ####thefuck
@@ -64,6 +75,15 @@ function git_ignore_all {
     # http://stackoverflow.com/questions/11542687/git-how-to-ignore-all-present-untracked-files
 }
 
+
+function to_upper {
+    echo $(echo "$@" | tr '[:lower:]' '[:upper:]')
+}
+
+function to_lower {
+    echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
+}
+
 #### aliases
 alias pgrep="pgrep -l"
 alias uzbl="uzbl-tabbed"
@@ -79,6 +99,7 @@ alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standa
 
 #TEMP STUFF
 alias dupl="node /home/boris/Projects/novaplatforma/node-service-dev/testScripts/duplicateTestClient.js"
+
 
 if [ -f ~/.shell_work ]; then #work specific stuff
     . ~/.shell_work
