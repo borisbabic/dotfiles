@@ -54,7 +54,9 @@ fi
 
 
 ####thefuck
-#eval $(thefuck --alias)
+
+#if thefuck exists create the alias
+type thefuck > /dev/null && eval $(thefuck --alias)
 
 #### functions
 
