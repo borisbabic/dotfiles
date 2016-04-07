@@ -51,7 +51,14 @@ if [ -d $CUSTOM_COMPOSER_HOME ]; then
     fi
 fi
 
-
+#install npm programs as the user
+#should run:
+#npm config set prefix $CUSTOM_NPM_HOME
+CUSTOM_NPM_HOME=~/programs/npm
+CUSTOM_NPM_BIN=$CUSTOM_NPM_HOME/bin
+if [ -d $CUSTOM_NPM_BIN ]; then
+    export PATH=$PATH:$CUSTOM_NPM_BIN
+fi
 
 ####thefuck
 
@@ -102,7 +109,7 @@ alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standa
 #TEMP STUFF
 alias dupl="node /home/boris/Projects/novaplatforma/node-service-dev/testScripts/duplicateTestClient.js"
 
-
 if [ -f ~/.shell_work ]; then #work specific stuff
     . ~/.shell_work
 fi
+
