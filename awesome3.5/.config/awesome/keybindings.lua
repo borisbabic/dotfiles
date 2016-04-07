@@ -28,6 +28,14 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ modkey, "Shift",  }, "r",
+        function ()
+            awful.prompt.run({ prompt = "Rename tab: ", text = awful.tag.selected().name, },
+            mypromptbox[mouse.screen].widget,
+            function (s)
+                awful.tag.selected().name = s
+            end)
+        end),
 
     -- By direction client focus
     -----------------------------------------------
