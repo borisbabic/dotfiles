@@ -1,25 +1,29 @@
 [global_config]
   enabled_plugins = TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, Logger, LaunchpadBugURLHandler
   tab_position = hidden
+  title_font = Terminess Powerline 8
+  title_use_system_font = False
 [keybindings]
-  switch_to_tab_6 = <Alt>6
-  switch_to_tab_7 = <Alt>7
-  switch_to_tab_4 = <Alt>4
-  switch_to_tab_5 = <Alt>5
+  switch_to_tab_1 = <Alt>1
   switch_to_tab_2 = <Alt>2
   switch_to_tab_3 = <Alt>3
-  switch_to_tab_1 = <Alt>1
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
   switch_to_tab_8 = <Alt>8
   switch_to_tab_9 = <Alt>9
-[profiles]
-  [[default]]
-    background_image = None
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    font = Terminess Powerline 10
+    use_system_font = False
