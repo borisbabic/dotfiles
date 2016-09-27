@@ -64,6 +64,8 @@ fi
 
 #if thefuck exists create the alias
 type thefuck > /dev/null && eval $(thefuck --alias)
+alias bitch="fuck";
+alias repent="fuck";
 
 #### functions
 
