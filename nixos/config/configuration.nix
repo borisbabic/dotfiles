@@ -181,6 +181,8 @@
 
     slack
 
+    qmmp
+
     clang
 
     kodi
@@ -195,6 +197,7 @@
     wmctrl
 
     multitail
+    beets
 
     kde5.kate
 
