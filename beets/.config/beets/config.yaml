@@ -1,6 +1,11 @@
+plugins: ftintitle
 directory: ~/Music
 library: ~/Music/musiclibrary.blb
 import:
     write: yes
     move: yes
     resume: yes
+ftintitle:
+    auto: yes
+    drop: no
+
