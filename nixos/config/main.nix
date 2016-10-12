@@ -148,6 +148,8 @@
 
     opera
 
+    cpufrequtils
+
     stow
     calibre
     mtr
