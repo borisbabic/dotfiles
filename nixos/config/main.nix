@@ -336,9 +336,9 @@
   };
   nixpkgs.config = {
     allowUnfree = true; 
-    chromium = {
-      enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash
-    };
+    /*chromium = {*/
+      /*enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash*/
+    /*};*/
   };
   fonts.fontconfig.defaultFonts.monospace = ["Terminus"];
 
