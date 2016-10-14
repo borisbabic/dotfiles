@@ -339,6 +339,7 @@ arrl_ld:set_image(beautiful.arrl_ld)
 
 nabdnswidget = getBasicTextWidget()
 lastPhabricatorTask = getBasicTextWidget()
+cpuSpeed = getBasicTextWidget()
 local M = {}
 M.memwidget = {memicon, memwidget}
 M.volumewidget = {volicon, volumewidget}
@@ -354,11 +355,13 @@ M.nabdnswidget = {nabdnswidget.widget}
 M.lastPhabricatorTask = {lastPhabricatorTask.widget}
 M.liveKeepAlive = {liveKeepAlive.widget}
 M.ncmPlatformAlive = {ncmPlatformAlive.widget}
+M.cpuspeedwidget = {cpuSpeed.widget}
 M.updaters = {
     gitwidget = gitwidget.clientupdate,
     nmanager = nmanagerwidget.newclientupdate,
     nabdnswidget = nabdnswidget.update,
     lastPhabricatorTask = lastPhabricatorTask.update,
+    cpuSpeed = cpuSpeed.update,
     liveKeepAlive = liveKeepAlive.reset,
     ncmPlatformAlive = ncmPlatformAlive.reset,
 }

@@ -24,6 +24,9 @@ nabdnswidget.update = mywidgets.updaters.nabdnswidget
 lastPhabricatorTask = {}
 lastPhabricatorTask.update = mywidgets.updaters.lastPhabricatorTask
 
+cpuSpeed = {}
+cpuSpeed.update = mywidgets.updaters.cpuSpeed
+
 liveKeepAlive = {} 
 liveKeepAlive.reset = mywidgets.updaters.liveKeepAlive
 
