@@ -146,8 +146,6 @@
     cloc 
     xtrlock-pam
 
-    opera
-
     cpufrequtils
 
     stow
@@ -185,10 +183,9 @@
 
     qmmp
 
-    clang
+    #clang don't thin it is necessary
 
     kodi
-    byobu
 
     imagemagickBig
 
@@ -211,8 +208,8 @@
 
 
 
-    virtmanager
-    virt-viewer
+    /*virtmanager*/
+    /*virt-viewer*/
     win-qemu
 
     rxvt_unicode
@@ -242,7 +239,7 @@
     layout = "us";
     xkbOptions = "caps:escape";
     displayManager.sddm.enable = true;
-    desktopManager.kde5.enable = true;
+    /*desktopManager.kde5.enable = true;*/
     windowManager.awesome.enable = true;
     windowManager.xmonad = {
       enableContribAndExtras = true;
@@ -295,7 +292,7 @@
 # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
-  services.thermald.enable = true;
+  /*services.thermald.enable = true;*/
 #services.thinkfan.enable = true;
 
 
@@ -324,13 +321,13 @@
     interval = "hourly";
   };
 
-  virtualisation.virtualbox = {
-    host.enable =  true;
-  };
-  virtualisation.libvirtd = {
-    enable = true;
-    enableKVM = true;
-  };
+  /*virtualisation.virtualbox = {*/
+    /*host.enable =  true;*/
+  /*};*/
+  /*virtualisation.libvirtd = {*/
+    /*enable = true;*/
+    /*enableKVM = true;*/
+  /*};*/
   virtualisation.docker = { #NSOFT
     enable = true;
   };
