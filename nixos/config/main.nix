@@ -47,6 +47,7 @@
 # List packages installed in system profile. To search by name, run:
 # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
+    file
     wget
     vimHugeX
     neovim
@@ -208,8 +209,6 @@
 
 
 
-    /*virtmanager*/
-    /*virt-viewer*/
     win-qemu
 
     rxvt_unicode
@@ -218,9 +217,10 @@
 
     #XMONAD
     #haskellPackages.xmobar
-    #stalonetray
 
     evtest #inupt event debugging, like touchpad values
+
+    acpi
 
 
       ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
@@ -261,7 +261,7 @@
       fingersMap = [ 1 2 3 ];
     };
   };
-  services.mopidy = {
+/*  services.mopidy = {
     enable = false;
     dataDir = "/home/mopidy/";
     extensionPackages = [ pkgs.mopidy-youtube pkgs.mopidy-mopify pkgs.mopidy-moped ];
@@ -270,7 +270,7 @@
       media_dir = /home/boris/Media/Music/
         scan_follow_symlinks = true
         '';
-  };
+  };*/
 #services.plex = {
 #enable = true;
 #dataDir = "/home/boris/dirty/plex";
@@ -293,7 +293,7 @@
   system.stateVersion = "15.09";
 
   /*services.thermald.enable = true;*/
-#services.thinkfan.enable = true;
+  /*services.thinkfan.enable = true;*/
 
 
   programs = {
@@ -321,6 +321,10 @@
     interval = "hourly";
   };
 
+  powerManagement = {
+    enable = true;
+  };
+
   /*virtualisation.virtualbox = {*/
     /*host.enable =  true;*/
   /*};*/
@@ -340,7 +344,7 @@
   fonts.fontconfig.defaultFonts.monospace = ["Terminus"];
 
   boot.kernel.sysctl = {
-    "vm.swappiness" = 10;
+    "vm.swappiness" = 11;
   };
 
 }
