@@ -238,7 +238,8 @@
     enable = true;
     layout = "us";
     xkbOptions = "caps:escape";
-    displayManager.sddm.enable = true;
+    /*displayManager.sddm.enable = true;*/
+    displayManager.slim.enable = true;
     /*desktopManager.kde5.enable = true;*/
     windowManager.awesome.enable = true;
     windowManager.xmonad = {
