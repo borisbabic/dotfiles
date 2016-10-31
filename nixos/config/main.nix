@@ -321,6 +321,7 @@
   services.locate = {
     enable = true;
     interval = "hourly";
+    localuser = "root";
   };
 
   powerManagement = {
