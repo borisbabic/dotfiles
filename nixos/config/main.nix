@@ -30,7 +30,8 @@
       127.0.0.1 transaction-archive-local.7platform.com # NSOFT
       127.0.0.1 localadmin.7platform.com  # NSOFT
       127.0.0.1 localadmin.7platform.com  # NSOFT
-
+      172.20.16.49 jenkins.nsoft.ba # NSOFT
+      172.20.115.1 pma.nsoft.com # NSOFT
       ";
   };
 
