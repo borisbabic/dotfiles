@@ -138,7 +138,7 @@
 
     playonlinux
     winetricks
-    wineFull
+    wineUnstable
     openldap #test for wine and hearthstone
 
     nmap
