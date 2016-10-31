@@ -104,9 +104,9 @@
 
     atom
 
-    python27Packages.sqlite3
-    python27Packages.sqlite3
-    python27Packages.pysqlite
+    /*python27Packages.sqlite3*/
+    /*python27Packages.sqlite3*/
+    /*python27Packages.pysqlite*/
 
     python35Packages.youtube-dl
 
@@ -160,7 +160,7 @@
     libreoffice
 
     stress
-    steam
+    /*steam*/
 
     exfat
 
