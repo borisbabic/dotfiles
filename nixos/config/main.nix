@@ -328,9 +328,9 @@
     enable = true;
   };
 
-  /*virtualisation.virtualbox = {*/
-    /*host.enable =  true;*/
-  /*};*/
+  virtualisation.virtualbox = {
+    host.enable =  true;
+  };
   /*virtualisation.libvirtd = {*/
     /*enable = true;*/
     /*enableKVM = true;*/
