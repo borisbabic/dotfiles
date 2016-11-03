@@ -1,0 +1,42 @@
+let mapleader=" "
+
+" search
+set incsearch     " incremental search as you type
+set ignorecase    " ignore case on search
+set smartcase     " don't ignore case when there is a capital letter
+set hlsearch      " highlight the current search
+
+" misc
+set rnu           " relative numbers 
+set number        " absolute current
+
+"sorts a block of stuff
+nnoremap <leader>sb )kV(:sort<CR>
+
+" window focus switching
+nnoremap <Up>        <C-W>k
+nnoremap <Down>      <C-W>j
+nnoremap <Left>      <C-W>h
+nnoremap <Right>     <C-W>l
+
+" window position changing
+nnoremap <S-Up>      <C-W>K
+nnoremap <S-Down>    <C-W>J
+nnoremap <S-Left>    <C-W>H
+nnoremap <S-Right>   <C-W>L
+
+nnoremap ,pd :action PhpGeneratePhpDocBlocks<CR>
+nnoremap <Leader>pd :action PhpGeneratePhpDocBlocks<CR>
+nnoremap <C>J :action PhpGeneratePhpDocBlocks<CR>
+command FixPhp :action ReformatCode<CR>
+nnoremap <Leader>fp :action ReformatCode<CR>
+nnoremap <Leader>ic :action InspectCode<CR>
+"nnoremap <Leader><Leader><Leader> :action GotoAction<CR>
+
+nnoremap <Leader>gl :action Git.Log<CR>
+nnoremap <Leader>gc :action Git.CompareWithBranch<CR>
+nnoremap <Leader>gb :action Annotate<CR>
+nnoremap <Leader>cl :action Compare.LastVersion<CR>
+
+" plugins
+set surround
