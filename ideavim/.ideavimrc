@@ -25,7 +25,6 @@ nnoremap <S-Down>    <C-W>J
 nnoremap <S-Left>    <C-W>H
 nnoremap <S-Right>   <C-W>L
 
-nnoremap ,pd :action PhpGeneratePhpDocBlocks<CR>
 nnoremap <Leader>pd :action PhpGeneratePhpDocBlocks<CR>
 nnoremap <C>J :action PhpGeneratePhpDocBlocks<CR>
 command FixPhp :action ReformatCode<CR>
