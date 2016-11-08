@@ -241,6 +241,7 @@
     xkbOptions = "caps:escape";
     /*displayManager.sddm.enable = true;*/
     displayManager.slim.enable = true;
+    displayManager.slim.defaultUser = "boris";
     /*desktopManager.kde5.enable = true;*/
     windowManager.awesome.enable = true;
     windowManager.xmonad = {
