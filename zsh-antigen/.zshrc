@@ -28,13 +28,16 @@ source ~/.antigen.zsh
 # Setup
 antigen use oh-my-zsh
 
-export DEFAULT_USER=boris #used for some themes
 
 
 
 # Theme 
 #antigen theme wezm
-antigen theme amuse
+#antigen theme amuse
+
+export TERM="xterm-256color"
+antigen theme bhilburn/powerlevel9k powerlevel9k
+#export DEFAULT_USER=boris #used for some themes - removes user part
 
 # Antigen bundles
 
