@@ -138,7 +138,7 @@
 
     playonlinux
     winetricks
-    wineUnstable
+    wineStaging
     openldap #test for wine and hearthstone
 
     nmap
@@ -341,6 +341,11 @@
   };
   nixpkgs.config = {
     allowUnfree = true; 
+    wine = {
+      release = "staging"; # "stable", "unstable", "staging"
+      #build = "wine32"; # "wine32", "wine64", "wineWow"
+      #pulseaudioSupport = true;
+    };
     /*chromium = {*/
       /*enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash*/
     /*};*/
