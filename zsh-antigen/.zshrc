@@ -19,6 +19,10 @@ fi
 #ALIASES
 alias killbg='kill ${${(v)jobstates##*:*:}%=*}' # http://stackoverflow.com/questions/13166544/how-to-kill-all-background-processes-in-zsh
 
+#keybindings
+bindkey '^U' backward-kill-line #fixes ctrl u behavoir
+
+#antigen
 source ~/.antigen.zsh
 
 # Setup
@@ -26,8 +30,9 @@ antigen use oh-my-zsh
 
 export DEFAULT_USER=boris #used for some themes
 
-# Theme 
 
+
+# Theme 
 #antigen theme wezm
 antigen theme amuse
 
