@@ -35,9 +35,15 @@ antigen use oh-my-zsh
 #antigen theme wezm
 #antigen theme amuse
 
-export TERM="xterm-256color"
-antigen theme bhilburn/powerlevel9k powerlevel9k
-#export DEFAULT_USER=boris #used for some themes - removes user part
+
+#so that ttys have an ok theme
+if [ -z "$DISPLAY" ]; then
+    antigen theme amuse
+else
+    export TERM="xterm-256color"
+    antigen theme bhilburn/powerlevel9k powerlevel9k
+    #export DEFAULT_USER=boris #used for some themes - removes user part
+fi
 
 # Antigen bundles
 
