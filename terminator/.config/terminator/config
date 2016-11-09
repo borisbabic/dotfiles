@@ -25,5 +25,4 @@
 [profiles]
   [[default]]
     background_image = None
-    font = Terminess Powerline 10
-    use_system_font = False
+    font = Roboto Mono for Powerline 10
