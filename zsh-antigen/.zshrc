@@ -41,8 +41,10 @@ if [ -z "$DISPLAY" ]; then
     antigen theme amuse
 else
     export TERM="xterm-256color"
+    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+    DEFAULT_USER=boris #used for some themes - removes user part
+    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir rbenv vcs status)
     antigen theme bhilburn/powerlevel9k powerlevel9k
-    #export DEFAULT_USER=boris #used for some themes - removes user part
 fi
 
 # Antigen bundles
