@@ -95,9 +95,6 @@
     sqlite
     xorg_sys_opengl #for playonlinux
 
-    powerline-fonts #for agnoster, doesn't work
-    terminus_font
-
     xdg_utils
 
     rsync
@@ -350,7 +347,16 @@
       /*enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash*/
     /*};*/
   };
-  fonts.fontconfig.defaultFonts.monospace = ["Terminus"];
+  fonts = {
+    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab];
+    fontconfig = {
+      defaultFonts = {
+        monospace = ["Roboto Mono for Powerline"];
+        sansSerif = ["Roboto"];
+        serif = ["Roboto Slab"];
+      };
+    };
+  };
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 11;
