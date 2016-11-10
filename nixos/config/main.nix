@@ -348,10 +348,10 @@
     /*};*/
   };
   fonts = {
-    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab];
+    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab ];
     fontconfig = {
       defaultFonts = {
-        monospace = ["Roboto Mono for Powerline"];
+        monospace = ["Source Code Pro for Powerline" "Roboto Mono for Powerline"];
         sansSerif = ["Roboto"];
         serif = ["Roboto Slab"];
       };
