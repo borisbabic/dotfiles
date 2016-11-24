@@ -115,3 +115,6 @@ if [ -f ~/.shell_work ]; then #work specific stuff
     . ~/.shell_work
 fi
 
+if [ -f ~/.shell_device ]; then #device specific stuff
+    . ~/.shell_device
+fi
