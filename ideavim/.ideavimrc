@@ -35,7 +35,7 @@ nnoremap <Leader>ic :action InspectCode<CR>
 nnoremap <Leader>gl :action Git.Log<CR>
 nnoremap <Leader>gc :action Git.CompareWithBranch<CR>
 nnoremap <Leader>gb :action Annotate<CR>
-nnoremap <Leader>cl :action Compare.LastVersion<CR>
+nnoremap <Leader>cl :action Compare.SameVersion<CR>
 
 " plugins
 set surround
