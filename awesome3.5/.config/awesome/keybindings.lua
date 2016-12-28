@@ -118,11 +118,14 @@ globalkeys = awful.util.table.join(
             awful.util.spawn("amixer -q set Master playback toggle")
             volumewidget.update()
         end),
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            awful.util.spawn("amixer -q set Master playback 100%")
-            volumewidget.update()
-        end),
+
+
+        --This interferes with extract method in phpstorm/idea IDEs
+    --awful.key({ altkey, "Control" }, "m",
+        --function ()
+            --awful.util.spawn("amixer -q set Master playback 100%")
+            --volumewidget.update()
+        --end),
 
     -- MPD control
     --awful.key({ altkey, "Control" }, "Up",
