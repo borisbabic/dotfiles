@@ -31,7 +31,8 @@
       127.0.0.1 localadmin.7platform.com  # NSOFT
       127.0.0.1 localadmin.7platform.com  # NSOFT
       172.20.16.49 jenkins.nsoft.ba # NSOFT
-      172.20.115.1 pma.nsoft.com # NSOFT
+      172.20.16.98 pma.nsoft.com # NSOFT NEW AS OF 2016-12-07
+      #172.20.115.1 pma.nsoft.com # NSOFT  OLD - NOT WORKING
       ";
   };
 
@@ -111,7 +112,7 @@
     kde5.kdenetwork-filesharing
     kde5.dolphin-plugins
     kde5.kcmutils
-    kde5.breeze
+    /*kde5.breeze*/
     kde5.karchive
     kde5.spectacle
     kde5.karchive
@@ -186,6 +187,8 @@
 
     kodi
 
+    hdparm
+
     imagemagickBig
 
     dmenu
@@ -202,14 +205,21 @@
     #DVD
     libdvdread
     dvdplusrwtools
+    dvdbackup
 
     kde5.gwenview
+    kde5.bluedevil
 
-
+    lxqt.pcmanfm-qt
 
     win-qemu
 
     rxvt_unicode
+
+    handbrake
+    vobcopy
+    k9copy
+  
 
     openvpn #NSOFT
 
@@ -219,6 +229,8 @@
     evtest #inupt event debugging, like touchpad values
 
     acpi
+  
+    xorg.xev # 
 
 
       ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
@@ -232,6 +244,9 @@
 # services.printing.enable = true;
 
 # Enable the X11 windowing system.
+  /*services.dbus = {*/
+    /*packages = [ pkgs.bluez5 ];*/
+  /*};*/
   services.xserver = {
     enable = true;
     layout = "us";
@@ -240,6 +255,7 @@
     displayManager.slim.enable = true;
     displayManager.slim.defaultUser = "boris";
     /*desktopManager.kde5.enable = true;*/
+    #desktopManager.lxqt.enable = true;
     windowManager.awesome.enable = true;
     windowManager.xmonad = {
       enableContribAndExtras = true;
@@ -248,7 +264,7 @@
 #windowManager.i3.enable = true;
 #windowManager.bspwm.enable = true;
     synaptics = {
-      accelFactor = "0.2";
+      accelFactor = "0.4";
       enable = true;
       horizEdgeScroll = true;
       palmDetect = true;
@@ -302,18 +318,20 @@
   hardware = {
     trackpoint.enable = true;
     pulseaudio = {
+      package = pkgs.pulseaudioFull; #for bluetooth, i think
       enable = true;
       support32Bit = true;
     };
+    bluetooth.enable = true;
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
     };
 
-    sane = {
-      enable = true;
-      extraBackends = [ pkgs.hplipWithPlugin];
-    };
+    /*sane = {*/
+      /*enable = true;*/
+      /*extraBackends = [ pkgs.hplipWithPlugin];*/
+    /*};*/
   };
   services.tlp.enable = true;
   services.locate = {
@@ -342,6 +360,12 @@
       release = "staging"; # "stable", "unstable", "staging"
       #build = "wine32"; # "wine32", "wine64", "wineWow"
       #pulseaudioSupport = true;
+    };
+    packageOverrides = pkgs: {
+      bluez = pkgs.bluez5;
+    };
+    firefox = {
+      enableAdobeFlash = true;
     };
     /*chromium = {*/
       /*enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash*/
