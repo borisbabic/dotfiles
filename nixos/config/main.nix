@@ -361,6 +361,7 @@
   /*};*/
   virtualisation.docker = { #NSOFT
     enable = true;
+    storageDriver = "overlay2";
   };
   nixpkgs.config = {
     allowUnfree = true; 
