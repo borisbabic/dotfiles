@@ -229,8 +229,13 @@
     evtest #inupt event debugging, like touchpad values
 
     acpi
+    openjdk #for phpstorm
   
     xorg.xev # 
+
+    kde4.kcachegrind
+
+    idea.idea-community
 
 
       ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
