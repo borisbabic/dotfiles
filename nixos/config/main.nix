@@ -54,7 +54,7 @@
     vimHugeX
     neovim
     nox
-    awesome
+    #awesome-3-5
     firefox
     chromium
     shared_mime_info
@@ -254,9 +254,12 @@
     /*displayManager.sddm.enable = true;*/
     displayManager.slim.enable = true;
     displayManager.slim.defaultUser = "boris";
-    /*desktopManager.kde5.enable = true;*/
+    desktopManager.kde5.enable = true;
     #desktopManager.lxqt.enable = true;
-    windowManager.awesome.enable = true;
+    windowManager.awesome = {
+      enable = true;
+      package = pkgs.awesome-3-5;
+    };
     windowManager.xmonad = {
       enableContribAndExtras = true;
       enable = true;
