@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 alias detach_touchpad="DISPLAY=:0 xinput float 13";
 alias reattach_touchpad="DISPLAY=:0 xinput reattach 13 2";
-alias connect_koss='echo "power on\n agent on\n connect 00:22:37:36:78:49" | bluetoothctl';
+alias connect_koss='echo "power on\n agent on\n default-agent\n connect 00:22:37:36:78:49" | bluetoothctl';
