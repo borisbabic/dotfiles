@@ -209,6 +209,17 @@ awful.rules.rules = {
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
 
+    { rule = { class = "krunner" },
+          properties = { floating = true },
+          callback = function (c)
+              --awful.placement.offset(c, nil)
+              local client_geometry = c:geometry()
+              local screen_geometry = screen[c.screen].geometry
+              return c:geometry({ y = screen_geometry.y, x = screen_geometry.x + (screen_geometry.width  - client_geometry.width) / 2 })
+              --awful.placement.center_horizontal(c, nil)
+          end
+      },
+
     { rule = { class = "MPlayer" },
           properties = { floating = true } },
 
@@ -221,12 +232,6 @@ awful.rules.rules = {
     { rule = { instance = "plugin-container" },
           properties = { tag = tags[1][1] } },
 
-	  { rule = { class = "Gimp" },
-     	    properties = { tag = tags[1][4] } },
-
-    { rule = { class = "Gimp", role = "gimp-image-window" },
-          properties = { maximized_horizontal = true,
-                         maximized_vertical = true } },
 }
 -- }}}
 

@@ -102,6 +102,9 @@ globalkeys = awful.util.table.join(
     -- Dropdown terminal
     awful.key({ modkey,	          }, "z",      function () drop(terminal) end),
 
+    -- Run certain programs
+    awful.key({ altkey,	          }, "F2",      function () awful.util.spawn("krunner") end),
+
     -- ALSA volume control
     awful.key({ altkey }, "Up",
         function ()
