@@ -108,6 +108,9 @@ alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
 alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'"
 alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
 
+alias phpcsfix_changed='for php_file in $(git diff --name-only --cached | grep "\.php$"); do php-cs-fixer fix --rules=@PSR2 $php_file; done ; '
+alias git_add_changed_php='for php_file in $(git diff --name-only --cached | grep "\.php$"); do git add $php_file; done ; '
+
 #TEMP STUFF
 alias dupl="node /home/boris/Projects/novaplatforma/node-service-dev/testScripts/duplicateTestClient.js"
 
