@@ -237,6 +237,8 @@
 
     idea.idea-community
 
+    kdeconnect
+
 
       ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
 # List services that you want to enable:
