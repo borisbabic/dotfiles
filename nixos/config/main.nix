@@ -244,6 +244,11 @@
 # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
+  services.unclutter = {
+    enable = true;
+    package = pkgs.unclutter-xfixes;
+  };
+
 
 # Enable CUPS to print documents.
 # services.printing.enable = true;
@@ -394,5 +399,4 @@
   boot.kernel.sysctl = {
     "vm.swappiness" = 11;
   };
-
 }
