@@ -1,8 +1,12 @@
 import XMonad
 import XMonad.Config.Kde
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 
-main = xmonad myConfig
+
+main = do
+    xmonad $ myConfig
+
 
 myManageHook = composeAll
   [ className =? "yakuake" --> doFloat  
@@ -24,4 +28,5 @@ myConfig = kdeConfig
         { modMask = mod4Mask     -- Rebind Mod to the Windows key
         , manageHook = manageDocks <+> myManageHook <+> manageHook kdeConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        } 
+        , handleEventHook    = fullscreenEventHook
+        }
