@@ -27,6 +27,6 @@ myManageHook = composeAll
 myConfig = kdeConfig
         { modMask = mod4Mask     -- Rebind Mod to the Windows key
         , manageHook = manageDocks <+> myManageHook <+> manageHook kdeConfig
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook = avoidStruts  $  layoutHook kdeConfig
         , handleEventHook    = fullscreenEventHook
         }
