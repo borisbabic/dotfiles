@@ -40,6 +40,7 @@ Plugin 'derekwyatt/vim-scala'
 
 "colorschemes
 Plugin 'flazz/vim-colorschemes'
+Plugin 'arcticicestudio/nord-vim'
 
 "snipmate 
 Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -56,7 +57,7 @@ filetype plugin indent on    " required
 
 """"" OPTIONS
 
-colorscheme Monokai
+colorscheme nord
 let mapleader="\<space>"
 
 set regexpengine=1 "attempts to solve high CPU usage (on fedora 21)
