@@ -30,11 +30,13 @@
       type = Window
 [plugins]
 [profiles]
-  [[default]]
+  [[old-default]]
     background_image = None
     cursor_color = "#aaaaaa"
     font = Roboto Mono for Powerline 10
-  [[nord]]
+  [[default]]
+    #nord
+    show_titlebar = False
     background_color = "#2e3440"
     background_image = None
     cursor_color = "#D8DEE9"
