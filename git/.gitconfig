@@ -1,3 +1,5 @@
 [user]
 	name = Boris Babic
 	email = boris.ivan.babic@gmail.com
+[core]
+	excludesfile = ~/.gitignore
