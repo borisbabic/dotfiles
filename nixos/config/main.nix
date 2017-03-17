@@ -159,7 +159,8 @@
     libreoffice
 
     stress
-    /*steam*/
+    steam
+
 
     exfat
 
@@ -233,12 +234,17 @@
   
     xorg.xev # 
 
+    lastpass-cli
+
     kde4.kcachegrind
 
     idea.idea-community
 
+    scrot
+
     kdeconnect
 
+    patchelf
 
       ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
 # List services that you want to enable:
