@@ -109,21 +109,18 @@
 
     python35Packages.youtube-dl
 
-    kde5.kdenetwork-filesharing
-    kde5.dolphin-plugins
-    kde5.kcmutils
-    /*kde5.breeze*/
-    kde5.karchive
-    kde5.spectacle
-    kde5.karchive
-    kde5.ark
-    kde5.okular
+    kdeApplications.kdenetwork-filesharing
+    kdeApplications.dolphin-plugins
+    kdeFrameworks.kcmutils
+    /*kdeApplications.breeze*/
+    kdeFrameworks.karchive
+    kdeApplications.spectacle
+    kdeFrameworks.karchive
+    kdeApplications.ark
+    kdeApplications.okular
 
 
-    #kde5.kmail
-
-    qt5.telepathy
-    qt5.accounts-qt
+    #kdeApplications.kmail
 
 
     pidgin
@@ -201,15 +198,15 @@
     multitail
     beets
 
-    kde5.kate
+    kdeApplications.kate
 
     #DVD
     libdvdread
     dvdplusrwtools
     dvdbackup
 
-    kde5.gwenview
-    kde5.bluedevil
+    kdeApplications.gwenview
+    bluedevil
 
     lxqt.pcmanfm-qt
 
@@ -236,7 +233,7 @@
 
     lastpass-cli
 
-    kde4.kcachegrind
+    kdeApplications.kcachegrind
 
     idea.idea-community
 
@@ -272,7 +269,7 @@
     /*displayManager.sddm.enable = true;*/
     displayManager.slim.enable = true;
     displayManager.slim.defaultUser = "boris";
-    desktopManager.kde5.enable = true;
+    desktopManager.plasma5.enable = true;
     #desktopManager.lxqt.enable = true;
     windowManager.awesome = {
       enable = true;
