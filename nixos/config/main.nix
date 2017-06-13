@@ -30,6 +30,7 @@
       127.0.0.1 transaction-archive-local.7platform.com # NSOFT
       127.0.0.1 localadmin.7platform.com  # NSOFT
       127.0.0.1 accounts-local.7platform.com  # NSOFT
+      127.0.0.1 loyalty-api-local.7platform.com # NSOFT
       /*172.20.16.49 jenkins.nsoft.ba # NSOFT*/
       /*172.20.16.98 pma.nsoft.com # NSOFT NEW AS OF 2016-12-07*/
       #172.20.115.1 pma.nsoft.com # NSOFT  OLD - NOT WORKING
@@ -246,6 +247,9 @@
 
     scala
 
+    /*hplip_3_15_9*/
+    hplip
+
       ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
 # List services that you want to enable:
 
@@ -360,6 +364,7 @@
     interval = "hourly";
     localuser = "root";
   };
+  services.printing.enable = true;
 
   powerManagement = {
     enable = true;
