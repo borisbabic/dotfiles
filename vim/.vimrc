@@ -57,7 +57,7 @@ filetype plugin indent on    " required
 
 """"" OPTIONS
 
-colorscheme nord
+colorscheme Monokai
 let mapleader="\<space>"
 
 set regexpengine=1 "attempts to solve high CPU usage (on fedora 21)
