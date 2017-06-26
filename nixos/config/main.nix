@@ -7,6 +7,11 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+        ./nsoft.nix
+        ./node.nix
+        ./php.nix
+        ./kde.nix
+        ./xorg.nix
     ];
 
   boot.loader.grub = pkgs.lib.mkForce {
@@ -19,22 +24,6 @@
     hostName = "nixos"; # Define your hostname.
 #wireless.enable = true;  # Enables wireless support via wpa_supplicant.
       networkmanager.enable = true;
-    extraHosts = 
-      " 
-      127.0.0.1 nab-admin-dev.neosoft.ba # NSOFT
-      127.0.0.1 rockmongo.nab-solutions.com # NSOFT
-      127.0.0.1 pma # NSOFT
-      127.0.0.1 admin-service-dev.nab-solutions.com # NSOFT
-      127.0.0.1 ngs.nab-solutions.com # NSOFT
-      127.0.0.1 tax-local.7platform.com # NSOFT
-      127.0.0.1 transaction-archive-local.7platform.com # NSOFT
-      127.0.0.1 localadmin.7platform.com  # NSOFT
-      127.0.0.1 accounts-local.7platform.com  # NSOFT
-      127.0.0.1 loyalty-api-local.7platform.com # NSOFT
-      /*172.20.16.49 jenkins.nsoft.ba # NSOFT*/
-      /*172.20.16.98 pma.nsoft.com # NSOFT NEW AS OF 2016-12-07*/
-      #172.20.115.1 pma.nsoft.com # NSOFT  OLD - NOT WORKING
-      ";
   };
 
 # Select internationalisation properties.
@@ -70,59 +59,34 @@
     python27Packages.pyyaml
     python3
     git
-    python27Packages.docker_compose #NSOFT
-    nodejs
-    php
-    xorg.xf86inputsynaptics #touchpad
     tmux
     emacs
     htop
     xscreensaver
-    nodePackages.grunt-cli
-    nodePackages.bower
-    nodePackages.typescript #for nsoft/
     parted
     dropbox # for syncing
     xbindkeys # for stuff in ~/.xbindkeys used for awesomewm
     inotify-tools
     gcc
-    phpPackages.phpcs
     transmission_gtk
     transmission_remote_gtk
     pavucontrol
     ruby
-    xorg.xkill
-    xorg.xbacklight
     p7zip
     sqlite
-    xorg_sys_opengl #for playonlinux
-
-    xdg_utils
 
     rsync
     traceroute
 
     atom
 
-    /*python27Packages.sqlite3*/
-    /*python27Packages.sqlite3*/
-    /*python27Packages.pysqlite*/
-
     python35Packages.youtube-dl
 
-    kdeApplications.kdenetwork-filesharing
-    kdeApplications.dolphin-plugins
-    kdeFrameworks.kcmutils
-    /*kdeApplications.breeze*/
-    kdeFrameworks.karchive
-    kdeApplications.spectacle
-    kdeFrameworks.karchive
-    kdeApplications.ark
-    kdeApplications.okular
 
 
-    #kdeApplications.kmail
+    enlightenment.terminology
 
+    termite
 
     pidgin
 
@@ -133,6 +97,7 @@
     sshfs-fuse
     
 
+    xorg_sys_opengl #for playonlinux
     playonlinux
     winetricks
     wineStaging
@@ -200,14 +165,14 @@
     multitail
     beets
 
-    kdeApplications.kate
+
+    glxinfo
 
     #DVD
     libdvdread
     dvdplusrwtools
     dvdbackup
 
-    kdeApplications.gwenview
     bluedevil
 
     lxqt.pcmanfm-qt
@@ -221,8 +186,6 @@
     k9copy
   
 
-    openvpn #NSOFT
-
     #XMONAD
     #haskellPackages.xmobar
 
@@ -231,27 +194,25 @@
     acpi
     openjdk #for phpstorm
   
-    xorg.xev # 
 
     lastpass-cli
 
-    kdeApplications.kcachegrind
 
     idea.idea-community
 
     scrot
 
-    kdeconnect
 
     patchelf
 
     scala
 
+    opera
+
     /*hplip_3_15_9*/
     hplip
 
-      ]; # ++ builtins.filter stdenv.lib.isDerivation (builtins.attrValues plasma5_latest);
-# List services that you want to enable:
+      ]; 
 
 # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -261,69 +222,12 @@
     package = pkgs.unclutter-xfixes;
   };
 
-
-# Enable CUPS to print documents.
-# services.printing.enable = true;
-
-# Enable the X11 windowing system.
-  /*services.dbus = {*/
-    /*packages = [ pkgs.bluez5 ];*/
-  /*};*/
-  services.xserver = {
-    enable = true;
-    layout = "us";
-    xkbOptions = "caps:escape";
-    /*displayManager.sddm.enable = true;*/
-    displayManager.slim.enable = true;
-    displayManager.slim.defaultUser = "boris";
-    desktopManager.plasma5.enable = true;
-    #desktopManager.lxqt.enable = true;
-    windowManager.awesome = {
-      enable = true;
-      package = pkgs.awesome-3-5;
-    };
-    windowManager.xmonad = {
-      enableContribAndExtras = true;
-      enable = true;
-    };
-#windowManager.i3.enable = true;
-#windowManager.bspwm.enable = true;
-    synaptics = {
-      accelFactor = "0.4";
-      enable = true;
-      horizEdgeScroll = true;
-      palmDetect = true;
-      palmMinWidth = 5;
-      palmMinZ = 20;
-      tapButtons = true;
-      vertTwoFingerScroll = true;
-      vertEdgeScroll = true;
-      buttonsMap = [ 1 3 2 ];
-      fingersMap = [ 1 2 3 ];
-    };
-  };
-/*  services.mopidy = {
-    enable = false;
-    dataDir = "/home/mopidy/";
-    extensionPackages = [ pkgs.mopidy-youtube pkgs.mopidy-mopify pkgs.mopidy-moped ];
-    configuration = ''
-      [local]
-      media_dir = /home/boris/Media/Music/
-        scan_follow_symlinks = true
-        '';
-  };*/
-#services.plex = {
-#enable = true;
-#dataDir = "/home/boris/dirty/plex";
-#};
-
 #Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.boris = {
     isNormalUser = true;
     extraGroups = [ 
 	"wheel" 
 	"networkmanager" 
-	"docker" #DOCKER IS FOR NSOFT
         "libvirtd"
     ]; 
     uid = 1000;
@@ -333,30 +237,10 @@
 # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "15.09";
 
-  /*services.thermald.enable = true;*/
-  /*services.thinkfan.enable = true;*/
 
 
   programs = {
     zsh.enable = true;
-  };
-  hardware = {
-    trackpoint.enable = true;
-    pulseaudio = {
-      package = pkgs.pulseaudioFull; #for bluetooth, i think
-      enable = true;
-      support32Bit = true;
-    };
-    bluetooth.enable = true;
-    opengl = {
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-
-    /*sane = {*/
-      /*enable = true;*/
-      /*extraBackends = [ pkgs.hplipWithPlugin];*/
-    /*};*/
   };
   services.tlp.enable = true;
   services.locate = {
@@ -366,10 +250,6 @@
   };
   services.printing.enable = true;
 
-  powerManagement = {
-    enable = true;
-  };
-
   virtualisation.virtualbox = {
     host.enable =  true;
   };
@@ -377,19 +257,12 @@
     /*enable = true;*/
     /*enableKVM = true;*/
   /*};*/
-  virtualisation.docker = { #NSOFT
-    enable = true;
-    storageDriver = "overlay2";
-  };
   nixpkgs.config = {
     allowUnfree = true; 
     wine = {
       release = "staging"; # "stable", "unstable", "staging"
       #build = "wine32"; # "wine32", "wine64", "wineWow"
       #pulseaudioSupport = true;
-    };
-    packageOverrides = pkgs: {
-      bluez = pkgs.bluez5;
     };
     firefox = {
       enableAdobeFlash = true;
