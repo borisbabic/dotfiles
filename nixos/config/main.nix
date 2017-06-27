@@ -6,12 +6,12 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
         ./nsoft.nix
-        ./node.nix
-        ./php.nix
         ./kde.nix
         ./xorg.nix
+        ./nonguipackages.nix
+        ./xpackages.nix
     ];
 
   boot.loader.grub = pkgs.lib.mkForce {
@@ -23,7 +23,7 @@
   networking = {
     hostName = "nixos"; # Define your hostname.
 #wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-      networkmanager.enable = true;
+    networkmanager.enable = true;
   };
 
 # Select internationalisation properties.
@@ -36,183 +36,6 @@
 # Set your time zone.
   time.timeZone = "Europe/Sarajevo";
 
-# List packages installed in system profile. To search by name, run:
-# $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
-    file
-    wget
-    vimHugeX
-    neovim
-    nox
-    #awesome-3-5
-    firefox
-    chromium
-    shared_mime_info
-    jre
-    fzf
-    coreutils
-    which
-    zsh
-    terminator
-    python
-    python27Packages.pip
-    python27Packages.pyyaml
-    python3
-    git
-    tmux
-    emacs
-    htop
-    xscreensaver
-    parted
-    dropbox # for syncing
-    xbindkeys # for stuff in ~/.xbindkeys used for awesomewm
-    inotify-tools
-    gcc
-    transmission_gtk
-    transmission_remote_gtk
-    pavucontrol
-    ruby
-    p7zip
-    sqlite
-
-    rsync
-    traceroute
-
-    atom
-
-    python35Packages.youtube-dl
-
-
-
-    enlightenment.terminology
-
-    termite
-
-    pidgin
-
-    unrar
-    vlc
-    gimp
-
-    sshfs-fuse
-    
-
-    xorg_sys_opengl #for playonlinux
-    playonlinux
-    winetricks
-    wineStaging
-    openldap #test for wine and hearthstone
-
-    nmap
-
-    usbutils #lsusb and co
-
-    cloc 
-    xtrlock-pam
-
-    cpufrequtils
-
-    stow
-    calibre
-    mtr
-    xclip
-    speedtest-cli
-    dmidecode
-    upower
-
-    libreoffice
-
-    stress
-    steam
-
-
-    exfat
-
-    xfce.thunar
-
-    simple-scan
-
-    #mopidy-moped
-    #mopidy-mopify
-    #mopidy-youtube
-
-    clementine
-
-    #gstreamer plugins
-    gst_plugins_bad
-    gst_plugins_base
-    gst_plugins_good
-    gst_plugins_ugly
-
-    slack
-
-    qmmp
-
-    #clang don't thin it is necessary
-
-    kodi
-
-    hdparm
-
-    imagemagickBig
-
-    dmenu
-
-    lshw
-
-    wmctrl
-
-    multitail
-    beets
-
-
-    glxinfo
-
-    #DVD
-    libdvdread
-    dvdplusrwtools
-    dvdbackup
-
-    bluedevil
-
-    lxqt.pcmanfm-qt
-
-    win-qemu
-
-    rxvt_unicode
-
-    handbrake
-    vobcopy
-    k9copy
-  
-
-    #XMONAD
-    #haskellPackages.xmobar
-
-    evtest #inupt event debugging, like touchpad values
-
-    acpi
-    openjdk #for phpstorm
-  
-
-    lastpass-cli
-
-
-    idea.idea-community
-
-    scrot
-
-
-    patchelf
-
-    scala
-
-    opera
-
-    /*hplip_3_15_9*/
-    hplip
-
-      ]; 
 
 # Enable the OpenSSH daemon.
   services.openssh.enable = true;

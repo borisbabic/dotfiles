@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; if config.services.xserver.enable then [
     kdeApplications.ark
     kdeApplications.dolphin-plugins
     kdeApplications.gwenview
@@ -12,8 +12,6 @@
     kdeconnect
     kdeFrameworks.karchive
     kdeFrameworks.kcmutils
-  ];
-  services.xserver = {
-    desktopManager.plasma5.enable = true;
-  };
+  ]  else [];
+  services.xserver.desktopManager.plasma5.enable = config.services.xserver.enable;
 }
