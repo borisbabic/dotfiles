@@ -20,8 +20,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    python27Packages.docker_compose 
+
+    lastpass-cli
     openvpn
+    python27Packages.docker_compose 
+
   ];
 
   users.extraUsers.boris = {

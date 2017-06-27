@@ -5,6 +5,9 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    #for testing stuff, otherwise put it in an import
+  ];
   imports =
     [
         ./nsoft.nix
