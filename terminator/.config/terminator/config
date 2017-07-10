@@ -37,6 +37,7 @@
     cursor_color = "#D8DEE9"
     foreground_color = "#d8dee9"
     palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#8fbcbb:#eceff4"
+    scrollback_infinite = True
     show_titlebar = False
   [[old-default]]
     background_image = None
