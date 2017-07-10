@@ -220,3 +220,8 @@ nnoremap <S-Right>   <C-W>L
 
 " removes spaces at the end of lines
 autocmd FileType php autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+""" yaml
+
+"tab width2 using spaces
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
