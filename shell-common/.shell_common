@@ -87,8 +87,21 @@ function mdcd {
 
 function dx {
     container=$1
-    docker exec -it 'dockerdeployergit_'$container'_1' /bin/bash
+    shift #removes container
+    to_exec="$@"
+    if [ -z "$to_exec" ]; then
+        to_exec="/bin/bash ";
+    fi
+    matching=$(docker ps | awk '{ print($NF)}' | grep $container)
+    num=$(echo $matching | wc -l | xargs);
+    if [ "$num" -ne "1" ]; then
+        echo "Wrong number of matching containers. Expected 1 got $num"
+        echo $matching
+        return 1;
+    fi
+    eval "docker exec -it $matching $to_exec" #security schmecurity
 }
+
 
 function git_ignore_all {
     echo "$(git status --porcelain | grep '^??' | cut -c4-)" >>.gitignore
