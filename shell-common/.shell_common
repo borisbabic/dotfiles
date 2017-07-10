@@ -21,6 +21,16 @@ if [ -d ~/programs/bin/ ]; then
     export PATH=$PATH:~/programs/bin
 fi
 
+#gopath and bin handling
+CUSTOM_GO_HOME=~/go
+CUSTOM_GO_BIN=$CUSTOM_GO_HOME/bin
+if [ -d $CUSTOM_GO_HOME ]; then
+    export GOPATH=$CUSTOM_GO_HOME
+    if [ -d $CUSTOM_GO_BIN ]; then
+        export PATH=$PATH:$CUSTOM_GO_BIN
+    fi
+fi
+
 #install python programs as the user
 CUSTOM_PIP_HOME=~/programs/pip
 CUSTOM_PIP_BIN=$CUSTOM_PIP_HOME/bin
