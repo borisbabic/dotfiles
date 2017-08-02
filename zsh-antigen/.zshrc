@@ -61,6 +61,8 @@ antigen-bundle Tarrasch/zsh-colors
 
 antigen bundle psprint/zsh-navigation-tools #pretty ctrl+r and also other stuff I don't use
 
+antigen bundle zsh-users/zsh-autosuggestions
+
 #antigen bundle powerline/powerline powerline/bindings/zsh
 
 #zsh stuff
