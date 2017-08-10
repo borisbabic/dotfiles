@@ -16,6 +16,7 @@
       127.0.0.1 loyalty-api-local.7platform.com 
       127.0.0.1 devportal-local.7platform.com 
       127.0.0.1 devportal-api-local.7platform.com 
+      127.0.0.1 bhq-local.7platform.com
       ";
   };
 
