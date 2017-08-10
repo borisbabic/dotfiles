@@ -2,12 +2,12 @@
 let 
   languages = with pkgs; [
 
-    jre #java
+    jre
     nodejs
-    openjdk #java
+    openjdk
     php
     python
-    python3
+    python36Full
     ruby
     scala
 
@@ -25,10 +25,10 @@ let
   ];
 
   pythonPkgs = with pkgs; [
-
     python27Packages.pip
     python27Packages.pyyaml
-
+    python36Packages.pip
+    python36Packages.setuptools
   ];
   gstreamerPlugins = with pkgs; [
 
