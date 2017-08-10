@@ -10,15 +10,14 @@ let
     python36Full
     ruby
     scala
+
+  ];
   goPkgs = with pkgs; [
     go
     glide #package manager
   ];
-
-  ];
   phpPkgs = with pkgs; [
     php71Packages.xdebug
-    phpPackages.phpcs
   ];
   nodePkgs = with pkgs; [
 
