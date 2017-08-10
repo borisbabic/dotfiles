@@ -10,6 +10,10 @@ let
     python36Full
     ruby
     scala
+  goPkgs = with pkgs; [
+    go
+    glide #package manager
+  ];
 
   ];
   phpPkgs = with pkgs; [
@@ -85,6 +89,6 @@ in
     which
     zsh
 
-  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ [];
+  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ [];
 }
 
