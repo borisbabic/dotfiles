@@ -21,11 +21,10 @@
   };
 
   environment.systemPackages = with pkgs; [
-
+    arcanist
     lastpass-cli
     openvpn
     python27Packages.docker_compose 
-
   ];
 
   users.extraUsers.boris = {
