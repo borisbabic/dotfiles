@@ -38,6 +38,9 @@ Plugin 'jelera/vim-javascript-syntax'
 "scala
 Plugin 'derekwyatt/vim-scala'
 
+"go
+Plugin 'fatih/vim-go'
+
 "colorschemes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'arcticicestudio/nord-vim'
