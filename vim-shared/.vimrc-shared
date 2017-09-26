@@ -1,0 +1,18 @@
+" misc
+set nowrap        " no wrapping on long lines
+
+""" Windows
+
+" window focus switching
+nnoremap <Up>        <C-W>k
+nnoremap <Down>      <C-W>j
+nnoremap <Left>      <C-W>h
+nnoremap <Right>     <C-W>l
+
+" window position changing
+
+nnoremap <S-Up>      <C-W>K
+nnoremap <S-Down>    <C-W>J
+nnoremap <S-Left>    <C-W>H
+nnoremap <S-Right>   <C-W>L
+

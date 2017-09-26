@@ -76,7 +76,6 @@ set tabstop=4     " number spaces for tabs
 set expandtab     " use spaces for tabs
 set shiftwidth=4  " number of tabs for authindent
 " misc
-set nowrap        " no wrapping on long lines
 set rnu           " relative numbers 
 set number        " absolute current
 set mouse=a       " turn on mouse
@@ -201,22 +200,6 @@ vnoremap <leader>a :Tabularize /\$[a-zA-Z_]*/<CR>
 "surrounds text in a line with console.log();
 nnoremap <leader><leader>cl Iconsole.log(<ESC>A);<ESC>F)
 
-""" Windows
-
-" window focus switching
-nnoremap <Up>        <C-W>k
-nnoremap <Down>      <C-W>j
-nnoremap <Left>      <C-W>h
-nnoremap <Right>     <C-W>l
-
-" window position changing
-
-nnoremap <S-Up>      <C-W>K
-nnoremap <S-Down>    <C-W>J
-nnoremap <S-Left>    <C-W>H
-nnoremap <S-Right>   <C-W>L
-
-
 """"" AUTOCOMMANDS
 
 """ php
@@ -228,3 +211,9 @@ autocmd FileType php autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "tab width2 using spaces
 autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
+
+try 
+  source ~/.vimrc-shared
+catch
+  " No such file? No problem; just ignore it.
+endtry 
