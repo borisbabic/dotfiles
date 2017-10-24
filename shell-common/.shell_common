@@ -131,6 +131,9 @@ alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
 alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'"
 alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
 
+#### typo aliases
+alias got="git "
+
 #TEMP STUFF
 alias dupl="node /home/boris/Projects/novaplatforma/node-service-dev/testScripts/duplicateTestClient.js"
 
