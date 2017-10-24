@@ -85,21 +85,29 @@ function mdcd {
     cd $last
 }
 
+function get_container_name {
+    matching=$(docker ps | awk '{ print($NF)}' | grep $1)
+    num=$(echo $matching | wc -l | xargs);
+    if [ "$num" -ne "1" ]; then
+        return 1;
+    else
+        echo $matching;
+    fi
+}
+
 function dx {
-    container=$1
+    container_arg=$1
+    container=$(get_container_name $1)
+    if [ -z "$container" ]; then
+        echo "Couldn't find the correct container. Ensure it's running or try to be more specific";
+        return;
+    fi
     shift #removes container
     to_exec="$@"
     if [ -z "$to_exec" ]; then
         to_exec="/bin/bash ";
     fi
-    matching=$(docker ps | awk '{ print($NF)}' | grep $container)
-    num=$(echo $matching | wc -l | xargs);
-    if [ "$num" -ne "1" ]; then
-        echo "Wrong number of matching containers. Expected 1 got $num"
-        echo $matching
-        return 1;
-    fi
-    eval "docker exec -it $matching $to_exec" #security schmecurity
+    eval "docker exec -it $container $to_exec" #security schmecurity
 }
 
 
