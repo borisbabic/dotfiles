@@ -44,7 +44,6 @@
   ];
   imports =
     [
-        ../test
         ./nsoft.nix
         ./kde.nix
         ./xorg.nix
