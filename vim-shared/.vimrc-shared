@@ -16,3 +16,6 @@ nnoremap <S-Down>    <C-W>J
 nnoremap <S-Left>    <C-W>H
 nnoremap <S-Right>   <C-W>L
 
+" Languague options
+" yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
