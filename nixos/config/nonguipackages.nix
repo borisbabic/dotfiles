@@ -3,7 +3,7 @@ let
   languages = with pkgs; [
 
     jre
-    nodejs
+    nodejs-8_x
     openjdk
     php
     python
@@ -15,9 +15,11 @@ let
   goPkgs = with pkgs; [
     go
     glide #package manager
+    godep
   ];
   phpPkgs = with pkgs; [
     php71Packages.xdebug
+    php71Packages.composer
   ];
   nodePkgs = with pkgs; [
 
@@ -62,6 +64,8 @@ in
     htop
     imagemagickBig
     inotify-tools
+    aspell #spellcheck, usefull with emacs
+    aspellDicts.en
     lshw
     mtr
     multitail

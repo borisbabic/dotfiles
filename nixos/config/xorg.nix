@@ -5,6 +5,7 @@
     xorg.xbacklight
     xorg.xev # 
     xorg.xkill
+    compton
   ];
 
   services.xserver = {
@@ -17,9 +18,10 @@
       enable = true;
       package = pkgs.awesome-3-5;
     };
-    windowManager.xmonad = {
-      enableContribAndExtras = true;
+    windowManager.i3 = {
       enable = true;
+      package = pkgs.i3-gaps;
+      /*package = pkgs.i3;*/
     };
   };
 }

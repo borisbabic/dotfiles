@@ -4,7 +4,6 @@
     kdeApplications.ark
     kdeApplications.dolphin-plugins
     kdeApplications.gwenview
-    kdeApplications.kate
     kdeApplications.kcachegrind
     kdeApplications.kdenetwork-filesharing
     kdeApplications.okular

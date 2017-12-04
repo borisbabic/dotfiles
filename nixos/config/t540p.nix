@@ -9,8 +9,6 @@
     enable = true;
     horizEdgeScroll = true;
     palmDetect = true;
-    palmMinWidth = 5;
-    palmMinZ = 20;
     tapButtons = true;
     vertTwoFingerScroll = true;
     vertEdgeScroll = true;

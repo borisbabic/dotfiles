@@ -7,9 +7,44 @@
 {
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
+
+    quassel
+    vokoscreen #screencast
+
+    pandoc #document converter
+    #tetex #used with pandoc for creating pdfs
+    #texlive.combined.scheme-full #pandoc
+    texlive.combined.scheme-small
+
+    stack
+
+    openjdk9
+    weechat
+    #thefuck
+    jetbrains.idea-community
+    jetbrains.idea-ultimate
+    gradle
+    docker-machine
+    redis
+    mariadb
+    elmPackages.elm
+    elmPackages.elm-package
+    yarn #node pacakge manager
+    python35Packages.pip
+    python35Packages.setuptools
+    nomad
+    pgadmin
+    npm2nix
+    elixir
+    shellcheck
+    rancher-compose_0_10
+    jshon
+    vimPlugins.Jenkinsfile-vim-syntax
+    thefuck
   ];
   imports =
     [
+        ../test
         ./nsoft.nix
         ./kde.nix
         ./xorg.nix
@@ -67,6 +102,10 @@
 
   programs = {
     zsh.enable = true;
+    /*java = {
+      enable = true;
+      package = pkgs.openjdk9;
+    };*/
   };
   services.tlp.enable = true;
   services.locate = {
@@ -108,6 +147,9 @@
     };
   };
 
+   nixpkgs.config.permittedInsecurePackages = [
+     "samba-3.6.25"
+   ];
   boot.kernel.sysctl = {
     "vm.swappiness" = 11;
   };
