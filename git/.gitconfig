@@ -3,3 +3,5 @@
 	email = boris.ivan.babic@gmail.com
 [core]
 	excludesfile = ~/.gitignore
+[alias]
+	chekcout = checkout
