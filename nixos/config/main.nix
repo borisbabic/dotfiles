@@ -107,7 +107,6 @@
       package = pkgs.openjdk9;
     };*/
   };
-  services.tlp.enable = true;
   services.locate = {
     enable = true;
     interval = "hourly";

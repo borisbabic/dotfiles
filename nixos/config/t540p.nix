@@ -16,6 +16,7 @@
     fingersMap = [ 1 2 3 ];
   };
 
+  services.tlp.enable = true;
   /*services.thermald.enable = true;*/
   /*services.thinkfan.enable = true;*/
   hardware = {
