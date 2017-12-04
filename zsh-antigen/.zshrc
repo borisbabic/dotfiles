@@ -1,6 +1,6 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000000
+HISTSIZE=10000000
 SAVEHIST=10000000
 setopt appendhistory autocd extendedglob
 bindkey -e
@@ -59,7 +59,7 @@ antigen bundle zsh-users/zsh-history-substring-search
 
 antigen-bundle Tarrasch/zsh-colors
 
-antigen bundle psprint/zsh-navigation-tools #pretty ctrl+r and also other stuff I don't use
+#antigen bundle psprint/zsh-navigation-tools #pretty ctrl+r and also other stuff I don't use
 
 antigen bundle zsh-users/zsh-autosuggestions
 
