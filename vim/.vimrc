@@ -41,6 +41,9 @@ Plugin 'derekwyatt/vim-scala'
 "go
 Plugin 'fatih/vim-go'
 
+"elm
+Plugin 'ElmCast/elm-vim'
+
 "colorschemes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'arcticicestudio/nord-vim'
