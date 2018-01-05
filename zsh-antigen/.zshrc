@@ -63,6 +63,8 @@ antigen-bundle Tarrasch/zsh-colors
 
 antigen bundle zsh-users/zsh-autosuggestions
 
+antigen bundle micha/resty #resty client
+
 #antigen bundle powerline/powerline powerline/bindings/zsh
 
 #zsh stuff
