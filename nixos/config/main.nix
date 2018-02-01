@@ -29,6 +29,7 @@
     mariadb
     elmPackages.elm
     elmPackages.elm-package
+    elmPackages.elm-format
     yarn #node pacakge manager
     python35Packages.pip
     python35Packages.setuptools

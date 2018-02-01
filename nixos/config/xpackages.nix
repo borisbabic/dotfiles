@@ -61,7 +61,7 @@ in
 
     calibre
     gimp
-    idea.idea-community #for phpstorm
+    krita
     libreoffice
     pidgin
     slack

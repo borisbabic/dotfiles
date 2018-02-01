@@ -49,7 +49,7 @@ in
   environment.systemPackages = with pkgs; [
 
     acpi
-    beets
+    #beets
     cloc 
     coreutils
     cpufrequtils
