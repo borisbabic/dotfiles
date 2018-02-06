@@ -31,20 +31,15 @@ if [  -f ~/.zgen/zgen.zsh ];  then
         zgen load Tarrasch/zsh-colors
         zgen load micha/resty #resty client
 
-        #so that ttys have an ok theme
-        if [ -z "$DISPLAY" ]; then
-            antigen theme amuse
-        else
-            export TERM="xterm-256color"
-            POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-            DEFAULT_USER=boris #used for some themes - removes user part
-            POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir rbenv vcs status)
-            zgen load bhilburn/powerlevel9k powerlevel9k
-        fi
+        export TERM="xterm-256color"
+        POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+        DEFAULT_USER=boris #used for some themes - removes user part
+        POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir rbenv vcs status)
+        zgen load bhilburn/powerlevel9k powerlevel9k
 
     fi
 else 
-    echo 'Install zgen. Run git clone git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"'
+    echo 'Install zgen. Run git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"'
 fi
 
 
