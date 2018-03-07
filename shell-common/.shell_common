@@ -17,6 +17,10 @@ for CANDIDATE_BROWSER in "${POTENTIAL_BROWSERS[@]}"; do
     fi
 done
 
+if [ -d ~/.local/bin ]; then
+    export PATH=$PATH:~/.local/bin
+fi
+
 if [ -d ~/programs/bin/ ]; then
     export PATH=$PATH:~/programs/bin
 fi
