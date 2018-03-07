@@ -1,0 +1,9 @@
+#!/bin/sh
+echo "This is a template hook"
+echo "Either delete .git/hooks/pre-commit or install a proper commit hook"
+echo "If you are using pre-commit you can overwrite this hook using pre-commit install -f"
+echo "Do not forget the -f or this hook will remain and cause everything to fail."
+echo "If you installed it without the -f you can redo the command with -f or remove .git/hooks/pre-commit.legacy"
+echo "Have a nice day"
+exit 1;
+
