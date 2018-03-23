@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 alias work_displays="xrandr --output LVDS1 --off --output DP1 --auto --output VGA1 --auto --right-of DP1 "
+alias create_qhd_mode='xrandr --newmode "2560x1440_55" 220.812 2560 2608 2640 2720 1440 1443 1448 1478 -hsync -vsync '
+alias add_qhd_mode_to_hdmi1="xrandr --addmode HDMI1 2560x1440_55 ";
+alias qhd_mode='create_qhd_mode ; add_qhd_mode_to_hdmi1 ; xrandr --output HDMI1 --mode 2560x1440_55';
+alias connect_bose='echo "power on\n agent on\n default-agent\n connect 2C:41:A1:01:87:F8" | bluetoothctl';
+
+
+
 
