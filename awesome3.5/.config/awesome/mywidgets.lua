@@ -185,7 +185,6 @@ function getBasicTextWidget()
     return basic
 end
 
-
 function getTimeStartStopWidget()
     local startstop ={}
     startstop.widget = wibox.widget.textbox() --
@@ -280,6 +279,22 @@ function getTimeStartStopWidget()
 end
 nmanagerwidget = getTimeStartStopWidget()
 
+function daysTillWidget(year, month, day, color) 
+    local daysTill = {}
+    daysTill.widget = wibox.widget.textbox()
+    daysTill.timer = timer({timeout = 600})
+    daysTill.target = os.time{day = day, month = month, year = year, hour = 23, minute = 59}
+    daysTill.color = color
+    daysTill.update = function() 
+        local seconds = os.difftime(daysTill.target, os.time())
+        local days = math.floor(seconds / (24 * 60 * 60))
+        daysTill.widget:set_markup(string.format("<span color=%q>%s</span>", color, days))
+    end
+    daysTill.timer:connect_signal("timeout", daysTill.update)
+    daysTill.timer:start()
+    return daysTill
+end
+
 function keepAliveWidget(errorLimit, warningLimit, preText, postText)
     local keepAlive ={}
     keepAlive.widget = wibox.widget.textbox() --
@@ -340,6 +355,8 @@ arrl_ld:set_image(beautiful.arrl_ld)
 nabdnswidget = getBasicTextWidget()
 lastPhabricatorTask = getBasicTextWidget()
 cpuSpeed = getBasicTextWidget()
+volvoWidget = daysTillWidget(2018, 7, 21, "grey")
+volvoWidget.update()
 local M = {}
 M.memwidget = {memicon, memwidget}
 M.volumewidget = {volicon, volumewidget}
@@ -356,6 +373,7 @@ M.lastPhabricatorTask = {lastPhabricatorTask.widget}
 M.liveKeepAlive = {liveKeepAlive.widget}
 M.ncmPlatformAlive = {ncmPlatformAlive.widget}
 M.cpuspeedwidget = {cpuSpeed.widget}
+M.volvoWidget = {volvoWidget.widget}
 M.updaters = {
     gitwidget = gitwidget.clientupdate,
     nmanager = nmanagerwidget.newclientupdate,
@@ -364,6 +382,7 @@ M.updaters = {
     cpuSpeed = cpuSpeed.update,
     liveKeepAlive = liveKeepAlive.reset,
     ncmPlatformAlive = ncmPlatformAlive.reset,
+    volvoWidget  = volvoWidget.update,
 }
 --M.mpdwidget = {mpdicon, mpdwidget}
 
