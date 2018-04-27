@@ -74,6 +74,14 @@ if [ -d $CUSTOM_NPM_BIN ]; then
     export PATH=$PATH:$CUSTOM_NPM_BIN
 fi
 
+#for yarn global programs
+#should run:
+CUSTOM_YARN_HOME=~/.yarn
+CUSTOM_YARN_BIN=$CUSTOM_YARN_HOME/bin
+if [ -d $CUSTOM_YARN_BIN ]; then
+    export PATH=$PATH:$CUSTOM_YARN_BIN
+fi
+
 ####thefuck
 
 #if thefuck exists create the alias
