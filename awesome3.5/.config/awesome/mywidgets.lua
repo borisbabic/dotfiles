@@ -355,7 +355,7 @@ arrl_ld:set_image(beautiful.arrl_ld)
 nabdnswidget = getBasicTextWidget()
 lastPhabricatorTask = getBasicTextWidget()
 cpuSpeed = getBasicTextWidget()
-volvoWidget = daysTillWidget(2018, 7, 21, "grey")
+volvoWidget = daysTillWidget(2018, 7, 23, "grey")
 volvoWidget.update()
 local M = {}
 M.memwidget = {memicon, memwidget}
