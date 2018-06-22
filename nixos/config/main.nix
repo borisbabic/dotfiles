@@ -8,6 +8,7 @@
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
 
+    hexchat
     quassel
     vokoscreen #screencast
 
@@ -18,18 +19,17 @@
 
     stack
 
-    openjdk9
     weechat
     #thefuck
-    jetbrains.idea-community
     jetbrains.idea-ultimate
     gradle
+    maven
     docker-machine
     redis
     mariadb
-    elmPackages.elm
-    elmPackages.elm-package
-    elmPackages.elm-format
+    /*elmPackages.elm*/
+    /*elmPackages.elm-package*/
+    /*elmPackages.elm-format*/
     yarn #node pacakge manager
     python35Packages.pip
     python35Packages.setuptools
@@ -56,6 +56,7 @@
 	  enable = true;
 	  version = 2;
 	  device = "/dev/sda";
+      useOSProber = true;
   };
 
   networking = {
@@ -96,16 +97,15 @@
   };
 
 # The NixOS release to be compatible with for stateful data such as databases.
-  system.stateVersion = "15.09";
+  system.nixos.stateVersion = "15.09";
 
 
 
   programs = {
     zsh.enable = true;
-    /*java = {
+    java = {
       enable = true;
-      package = pkgs.openjdk9;
-    };*/
+    };
   };
   services.locate = {
     enable = true;
@@ -113,6 +113,7 @@
     localuser = "root";
   };
   services.printing.enable = true;
+  services.printing.drivers = [pkgs.gutenprintBin];
 
   virtualisation.virtualbox = {
     host.enable =  true;
@@ -128,9 +129,6 @@
       #build = "wine32"; # "wine32", "wine64", "wineWow"
       #pulseaudioSupport = true;
     };
-    firefox = {
-      enableAdobeFlash = true;
-    };
     /*chromium = {*/
       /*enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash*/
     /*};*/
@@ -145,6 +143,7 @@
       };
     };
   };
+  programs.qt5ct.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
      "samba-3.6.25"
@@ -152,4 +151,7 @@
   boot.kernel.sysctl = {
     "vm.swappiness" = 11;
   };
+  /*nixpkgs.config.packageOverrides = pkgs: {*/
+    /*maven = pkgs.maven.override { jdk = pkgs.jdk9; };*/
+  /*};*/
 }

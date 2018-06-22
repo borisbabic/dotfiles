@@ -4,28 +4,30 @@ let
 
     jre
     nodejs-8_x
-    openjdk
     php
     python
     python36Full
     ruby
     scala
-
+  ];
+  haskellPkgs = with pkgs; [
+    ghc
   ];
   goPkgs = with pkgs; [
     go
     glide #package manager
-    godep
+  ];
+  phpExtensions = with pkgs; [
+    "${php72Packages.redis}/lib/php/extensions/redis.so"
   ];
   phpPkgs = with pkgs; [
-    php71Packages.xdebug
+    php72Packages.xdebug
     php71Packages.composer
   ];
   nodePkgs = with pkgs; [
 
     nodePackages.bower
     nodePackages.grunt-cli
-    nodePackages.typescript
 
   ];
 
@@ -34,6 +36,7 @@ let
     python27Packages.pyyaml
     python36Packages.pip
     python36Packages.setuptools
+    python36Packages.django_2_0
   ];
   gstreamerPlugins = with pkgs; [
 
@@ -46,6 +49,11 @@ let
  
 in 
 {
+  nixpkgs.config.phpOptions.extension = phpExtensions;
+  nixpkgs.config.enablePHP = true;
+  services.phpfpm.phpOptions = ''
+    extension=${pkgs.phpPackages.redis}/lib/php/extensions/redis.so
+  '';
   environment.systemPackages = with pkgs; [
 
     acpi
@@ -92,6 +100,6 @@ in
     which
     zsh
 
-  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ [];
+  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
 }
 

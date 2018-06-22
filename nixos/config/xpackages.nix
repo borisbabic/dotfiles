@@ -61,13 +61,17 @@ in
 
     calibre
     gimp
-    krita
     libreoffice
     pidgin
     slack
-    steam
     transmission_gtk
     transmission_remote_gtk
 
   ] ++ browsers ++ terminals ++ editors ++ media ++ utilities ++ wineStuff else [];
+  nixpkgs.config = {
+    firefox = {
+      /*enableAdobeFlash = true;*/
+      enableAdobeFlash = false;
+    };
+  };
 }

@@ -25,6 +25,7 @@
     arcanist
     lastpass-cli
     openvpn
+    postman
     python27Packages.docker_compose 
   ];
 

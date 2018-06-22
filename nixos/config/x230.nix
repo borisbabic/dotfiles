@@ -22,6 +22,9 @@
   hardware = {
     trackpoint.enable = true;
     pulseaudio = {
+      /*configFile = pkgs.writeText "default.pa" ''*/
+        /*load-module module-switch-on-connect*/
+      /*'';*/
       package = pkgs.pulseaudioFull; #for bluetooth, i think
       enable = true;
       support32Bit = true;
@@ -36,6 +39,7 @@
   nixpkgs.config.packageOverrides = pkgs: {
     bluez = pkgs.bluez5;
   };
+  boot.kernelModules = [ "phc-intel" ];
 
 
   powerManagement = {
