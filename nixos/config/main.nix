@@ -52,13 +52,6 @@
         ./xpackages.nix
     ];
 
-  boot.loader.grub = pkgs.lib.mkForce {
-	  enable = true;
-	  version = 2;
-	  device = "/dev/sda";
-      useOSProber = true;
-  };
-
   networking = {
     hostName = "nixos"; # Define your hostname.
 #wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -97,9 +90,7 @@
   };
 
 # The NixOS release to be compatible with for stateful data such as databases.
-  system.nixos.stateVersion = "15.09";
-
-
+  system.stateVersion = "18.03";
 
   programs = {
     zsh.enable = true;
