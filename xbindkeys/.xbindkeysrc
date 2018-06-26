@@ -60,5 +60,21 @@
     m:0x1c + c:119
     Control+Alt+Mod2 + Delete 
 
+# Increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+   XF86AudioRaiseVolume
+# Decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+   XF86AudioLowerVolume
+# Mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   XF86AudioMute
+# Increase backlight
+"xbacklight -inc 5"
+   XF86MonBrightnessUp
+
+# Decrease backlight
+"reduce_backlight"
+   XF86MonBrightnessDown
 #
 # End of xbindkeys configuration
