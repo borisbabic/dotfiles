@@ -1,4 +1,5 @@
 local awful = require("awful")
+local completion = require('awful.completion')
 modkey     = "Mod4"
 altkey     = "Mod1"
 
@@ -157,6 +158,15 @@ globalkeys = awful.util.table.join(
 
     -- Prompt
     awful.key({ modkey }, "r", function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey }, "e",
+              function ()
+                  awful.prompt.run({ prompt = "run (ldpi): " },
+                  mypromptbox[mouse.screen].widget,
+                    function (cmd)
+                        awful.util.spawn_with_shell("ldpi " .. cmd)
+                    end, completion.shell,
+                  awful.util.getdir("cache") .. "/history_eval")
+              end),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
