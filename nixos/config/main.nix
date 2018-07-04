@@ -71,6 +71,16 @@
 
 # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.sonarr.enable = true;
+  users.extraUsers.sonarr.extraGroups = [ "transmission" ];
+  services.radarr.enable = true;
+  users.extraUsers.radarr.extraGroups = [ "transmission" ];
+  services.transmission = {
+    enable = true;
+    settings = {
+      rpc-whitelist = "127.0.0.1";
+    };
+  };
 
   services.unclutter = {
     enable = true;
@@ -81,9 +91,11 @@
   users.extraUsers.boris = {
     isNormalUser = true;
     extraGroups = [ 
-	"wheel" 
-	"networkmanager" 
-        "libvirtd"
+      "wheel"
+      "networkmanager"
+      "libvirtd"
+      "sonarr"
+      "transmission"
     ]; 
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
