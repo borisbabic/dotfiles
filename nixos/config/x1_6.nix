@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    acpi
+    powertop
     xorg.xf86inputsynaptics 
   ];
   services.xserver.dpi = 128;
