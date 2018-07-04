@@ -49,7 +49,7 @@ let
 
     openldap #test for wine and hearthstone
     playonlinux
-    wineStaging
+    wine
     winetricks
     xorg_sys_opengl #for playonlinux
 
