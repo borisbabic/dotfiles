@@ -56,7 +56,6 @@ in
   '';
   environment.systemPackages = with pkgs; [
 
-    acpi
     #beets
     cloc 
     coreutils
