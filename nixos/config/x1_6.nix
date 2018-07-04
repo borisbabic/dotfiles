@@ -28,6 +28,12 @@
   services.thermald.enable = true;
   /*services.thinkfan.enable = true;*/
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
+  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" ];
+  boot.kernelParams = [
+    "nopti" # disable meltdown fixes
+    "acpi.ec_no_wakeup=1"
+  ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.grub = pkgs.lib.mkForce {
