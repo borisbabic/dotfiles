@@ -8,8 +8,6 @@
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
 
-    hexchat
-    quassel
     vokoscreen #screencast
 
     pandoc #document converter
@@ -19,26 +17,16 @@
 
     stack
 
-    weechat
     #thefuck
     jetbrains.idea-ultimate
     gradle
     maven
-    docker-machine
-    redis
-    mariadb
     /*elmPackages.elm*/
     /*elmPackages.elm-package*/
     /*elmPackages.elm-format*/
     yarn #node pacakge manager
-    python35Packages.pip
-    python35Packages.setuptools
     nomad
-    pgadmin
-    npm2nix
-    elixir
     shellcheck
-    rancher-compose_0_10
     jshon
     vimPlugins.Jenkinsfile-vim-syntax
     thefuck
