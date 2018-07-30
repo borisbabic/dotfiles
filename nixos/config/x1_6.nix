@@ -3,6 +3,8 @@
   environment.systemPackages = with pkgs; [
     powertop
     xorg.xf86inputsynaptics 
+    iw
+    wirelesstools
   ];
   services.xserver.dpi = 128;
   services.xserver.libinput.enable=true;
