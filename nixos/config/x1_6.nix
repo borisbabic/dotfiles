@@ -5,9 +5,10 @@
     xorg.xf86inputsynaptics 
   ];
   services.xserver.dpi = 128;
+  services.xserver.libinput.enable=true;
   services.xserver.synaptics = {
     accelFactor = "6.9";
-    enable = true;
+    enable = false;
     horizEdgeScroll = true;
     palmDetect = true;
     tapButtons = true;
