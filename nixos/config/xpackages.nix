@@ -31,7 +31,6 @@ let
   utilities = with pkgs; [
 
     bluedevil
-    dropbox # for syncing
     hplip
     lxqt.pcmanfm-qt
     pavucontrol
@@ -47,7 +46,6 @@ let
   ];
   wineStuff = with pkgs; [
 
-    openldap #test for wine and hearthstone
     playonlinux
     wine
     winetricks
@@ -64,7 +62,6 @@ in
     libreoffice
     pidgin
     slack
-    transmission_gtk
     transmission_remote_gtk
 
   ] ++ browsers ++ terminals ++ editors ++ media ++ utilities ++ wineStuff else [];
