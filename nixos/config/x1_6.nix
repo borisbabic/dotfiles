@@ -32,10 +32,15 @@
   /*services.thinkfan.enable = true;*/
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
-  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" ];
+  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "intel-rapl" ];
   boot.kernelParams = [
     "nopti" # disable meltdown fixes
     "acpi.ec_no_wakeup=1"
+    #"iwlwifi.lar_disable=1" # remove selfmanaged regulatory domain | modinfo: disable LAR functionality (default: N) (bool)
+    #"iwlwifi.power_level=5" # increase power level, I think | modinfo: default power save level (range from 1 - 5, default: 1) (int)
+    #"iwlwifi.power_save=0" # turn off power saving, hopefully| modinfo: enable WiFi power management (default: disable) (bool)
+    #"iwlmvm.power_scheme=1" # greater power for wifi |modinfo: power management scheme: 1-active, 2-balanced, 3-low power, default: 2 (int)
+    #"cfg80211.ieee80211_regdom=US" # set US wifi regulatory domain, to allow 30 dbm, hopefully|enable WiFi power management (default: disable) (bool)
   ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -57,6 +62,7 @@
       uncore = 0; #todo make it optional
       analogio = 0; #todo make it optional
     };
+
     trackpoint.enable = true;
     pulseaudio = {
       package = pkgs.pulseaudioFull; #for bluetooth, i think
@@ -74,6 +80,8 @@
     bluez = pkgs.bluez5;
   };
 
+/*
+Still throttles below 97 so removed
   # copied from https://github.com/NixOS/nixos-hardware/pull/60/files#diff-df1e8b81c371ec5227fc57076aa132ca
   systemd.services.cpu-throttling = {
     enable = true;
@@ -107,6 +115,7 @@
       "timers.target"
     ];
   };
+*/
 
   powerManagement = {
     enable = true;
