@@ -1,11 +1,21 @@
 #!/usr/bin/bash
 #### Environment
 if command -v gvim >/dev/null 2>/dev/null; then
-    export EDITOR='gvim -v'
+    export VIM_COMMAND='gvim -v'
 elif command -v vim >/dev/null 2>/dev/null; then
-    export EDITOR='vim'
+    export VIM_COMMAND='vim'
+elif command -v nvim >/dev/null 2>/dev/null; then
+    export VIM_COMMAND='nvim'
+elif command -v neovim >/dev/null 2>/dev/null; then
+    export VIM_COMMAND='neovim'
+fi
+
+if [ ! -z "$VIM_COMMAND" ]; then
+    export EDITOR="$VIM_COMMAND";
+elif command -v emacs >/dev/null 2>/dev/null; then
+    export EDITOR='emacs'
 else 
-    export EDITOR='nano'
+    export EDITOR='nano';
 fi
 
 #descending desire
@@ -144,7 +154,6 @@ alias uzbl="uzbl-tabbed"
 alias rebootstop="startstop stop -c reboot"
 alias flushswap="sudo swapoff -a && sudo swapon -a"
 alias vup="vagrant up --no-parallel"
-alias vvim="gvim -v "
 alias upowerbat="upower -i /org/freedesktop/UPower/devices/battery_BAT0 "
 alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'"
 alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
