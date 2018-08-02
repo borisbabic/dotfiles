@@ -137,4 +137,8 @@
   /*nixpkgs.config.packageOverrides = pkgs: {*/
     /*maven = pkgs.maven.override { jdk = pkgs.jdk9; };*/
   /*};*/
+  nix.nixPath = [
+    "nixpkgs=/etc/nixos/nixpkgs/"
+    "nixos-config=/etc/nixos/configuration.nix"
+  ];
 }
