@@ -27,6 +27,7 @@
     openvpn
     postman
     python27Packages.docker_compose 
+    gitAndTools.pre-commit
   ];
 
   users.extraUsers.boris = {
