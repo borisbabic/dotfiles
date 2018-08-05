@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+alias work_displays="xrandr --output HDMI1 --auto --above eDP1 --output DP2 --auto --right-of HDMI1 "
+alias create_qhd_mode='xrandr --newmode "2560x1440_55" 220.812 2560 2608 2640 2720 1440 1443 1448 1478 -hsync -vsync '
+alias add_qhd_mode_to_hdmi1="xrandr --addmode HDMI1 2560x1440_55 ";
+alias qhd_mode='create_qhd_mode ; add_qhd_mode_to_hdmi1 ; xrandr --output HDMI1 --mode 2560x1440_55';
+alias connect_bose='echo "power on\n agent on\n default-agent\n connect 2C:41:A1:01:87:F8" | bluetoothctl';
+
+SECONDARY_NICS=(
+    "enp0s31f6"
+    "vboxnet0"
+    "br-353c3cdeccc0"
+    "docker0"
+)
+function nics_down {
+    for nic in "${SECONDARY_NICS[@]}"; do
+        sudo ip link set down "$nic";
+    done;
+}
+
+function nics_up {
+    for nic in "${SECONDARY_NICS[@]}"; do
+        sudo ip link set up "$nic";
+    done;
+}
+
+CARD_READER_USB="2-3"
+
+function disable_card_reader {
+    echo "$CARD_READER_USB" |sudo tee /sys/bus/usb/drivers/usb/unbind
+}
+
+
+function enable_card_reader {
+    echo "$CARD_READER_USB" |sudo tee /sys/bus/usb/drivers/usb/bind
+}
+
+function power_savings {
+    #potentially just placebo. Usefulness is based on powertop readings
+    nics_down
+    disable_card_reader
+}
+function revert_power_savings {
+    nics_up
+    enable_card_reader
+}
