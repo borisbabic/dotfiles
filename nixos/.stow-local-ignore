@@ -1,1 +1,3 @@
-^/configuration.nix.skel
+configuration.nix.skel
+README.md
+tmp.nix
