@@ -29,7 +29,6 @@ if [  -f ~/.zgen/zgen.zsh ];  then
         zgen load zsh-users/zsh-autosuggestions
 
         zgen load Tarrasch/zsh-colors
-        zgen load micha/resty #resty client
 
         export TERM="xterm-256color"
         POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
