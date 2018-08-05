@@ -1,0 +1,6 @@
+[submodule "awesome3.5/.config/awesome/lain"]
+	path = awesome3.5/.config/awesome/lain
+	url = https://github.com/copycat-killer/lain
+[submodule "nixos/nixpkgs"]
+	path = nixos/nixpkgs
+	url = https://github.com/borisbabic/nixpkgs
