@@ -163,9 +163,6 @@ alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standa
 #### typo aliases
 alias got="git "
 
-#TEMP STUFF
-alias dupl="node /home/boris/Projects/novaplatforma/node-service-dev/testScripts/duplicateTestClient.js"
-
 if [ -f ~/.shell_work ]; then #work specific stuff
     . ~/.shell_work
 fi
