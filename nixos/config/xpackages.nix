@@ -47,7 +47,7 @@ let
   wineStuff = with pkgs; [
 
     playonlinux
-    wine
+    wineWowPackages.staging
     winetricks
     xorg_sys_opengl #for playonlinux
 
