@@ -61,6 +61,7 @@
   };
   hardware = {
     trackpoint.enable = true;
+    trackpoint.device="TPPS/2 Elan TrackPoint";
     pulseaudio = {
       package = pkgs.pulseaudioFull; #for bluetooth, i think
       enable = true;
