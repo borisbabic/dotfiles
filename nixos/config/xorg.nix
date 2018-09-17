@@ -18,7 +18,10 @@
     /*displayManager.slim.defaultUser = "boris";*/
     windowManager.awesome = {
       enable = true;
-      package = pkgs.awesome-3-5;
+      #package = pkgs.awesome-3-5;
+      package = pkgs.callPackage ./custom_packages/awesome3.5.nix {
+        cairo = pkgs.cairo.override { xcbSupport = true; };
+      };
     };
     windowManager.i3 = {
       enable = true;
