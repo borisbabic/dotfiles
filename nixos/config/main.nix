@@ -141,4 +141,5 @@
     "nixpkgs=/etc/nixos/nixpkgs/"
     "nixos-config=/etc/nixos/configuration.nix"
   ];
+  boot.cleanTmpDir = true;
 }
