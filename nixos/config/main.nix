@@ -33,10 +33,13 @@ in {
     vimPlugins.Jenkinsfile-vim-syntax
     thefuck
     viber
+    openvpn
+    postman
+    docker_compose
+    gitAndTools.pre-commit
   ];
   imports =
     [
-        ./nsoft.nix
         ./kde.nix
         ./xorg.nix
         ./nonguipackages.nix
@@ -88,9 +91,15 @@ in {
       "libvirtd"
       "sonarr"
       "transmission"
+      "docker"
     ]; 
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "overlay2";
   };
 
   programs = {
