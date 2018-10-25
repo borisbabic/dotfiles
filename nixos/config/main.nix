@@ -32,6 +32,7 @@ in {
     jshon
     vimPlugins.Jenkinsfile-vim-syntax
     thefuck
+    viber
   ];
   imports =
     [
