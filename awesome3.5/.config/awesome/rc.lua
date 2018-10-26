@@ -205,9 +205,41 @@ awful.rules.rules = {
                      focus = awful.client.focus.filter,
                      keys = keybindings.clientkeys,
                      buttons = keybindings.clientbuttons,
+                     maximized_vertical = false, maximized_horizontal = false,
 	                   size_hints_honor = false } },
+    { rule = { name = "HearthstoneOverlay" },
+          properties = { floating = true, honor_workarea = true},
+          callback = function (c)
+              --c:unmanage()
+          end },
+
     { rule = { class = "URxvt" },
           properties = { opacity = 0.99 } },
+
+    { rule = { class = "plasmashell" },
+          properties = { floating = true, screen = 1 } },
+
+    { rule = { class = "Plasma" },
+          properties = { floating = true,screen = 1 } },
+
+    { rule = { class = "plasma-desktop" },
+          properties = { floating = true,screen = 1 } },
+
+    { rule = { class = "win7" },
+          properties = { floating = true,screen = 1 } },
+
+    { rule = { class = "Kmix" },
+          properties = { floating = true,screen = 1 } },
+
+    { rule = { class = "Klipper" },
+          properties = { floating = true,screen = 1 } },
+
+    { rule = { class = "Plasmoidviewer" },
+          properties = { floating = true,screen = 1 } },
+          
+    { rule = { class = "plasmashell", name="Desktop" },
+          properties = { minimized = true, focusable = false },
+      },
 
     { rule = { class = "krunner" },
           properties = { floating = true },
