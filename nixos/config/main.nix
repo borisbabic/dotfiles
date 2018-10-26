@@ -4,7 +4,9 @@
 
 { config, pkgs, ... }:
 
-{
+let
+  secrets = import ./secrets.nix;
+in {
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
 
@@ -30,14 +32,19 @@
     jshon
     vimPlugins.Jenkinsfile-vim-syntax
     thefuck
+    viber
+    openvpn
+    postman
+    docker_compose
+    gitAndTools.pre-commit
   ];
   imports =
     [
-        ./nsoft.nix
         ./kde.nix
         ./xorg.nix
         ./nonguipackages.nix
         ./xpackages.nix
+        ./custom_packages/njuskalo-service.nix
     ];
 
   networking = {
@@ -84,9 +91,15 @@
       "libvirtd"
       "sonarr"
       "transmission"
+      "docker"
     ]; 
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "overlay2";
   };
 
   programs = {
@@ -102,6 +115,17 @@
   };
   services.printing.enable = true;
   services.printing.drivers = [pkgs.gutenprintBin];
+  services.njuskalo = {
+    enable = true;
+    email.username = "novaplatforma@gmail.com";
+    email.password = secrets.novaplatformaPassword;
+    email.recipient = "boris.ivan.babic@gmail.com";
+    urls = {
+      stanNajamDonji = "http://www.njuskalo.hr/iznajmljivanje-stanova?locationId=1250&price[max]=500";
+      stanNajamPesenica = "http://www.njuskalo.hr/iznajmljivanje-stanova?locationId=1256&price[max]=500";
+      stanNajamTrnje = "http://www.njuskalo.hr/iznajmljivanje-stanova?locationId=1263&price[max]=500";
+    };
+  };
 
   virtualisation.virtualbox = {
     host.enable =  true;

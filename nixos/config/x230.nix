@@ -16,6 +16,12 @@
     fingersMap = [ 1 2 3 ];
   };
 
+  boot.loader.grub = pkgs.lib.mkForce {
+	  enable = true;
+	  version = 2;
+	  device = "/dev/sda";
+      useOSProber = true;
+  };
   services.tlp.enable = true;
   services.thermald.enable = true;
   #services.thinkfan.enable = true;
