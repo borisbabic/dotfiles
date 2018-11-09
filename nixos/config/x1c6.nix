@@ -53,12 +53,7 @@
   };
 
 
-  services.undervolt = {
-    enable = true;
-    coreOffset = "-130";
-    gpuOffset = "-30";
-    temp = "97";
-  };
+  # services.undervolt = { enable = true; coreOffset = "-130"; gpuOffset = "-30"; temp = "97"; };
   hardware = {
     trackpoint.enable = true;
     trackpoint.device="TPPS/2 Elan TrackPoint";
