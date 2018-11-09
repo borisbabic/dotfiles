@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+alias work_displays="xrandr --output DP2-8 --above eDP1 --output DP2-1 --right-of DP2-8"
+
