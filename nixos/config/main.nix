@@ -116,7 +116,7 @@ in {
   services.printing.enable = true;
   services.printing.drivers = [pkgs.gutenprintBin];
   services.njuskalo = {
-    enable = true;
+    enable = false;
     email.username = "novaplatforma@gmail.com";
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
