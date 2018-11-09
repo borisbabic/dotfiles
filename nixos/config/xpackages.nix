@@ -18,6 +18,7 @@ let
   ];
   editors = with pkgs; [
 
+    vscode
     atom
     vimHugeX
 
