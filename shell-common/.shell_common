@@ -76,13 +76,10 @@ if [ -d $CUSTOM_COMPOSER_HOME ]; then
 fi
 
 #install npm programs as the user
-#should run:
-#npm config set prefix $CUSTOM_NPM_HOME
 CUSTOM_NPM_HOME=~/programs/npm
 CUSTOM_NPM_BIN=$CUSTOM_NPM_HOME/bin
-if [ -d $CUSTOM_NPM_BIN ]; then
-    export PATH=$PATH:$CUSTOM_NPM_BIN
-fi
+export NPM_CONFIG_PREFIX=$CUSTOM_NPM_HOME
+export PATH=$PATH:$CUSTOM_NPM_BIN
 
 #for yarn global programs
 #should run:

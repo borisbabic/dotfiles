@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
-alias work_displays="xrandr --output DP2-8 --above eDP1 --output DP2-1 --right-of DP2-8"
+
+if [ -z "$SKILLSEED_LOCATION" ]; then
+    export SKILLSEED_LOCATION="$HOME/mantro/projects/skillseed";
+fi
+alias skillseed='cd $SKILLSEED_LOCATION';
+alias sss='cd $SKILLSEED_LOCATION/server';
+alias ssf='cd $SKILLSEED_LOCATION/frontend';
 

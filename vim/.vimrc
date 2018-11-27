@@ -54,6 +54,12 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'tomtom/tlib_vim'
 
+"typescript
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'Quramy/tsuquyomi'
+
+
 "Plugin 'xolox/vim-easytags'
 "Plugin 'xolox/vim-misc'
 
