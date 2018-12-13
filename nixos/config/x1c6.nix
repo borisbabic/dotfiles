@@ -80,6 +80,10 @@
     bluez = pkgs.bluez5;
   };
 
+  swapDevices = [{
+    device = "/var/swapfile";
+    size = 16384;
+  }];
   powerManagement = {
     enable = true;
     /*cpuFreqGovernor = "powersave"; #should be like ondemand*/
