@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-alias work_displays="xrandr --output DP1-8 --auto --above eDP1 --output DP1-1 --auto --right-of DP1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
+#alias work_displays="xrandr --output DP1-8 --auto --above eDP1 --output DP1-1 --auto --right-of DP1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
+alias work_displays="xrandr --output DP1-8 --auto --above eDP1; xrandr --output DP1-1 --auto --right-of DP1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
 alias create_qhd_mode='xrandr --newmode "2560x1440_55" 220.812 2560 2608 2640 2720 1440 1443 1448 1478 -hsync -vsync '
 alias add_qhd_mode_to_hdmi1="xrandr --addmode HDMI1 2560x1440_55 ";
 alias qhd_mode='create_qhd_mode ; add_qhd_mode_to_hdmi1 ; xrandr --output HDMI1 --mode 2560x1440_55';
