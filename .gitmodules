@@ -3,4 +3,4 @@
 	url = https://github.com/copycat-killer/lain
 [submodule "nixos/nixpkgs"]
 	path = nixos/nixpkgs
-	url = https://github.com/borisbabic/nixpkgs
+	url = ssh://git@github.com/borisbabic/nixpkgs

@@ -37,6 +37,13 @@ in {
     postman
     docker_compose
     gitAndTools.pre-commit
+    miraclecast
+    steam
+    obs-studio
+    ngrok
+    jq
+    skype
+    discord
   ];
   imports =
     [
@@ -52,6 +59,9 @@ in {
 #wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;
   };
+
+  hardware.opengl.driSupport32Bit = true; # for steam
+  hardware.pulseaudio.support32Bit = true; # for steam
 
 # Select internationalisation properties.
   i18n = {
@@ -114,7 +124,9 @@ in {
     localuser = "root";
   };
   services.printing.enable = true;
-  services.printing.drivers = [pkgs.gutenprintBin];
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+  services.printing.drivers = [ pkgs.gutenprintBin ];
   services.njuskalo = {
     enable = false;
     email.username = "novaplatforma@gmail.com";
@@ -151,6 +163,7 @@ in {
     };
   };
   programs.qt5ct.enable = true;
+  programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
      "samba-3.6.25"
