@@ -41,6 +41,13 @@
     #"iwlwifi.power_save=0" # turn off power saving, hopefully| modinfo: enable WiFi power management (default: disable) (bool)
     #"iwlmvm.power_scheme=1" # greater power for wifi |modinfo: power management scheme: 1-active, 2-balanced, 3-low power, default: 2 (int)
     #"cfg80211.ieee80211_regdom=US" # set US wifi regulatory domain, to allow 30 dbm, hopefully|enable WiFi power management (default: disable) (bool)
+    "i915.enable_dc=1"
+    "i915.enable_fbc=1"
+    "i915.semaphores=1"
+    "i915.enable_dp_mst=1"
+    "i915.enable_guc=3"
+    "intel_iommu=igfx_off"
+
   ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
@@ -53,7 +60,7 @@
   };
 
 
-  # services.undervolt = { enable = true; coreOffset = "-130"; gpuOffset = "-30"; temp = "97"; };
+   services.undervolt = { enable = true; coreOffset = "-100"; temp = "97"; };
   hardware = {
     trackpoint.enable = true;
     trackpoint.device="TPPS/2 Elan TrackPoint";
