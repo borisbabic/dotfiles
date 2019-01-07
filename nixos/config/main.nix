@@ -6,6 +6,9 @@
 
 let
   secrets = import ./secrets.nix;
+  openPorts = [
+    5900 # virtscreen vnc
+  ];
 in {
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
@@ -39,11 +42,14 @@ in {
     gitAndTools.pre-commit
     miraclecast
     steam
-    obs-studio
+    #obs-studio
     ngrok
     jq
     skype
     discord
+    #virtscreen
+    #arandr # for use with virtscreen
+    hexchat
   ];
   imports =
     [
@@ -58,6 +64,8 @@ in {
     hostName = "nixos"; # Define your hostname.
 #wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;
+    firewall.allowedUDPPorts = openPorts;
+    firewall.allowedTCPPorts = openPorts;
   };
 
   hardware.opengl.driSupport32Bit = true; # for steam
@@ -87,10 +95,10 @@ in {
     };
   };
 
-  services.unclutter = {
-    enable = true;
-    package = pkgs.unclutter-xfixes;
-  };
+  #services.unclutter = {
+    #enable = true;
+    #package = pkgs.unclutter-xfixes;
+  #};
 
 #Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.boris = {
@@ -139,9 +147,9 @@ in {
     };
   };
 
-  virtualisation.virtualbox = {
-    host.enable =  true;
-  };
+  #virtualisation.virtualbox = {
+    #host.enable =  true;
+  #};
   /*virtualisation.libvirtd = {*/
     /*enable = true;*/
     /*enableKVM = true;*/
