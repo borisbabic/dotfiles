@@ -5,6 +5,7 @@
         jetbrains.datagrip
         _1password
         heroku
+        postgresql
     ];
 
 }
