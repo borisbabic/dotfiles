@@ -122,6 +122,7 @@ in {
   };
 
   programs = {
+    mtr.enable = true;
     zsh.enable = true;
     java = {
       enable = true;

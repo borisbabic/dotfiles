@@ -74,7 +74,6 @@ in
     aspell #spellcheck, usefull with emacs
     aspellDicts.en
     lshw
-    mtr
     multitail
     neovim
     nmap
