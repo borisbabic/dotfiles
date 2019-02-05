@@ -139,14 +139,12 @@ in {
   services.avahi.nssmdns = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
   services.njuskalo = {
-    enable = false;
+    enable = true;
     email.username = "novaplatforma@gmail.com";
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
     urls = {
-      stanNajamDonji = "http://www.njuskalo.hr/iznajmljivanje-stanova?locationId=1250&price[max]=500";
-      stanNajamPesenica = "http://www.njuskalo.hr/iznajmljivanje-stanova?locationId=1256&price[max]=500";
-      stanNajamTrnje = "http://www.njuskalo.hr/iznajmljivanje-stanova?locationId=1263&price[max]=500";
+      monitor1440p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1440";
     };
   };
 
