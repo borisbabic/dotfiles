@@ -51,6 +51,7 @@ in {
     #arandr # for use with virtscreen
     hexchat
     google-chrome-beta
+    dropbox
   ];
   imports =
     [
