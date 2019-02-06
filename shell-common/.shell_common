@@ -164,6 +164,7 @@ alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --stand
 alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
 alias try="nix-shell -p " # todo make into function
 alias nixpkgs="cd $(get_nixpkgs_location); ";
+alias dc="docker-compose ";
 
 #### typo aliases
 alias got="git "
