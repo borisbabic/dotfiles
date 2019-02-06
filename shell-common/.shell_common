@@ -145,6 +145,12 @@ function to_lower {
     echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
 }
 
+function get_nixpkgs_location {
+    DEFAULT='/etc/nixos/nixpkgs';
+    FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/');
+    [ -d "$FROM_NIX_PATH" ] && echo "$FROM_NIX_PATH" || echo "$DEFAULT";
+}
+
 #### aliases
 alias pgrep="pgrep -l"
 alias uzbl="uzbl-tabbed"
@@ -156,6 +162,7 @@ alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'"
 alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
 alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'"
 alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
+alias nixpkgs="cd $(get_nixpkgs_location); ";
 
 #### typo aliases
 alias got="git "
