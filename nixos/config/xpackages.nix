@@ -32,6 +32,7 @@ let
   ];
   utilities = with pkgs; [
 
+    arandr
     bluedevil
     hplip
     lxqt.pcmanfm-qt
