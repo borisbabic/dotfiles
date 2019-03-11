@@ -36,7 +36,6 @@ let
     python27Packages.pyyaml
     python36Packages.pip
     python36Packages.setuptools
-    python36Packages.django_2_0
   ];
   gstreamerPlugins = with pkgs; [
 
