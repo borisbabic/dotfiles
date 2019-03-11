@@ -144,7 +144,10 @@ in {
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
     urls = {
-      monitor1440p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1440";
+      monitorLcd1440p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1440";
+      monitorLcd1600p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1600";
+      monitorLed1440p = "https://www.njuskalo.hr/led-monitori?locationId=1153&screenResolution=2560-x-1440";
+      monitorLed1600p = "https://www.njuskalo.hr/led-monitori?locationId=1153&screenResolution=2560-x-1600";
     };
   };
 
