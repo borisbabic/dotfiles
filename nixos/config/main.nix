@@ -6,6 +6,14 @@
 
 let
   secrets = import ./secrets.nix;
+  master-nixpkgs = import (pkgs.fetchFromGitHub {
+    owner = "nixos";
+    repo = "nixpkgs";
+    rev = "006a699e693da92bc9f31775a7e0825a33a5063c";
+    sha256 = "107zlpwiqarpn4klmklrps28b77k9azqiax3vvf584zh60ccwpjv";
+  }) {
+    config.allowUnfree = true;
+  };
   openPorts = [
     5900 # virtscreen vnc
   ];
@@ -46,7 +54,7 @@ in {
     ngrok
     jq
     skype
-    discord
+    master-nixpkgs.discord
     #virtscreen
     #arandr # for use with virtscreen
     hexchat
