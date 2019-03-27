@@ -173,7 +173,7 @@ in {
     /*};*/
   };
   fonts = {
-    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab ];
+    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab pkgs.emojione ];
     fontconfig = {
       defaultFonts = {
         monospace = ["Source Code Pro for Powerline" "Roboto Mono for Powerline"];
