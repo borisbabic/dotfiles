@@ -6,6 +6,8 @@
         _1password
         heroku
         postgresql
+        gnugpg
     ];
+    programs.gnupg.agent.enable = true;
 
 }
