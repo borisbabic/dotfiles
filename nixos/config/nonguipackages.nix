@@ -32,10 +32,10 @@ let
   ];
 
   pythonPkgs = with pkgs; [
-    python27Packages.pip
-    python27Packages.pyyaml
-    python36Packages.pip
-    python36Packages.setuptools
+    python2Packages.pip
+    python2Packages.pyyaml
+    python3Packages.pip
+    python3Packages.setuptools
   ];
   gstreamerPlugins = with pkgs; [
 
@@ -80,7 +80,7 @@ in
     p7zip
     parted
     patchelf
-    python35Packages.youtube-dl
+    python3Packages.youtube-dl
     rsync
     shared_mime_info
     speedtest-cli
