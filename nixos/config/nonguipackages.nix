@@ -3,7 +3,7 @@ let
   languages = with pkgs; [
 
     jre
-    nodejs-8_x
+    nodejs-10_x
     php
     python
     python36Full
