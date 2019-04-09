@@ -5,8 +5,8 @@
         jetbrains.datagrip
         _1password
         heroku
-        postgresql
-        gnugpg
+        postgresql_10
+        gnupg
     ];
     programs.gnupg.agent.enable = true;
 
