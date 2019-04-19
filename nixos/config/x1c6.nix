@@ -44,7 +44,7 @@
     "i915.enable_dc=1"
     "i915.enable_fbc=1"
     "i915.semaphores=1"
-    "i915.enable_dp_mst=1"
+    "i915.enable_dp_mst=0" # disable daisy chain, had issues at work
     "i915.enable_guc=3"
     "intel_iommu=igfx_off"
 
