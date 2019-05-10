@@ -4,7 +4,7 @@
     xdg_utils
     xorg.xev # 
     xorg.xkill
-    compton
+    #compton
   ];
 
   services.xserver = {
@@ -13,8 +13,11 @@
     xkbOptions = "caps:escape";
     displayManager.sddm.enable = true;
     /*displayManager.slim.defaultUser = "boris";*/
-    /*displayManager.slim.enable = true;*/
-    /*displayManager.slim.defaultUser = "boris";*/
+    #displayManager.slim.enable = true;
+    #displayManager.slim.defaultUser = "boris";
+    #desktopManager.pantheon.enable = true;
+    #desktopManager.xfce.enable = true;
+    #desktopManager.mate.enable = true;
     windowManager.awesome = {
       enable = true;
       #package = pkgs.awesome-3-5;

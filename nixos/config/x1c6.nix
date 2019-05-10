@@ -29,8 +29,8 @@
     '';
 
   };
-  #services.thermald.enable = true;
-  /*services.thinkfan.enable = true;*/
+  services.thermald.enable = true;
+  #services.thinkfan.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
   boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "intel-rapl" ];
