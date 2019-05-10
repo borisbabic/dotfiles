@@ -2,7 +2,6 @@
 {
   environment.systemPackages = with pkgs; [
     xdg_utils
-    xorg.xbacklight
     xorg.xev # 
     xorg.xkill
     compton

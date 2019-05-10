@@ -5,6 +5,7 @@
     xorg.xf86inputsynaptics 
     iw
     wirelesstools
+    acpilight #brightness
   ];
   services.xserver.dpi = 128;
   services.xserver.libinput.enable=true;
@@ -74,7 +75,7 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-
+    brightnessctl.enable = true;
   };
   nixpkgs.config.packageOverrides = pkgs: {
     bluez = pkgs.bluez5;
