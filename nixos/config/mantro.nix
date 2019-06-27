@@ -7,6 +7,7 @@
         heroku
         postgresql_10
         gnupg
+        google-cloud-sdk
     ];
     programs.gnupg.agent.enable = true;
 
