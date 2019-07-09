@@ -50,7 +50,7 @@ in {
     gitAndTools.pre-commit
     miraclecast
     steam
-    #obs-studio
+    obs-studio
     ngrok
     jq
     skype
@@ -60,6 +60,9 @@ in {
     hexchat
     google-chrome-beta
     dropbox
+    transmission-gtk
+
+    et # very simple timer
   ];
   imports =
     [
@@ -120,6 +123,8 @@ in {
       "sonarr"
       "transmission"
       "docker"
+      "video" # for brightness
+      "input" # keyboard backlight
     ]; 
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
@@ -147,15 +152,12 @@ in {
   services.avahi.nssmdns = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
   services.njuskalo = {
-    enable = true;
+    enable = false;
     email.username = "novaplatforma@gmail.com";
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
     urls = {
-      monitorLcd1440p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1440";
-      monitorLcd1600p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1600";
-      monitorLed1440p = "https://www.njuskalo.hr/led-monitori?locationId=1153&screenResolution=2560-x-1440";
-      monitorLed1600p = "https://www.njuskalo.hr/led-monitori?locationId=1153&screenResolution=2560-x-1600";
+      ps4proRabljeno  = "https://www.njuskalo.hr/?ctl=search_ads&keywords=playstation 4 pro&categoryId=12943&price[max]=1500&condition[used]=1";
     };
   };
 
@@ -173,7 +175,7 @@ in {
     /*};*/
   };
   fonts = {
-    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab ];
+    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab pkgs.emojione ];
     fontconfig = {
       defaultFonts = {
         monospace = ["Source Code Pro for Powerline" "Roboto Mono for Powerline"];

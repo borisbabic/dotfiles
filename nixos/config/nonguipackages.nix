@@ -3,7 +3,7 @@ let
   languages = with pkgs; [
 
     jre
-    nodejs-8_x
+    nodejs-10_x
     php
     python
     python36Full
@@ -17,13 +17,6 @@ let
     go
     glide #package manager
   ];
-  phpExtensions = with pkgs; [
-    "${php72Packages.redis}/lib/php/extensions/redis.so"
-  ];
-  phpPkgs = with pkgs; [
-    php72Packages.xdebug
-    php71Packages.composer
-  ];
   nodePkgs = with pkgs; [
 
     nodePackages.bower
@@ -32,10 +25,11 @@ let
   ];
 
   pythonPkgs = with pkgs; [
-    python27Packages.pip
-    python27Packages.pyyaml
-    python36Packages.pip
-    python36Packages.setuptools
+    python2Packages.pip
+    python2Packages.pyyaml
+    python3Packages.pip
+    python3Packages.setuptools
+    python3Packages.twine # for publishing/updating packages: twine upload dist/*
   ];
   gstreamerPlugins = with pkgs; [
 
@@ -48,11 +42,6 @@ let
  
 in 
 {
-  nixpkgs.config.phpOptions.extension = phpExtensions;
-  nixpkgs.config.enablePHP = true;
-  services.phpfpm.phpOptions = ''
-    extension=${pkgs.phpPackages.redis}/lib/php/extensions/redis.so
-  '';
   environment.systemPackages = with pkgs; [
 
     #beets
@@ -80,7 +69,7 @@ in
     p7zip
     parted
     patchelf
-    python35Packages.youtube-dl
+    python3Packages.youtube-dl
     rsync
     shared_mime_info
     speedtest-cli
@@ -97,6 +86,6 @@ in
     which
     zsh
 
-  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
 }
 

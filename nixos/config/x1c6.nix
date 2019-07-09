@@ -5,6 +5,7 @@
     xorg.xf86inputsynaptics 
     iw
     wirelesstools
+    acpilight #brightness
   ];
   services.xserver.dpi = 128;
   services.xserver.libinput.enable=true;
@@ -28,8 +29,8 @@
     '';
 
   };
-  #services.thermald.enable = true;
-  /*services.thinkfan.enable = true;*/
+  services.thermald.enable = true;
+  #services.thinkfan.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
   boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "intel-rapl" ];
@@ -44,7 +45,7 @@
     "i915.enable_dc=1"
     "i915.enable_fbc=1"
     "i915.semaphores=1"
-    "i915.enable_dp_mst=1"
+    "i915.enable_dp_mst=0" # disable daisy chain, had issues at work
     "i915.enable_guc=3"
     "intel_iommu=igfx_off"
 
@@ -74,7 +75,7 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-
+    brightnessctl.enable = true;
   };
   nixpkgs.config.packageOverrides = pkgs: {
     bluez = pkgs.bluez5;
