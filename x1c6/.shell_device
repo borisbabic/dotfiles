@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #alias work_displays="xrandr --output DP1-8 --auto --above eDP1 --output DP1-1 --auto --right-of DP1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
 #alias work_displays="xrandr --output DP1-8 --auto --above eDP1; xrandr --output DP1-1 --auto --right-of DP1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
-alias work_displays="xrandr --output DP-1-8 --auto --above eDP-1; xrandr --output DP-1-1 --auto --right-of DP-1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
+alias work_displays="xrandr --output DP-2 --auto --above eDP-1; xrandr --output HDMI-1 --auto --right-of DP-2";  #todo make it check for DP1 or DP2 so I can plug it in wherever
+alias semi_old_displays="xrandr --output DP-1-8 --auto --above eDP-1; xrandr --output DP-1-1 --auto --right-of DP-1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
 alias old_work_displays="xrandr --output DP1-8 --auto --above eDP1; xrandr --output DP1-1 --auto --right-of DP1-8";  #todo make it check for DP1 or DP2 so I can plug it in wherever
 alias standing_work_displays="xrandr --output HDMI-1 --auto --above eDP-1";  
 alias old_standing_work_displays="xrandr --output HDMI1 --auto --above eDP1";  
