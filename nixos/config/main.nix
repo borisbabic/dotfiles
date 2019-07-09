@@ -50,7 +50,7 @@ in {
     gitAndTools.pre-commit
     miraclecast
     steam
-    #obs-studio
+    obs-studio
     ngrok
     jq
     skype
@@ -61,6 +61,8 @@ in {
     google-chrome-beta
     dropbox
     transmission-gtk
+
+    et # very simple timer
   ];
   imports =
     [
