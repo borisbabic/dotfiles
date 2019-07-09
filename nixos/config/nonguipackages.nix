@@ -17,13 +17,6 @@ let
     go
     glide #package manager
   ];
-  phpExtensions = with pkgs; [
-    "${php72Packages.redis}/lib/php/extensions/redis.so"
-  ];
-  phpPkgs = with pkgs; [
-    php72Packages.xdebug
-    php71Packages.composer
-  ];
   nodePkgs = with pkgs; [
 
     nodePackages.bower
@@ -49,11 +42,6 @@ let
  
 in 
 {
-  nixpkgs.config.phpOptions.extension = phpExtensions;
-  nixpkgs.config.enablePHP = true;
-  services.phpfpm.phpOptions = ''
-    extension=${pkgs.phpPackages.redis}/lib/php/extensions/redis.so
-  '';
   environment.systemPackages = with pkgs; [
 
     #beets
@@ -98,6 +86,6 @@ in
     which
     zsh
 
-  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
 }
 
