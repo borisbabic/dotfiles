@@ -63,6 +63,11 @@ in {
     transmission-gtk
 
     et # very simple timer
+
+    numix-gtk-theme
+    numix-sx-gtk-theme
+    numix-icon-theme
+    numix-cursor-theme
   ];
   imports =
     [
