@@ -2,6 +2,8 @@
 let 
   languages = with pkgs; [
 
+    elmPackages.elm
+    elixir
     jre
     nodejs-10_x
     php
@@ -9,6 +11,9 @@ let
     python36Full
     ruby
     scala
+  ];
+  elmPkgs = with pkgs.elmPackages; [
+    elm-format
   ];
   haskellPkgs = with pkgs; [
     ghc
@@ -18,10 +23,8 @@ let
     glide #package manager
   ];
   nodePkgs = with pkgs; [
-
     nodePackages.bower
     nodePackages.grunt-cli
-
   ];
 
   pythonPkgs = with pkgs; [
@@ -86,6 +89,6 @@ in
     which
     zsh
 
-  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ [] ;
 }
 
