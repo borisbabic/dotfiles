@@ -76,6 +76,7 @@ in {
         ./nonguipackages.nix
         ./xpackages.nix
         ./custom_packages/njuskalo-service.nix
+        #./boris.nix
     ];
 
   networking = {
@@ -130,6 +131,7 @@ in {
       "docker"
       "video" # for brightness
       "input" # keyboard backlight
+      "adbusers"
     ]; 
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
