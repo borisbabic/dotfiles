@@ -43,7 +43,7 @@ in {
     jshon
     vimPlugins.Jenkinsfile-vim-syntax
     thefuck
-    viber
+    # viber
     openvpn
     postman
     docker_compose
