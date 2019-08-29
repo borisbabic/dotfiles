@@ -100,6 +100,7 @@ local clock =
         widget:set_markup(" " .. markup.font(theme.font, stdout))
     end
 )
+clock.icon = clockicon
 
 -- Calendar
 theme.cal =
@@ -115,7 +116,7 @@ theme.cal =
 )
 
 -- Mail IMAP check
-local mailicon = wibox.widget.imagebox(theme.widget_mail)
+-- local mailicon = wibox.widget.imagebox(theme.widget_mail)
 --[[ commented because it needs to be set before use
 mailicon:buttons(my_table.join(awful.button({ }, 1, function () awful.spawn(mail) end)))
 theme.mail = lain.widget.imap({
@@ -135,64 +136,65 @@ theme.mail = lain.widget.imap({
 })
 --]]
 -- MPD
-local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
-local mpdicon = wibox.widget.imagebox(theme.widget_music)
-mpdicon:buttons(
-    my_table.join(
-        awful.button(
-            {modkey},
-            1,
-            function()
-                awful.spawn.with_shell(musicplr)
-            end
-        ),
-        awful.button(
-            {},
-            1,
-            function()
-                os.execute("mpc prev")
-                theme.mpd.update()
-            end
-        ),
-        awful.button(
-            {},
-            2,
-            function()
-                os.execute("mpc toggle")
-                theme.mpd.update()
-            end
-        ),
-        awful.button(
-            {},
-            3,
-            function()
-                os.execute("mpc next")
-                theme.mpd.update()
-            end
-        )
-    )
-)
-theme.mpd =
-    lain.widget.mpd(
-    {
-        settings = function()
-            if mpd_now.state == "play" then
-                artist = " " .. mpd_now.artist .. " "
-                title = mpd_now.title .. " "
-                mpdicon:set_image(theme.widget_music_on)
-            elseif mpd_now.state == "pause" then
-                artist = " mpd "
-                title = "paused "
-            else
-                artist = ""
-                title = ""
-                mpdicon:set_image(theme.widget_music)
-            end
+-- local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
+-- local mpdicon = wibox.widget.imagebox(theme.widget_music)
+-- mpdicon:buttons(
+--     my_table.join(
+--         awful.button(
+--             {modkey},
+--             1,
+--             function()
+--                 awful.spawn.with_shell(musicplr)
+--             end
+--         ),
+--         awful.button(
+--             {},
+--             1,
+--             function()
+--                 os.execute("mpc prev")
+--                 theme.mpd.update()
+--             end
+--         ),
+--         awful.button(
+--             {},
+--             2,
+--             function()
+--                 os.execute("mpc toggle")
+--                 theme.mpd.update()
+--             end
+--         ),
+--         awful.button(
+--             {},
+--             3,
+--             function()
+--                 os.execute("mpc next")
+--                 theme.mpd.update()
+--             end
+--         )
+--     )
+-- )
+-- theme.mpd =
+--     lain.widget.mpd(
+--     {
+--         settings = function()
+--             if mpd_now.state == "play" then
+--                 artist = " " .. mpd_now.artist .. " "
+--                 title = mpd_now.title .. " "
+--                 mpdicon:set_image(theme.widget_music_on)
+--             elseif mpd_now.state == "pause" then
+--                 artist = " mpd "
+--                 title = "paused "
+--             else
+--                 artist = ""
+--                 title = ""
+--                 mpdicon:set_image(theme.widget_music)
+--             end
 
-            widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
-        end
-    }
-)
+--             widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
+--         end
+--     }
+-- )
+-- theme.mpd.icon = mpdicon
 
 -- MEM
 local memicon = wibox.widget.imagebox(theme.widget_mem)
@@ -204,6 +206,7 @@ local mem =
         end
     }
 )
+mem.icon = memicon
 
 -- CPU
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
@@ -215,6 +218,7 @@ local cpu =
         end
     }
 )
+cpu.icon = cpuicon
 
 -- Coretemp
 local tempicon = wibox.widget.imagebox(theme.widget_temp)
@@ -226,9 +230,10 @@ local temp =
         end
     }
 )
+temp.icon = tempicon
 
 -- / fs
-local fsicon = wibox.widget.imagebox(theme.widget_hdd)
+-- local fsicon = wibox.widget.imagebox(theme.widget_hdd)
 --[[ commented because it needs Gio/Glib >= 2.54
 theme.fs = lain.widget.fs({
     notification_preset = { fg = theme.fg_normal, bg = theme.bg_normal, font = "xos4 Terminus 10" },
@@ -270,6 +275,7 @@ local bat =
         timeout = 1
     }
 )
+bat.icon = baticon
 
 -- ALSA volume
 local volicon = wibox.widget.imagebox(theme.widget_vol)
@@ -292,6 +298,7 @@ theme.volume =
         timeout = 1
     }
 )
+theme.volume.icon = volicon
 
 -- Net
 local neticon = wibox.widget.imagebox(theme.widget_net)
@@ -308,6 +315,7 @@ local net =
         end
     }
 )
+net.icon = neticon
 
 -- Separators
 local spr = wibox.widget.textbox(" ")
@@ -395,32 +403,14 @@ function theme.at_screen_connect(s)
         s.mytasklist, -- Middle widget
         widgets.get_right_widgets(
             {
-                {
-                    volicon,
-                    theme.volume.widget
-                },
-                -- {
-                --     memicon,
-                --     mem.widget
-                -- },
-                {
-                    cpuicon,
-                    cpu.widget
-                },
-                {
-                    tempicon,
-                    temp.widget
-                },
-                {
-                    baticon,
-                    bat.widget
-                },
-                {
-                    neticon,
-                    net.widget
-                },
-                {clock},
-                {s.mylayoutbox}
+                theme.volume,
+                mem,
+                cpu,
+                temp,
+                bat,
+                net,
+                clock,
+                s.mylayoutbox
             },
             arrl_dl,
             arrl_ld,
