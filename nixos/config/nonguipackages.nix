@@ -1,8 +1,6 @@
 { config, pkgs, ... }:
 let 
   languages = with pkgs; [
-
-    elmPackages.elm
     elixir
     jre
     nodejs-10_x
@@ -13,6 +11,7 @@ let
     scala
   ];
   elmPkgs = with pkgs.elmPackages; [
+    elm
     elm-format
   ];
   haskellPkgs = with pkgs; [
@@ -33,6 +32,10 @@ let
     python3Packages.pip
     python3Packages.setuptools
     python3Packages.twine # for publishing/updating packages: twine upload dist/*
+  ];
+  luaPkgs = with pkgs.lua52Packages; [
+    lua
+    luacheck
   ];
   gstreamerPlugins = with pkgs; [
 
@@ -90,6 +93,6 @@ in
     which
     zsh
 
-  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ [] ;
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ [] ;
 }
 
