@@ -206,6 +206,7 @@ in {
   nix.nixPath = [
     "nixpkgs=/etc/nixos/nixpkgs/"
     "nixos-config=/etc/nixos/configuration.nix"
+    "nixpkgs-overlays=/etc/nixos/config/overlays-compat/" # https://nixos.wiki/wiki/Overlays#Using_nixpkgs.overlays_from_configuration.nix_as_.3Cnixpkgs-overlays.3E_in_your_NIX_PATH
   ];
   boot.cleanTmpDir = true;
 }
