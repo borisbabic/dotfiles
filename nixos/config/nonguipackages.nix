@@ -60,6 +60,13 @@ in
     evtest #inupt event debugging, like touchpad values
     exa # better ls
     exfat
+
+    #   _                      _            _     _       _          _   _     _     
+    #  | |_ _   _ _ __ _ __   | |_ _____  _| |_  (_)_ __ | |_ ___   | |_| |__ (_)___ 
+    #  | __| | | | '__| '_ \  | __/ _ \ \/ / __| | | '_ \| __/ _ \  | __| '_ \| / __|
+    #  | |_| |_| | |  | | | | | ||  __/>  <| |_  | | | | | || (_) | | |_| | | | \__ \
+    #   \__|\__,_|_|  |_| |_|  \__\___/_/\_\\__| |_|_| |_|\__\___/   \__|_| |_|_|___/
+    figlet # see above
     file
     fzf #fuzzy search
     gcc
@@ -71,6 +78,7 @@ in
     aspell #spellcheck, usefull with emacs
     aspellDicts.en
     lshw
+    lolcat # fabulously color output
     multitail
     neovim
     nmap
