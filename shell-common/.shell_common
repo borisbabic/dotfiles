@@ -145,6 +145,10 @@ function to_lower {
     echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
 }
 
+function fabsay {
+    echo "$@" | figlet | lolcat;
+}
+
 function get_nixpkgs_location {
     DEFAULT='/etc/nixos/nixpkgs';
     FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/');
