@@ -52,11 +52,13 @@ in
   environment.systemPackages = with pkgs; [
 
     #beets
+    bat # better cat
     cloc 
     coreutils
     cpufrequtils
     emacs
     evtest #inupt event debugging, like touchpad values
+    exa # better ls
     exfat
     file
     fzf #fuzzy search
