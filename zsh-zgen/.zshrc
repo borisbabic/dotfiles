@@ -5,10 +5,6 @@ SAVEHIST=10000000
 setopt appendhistory autocd extendedglob
 bindkey -e
 
-if [ -f ~/.shell_common ]; then #common stuff, environment (path/editor) aliases and functions
-    . ~/.shell_common
-fi
-
 #ALIASES
 alias killbg='kill ${${(v)jobstates##*:*:}%=*}' # http://stackoverflow.com/questions/13166544/how-to-kill-all-background-processes-in-zsh
 
@@ -43,3 +39,7 @@ fi
 
 
 autoload -U zmv
+
+if [ -f ~/.shell_common ]; then #common stuff, environment (path/editor) aliases and functions
+    . ~/.shell_common
+fi
