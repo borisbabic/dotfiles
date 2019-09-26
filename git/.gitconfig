@@ -1,9 +1,12 @@
 [user]
 	name = Boris Babic
 	email = boris.ivan.babic@gmail.com
+	signingkey = F7A4497FFCBFB479
 [core]
 	excludesfile = ~/.gitignore
 [alias]
 	chekcout = checkout
 [init]
 	templateDir = ~/.git_template
+[commit]
+	gpgsign = true
