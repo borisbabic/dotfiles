@@ -12,12 +12,12 @@
     (self: super: {
       awesome-git = super.awesome.overrideAttrs (old: rec {
         name = "awesome-git";
-        version = "git-20190825-f1335be2";
+        version = "git-20191019-0297bff"; # last checked 2019-11-06
         src = super.fetchFromGitHub {
           owner = "awesomeWM";
           repo = "awesome";
-          rev = "f1335be21ad0cbca90c63d9a25982904b966ac65";
-          sha256 = "1v5d4cx1jbhfk5zdccmvcaiypsly607s1ydf80y3hl5iyilnrh3n";
+          rev = "0297bfff9ad88535fd9302fdb7d9b11459d6b1b4";
+          sha256 = "1ss272n0k65chjg9m4yfyzljm60gga5p1dw97lqfw5i4kbsgi80r";
         };
       });
     })
