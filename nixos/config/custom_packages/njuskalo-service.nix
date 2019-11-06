@@ -18,7 +18,7 @@ let
       tqdm
     ];
 
-    meta = with stdenv.lib; {
+    meta = with lib; {
       description = "njuskalo.hr scraper that alerts when new ads matching given filters appear";
       homepage = https://github.com/mratkovic/njuskalo-notifier/;
       license = licenses.mit;
