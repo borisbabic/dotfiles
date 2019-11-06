@@ -61,6 +61,7 @@ in
     exa # better ls
     exfat
 
+    fd # find alternative
     #   _                      _            _     _       _          _   _     _     
     #  | |_ _   _ _ __ _ __   | |_ _____  _| |_  (_)_ __ | |_ ___   | |_| |__ (_)___ 
     #  | __| | | | '__| '_ \  | __/ _ \ \/ / __| | | '_ \| __/ _ \  | __| '_ \| / __|
@@ -87,13 +88,14 @@ in
     parted
     patchelf
     python3Packages.youtube-dl
+    pwgen # generate password
     rsync
     shared_mime_info
     speedtest-cli
     sqlite
     sshfs-fuse
     stow
-    stress
+    stress # stress test
     tmux
     traceroute
     unrar
@@ -104,5 +106,6 @@ in
     zsh
 
   ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ [] ;
+  services.atd.enable = true;
 }
 
