@@ -194,7 +194,7 @@ in {
       };
     };
   };
-  programs.qt5ct.enable = true;
+  # programs.qt5ct.enable = true;
   programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
