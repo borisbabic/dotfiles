@@ -159,12 +159,12 @@ in {
   services.avahi.nssmdns = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
   services.njuskalo = {
-    enable = false;
+    enable = true;
     email.username = "novaplatforma@gmail.com";
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
     urls = {
-      ps4proRabljeno  = "https://www.njuskalo.hr/?ctl=search_ads&keywords=playstation 4 pro&categoryId=12943&price[max]=1500&condition[used]=1";
+      switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price%5Bmin%5D=700&price%5Bmax%5D=1400&condition%5Bnew%5D=1&condition%5Bused%5D=1";
     };
   };
 
