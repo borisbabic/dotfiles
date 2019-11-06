@@ -68,6 +68,9 @@ in {
     numix-sx-gtk-theme
     numix-icon-theme
     numix-cursor-theme
+
+    neofetch
+
   ];
   imports =
     [

@@ -34,10 +34,11 @@ let
 
     arandr
     bluedevil
+    flameshot # screenshot
     hplip
     lxqt.pcmanfm-qt
     pavucontrol
-    scrot
+    scrot # screenshot
     simple-scan
     wmctrl
     xbindkeys # for stuff in ~/.xbindkeys used for awesomewm
@@ -61,6 +62,7 @@ in
   environment.systemPackages = with pkgs; if config.services.xserver.enable then [
 
     calibre
+    deluge
     gimp
     libreoffice
     pidgin
