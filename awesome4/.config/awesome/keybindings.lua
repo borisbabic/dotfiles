@@ -19,8 +19,12 @@ local scrlocker     = "xscreensaver-command -lock"
 local globalkeys = my_table.join(
     -- Take a screenshot
     -- t
-    awful.key({ altkey }, "p", function() os.execute("scrot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({ altkey }, "p", function() awful.util.spawn("flameshot full -p /home/boris/Pictures/screenshots") end,
+              {description = "take a screenshot of all screens", group = "hotkeys"}),
+    awful.key({ altkey, "Control" }, "p", function() awful.util.spawn("flameshot screen -p /home/boris/Pictures/screenshots") end,
+              {description = "take a screenshot of the current screen", group = "hotkeys"}),
+    awful.key({  }, "Print", function() awful.util.spawn("flameshot gui -p /home/boris/Pictures/screenshots") end,
+              {description = "take a screenshot in the gui", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "Delete", function () os.execute(scrlocker) end,
