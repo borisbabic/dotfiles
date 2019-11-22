@@ -39,8 +39,8 @@ theme.titlebar_bg = theme.xcolor0
 theme.tasklist_bg_focus = theme.xcolor0
 
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
--- theme.wallpaper = theme.dir .. "/wall.png"
-theme.wallpaper = theme.dir .. "/uldum-wall.png"
+theme.wallpaper = theme.dir .. "/wall.png"
+-- theme.wallpaper = theme.dir .. "/uldum-wall.png"
 theme.font = "xos4 Terminus 12"
 theme.border_width = 1
 theme.titlebar_bg_focus = theme.bg_focus
