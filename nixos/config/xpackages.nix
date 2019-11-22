@@ -51,7 +51,8 @@ let
   wineStuff = with pkgs; [
 
     #playonlinux
-    wineWowPackages.staging
+    (wineWowPackages.staging.override { vulkanSupport = true; vkd3dSupport = true; })
+    # wineWowPackages.staging
     winetricks
     #xorg_sys_opengl #for playonlinux
 
