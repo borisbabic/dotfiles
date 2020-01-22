@@ -89,6 +89,8 @@ if [ -d $CUSTOM_YARN_BIN ]; then
     export PATH=$PATH:$CUSTOM_YARN_BIN
 fi
 
+export ERL_AFLAGS="-kernel shell_history enabled" # enable history in iex
+
 ####thefuck
 
 #if thefuck exists create the alias

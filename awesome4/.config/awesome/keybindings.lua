@@ -8,6 +8,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table
 local lain          = require("lain")
 local util          = require("util")
+local wip           = require("wip")
 local modkey        = "Mod4"
 local altkey        = "Mod1"
 local terminal      = "terminator"
@@ -19,12 +20,19 @@ local scrlocker     = "xscreensaver-command -lock"
 local globalkeys = my_table.join(
     -- Take a screenshot
     -- t
-    awful.key({ altkey }, "p", function() os.execute("scrot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({ altkey }, "p", function() awful.util.spawn("flameshot full -p /home/boris/Pictures/screenshots") end,
+              {description = "take a screenshot of all screens", group = "hotkeys"}),
+    awful.key({ altkey, "Control" }, "p", function() awful.util.spawn("flameshot screen -p /home/boris/Pictures/screenshots") end,
+              {description = "take a screenshot of the current screen", group = "hotkeys"}),
+    awful.key({  }, "Print", function() awful.util.spawn("flameshot gui -p /home/boris/Pictures/screenshots") end,
+              {description = "take a screenshot in the gui", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "Delete", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
+    -- For testing stuff
+    awful.key({ modkey, "Shift" }, "t",        wip.test,
+              {description = "run a test of something that's wip", group="awesome"}),
 
     -- Hotkeys
     awful.key({ modkey, "Control" }, "s",      hotkeys_popup.show_help,
@@ -240,12 +248,12 @@ local globalkeys = my_table.join(
             beautiful.volume.update()
         end,
         {description = "toggle mute", group = "hotkeys"}),
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume 100%", group = "hotkeys"}),
+    --awful.key({ altkey, "Control" }, "m",
+        --function ()
+            --os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
+            --beautiful.volume.update()
+        --end,
+        --{description = "volume 100%", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "0",
         function ()
             os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
