@@ -248,12 +248,12 @@ local globalkeys = my_table.join(
             beautiful.volume.update()
         end,
         {description = "toggle mute", group = "hotkeys"}),
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end,
-        {description = "volume 100%", group = "hotkeys"}),
+    --awful.key({ altkey, "Control" }, "m",
+        --function ()
+            --os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
+            --beautiful.volume.update()
+        --end,
+        --{description = "volume 100%", group = "hotkeys"}),
     awful.key({ altkey, "Control" }, "0",
         function ()
             os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
