@@ -31,12 +31,10 @@ in {
     stack
 
     #thefuck
+    jetbrains.rider
     jetbrains.idea-ultimate
     gradle
     maven
-    /*elmPackages.elm*/
-    /*elmPackages.elm-package*/
-    /*elmPackages.elm-format*/
     yarn #node pacakge manager
     nomad
     shellcheck

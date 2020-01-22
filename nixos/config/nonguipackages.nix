@@ -45,6 +45,10 @@ let
     gst_plugins_ugly
 
   ];
+  dotnetPackages = with pkgs.dotnetCorePackages; [
+    sdk_3_1
+    #sdk_2_2
+  ];
  
 in 
 {
@@ -105,7 +109,8 @@ in
     which
     zsh
 
-  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ [] ;
+    mono
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ dotnetPackages ++ [] ;
   services.atd.enable = true;
 }
 
