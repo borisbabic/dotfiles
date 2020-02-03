@@ -25,7 +25,6 @@ local lain = require("lain")
 --                       require("awful.hotkeys_popup.keys")
 local keybindings = require("keybindings")
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
-require("wip")
 
 -- }}}
 
