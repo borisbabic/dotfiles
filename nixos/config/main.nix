@@ -31,12 +31,10 @@ in {
     stack
 
     #thefuck
+    jetbrains.rider
     jetbrains.idea-ultimate
     gradle
     maven
-    /*elmPackages.elm*/
-    /*elmPackages.elm-package*/
-    /*elmPackages.elm-format*/
     yarn #node pacakge manager
     nomad
     shellcheck
@@ -70,6 +68,7 @@ in {
     numix-cursor-theme
 
     neofetch
+    tdesktop
 
   ];
   imports =
@@ -162,12 +161,12 @@ in {
   services.avahi.nssmdns = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
   services.njuskalo = {
-    enable = true;
+    enable = false;
     email.username = "novaplatforma@gmail.com";
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
     urls = {
-      switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price%5Bmin%5D=700&price%5Bmax%5D=1400&condition%5Bnew%5D=1&condition%5Bused%5D=1";
+      switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price[min]=700&price[max]=1400&condition[new]=1&condition[used]=1";
     };
   };
 

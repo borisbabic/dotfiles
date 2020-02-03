@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let 
   languages = with pkgs; [
+    erlang
     elixir
     jre
     nodejs-10_x
@@ -11,8 +12,8 @@ let
     scala
   ];
   elmPkgs = with pkgs.elmPackages; [
-    elm
-    elm-format
+    # elm
+    # elm-format
   ];
   haskellPkgs = with pkgs; [
     ghc
@@ -32,6 +33,8 @@ let
     python3Packages.pip
     python3Packages.setuptools
     python3Packages.twine # for publishing/updating packages: twine upload dist/*
+    python3Packages.pylint
+    python3Packages.autopep8
   ];
   luaPkgs = with pkgs.lua52Packages; [
     lua
@@ -44,6 +47,10 @@ let
     gst_plugins_good
     gst_plugins_ugly
 
+  ];
+  dotnetPackages = with pkgs.dotnetCorePackages; [
+    sdk_3_1
+    #sdk_2_2
   ];
  
 in 
@@ -105,7 +112,8 @@ in
     which
     zsh
 
-  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ [] ;
+    mono
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ dotnetPackages ++ [] ;
   services.atd.enable = true;
 }
 
