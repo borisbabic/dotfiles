@@ -8,7 +8,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table
 local lain          = require("lain")
 local util          = require("util")
-local wip           = require("wip")
+-- local wip           = require("wip")
 local modkey        = "Mod4"
 local altkey        = "Mod1"
 local terminal      = "terminator"
@@ -31,8 +31,8 @@ local globalkeys = my_table.join(
     awful.key({ altkey, "Control" }, "Delete", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
     -- For testing stuff
-    awful.key({ modkey, "Shift" }, "t",        wip.test,
-              {description = "run a test of something that's wip", group="awesome"}),
+    -- awful.key({ modkey, "Shift" }, "t",        wip.test,
+    --           {description = "run a test of something that's wip", group="awesome"}),
 
     -- Hotkeys
     awful.key({ modkey, "Control" }, "s",      hotkeys_popup.show_help,
