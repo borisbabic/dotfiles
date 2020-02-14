@@ -16,7 +16,7 @@ let
     # elm-format
   ];
   haskellPkgs = with pkgs; [
-    ghc
+    # ghc # takes a lot of space and I don't use it
   ];
   goPkgs = with pkgs; [
     go
@@ -88,6 +88,7 @@ in
     lshw
     lolcat # fabulously color output
     multitail
+    ncdu # du cli browser
     neovim
     nmap
     nox
