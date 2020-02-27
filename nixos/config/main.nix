@@ -92,12 +92,13 @@ in {
   hardware.opengl.driSupport32Bit = true; # for steam
   hardware.pulseaudio.support32Bit = true; # for steam
 
+  console.font = "Lat2-Terminus16"
 # Select internationalisation properties.
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
+  # i18n = {
+    # consoleFont = "Lat2-Terminus16";
 #   consoleKeyMap = "us";
 #   defaultLocale = "en_US.UTF-8";
-  };
+  # };
 
 # Set your time zone.
   time.timeZone = "Europe/Sarajevo";

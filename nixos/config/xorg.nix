@@ -35,7 +35,7 @@
     #desktopManager.mate.enable = true;
     windowManager.awesome = {
       enable = true;
-      package = pkgs.awesome-git;
+      # package = pkgs.awesome-git;
       #package = pkgs.callPackage ./custom_packages/awesome3.5.nix {
         #cairo = pkgs.cairo.override { xcbSupport = true; };
       #};
