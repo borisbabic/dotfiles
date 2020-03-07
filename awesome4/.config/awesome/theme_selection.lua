@@ -39,7 +39,8 @@ theme.titlebar_bg = theme.xcolor0
 theme.tasklist_bg_focus = theme.xcolor0
 
 theme.dir = os.getenv("HOME") .. "/.config/awesome"
-theme.wallpaper = theme.dir .. "/wall.png"
+theme.wallpaper = theme.dir .. "/nixos-nord.svg"
+-- theme.wallpaper = theme.dir .. "/nord_nixos.png"
 -- theme.wallpaper = theme.dir .. "/uldum-wall.png"
 theme.font = "xos4 Terminus 12"
 theme.border_width = 1
