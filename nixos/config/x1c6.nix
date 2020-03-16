@@ -5,6 +5,7 @@
     xorg.xf86inputsynaptics 
     iw
     wirelesstools
+    brightnessctl
     acpilight #brightness
   ];
   services.xserver.dpi = 128;
@@ -29,11 +30,12 @@
     '';
 
   };
+  services.throttled.enable = true; # testing out, taken from the nixos-hardware repo
   services.thermald.enable = true;
   #services.thinkfan.enable = true;
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.extraModulePackages = [ config.boot.kernelPackages.acpi_call ];
-  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" "intel-rapl" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+  boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" ];
   boot.kernelParams = [
     # "nopti" # disable meltdown fixes
     "mitigations=off" # disable fixes for meltdown, spectre and co
@@ -47,7 +49,7 @@
     # "i915.enable_fbc=1" # on for power saving
     # "i915.semaphores=1" # not avialbe?
     "i915.enable_dp_mst=0" # disable daisy chain, had issues at work
-    "i915.enable_guc=2" # see https://wiki.archlinux.org/index.php/Intel_graphics#Enable_GuC_/_HuC_firmware_loading
+    # "i915.enable_guc=2" # see https://wiki.archlinux.org/index.php/Intel_graphics#Enable_GuC_/_HuC_firmware_loading # experienced some freezing so removed
     "intel_iommu=igfx_off" # disable passthrough for VMs or something like that
 
   ];
@@ -75,7 +77,6 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    brightnessctl.enable = true;
   };
   nixpkgs.config.packageOverrides = pkgs: {
     bluez = pkgs.bluez5;
