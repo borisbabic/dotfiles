@@ -4,17 +4,17 @@
     acpi
     xorg.xf86inputsynaptics 
   ];
-  services.xserver.synaptics = {
-    accelFactor = "0.4";
-    enable = true;
-    horizEdgeScroll = true;
-    palmDetect = true;
-    tapButtons = true;
-    vertTwoFingerScroll = true;
-    vertEdgeScroll = true;
-    buttonsMap = [ 1 3 2 ];
-    fingersMap = [ 1 2 3 ];
-  };
+  #services.xserver.synaptics = {
+    #accelFactor = "0.4";
+    #enable = true;
+    #horizEdgeScroll = true;
+    #palmDetect = true;
+    #tapButtons = true;
+    #vertTwoFingerScroll = true;
+    #vertEdgeScroll = true;
+    #buttonsMap = [ 1 3 2 ];
+    #fingersMap = [ 1 2 3 ];
+  #};
 
   boot.loader.grub = pkgs.lib.mkForce {
 	  enable = true;
