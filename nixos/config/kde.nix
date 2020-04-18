@@ -8,6 +8,7 @@
     kdeApplications.kdenetwork-filesharing
     kdeApplications.okular
     kdeApplications.spectacle
+    yakuake
     kdeconnect
     kdeFrameworks.karchive
     kdeFrameworks.kcmutils

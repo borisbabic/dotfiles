@@ -17,11 +17,13 @@ You should clone the repository in your home folder. After that you enter the re
 For nixos see [here](nixos)
 
 ## Packages with their own documentation
-- [awesome3.5](awesome3.5)
+- [awesome4](awesome4) NOT USED ANYMORE
+- [awesome3.5](awesome3.5) NOT USED ANYMORE
 - [nixos](nixos)
 
 ## Outdated packages
 List of packages I don't use anymore
+- [awesome3.5](awesome3.5)
 - awesome3.4
 - vim-janus
 - zsh-antigen

@@ -6,6 +6,14 @@
 
 let
   secrets = import ./secrets.nix;
+  #master-nixpkgs = import (pkgs.fetchFromGitHub {
+    #owner = "nixos";
+    #repo = "nixpkgs";
+    #rev = "006a699e693da92bc9f31775a7e0825a33a5063c";
+    #sha256 = "107zlpwiqarpn4klmklrps28b77k9azqiax3vvf584zh60ccwpjv";
+  #}) {
+    #config.allowUnfree = true;
+  #};
   openPorts = [
     5900 # virtscreen vnc
   ];
@@ -20,29 +28,25 @@ in {
     #texlive.combined.scheme-full #pandoc
     texlive.combined.scheme-small
 
-    stack
-
     #thefuck
+    jetbrains.rider
     jetbrains.idea-ultimate
     gradle
     maven
-    /*elmPackages.elm*/
-    /*elmPackages.elm-package*/
-    /*elmPackages.elm-format*/
     yarn #node pacakge manager
     nomad
     shellcheck
     jshon
     vimPlugins.Jenkinsfile-vim-syntax
     thefuck
-    viber
+    # viber
     openvpn
     postman
     docker_compose
     gitAndTools.pre-commit
     miraclecast
     steam
-    #obs-studio
+    obs-studio
     ngrok
     jq
     skype
@@ -52,6 +56,18 @@ in {
     hexchat
     google-chrome-beta
     dropbox
+    transmission-gtk
+
+    et # very simple timer
+
+    numix-gtk-theme
+    numix-sx-gtk-theme
+    numix-icon-theme
+    numix-cursor-theme
+
+    neofetch
+    tdesktop
+
   ];
   imports =
     [
@@ -60,6 +76,7 @@ in {
         ./nonguipackages.nix
         ./xpackages.nix
         ./custom_packages/njuskalo-service.nix
+        #./boris.nix
     ];
 
   networking = {
@@ -73,12 +90,13 @@ in {
   hardware.opengl.driSupport32Bit = true; # for steam
   hardware.pulseaudio.support32Bit = true; # for steam
 
+  console.font = "Lat2-Terminus16";
 # Select internationalisation properties.
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
+  # i18n = {
+    # consoleFont = "Lat2-Terminus16";
 #   consoleKeyMap = "us";
 #   defaultLocale = "en_US.UTF-8";
-  };
+  # };
 
 # Set your time zone.
   time.timeZone = "Europe/Sarajevo";
@@ -112,6 +130,9 @@ in {
       "sonarr"
       "transmission"
       "docker"
+      "video" # for brightness
+      "input" # keyboard backlight
+      "adbusers"
     ]; 
     uid = 1000;
     shell = "/run/current-system/sw/bin/zsh";
@@ -139,12 +160,12 @@ in {
   services.avahi.nssmdns = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
   services.njuskalo = {
-    enable = true;
+    enable = false;
     email.username = "novaplatforma@gmail.com";
     email.password = secrets.novaplatformaPassword;
     email.recipient = "boris.ivan.babic@gmail.com";
     urls = {
-      monitor1440p = "https://www.njuskalo.hr/lcd-monitori?locationId=1153&screenResolution=2560-x-1440";
+      switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price[min]=700&price[max]=1400&condition[new]=1&condition[used]=1";
     };
   };
 
@@ -162,7 +183,7 @@ in {
     /*};*/
   };
   fonts = {
-    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab ];
+    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab pkgs.emojione ];
     fontconfig = {
       defaultFonts = {
         monospace = ["Source Code Pro for Powerline" "Roboto Mono for Powerline"];
@@ -171,7 +192,7 @@ in {
       };
     };
   };
-  programs.qt5ct.enable = true;
+  # programs.qt5ct.enable = true;
   programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
@@ -186,6 +207,7 @@ in {
   nix.nixPath = [
     "nixpkgs=/etc/nixos/nixpkgs/"
     "nixos-config=/etc/nixos/configuration.nix"
+    "nixpkgs-overlays=/etc/nixos/config/overlays-compat/" # https://nixos.wiki/wiki/Overlays#Using_nixpkgs.overlays_from_configuration.nix_as_.3Cnixpkgs-overlays.3E_in_your_NIX_PATH
   ];
   boot.cleanTmpDir = true;
 }

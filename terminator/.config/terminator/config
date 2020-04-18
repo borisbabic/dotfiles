@@ -33,11 +33,11 @@
 [profiles]
   [[default]]
     allow_bold = False
-    background_color = "#2e3440"
+    background_color = "#282f37"
     cursor_color = "#D8DEE9"
     font = Source Code Pro for Powerline 10
-    foreground_color = "#d8dee9"
-    palette = "#3b4252:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#88c0d0:#e5e9f0:#4c566a:#bf616a:#a3be8c:#ebcb8b:#81a1c1:#b48ead:#8fbcbb:#eceff4"
+    foreground_color = "#f1fcf9"
+    palette = "#20262c:#db86ba:#74dd91:#e49186:#75dbe1:#b4a1db:#9ee9ea:#f1fcf9:#465463:#d04e9d:#4bc66d:#db695b:#3dbac2:#825ece:#62cdcd:#e0e5e5"
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False

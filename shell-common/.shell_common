@@ -27,6 +27,10 @@ for CANDIDATE_BROWSER in "${POTENTIAL_BROWSERS[@]}"; do
     fi
 done
 
+if [ -d ~/bin ]; then
+    export PATH=$PATH:~/bin
+fi
+
 if [ -d ~/.local/bin ]; then
     export PATH=$PATH:~/.local/bin
 fi
@@ -89,6 +93,8 @@ if [ -d $CUSTOM_YARN_BIN ]; then
     export PATH=$PATH:$CUSTOM_YARN_BIN
 fi
 
+export ERL_AFLAGS="-kernel shell_history enabled" # enable history in iex
+
 ####thefuck
 
 #if thefuck exists create the alias
@@ -145,6 +151,10 @@ function to_lower {
     echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
 }
 
+function fabsay {
+    echo "$@" | figlet | lolcat;
+}
+
 function get_nixpkgs_location {
     DEFAULT='/etc/nixos/nixpkgs';
     FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/');
@@ -157,17 +167,23 @@ alias uzbl="uzbl-tabbed"
 alias rebootstop="startstop stop -c reboot"
 alias flushswap="sudo swapoff -a && sudo swapon -a"
 alias vup="vagrant up --no-parallel"
-alias upowerbat="upower -i /org/freedesktop/UPower/devices/battery_BAT0 "
-alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'"
-alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
-alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'"
-alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
+alias upowerbat="upower -i /org/freedesktop/UPower/devices/battery_BAT0 ";
+# shellcheck disable=SC2142
+alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'";
+# shellcheck disable=SC2142
+alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"; 
+# shellcheck disable=SC2142
+alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'";
+# shellcheck disable=SC2142
+alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'";
 alias try="nix-shell -p " # todo make into function
-alias nixpkgs="cd $(get_nixpkgs_location); ";
+alias nixpkgs='cd "$(get_nixpkgs_location)"; ';
 alias dc="docker-compose ";
+alias dir="exa -lah --git ";
+alias ll="dir";
 
 #### typo aliases
-alias got="git "
+alias got="git ";
 
 if [ -f ~/.shell_work ]; then #work specific stuff
     . ~/.shell_work

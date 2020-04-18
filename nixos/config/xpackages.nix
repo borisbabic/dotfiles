@@ -32,11 +32,13 @@ let
   ];
   utilities = with pkgs; [
 
+    arandr
     bluedevil
+    flameshot # screenshot
     hplip
     lxqt.pcmanfm-qt
     pavucontrol
-    scrot
+    scrot # screenshot
     simple-scan
     wmctrl
     xbindkeys # for stuff in ~/.xbindkeys used for awesomewm
@@ -48,10 +50,11 @@ let
   ];
   wineStuff = with pkgs; [
 
-    playonlinux
-    wineWowPackages.staging
+    #playonlinux
+    (wineWowPackages.staging.override { vulkanSupport = true; vkd3dSupport = true; })
+    # wineWowPackages.staging
     winetricks
-    xorg_sys_opengl #for playonlinux
+    #xorg_sys_opengl #for playonlinux
 
   ];
 
@@ -60,6 +63,7 @@ in
   environment.systemPackages = with pkgs; if config.services.xserver.enable then [
 
     calibre
+    deluge
     gimp
     libreoffice
     pidgin

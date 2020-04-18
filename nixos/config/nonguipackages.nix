@@ -1,42 +1,44 @@
 { config, pkgs, ... }:
 let 
   languages = with pkgs; [
-
+    erlang
+    elixir
     jre
-    nodejs-8_x
+    nodejs-10_x
     php
     python
     python36Full
     ruby
     scala
   ];
+  elmPkgs = with pkgs.elmPackages; [
+    # elm
+    # elm-format
+  ];
   haskellPkgs = with pkgs; [
-    ghc
+    # ghc # takes a lot of space and I don't use it
   ];
   goPkgs = with pkgs; [
     go
     glide #package manager
   ];
-  phpExtensions = with pkgs; [
-    "${php72Packages.redis}/lib/php/extensions/redis.so"
-  ];
-  phpPkgs = with pkgs; [
-    php72Packages.xdebug
-    php71Packages.composer
-  ];
   nodePkgs = with pkgs; [
-
     nodePackages.bower
     nodePackages.grunt-cli
-
   ];
 
   pythonPkgs = with pkgs; [
-    python27Packages.pip
-    python27Packages.pyyaml
-    python36Packages.pip
-    python36Packages.setuptools
-    python36Packages.django_2_0
+    python2Packages.pip
+    python2Packages.pyyaml
+    python3Packages.pip
+    python3Packages.setuptools
+    python3Packages.twine # for publishing/updating packages: twine upload dist/*
+    python3Packages.pylint
+    python3Packages.autopep8
+  ];
+  luaPkgs = with pkgs.luaPackages; [
+    lua
+    luacheck
   ];
   gstreamerPlugins = with pkgs; [
 
@@ -46,27 +48,38 @@ let
     gst_plugins_ugly
 
   ];
+  dotnetPackages = with pkgs.dotnetCorePackages; [
+    sdk_3_1
+    #sdk_2_2
+  ];
  
 in 
 {
-  nixpkgs.config.phpOptions.extension = phpExtensions;
-  nixpkgs.config.enablePHP = true;
-  services.phpfpm.phpOptions = ''
-    extension=${pkgs.phpPackages.redis}/lib/php/extensions/redis.so
-  '';
+  programs.adb.enable = true;
   environment.systemPackages = with pkgs; [
 
     #beets
+    bat # better cat
     cloc 
     coreutils
     cpufrequtils
     emacs
     evtest #inupt event debugging, like touchpad values
+    exa # better ls
     exfat
+
+    fd # find alternative
+    #   _                      _            _     _       _          _   _     _     
+    #  | |_ _   _ _ __ _ __   | |_ _____  _| |_  (_)_ __ | |_ ___   | |_| |__ (_)___ 
+    #  | __| | | | '__| '_ \  | __/ _ \ \/ / __| | | '_ \| __/ _ \  | __| '_ \| / __|
+    #  | |_| |_| | |  | | | | | ||  __/>  <| |_  | | | | | || (_) | | |_| | | | \__ \
+    #   \__|\__,_|_|  |_| |_|  \__\___/_/\_\\__| |_|_| |_|\__\___/   \__|_| |_|_|___/
+    figlet # see above
     file
     fzf #fuzzy search
     gcc
     git
+    glances # monitoring, shows more stuff than htop
     hdparm
     htop
     imagemagickBig
@@ -74,21 +87,24 @@ in
     aspell #spellcheck, usefull with emacs
     aspellDicts.en
     lshw
+    lolcat # fabulously color output
     multitail
+    ncdu # du cli browser
     neovim
     nmap
     nox
     p7zip
     parted
     patchelf
-    python35Packages.youtube-dl
+    python3Packages.youtube-dl
+    pwgen # generate password
     rsync
     shared_mime_info
     speedtest-cli
     sqlite
     sshfs-fuse
     stow
-    stress
+    stress # stress test
     tmux
     traceroute
     unrar
@@ -98,6 +114,8 @@ in
     which
     zsh
 
-  ] ++ languages ++ phpPkgs ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ [] ;
+    mono
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ dotnetPackages ++ [] ;
+  services.atd.enable = true;
 }
 
