@@ -30,6 +30,8 @@ nnoremap <C>J :action PhpGeneratePhpDocBlocks<CR>
 command FixPhp :action ReformatCode<CR>
 nnoremap <Leader>fp :action ReformatCode<CR>
 nnoremap <Leader>ic :action InspectCode<CR>
+nnoremap <Leader>mf :action Tool_External Tools_mix_format_file<CR>
+nnoremap <Leader>mfe :action Tool_External Tools_mix_format_everything<CR>
 "nnoremap <Leader><Leader><Leader> :action GotoAction<CR>
 
 nnoremap <Leader>gl :action Git.Log<CR>
