@@ -33,6 +33,9 @@
     #desktopManager.pantheon.enable = true;
     #desktopManager.xfce.enable = true;
     #desktopManager.mate.enable = true;
+    #desktopManager.gnome3.enable = true;
+    #desktopManager.lumina.enable = true;
+    desktopManager.pantheon.enable = true;
     windowManager.awesome = {
       enable = true;
       # package = pkgs.awesome-git;
@@ -40,11 +43,11 @@
         #cairo = pkgs.cairo.override { xcbSupport = true; };
       #};
     };
-    windowManager.i3 = {
-      enable = true;
-      package = pkgs.i3-gaps;
+    #windowManager.i3 = {
+      #enable = true;
+      #package = pkgs.i3-gaps;
       /*package = pkgs.i3;*/
-    };
+    #};
   };
 }
 

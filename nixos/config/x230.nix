@@ -1,20 +1,20 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     acpi
     xorg.xf86inputsynaptics 
   ];
-  services.xserver.synaptics = {
-    accelFactor = "0.4";
-    enable = true;
-    horizEdgeScroll = true;
-    palmDetect = true;
-    tapButtons = true;
-    vertTwoFingerScroll = true;
-    vertEdgeScroll = true;
-    buttonsMap = [ 1 3 2 ];
-    fingersMap = [ 1 2 3 ];
-  };
+  #services.xserver.synaptics = {
+    #accelFactor = "0.4";
+    #enable = true;
+    #horizEdgeScroll = true;
+    #palmDetect = true;
+    #tapButtons = true;
+    #vertTwoFingerScroll = true;
+    #vertEdgeScroll = true;
+    #buttonsMap = [ 1 3 2 ];
+    #fingersMap = [ 1 2 3 ];
+  #};
 
   boot.loader.grub = pkgs.lib.mkForce {
 	  enable = true;
@@ -39,14 +39,29 @@
     opengl = {
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiIntel
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
     };
 
   };
   nixpkgs.config.packageOverrides = pkgs: {
     bluez = pkgs.bluez5;
   };
-  boot.kernelModules = [ "phc-intel" ];
+  boot.kernelModules = [ "phc-intel" "acpi_call" ];
+  boot.kernelParams = [
+    "iwlwifi.11n_disable=1"
+    "iwlwifi.11n_disable50=1"
+    "iwlwifi.power_level=5"
+    "iwlwifi.power_save=0"
+  ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
 
+  services.xserver.deviceSection = lib.mkDefault ''
+    Option "TearFree" "true"
+  '';
 
   powerManagement = {
     enable = true;

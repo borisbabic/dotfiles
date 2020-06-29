@@ -28,8 +28,6 @@ in {
     #texlive.combined.scheme-full #pandoc
     texlive.combined.scheme-small
 
-    stack
-
     #thefuck
     jetbrains.rider
     jetbrains.idea-ultimate
@@ -92,7 +90,7 @@ in {
   hardware.opengl.driSupport32Bit = true; # for steam
   hardware.pulseaudio.support32Bit = true; # for steam
 
-  console.font = "Lat2-Terminus16"
+  console.font = "Lat2-Terminus16";
 # Select internationalisation properties.
   # i18n = {
     # consoleFont = "Lat2-Terminus16";

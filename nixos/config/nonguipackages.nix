@@ -36,7 +36,7 @@ let
     python3Packages.pylint
     python3Packages.autopep8
   ];
-  luaPkgs = with pkgs.lua52Packages; [
+  luaPkgs = with pkgs.luaPackages; [
     lua
     luacheck
   ];
@@ -79,6 +79,7 @@ in
     fzf #fuzzy search
     gcc
     git
+    glances # monitoring, shows more stuff than htop
     hdparm
     htop
     imagemagickBig
