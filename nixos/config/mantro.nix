@@ -8,6 +8,7 @@
         postgresql_10
         gnupg
         google-cloud-sdk
+        zoom-us
     ];
     programs.gnupg.agent.enable = true;
 

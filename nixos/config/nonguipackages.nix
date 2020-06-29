@@ -34,7 +34,7 @@ let
     python3Packages.setuptools
     python3Packages.twine # for publishing/updating packages: twine upload dist/*
     python3Packages.pylint
-    python3Packages.autopep8
+    # python3Packages.autopep8
   ];
   luaPkgs = with pkgs.luaPackages; [
     lua
@@ -67,6 +67,7 @@ in
     evtest #inupt event debugging, like touchpad values
     exa # better ls
     exfat
+    expect # provides unbuffer which allows you to do something like `unbuffer command | tee file` and preserve color
 
     fd # find alternative
     #   _                      _            _     _       _          _   _     _     
@@ -93,7 +94,7 @@ in
     neovim
     nmap
     nox
-    p7zip
+    # p7zip abandoned
     parted
     patchelf
     python3Packages.youtube-dl
@@ -115,6 +116,7 @@ in
     zsh
 
     mono
+    vulkan-tools
   ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ dotnetPackages ++ [] ;
   services.atd.enable = true;
 }

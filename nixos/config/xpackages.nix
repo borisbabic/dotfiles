@@ -26,7 +26,6 @@ let
   media = with pkgs; [
 
     clementine
-    kodi
     vlc
 
   ];
@@ -35,7 +34,7 @@ let
     arandr
     bluedevil
     flameshot # screenshot
-    hplip
+    # hplip TEMP
     lxqt.pcmanfm-qt
     pavucontrol
     scrot # screenshot
@@ -51,8 +50,8 @@ let
   wineStuff = with pkgs; [
 
     #playonlinux
-    (wineWowPackages.staging.override { vulkanSupport = true; vkd3dSupport = true; })
-    # wineWowPackages.staging
+    #(wineWowPackages.staging.override { vulkanSupport = true; vkd3dSupport = true; })
+    wineWowPackages.staging
     winetricks
     #xorg_sys_opengl #for playonlinux
 
@@ -62,7 +61,7 @@ in
 {
   environment.systemPackages = with pkgs; if config.services.xserver.enable then [
 
-    calibre
+    # calibre TEMP
     deluge
     gimp
     libreoffice

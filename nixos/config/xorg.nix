@@ -35,7 +35,7 @@
     #desktopManager.mate.enable = true;
     #desktopManager.gnome3.enable = true;
     #desktopManager.lumina.enable = true;
-    desktopManager.pantheon.enable = true;
+    # desktopManager.pantheon.enable = true;
     windowManager.awesome = {
       enable = true;
       # package = pkgs.awesome-git;

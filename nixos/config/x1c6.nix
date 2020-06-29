@@ -23,7 +23,7 @@
   };
 
   services.tlp = {
-    enable = true;
+    # enable = true; TEMP
     extraConfig = ''
       CPU_SCALING_GOVERNOR_ON_AC=powersave
       CPU_SCALING_GOVERNOR_ON_BAT=powersave
@@ -33,7 +33,8 @@
   services.throttled.enable = true; # testing out, taken from the nixos-hardware repo
   services.thermald.enable = true;
   #services.thinkfan.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_4_14;
   boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   boot.initrd.kernelModules = ["acpi" "thinkpad-acpi" "acpi-call" ];
   boot.kernelParams = [
@@ -71,9 +72,16 @@
       package = pkgs.pulseaudioFull; #for bluetooth, i think
       enable = true;
       support32Bit = true;
+      #extraConfig = ''
+      #[Profile output:a2dp_sink+input:headset_head_unit]
+      #description = A2dp output and headset input
+      #output-mappings = a2dp_sink
+      #input-mappings = headset_head_unit
+      #'';
     };
     bluetooth.enable = true;
     opengl = {
+      enable = true;
       driSupport = true;
       driSupport32Bit = true;
     };
