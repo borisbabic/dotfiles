@@ -22,11 +22,14 @@ in {
     #for testing stuff, otherwise put it in an import
 
     vokoscreen #screencast
+    barrier
 
     pandoc #document converter
     #tetex #used with pandoc for creating pdfs
     #texlive.combined.scheme-full #pandoc
     texlive.combined.scheme-small
+
+    dict
 
     #thefuck
     jetbrains.idea-ultimate
@@ -66,6 +69,10 @@ in {
 
     neofetch
     tdesktop
+    ntfs3g
+    pulseaudio-dlna
+    ag
+    ripgrep
 
   ];
   imports =
@@ -75,6 +82,7 @@ in {
         ./nonguipackages.nix
         ./xpackages.nix
         ./custom_packages/njuskalo-service.nix
+        ./direnv.nix
         #./boris.nix
     ];
 
@@ -89,7 +97,7 @@ in {
   hardware.opengl.driSupport32Bit = true; # for steam
   hardware.pulseaudio.support32Bit = true; # for steam
 
-  console.font = "Lat2-Terminus16";
+  #console.font = "Lat2-Terminus16";
 # Select internationalisation properties.
   # i18n = {
     # consoleFont = "Lat2-Terminus16";
@@ -114,6 +122,7 @@ in {
     };
   };
 
+  services.ratbagd.enable = true;
   #services.unclutter = {
     #enable = true;
     #package = pkgs.unclutter-xfixes;

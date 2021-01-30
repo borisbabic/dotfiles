@@ -40,12 +40,11 @@ let
     lua
     luacheck
   ];
-  gstreamerPlugins = with pkgs; [
-
-    gst_plugins_bad
-    gst_plugins_base
-    gst_plugins_good
-    gst_plugins_ugly
+  gstreamerPlugins = with pkgs.gst_all_1; [
+    gst-plugins-bad
+    gst-plugins-base #removed?
+    gst-plugins-good
+    gst-plugins-ugly
 
   ];
   dotnetPackages = with pkgs.dotnetCorePackages; [
@@ -117,6 +116,10 @@ in
 
     mono
     vulkan-tools
+
+    gnupg
+    heroku
+    postgresql
   ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ dotnetPackages ++ [] ;
   services.atd.enable = true;
 }
