@@ -29,8 +29,8 @@ in {
     texlive.combined.scheme-small
 
     #thefuck
-    jetbrains.rider
     jetbrains.idea-ultimate
+    jetbrains.idea-community
     gradle
     maven
     yarn #node pacakge manager
@@ -55,7 +55,6 @@ in {
     #arandr # for use with virtscreen
     hexchat
     google-chrome-beta
-    dropbox
     transmission-gtk
 
     et # very simple timer
@@ -196,7 +195,8 @@ in {
   programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
-     "samba-3.6.25"
+    "samba-3.6.25"
+    "p7zip-16.02"
    ];
   boot.kernel.sysctl = {
     "vm.swappiness" = 11;

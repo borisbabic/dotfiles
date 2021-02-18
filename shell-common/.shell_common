@@ -19,13 +19,13 @@ else
 fi
 
 #descending desire
-POTENTIAL_BROWSERS=("google-chrome" "chromium" "firefox");
-for CANDIDATE_BROWSER in "${POTENTIAL_BROWSERS[@]}"; do
-    if command -v $CANDIDATE_BROWSER >/dev/null 2>/dev/null; then
-        export BROWSER=$CANDIDATE_BROWSER
-        break;
-    fi
-done
+#POTENTIAL_BROWSERS=("google-chrome" "chromium" "firefox");
+#for CANDIDATE_BROWSER in "${POTENTIAL_BROWSERS[@]}"; do
+    #if command -v $CANDIDATE_BROWSER >/dev/null 2>/dev/null; then
+        #export BROWSER=$CANDIDATE_BROWSER
+        #break;
+    #fi
+#done
 
 if [ -d ~/bin ]; then
     export PATH=$PATH:~/bin
@@ -92,6 +92,12 @@ CUSTOM_YARN_BIN=$CUSTOM_YARN_HOME/bin
 if [ -d $CUSTOM_YARN_BIN ]; then
     export PATH=$PATH:$CUSTOM_YARN_BIN
 fi
+
+#DOTNET_TOOLS_DIR=~/.dotnet/tools
+#if [ -d $DOTNET_TOOLS_DIR ]; then
+	#export PATH=$PATH:$DOTNET_TOOLS_DIR
+#fi
+
 
 export ERL_AFLAGS="-kernel shell_history enabled" # enable history in iex
 
