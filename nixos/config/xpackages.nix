@@ -19,13 +19,13 @@ let
   editors = with pkgs; [
 
     vscode
-    atom
+    #atom
     vimHugeX
 
   ];
   media = with pkgs; [
 
-    clementine
+    #clementine
     vlc
 
   ];
@@ -52,7 +52,7 @@ let
     #playonlinux
     #(wineWowPackages.staging.override { vulkanSupport = true; vkd3dSupport = true; })
     wineWowPackages.staging
-    winetricks
+    #winetricks
     #xorg_sys_opengl #for playonlinux
 
   ];
@@ -73,7 +73,7 @@ in
   nixpkgs.config = {
     firefox = {
       /*enableAdobeFlash = true;*/
-      enableAdobeFlash = false;
+      #enableAdobeFlash = false;
     };
   };
 }

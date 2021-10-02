@@ -4,7 +4,7 @@ let
     erlang
     elixir
     jre
-    nodejs-10_x
+    nodejs
     php
     python
     python36Full

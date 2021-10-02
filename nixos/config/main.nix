@@ -32,8 +32,8 @@ in {
     dict
 
     #thefuck
-    jetbrains.idea-ultimate
-    jetbrains.idea-community
+    #jetbrains.idea-ultimate
+    #jetbrains.idea-community
     gradle
     maven
     yarn #node pacakge manager
@@ -48,7 +48,7 @@ in {
     docker_compose
     gitAndTools.pre-commit
     miraclecast
-    steam
+    #steam
     obs-studio
     ngrok
     jq
@@ -70,7 +70,7 @@ in {
     neofetch
     tdesktop
     ntfs3g
-    pulseaudio-dlna
+    #pulseaudio-dlna NOT BUILDING
     ag
     ripgrep
 
@@ -219,4 +219,9 @@ in {
     "nixpkgs-overlays=/etc/nixos/config/overlays-compat/" # https://nixos.wiki/wiki/Overlays#Using_nixpkgs.overlays_from_configuration.nix_as_.3Cnixpkgs-overlays.3E_in_your_NIX_PATH
   ];
   boot.cleanTmpDir = true;
+
+  networking.extraHosts =
+    ''
+      157.90.156.81 dokku
+    '';
 }

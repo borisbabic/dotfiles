@@ -33,7 +33,7 @@
       /*'';*/
       package = pkgs.pulseaudioFull; #for bluetooth, i think
       enable = true;
-      support32Bit = true;
+      support32Bit = true; 
     };
     bluetooth.enable = true;
     opengl = {
