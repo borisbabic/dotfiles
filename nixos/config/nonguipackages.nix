@@ -7,7 +7,7 @@ let
     nodejs
     php
     python
-    python36Full
+    python3Full
     ruby
     scala
   ];
@@ -99,7 +99,7 @@ in
     python3Packages.youtube-dl
     pwgen # generate password
     rsync
-    shared_mime_info
+    shared-mime-info
     speedtest-cli
     sqlite
     sshfs-fuse

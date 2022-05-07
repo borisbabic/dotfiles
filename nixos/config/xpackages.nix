@@ -67,7 +67,7 @@ in
     libreoffice
     pidgin
     slack
-    transmission_remote_gtk
+    transmission-remote-gtk
 
   ] ++ browsers ++ terminals ++ editors ++ media ++ utilities ++ wineStuff else [];
   nixpkgs.config = {

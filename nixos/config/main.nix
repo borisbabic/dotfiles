@@ -45,14 +45,14 @@ in {
     # viber
     openvpn
     postman
-    docker_compose
+    docker-compose
     gitAndTools.pre-commit
     miraclecast
     #steam
     obs-studio
     ngrok
     jq
-    skype
+    skypeforlinux
     discord
     #virtscreen
     #arandr # for use with virtscreen
@@ -71,7 +71,7 @@ in {
     tdesktop
     ntfs3g
     #pulseaudio-dlna NOT BUILDING
-    ag
+    silver-searcher
     ripgrep
 
   ];
