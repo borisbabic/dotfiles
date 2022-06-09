@@ -17,6 +17,9 @@ let
   openPorts = [
     5900 # virtscreen vnc
   ];
+  openPortRanges = [
+    { from = 1714; to = 1764; }
+  ];
 in {
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
@@ -66,6 +69,7 @@ in {
     numix-sx-gtk-theme
     numix-icon-theme
     numix-cursor-theme
+    steam
 
     neofetch
     tdesktop
@@ -73,6 +77,8 @@ in {
     #pulseaudio-dlna NOT BUILDING
     silver-searcher
     ripgrep
+    winetricks
+    protontricks
 
   ];
   imports =
@@ -92,6 +98,8 @@ in {
     networkmanager.enable = true;
     firewall.allowedUDPPorts = openPorts;
     firewall.allowedTCPPorts = openPorts;
+    firewall.allowedUDPPortRanges = openPortRanges;
+    firewall.allowedTCPPortRanges = openPortRanges;
   };
 
   hardware.opengl.driSupport32Bit = true; # for steam
