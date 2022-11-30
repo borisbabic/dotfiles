@@ -22,7 +22,7 @@
 	  device = "/dev/sda";
       useOSProber = true;
   };
-  services.tlp.enable = true;
+  #services.tlp.enable = true;
   services.thermald.enable = true;
   #services.thinkfan.enable = true;
   hardware = {

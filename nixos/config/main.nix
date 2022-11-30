@@ -100,6 +100,7 @@ in {
     firewall.allowedTCPPorts = openPorts;
     firewall.allowedUDPPortRanges = openPortRanges;
     firewall.allowedTCPPortRanges = openPortRanges;
+    nameservers = ["1.1.1.1" "8.8.8.8" "8.8.4.4" "9.9.9.9"];
   };
 
   hardware.opengl.driSupport32Bit = true; # for steam
