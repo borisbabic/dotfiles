@@ -6,7 +6,6 @@ let
     jre
     nodejs
     php
-    python
     python3Full
     ruby
     scala
@@ -28,8 +27,6 @@ let
   ];
 
   pythonPkgs = with pkgs; [
-    python2Packages.pip
-    python2Packages.pyyaml
     python3Packages.pip
     python3Packages.setuptools
     python3Packages.twine # for publishing/updating packages: twine upload dist/*

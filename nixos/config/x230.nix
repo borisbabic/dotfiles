@@ -50,14 +50,15 @@
   nixpkgs.config.packageOverrides = pkgs: {
     bluez = pkgs.bluez5;
   };
-  boot.kernelModules = [ "phc-intel" "acpi_call" ];
+  boot.kernelModules = [ "phc-intel" "acpi_call" "rtl88x2bu" ];
   boot.kernelParams = [
     "iwlwifi.11n_disable=1"
     "iwlwifi.11n_disable50=1"
     "iwlwifi.power_level=5"
     "iwlwifi.power_save=0"
   ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ acpi_call rtl88x2bu ];
+  system.stateVersion = "22.11";
 
   services.xserver.deviceSection = lib.mkDefault ''
     Option "TearFree" "true"
