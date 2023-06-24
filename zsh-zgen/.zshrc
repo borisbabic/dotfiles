@@ -43,3 +43,15 @@ autoload -U zmv
 if [ -f ~/.shell_common ]; then #common stuff, environment (path/editor) aliases and functions
     . ~/.shell_common
 fi
+
+
+if command -v direnv >/dev/null 2>/dev/null; then
+    eval "$(direnv hook zsh)"
+
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
