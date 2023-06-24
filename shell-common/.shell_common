@@ -27,6 +27,9 @@ fi
     #fi
 #done
 
+if [ -d ~/projects/hearthstone_hdt_linux/bin ]; then
+    export PATH=$PATH:~/projects/hearthstone_hdt_linux/bin
+fi
 if [ -d ~/bin ]; then
     export PATH=$PATH:~/bin
 fi
@@ -191,6 +194,7 @@ alias ll="dir";
 #### typo aliases
 alias got="git ";
 
+alias dokku="ssh -t dokku@borisbabic.top "
 if [ -f ~/.shell_work ]; then #work specific stuff
     . ~/.shell_work
 fi
