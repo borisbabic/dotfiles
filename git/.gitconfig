@@ -9,4 +9,4 @@
 [init]
 	templateDir = ~/.git_template
 [commit]
-	gpgsign = true
+	gpgsign = false

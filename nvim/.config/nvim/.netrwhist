@@ -1,8 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/boris/projects/d0nkey.top/lib'
+let g:netrw_dirhist_2='/home/boris/projects/d0nkey.top/lib/backend'
+let g:netrw_dirhist_1='/home/boris/projects/d0nkey.top/lib/backend/deck_tracker'
+let g:netrw_dirhist_0='/home/boris/projects/d0nkey.top/lib/backend'
+let g:netrw_dirhist_9='/home/boris/projects/d0nkey.top/lib/backend/deck_tracker'
+let g:netrw_dirhist_8='/etc/nixos/config'
+let g:netrw_dirhist_7='/etc/nixos/dotfiles/nixos/config'
 let g:netrw_dirhist_6='/home/boris/projects/d0nkey.top/lib'
 let g:netrw_dirhist_5='/home/boris/projects/d0nkey.top/lib/backend_web/templates/masters_tour'
 let g:netrw_dirhist_4='/home/boris/projects/d0nkey.top/lib/backend_web/templates'
-let g:netrw_dirhist_3='/home/boris/projects/d0nkey.top/lib/backend_web'
-let g:netrw_dirhist_2='/home/boris/projects/d0nkey.top/lib/backend_web/controllers'
-let g:netrw_dirhist_1='/home/boris/.config/nvim/plugged'

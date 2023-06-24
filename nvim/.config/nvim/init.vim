@@ -27,7 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 
 "languages
-Plug 'elixir-editors/vim-elixir'
+Plug 'elixir-tools/elixir-tools.nvim'
 
 Plug 'sheerun/vim-polyglot' "automatically fetch vim languages
 
