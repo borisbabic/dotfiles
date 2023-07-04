@@ -1,3 +1,14 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+-- require
+-- require
+require("luasnip.loaders.from_vscode").lazy_load({paths = "~/.config/nvim/snippets"})
+-- local ls = require('luasnip')
+-- ls.add_snippets("all", 
+--   {
+--     ls.snippet("dtop", {
+--       ls.text_node"d0nkey.top"
+--     })
+-- })
+--

@@ -14,6 +14,8 @@ require("lazy").setup({
       opts = {
         ensure_installed = {
           "elixir",
+          "surface",
+          "heex",
           "nix",
         },
       },
