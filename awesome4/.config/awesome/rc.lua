@@ -73,7 +73,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({"urxvtd", "unclutter -root", "xscreensaver -nosplash", "krunner"}) -- entries must be separated by commas
+run_once({"urxvtd", "unclutter -root", "xscreensaver -nosplash", "copyq"}) -- entries must be separated by commas
 
 -- This function implements the XDG autostart specification
 -- awful.spawn.with_shell(
