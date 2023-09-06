@@ -45,7 +45,7 @@ let
 
   ];
   dotnetPackages = with pkgs.dotnetCorePackages; [
-    sdk_3_1
+    #sdk_3_1
     #sdk_2_2
   ];
  

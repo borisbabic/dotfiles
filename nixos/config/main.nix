@@ -79,8 +79,16 @@ in {
     ripgrep
     winetricks
     protontricks
+    #soundwire
 
    microsoft-edge
+    unzip
+    gnumake
+    stylua
+    screen
+    lazygit
+    dbeaver
+    copyq
   ];
   imports =
     [
@@ -229,7 +237,7 @@ in {
     "nixpkgs-overlays=/etc/nixos/config/overlays-compat/" # https://nixos.wiki/wiki/Overlays#Using_nixpkgs.overlays_from_configuration.nix_as_.3Cnixpkgs-overlays.3E_in_your_NIX_PATH
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  boot.cleanTmpDir = true;
+  boot.tmp.cleanOnBoot = true;
 
   networking.extraHosts =
     ''
