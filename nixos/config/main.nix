@@ -98,6 +98,7 @@ in {
         ./xpackages.nix
         ./custom_packages/njuskalo-service.nix
         ./direnv.nix
+        ./hyprland.nix
         #./boris.nix
     ];
 
