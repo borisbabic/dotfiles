@@ -23,6 +23,7 @@ let
 in {
   environment.systemPackages = with pkgs; [
     #for testing stuff, otherwise put it in an import
+    nixops
 
     vokoscreen #screencast
     barrier
@@ -79,6 +80,7 @@ in {
     ripgrep
     winetricks
     protontricks
+    cloudflared
     #soundwire
 
    microsoft-edge
@@ -223,6 +225,7 @@ in {
   programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
+    "python2.7-certifi-2021.10.8"
     "samba-3.6.25"
     "p7zip-16.02"
    ];

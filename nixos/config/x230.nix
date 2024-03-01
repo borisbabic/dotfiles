@@ -23,7 +23,7 @@
   };
   #services.tlp.enable = true;
   services.thermald.enable = true;
-  #services.thinkfan.enable = true;
+  services.thinkfan.enable = true;
   hardware = {
     trackpoint.enable = true;
     pulseaudio = {

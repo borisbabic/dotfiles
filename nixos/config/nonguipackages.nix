@@ -114,6 +114,8 @@ in
     mono
     vulkan-tools
 
+    pgcli
+
     gnupg
     heroku
     postgresql
