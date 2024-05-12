@@ -1,85 +1,85 @@
 #!/usr/bin/bash
 #### Environment
-if command -v gvim >/dev/null 2>/dev/null; then
-    export VIM_COMMAND='gvim -v'
-elif command -v vim >/dev/null 2>/dev/null; then
-    export VIM_COMMAND='vim'
-elif command -v nvim >/dev/null 2>/dev/null; then
-    export VIM_COMMAND='nvim'
+if command -v nvim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='nvim'
 elif command -v neovim >/dev/null 2>/dev/null; then
-    export VIM_COMMAND='neovim'
+	export VIM_COMMAND='neovim'
+elif command -v gvim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='gvim -v'
+elif command -v vim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='vim'
 fi
 
 if [ ! -z "$VIM_COMMAND" ]; then
-    export EDITOR="$VIM_COMMAND";
+	export EDITOR="$VIM_COMMAND"
 elif command -v emacs >/dev/null 2>/dev/null; then
-    export EDITOR='emacs'
-else 
-    export EDITOR='nano';
+	export EDITOR='emacs'
+else
+	export EDITOR='nano'
 fi
 
 #descending desire
 #POTENTIAL_BROWSERS=("google-chrome" "chromium" "firefox");
 #for CANDIDATE_BROWSER in "${POTENTIAL_BROWSERS[@]}"; do
-    #if command -v $CANDIDATE_BROWSER >/dev/null 2>/dev/null; then
-        #export BROWSER=$CANDIDATE_BROWSER
-        #break;
-    #fi
+#if command -v $CANDIDATE_BROWSER >/dev/null 2>/dev/null; then
+#export BROWSER=$CANDIDATE_BROWSER
+#break;
+#fi
 #done
 
 if [ -d ~/projects/hearthstone_hdt_linux/bin ]; then
-    export PATH=$PATH:~/projects/hearthstone_hdt_linux/bin
+	export PATH=$PATH:~/projects/hearthstone_hdt_linux/bin
 fi
 if [ -d ~/bin ]; then
-    export PATH=$PATH:~/bin
+	export PATH=$PATH:~/bin
 fi
 
 if [ -d ~/.local/bin ]; then
-    export PATH=$PATH:~/.local/bin
+	export PATH=$PATH:~/.local/bin
 fi
 
 if [ -d ~/programs/bin/ ]; then
-    export PATH=$PATH:~/programs/bin
+	export PATH=$PATH:~/programs/bin
 fi
 
 #gopath and bin handling
 CUSTOM_GO_HOME=~/go
 CUSTOM_GO_BIN=$CUSTOM_GO_HOME/bin
 if [ -d $CUSTOM_GO_HOME ]; then
-    export GOPATH=$CUSTOM_GO_HOME
-    if [ -d $CUSTOM_GO_BIN ]; then
-        export PATH=$PATH:$CUSTOM_GO_BIN
-    fi
+	export GOPATH=$CUSTOM_GO_HOME
+	if [ -d $CUSTOM_GO_BIN ]; then
+		export PATH=$PATH:$CUSTOM_GO_BIN
+	fi
 fi
 
 #install python programs as the user
 CUSTOM_PIP_HOME=~/programs/pip
 CUSTOM_PIP_BIN=$CUSTOM_PIP_HOME/bin
 if [ -d $CUSTOM_PIP_HOME ]; then
-    export PYTHONUSERBASE=$CUSTOM_PIP_HOME
-    if [ -d $CUSTOM_PIP_BIN ]; then
-        export PATH=$PATH:$CUSTOM_PIP_BIN
-    fi
+	export PYTHONUSERBASE=$CUSTOM_PIP_HOME
+	if [ -d $CUSTOM_PIP_BIN ]; then
+		export PATH=$PATH:$CUSTOM_PIP_BIN
+	fi
 fi
 
 #install gem programs as the user
 CUSTOM_GEM_HOME=~/programs/gem
 CUSTOM_GEM_BIN=$CUSTOM_GEM_HOME/bin
 if [ -d $CUSTOM_GEM_HOME ]; then
-    export GEM_HOME=$CUSTOM_GEM_HOME
-    if [ -d $CUSTOM_GEM_BIN ]; then
-        export PATH=$PATH:$CUSTOM_GEM_BIN
-    fi
+	export GEM_HOME=$CUSTOM_GEM_HOME
+	if [ -d $CUSTOM_GEM_BIN ]; then
+		export PATH=$PATH:$CUSTOM_GEM_BIN
+	fi
 fi
 
 #install composer programs as the user
 CUSTOM_COMPOSER_HOME=~/programs/composer
 CUSTOM_COMPOSER_BIN=$CUSTOM_COMPOSER_HOME/vendor/bin
 if [ -d $CUSTOM_COMPOSER_HOME ]; then
-    export COMPOSER_HOME=$CUSTOM_COMPOSER_HOME
-    if [ -d $CUSTOM_COMPOSER_BIN ]; then
-        export PATH=$PATH:$CUSTOM_COMPOSER_BIN
-    fi
+	export COMPOSER_HOME=$CUSTOM_COMPOSER_HOME
+	if [ -d $CUSTOM_COMPOSER_BIN ]; then
+		export PATH=$PATH:$CUSTOM_COMPOSER_BIN
+	fi
 fi
 
 #install npm programs as the user
@@ -93,81 +93,78 @@ export PATH=$PATH:$CUSTOM_NPM_BIN
 CUSTOM_YARN_HOME=~/.yarn
 CUSTOM_YARN_BIN=$CUSTOM_YARN_HOME/bin
 if [ -d $CUSTOM_YARN_BIN ]; then
-    export PATH=$PATH:$CUSTOM_YARN_BIN
+	export PATH=$PATH:$CUSTOM_YARN_BIN
 fi
 
 #DOTNET_TOOLS_DIR=~/.dotnet/tools
 #if [ -d $DOTNET_TOOLS_DIR ]; then
-	#export PATH=$PATH:$DOTNET_TOOLS_DIR
+#export PATH=$PATH:$DOTNET_TOOLS_DIR
 #fi
-
 
 export ERL_AFLAGS="-kernel shell_history enabled" # enable history in iex
 
 ####thefuck
 
 #if thefuck exists create the alias
-type thefuck > /dev/null && eval "$(thefuck --alias)"
-alias bitch="fuck";
-alias repent="fuck";
+type thefuck >/dev/null && eval "$(thefuck --alias)"
+alias bitch="fuck"
+alias repent="fuck"
 
 #### functions
 
 function mdcd {
-    mkdir -p $@
-    for last; do true; done
-    cd $last
+	mkdir -p $@
+	for last; do true; done
+	cd $last
 }
 
 function get_container_name {
-    matching=$(docker ps | awk '{ print($NF)}' | grep $1)
-    num=$(echo $matching | wc -l | xargs);
-    if [ "$num" -ne "1" ]; then
-        return 1;
-    else
-        echo $matching;
-    fi
+	matching=$(docker ps | awk '{ print($NF)}' | grep $1)
+	num=$(echo $matching | wc -l | xargs)
+	if [ "$num" -ne "1" ]; then
+		return 1
+	else
+		echo $matching
+	fi
 }
 
 function dx {
-    container_arg=$1
-    container=$(get_container_name $1)
-    if [ -z "$container" ]; then
-        echo "Couldn't find the correct container. Ensure it's running or try to be more specific";
-        return;
-    fi
-    shift #removes container
-    to_exec="$@"
-    if [ -z "$to_exec" ]; then
-        to_exec="/bin/bash ";
-    fi
-    eval "docker exec -it $container $to_exec" #security schmecurity
+	container_arg=$1
+	container=$(get_container_name $1)
+	if [ -z "$container" ]; then
+		echo "Couldn't find the correct container. Ensure it's running or try to be more specific"
+		return
+	fi
+	shift #removes container
+	to_exec="$@"
+	if [ -z "$to_exec" ]; then
+		to_exec="/bin/bash "
+	fi
+	eval "docker exec -it $container $to_exec" #security schmecurity
 }
-
 
 function git_ignore_all {
-    echo "$(git status --porcelain | grep '^??' | cut -c4-)" >>.gitignore
-    # source:
-    # http://stackoverflow.com/questions/11542687/git-how-to-ignore-all-present-untracked-files
+	echo "$(git status --porcelain | grep '^??' | cut -c4-)" >>.gitignore
+	# source:
+	# http://stackoverflow.com/questions/11542687/git-how-to-ignore-all-present-untracked-files
 }
 
-
 function to_upper {
-    echo $(echo "$@" | tr '[:lower:]' '[:upper:]')
+	echo $(echo "$@" | tr '[:lower:]' '[:upper:]')
 }
 
 function to_lower {
-    echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
+	echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
 }
 
 function fabsay {
-    echo "$@" | figlet | lolcat;
+	echo "$@" | figlet | lolcat
 }
 
 function get_nixpkgs_location {
-    DEFAULT='/etc/nixos/nixpkgs';
-    FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/');
-    [ -d "$FROM_NIX_PATH" ] && echo "$FROM_NIX_PATH" || echo "$DEFAULT";
+	DEFAULT='/etc/nixos/nixpkgs'
+	FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/')
+	[ -d "$FROM_NIX_PATH" ] && echo "$FROM_NIX_PATH" || echo "$DEFAULT"
 }
 
 #### aliases
@@ -176,29 +173,30 @@ alias uzbl="uzbl-tabbed"
 alias rebootstop="startstop stop -c reboot"
 alias flushswap="sudo swapoff -a && sudo swapon -a"
 alias vup="vagrant up --no-parallel"
-alias upowerbat="upower -i /org/freedesktop/UPower/devices/battery_BAT0 ";
+alias upowerbat="upower -i /org/freedesktop/UPower/devices/battery_BAT0 "
 # shellcheck disable=SC2142
-alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'";
+alias pull="git branch | awk '/\*/ {system(\"git pull origin \" \$2) }'"
 # shellcheck disable=SC2142
-alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"; 
+alias push="git branch | awk '/\*/ {system(\"git push origin \" \$2) }'"
 # shellcheck disable=SC2142
-alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'";
+alias check_changed="git diff --name-only | awk '/.php$/ {system(\"phpcs --standard=psr2 \"\$0)}'"
 # shellcheck disable=SC2142
-alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'";
+alias fix_changed="git diff --name-only | awk '/.php$/ {system(\"phpcbf --standard=psr2 \"\$0)}'"
 alias try="nix-shell -p " # todo make into function
-alias nixpkgs='cd "$(get_nixpkgs_location)"; ';
-alias dc="docker-compose ";
-alias dir="exa -lah --git ";
-alias ll="dir";
+alias nixpkgs='cd "$(get_nixpkgs_location)"; '
+alias dc="docker-compose "
+alias dir="exa -lah --git "
+alias ll="dir"
 
 #### typo aliases
-alias got="git ";
+alias got="git "
 
 alias dokku="ssh -t dokku@borisbabic.top "
+alias dokku_old="ssh -t dokku@128.140.59.147 "
 if [ -f ~/.shell_work ]; then #work specific stuff
-    . ~/.shell_work
+	. ~/.shell_work
 fi
 
 if [ -f ~/.shell_device ]; then #device specific stuff
-    . ~/.shell_device
+	. ~/.shell_device
 fi

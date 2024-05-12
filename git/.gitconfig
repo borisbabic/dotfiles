@@ -10,3 +10,5 @@
 	templateDir = ~/.git_template
 [commit]
 	gpgsign = false
+[merge]
+	conflictstyle = zdiff3
