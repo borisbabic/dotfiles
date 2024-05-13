@@ -9,20 +9,10 @@ let
     python3Full
     ruby
     scala
-  ];
-  elmPkgs = with pkgs.elmPackages; [
-    # elm
-    # elm-format
-  ];
-  haskellPkgs = with pkgs; [
-    # ghc # takes a lot of space and I don't use it
-  ];
-  goPkgs = with pkgs; [
     go
-    glide #package manager
   ];
   nodePkgs = with pkgs; [
-    nodePackages.bower
+    #nodePackages.bower
     nodePackages.grunt-cli
   ];
 
@@ -37,17 +27,13 @@ let
     lua
     luacheck
   ];
-  gstreamerPlugins = with pkgs.gst_all_1; [
-    gst-plugins-bad
-    gst-plugins-base #removed?
-    gst-plugins-good
-    gst-plugins-ugly
-
-  ];
-  dotnetPackages = with pkgs.dotnetCorePackages; [
-    #sdk_3_1
-    #sdk_2_2
-  ];
+  # gstreamerPlugins = with pkgs.gst_all_1; [
+  #   gst-plugins-bad
+  #   gst-plugins-base #removed?
+  #   gst-plugins-good
+  #   gst-plugins-ugly
+  #
+  # ];
  
 in 
 {
@@ -60,8 +46,7 @@ in
     coreutils
     cpufrequtils
     emacs
-    evtest #inupt event debugging, like touchpad values
-    exa # better ls
+    eza # better ls
     exfat
     expect # provides unbuffer which allows you to do something like `unbuffer command | tee file` and preserve color
 
@@ -79,7 +64,6 @@ in
     glances # monitoring, shows more stuff than htop
     hdparm
     htop
-    imagemagickBig
     inotify-tools
     aspell #spellcheck, usefull with emacs
     aspellDicts.en
@@ -93,7 +77,6 @@ in
     # p7zip abandoned
     parted
     patchelf
-    python3Packages.youtube-dl
     pwgen # generate password
     rsync
     shared-mime-info
@@ -104,22 +87,18 @@ in
     stress # stress test
     tmux
     traceroute
-    unrar
     upower
     usbutils #lsusb and co
     wget
     which
     zsh
 
-    mono
-    vulkan-tools
 
     pgcli
 
     gnupg
-    heroku
     postgresql
-  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ gstreamerPlugins ++ goPkgs ++ haskellPkgs ++ elmPkgs ++ luaPkgs ++ dotnetPackages ++ [] ;
+  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ luaPkgs ++ [] ;
   services.atd.enable = true;
 }
 

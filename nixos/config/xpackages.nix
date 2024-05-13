@@ -38,13 +38,13 @@ let
     lxqt.pcmanfm-qt
     pavucontrol
     scrot # screenshot
-    simple-scan
+    # simple-scan
     wmctrl
     xbindkeys # for stuff in ~/.xbindkeys used for awesomewm
     xclip
-    xfce.thunar
     xscreensaver
-    xtrlock-pam
+    # uses old python
+    # xtrlock-pam
 
   ];
   wineStuff = with pkgs; [
@@ -69,7 +69,7 @@ in
     slack
     transmission-remote-gtk
 
-  ] ++ browsers ++ terminals ++ editors ++ media ++ utilities ++ wineStuff else [];
+  ] ++ browsers ++ terminals ++ editors ++ media ++ utilities else [];#++ wineStuff else [];
   nixpkgs.config = {
     firefox = {
       /*enableAdobeFlash = true;*/

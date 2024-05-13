@@ -2,7 +2,11 @@
 {
   environment.systemPackages = with pkgs; [
     xdg_utils
-    xorg.xev # 
+    xorg.xev 
+
+    # new barrier
+    input-leap
+    lan-mouse
     xorg.xkill
     #compton
   ];
@@ -10,6 +14,14 @@
 
   nixpkgs.overlays = [
     (self: super: {
+      # input-leap = super.input-leap.overrideAttrs (old: rec {
+      #   src = super.fetchFromGitHub {
+      #       owner = "input-leap";
+      #       repo = "input-leap";
+      #       rev = "a1864cba75342ad289699b9ec56de28a957a6e54";
+      #       sha256 = "NJX7ntD9Q7PshYn/YgNaIOPSe8Gf0EGDjYKvkveG8cY=";
+      #     };
+      # });
       awesome-git = super.awesome.overrideAttrs (old: rec {
         name = "awesome-git";
         version = "git-20191019-0297bff"; # last checked 2019-11-06
@@ -27,12 +39,14 @@
     layout = "us";
     xkbOptions = "caps:escape";
     displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
     /*displayManager.slim.defaultUser = "boris";*/
     #displayManager.slim.enable = true;
     #displayManager.slim.defaultUser = "boris";
     #desktopManager.pantheon.enable = true;
     #desktopManager.xfce.enable = true;
     #desktopManager.mate.enable = true;
+    #desktopManager.gnome.enable = true;
     #desktopManager.gnome3.enable = true;
     #desktopManager.lumina.enable = true;
     # desktopManager.pantheon.enable = true;

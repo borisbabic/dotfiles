@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 let
-  secrets = import ./secrets.nix;
+  #secrets = import ./secrets.nix;
   #master-nixpkgs = import (pkgs.fetchFromGitHub {
     #owner = "nixos";
     #repo = "nixpkgs";
@@ -22,47 +22,25 @@ let
   ];
 in {
   environment.systemPackages = with pkgs; [
-    #for testing stuff, otherwise put it in an import
-    nixops
 
     vokoscreen #screencast
     barrier
 
-    pandoc #document converter
-    #tetex #used with pandoc for creating pdfs
-    #texlive.combined.scheme-full #pandoc
-    texlive.combined.scheme-small
-
     dict
-
-    #thefuck
-    #jetbrains.idea-ultimate
-    #jetbrains.idea-community
-    gradle
-    maven
     yarn #node pacakge manager
-    nomad
     shellcheck
     jshon
-    vimPlugins.Jenkinsfile-vim-syntax
     thefuck
     # viber
     openvpn
-    postman
     docker-compose
     gitAndTools.pre-commit
-    miraclecast
     #steam
-    obs-studio
     ngrok
     jq
-    skypeforlinux
     discord
     #virtscreen
     #arandr # for use with virtscreen
-    hexchat
-    google-chrome-beta
-    transmission-gtk
 
     et # very simple timer
 
@@ -72,11 +50,8 @@ in {
     numix-cursor-theme
     steam
 
-    neofetch
-    tdesktop
     ntfs3g
     #pulseaudio-dlna NOT BUILDING
-    silver-searcher
     ripgrep
     winetricks
     protontricks
@@ -94,13 +69,13 @@ in {
   ];
   imports =
     [
-        ./kde.nix
+        #./kde.nix
         ./xorg.nix
         ./nonguipackages.nix
         ./xpackages.nix
-        ./custom_packages/njuskalo-service.nix
+        #./custom_packages/njuskalo-service.nix
         ./direnv.nix
-        ./hyprland.nix
+        #./hyprland.nix
         #./boris.nix
     ];
 
@@ -188,15 +163,15 @@ in {
   services.avahi.enable = true;
   services.avahi.nssmdns = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
-  services.njuskalo = {
-    enable = false;
-    email.username = "novaplatforma@gmail.com";
-    email.password = secrets.novaplatformaPassword;
-    email.recipient = "boris.ivan.babic@gmail.com";
-    urls = {
-      switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price[min]=700&price[max]=1400&condition[new]=1&condition[used]=1";
-    };
-  };
+  #services.njuskalo = {
+    #enable = false;
+    #email.username = "novaplatforma@gmail.com";
+    #email.password = secrets.novaplatformaPassword;
+    #email.recipient = "boris.ivan.babic@gmail.com";
+    #urls = {
+      #switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price[min]=700&price[max]=1400&condition[new]=1&condition[used]=1";
+    #};
+  #};
 
   #virtualisation.virtualbox = {
     #host.enable =  true;
@@ -222,10 +197,10 @@ in {
     };
   };
   # programs.qt5ct.enable = true;
-  programs.command-not-found.enable = true;
+  #programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
-    "python2.7-certifi-2021.10.8"
+    #"python2.7-certifi-2021.10.8"
     "samba-3.6.25"
     "p7zip-16.02"
    ];
@@ -242,6 +217,10 @@ in {
   ];
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   boot.tmp.cleanOnBoot = true;
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "boris";
+  services.desktopManager.plasma6.enable = true;
+
 
   networking.extraHosts =
     ''
