@@ -2,25 +2,25 @@
 let 
   browsers = with pkgs; [
 
-    google-chrome #netflix
-    chromium
-    firefox
-    opera
+    # google-chrome #netflix
+    # chromium
+    # firefox
+    # opera
 
   ];
   terminals = with pkgs; [
 
-    enlightenment.terminology
-    rxvt_unicode
+    # enlightenment.terminology
+    # rxvt_unicode
     terminator
-    termite
+    # termite
 
   ];
   editors = with pkgs; [
 
     vscode
     #atom
-    vimHugeX
+    # vimHugeX
 
   ];
   media = with pkgs; [
@@ -31,18 +31,18 @@ let
   ];
   utilities = with pkgs; [
 
-    arandr
+    # arandr
     bluedevil
-    flameshot # screenshot
+    # flameshot # screenshot
     # hplip TEMP
-    lxqt.pcmanfm-qt
-    pavucontrol
-    scrot # screenshot
+    # lxqt.pcmanfm-qt
+    # pavucontrol
+    # scrot # screenshot
     # simple-scan
     wmctrl
     xbindkeys # for stuff in ~/.xbindkeys used for awesomewm
     xclip
-    xscreensaver
+    # xscreensaver
     # uses old python
     # xtrlock-pam
 
@@ -51,7 +51,7 @@ let
 
     #playonlinux
     #(wineWowPackages.staging.override { vulkanSupport = true; vkd3dSupport = true; })
-    wineWowPackages.staging
+    # wineWowPackages.staging
     #winetricks
     #xorg_sys_opengl #for playonlinux
 
@@ -63,11 +63,11 @@ in
 
     # calibre TEMP
     deluge
-    gimp
-    libreoffice
-    pidgin
-    slack
-    transmission-remote-gtk
+    # gimp
+    # libreoffice
+    # pidgin
+    # slack
+    # transmission-remote-gtk
 
   ] ++ browsers ++ terminals ++ editors ++ media ++ utilities else [];#++ wineStuff else [];
   nixpkgs.config = {

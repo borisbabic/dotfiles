@@ -23,20 +23,20 @@ let
 in {
   environment.systemPackages = with pkgs; [
 
-    vokoscreen #screencast
-    barrier
+    # vokoscreen #screencast
+    # barrier
 
     dict
     yarn #node pacakge manager
     shellcheck
     jshon
-    thefuck
+    # thefuck
     # viber
-    openvpn
+    # openvpn
     docker-compose
     gitAndTools.pre-commit
     #steam
-    ngrok
+    # ngrok
     jq
     discord
     #virtscreen
@@ -44,28 +44,27 @@ in {
 
     et # very simple timer
 
-    numix-gtk-theme
-    numix-sx-gtk-theme
-    numix-icon-theme
-    numix-cursor-theme
-    steam
+    # numix-gtk-theme
+    # numix-sx-gtk-theme
+    # numix-icon-theme
+    # numix-cursor-theme
+    # steam
 
-    ntfs3g
+    # ntfs3g
     #pulseaudio-dlna NOT BUILDING
     ripgrep
-    winetricks
-    protontricks
+    # winetricks
+    # protontricks
     cloudflared
     #soundwire
 
    microsoft-edge
     unzip
-    gnumake
+    # gnumake
     stylua
-    screen
-    lazygit
-    dbeaver
-    copyq
+    # screen
+    # lazygit
+    # copyq
   ];
   imports =
     [

@@ -45,7 +45,7 @@ in
     cloc 
     coreutils
     cpufrequtils
-    emacs
+    # emacs
     eza # better ls
     exfat
     expect # provides unbuffer which allows you to do something like `unbuffer command | tee file` and preserve color
@@ -56,35 +56,35 @@ in
     #  | __| | | | '__| '_ \  | __/ _ \ \/ / __| | | '_ \| __/ _ \  | __| '_ \| / __|
     #  | |_| |_| | |  | | | | | ||  __/>  <| |_  | | | | | || (_) | | |_| | | | \__ \
     #   \__|\__,_|_|  |_| |_|  \__\___/_/\_\\__| |_|_| |_|\__\___/   \__|_| |_|_|___/
-    figlet # see above
+    # figlet # see above
     file
     fzf #fuzzy search
-    gcc
+    # gcc
     git
     glances # monitoring, shows more stuff than htop
     hdparm
     htop
     inotify-tools
-    aspell #spellcheck, usefull with emacs
-    aspellDicts.en
+    # aspell #spellcheck, usefull with emacs
+    # aspellDicts.en
     lshw
     lolcat # fabulously color output
     multitail
     ncdu # du cli browser
     neovim
     nmap
-    nox
+    # nox
     # p7zip abandoned
     parted
-    patchelf
-    pwgen # generate password
+    # patchelf
+    # pwgen # generate password
     rsync
     shared-mime-info
     speedtest-cli
     sqlite
     sshfs-fuse
     stow
-    stress # stress test
+    # stress # stress test
     tmux
     traceroute
     upower
@@ -97,7 +97,7 @@ in
     pgcli
 
     gnupg
-    postgresql
+    # postgresql
   ] ++ languages ++ nodePkgs ++ pythonPkgs ++ luaPkgs ++ [] ;
   services.atd.enable = true;
 }
