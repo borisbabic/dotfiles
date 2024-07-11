@@ -2,7 +2,7 @@
 let 
   browsers = with pkgs; [
 
-    # google-chrome #netflix
+     google-chrome #netflix
     # chromium
     # firefox
     # opera
