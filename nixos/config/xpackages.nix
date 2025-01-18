@@ -4,7 +4,7 @@ let
 
      google-chrome #netflix
     # chromium
-    # firefox
+     firefox
     # opera
 
   ];

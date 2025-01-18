@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    xdg_utils
+    xdg-utils
     xorg.xev 
 
     # new barrier
@@ -37,12 +37,14 @@
       });
     })
   ];
+  services.xserver.xkb.options = "caps:escape";
+  services.xserver.xkb.layout = "us";
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbOptions = "caps:escape";
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
     /*displayManager.slim.defaultUser = "boris";*/
     #displayManager.slim.enable = true;
     #displayManager.slim.defaultUser = "boris";

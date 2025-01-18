@@ -89,8 +89,8 @@ in {
     nameservers = ["1.1.1.1" "8.8.8.8" "8.8.4.4" "9.9.9.9"];
   };
 
-  hardware.opengl.driSupport32Bit = true; # for steam
-  hardware.pulseaudio.support32Bit = true; # for steam
+  hardware.graphics.enable32Bit = true; # for steam, maybe?
+  services.pulseaudio.support32Bit = true; # for steam
 
   #console.font = "Lat2-Terminus16";
 # Select internationalisation properties.
@@ -106,10 +106,6 @@ in {
 
 # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.sonarr.enable = true;
-  users.extraUsers.sonarr.extraGroups = [ "transmission" ];
-  services.radarr.enable = true;
-  users.extraUsers.radarr.extraGroups = [ "transmission" ];
   services.transmission = {
     enable = true;
     settings = {
@@ -130,7 +126,6 @@ in {
       "wheel"
       "networkmanager"
       "libvirtd"
-      "sonarr"
       "transmission"
       "docker"
       "video" # for brightness
@@ -160,7 +155,7 @@ in {
   };
   services.printing.enable = true;
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
   services.printing.drivers = [ pkgs.gutenprintBin ];
   #services.njuskalo = {
     #enable = false;
@@ -186,7 +181,7 @@ in {
     /*};*/
   };
   fonts = {
-    fonts = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab pkgs.emojione ];
+    packages = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab pkgs.emojione ];
     fontconfig = {
       defaultFonts = {
         monospace = ["Source Code Pro for Powerline" "Roboto Mono for Powerline"];
@@ -199,6 +194,7 @@ in {
   #programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-sdk-6.0.428"
     #"python2.7-certifi-2021.10.8"
     "samba-3.6.25"
     "p7zip-16.02"
