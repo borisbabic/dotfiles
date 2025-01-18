@@ -7,13 +7,14 @@
     # new barrier
     input-leap
     lan-mouse
+    deskflow
+
     kdePackages.kdeconnect-kde
     kdePackages.yakuake
     kdePackages.dolphin-plugins
     xorg.xkill
     #compton
   ];
-
 
   nixpkgs.overlays = [
     (self: super: {
@@ -38,7 +39,7 @@
     })
   ];
   services.xserver.xkb.options = "caps:escape";
-  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.layout = "us,hr";
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;

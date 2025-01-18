@@ -194,6 +194,7 @@ in {
   #programs.command-not-found.enable = true;
 
    nixpkgs.config.permittedInsecurePackages = [
+    "deskflow-1.18.0"
     "dotnet-sdk-6.0.428"
     #"python2.7-certifi-2021.10.8"
     "samba-3.6.25"
