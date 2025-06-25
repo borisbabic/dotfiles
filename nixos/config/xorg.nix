@@ -5,8 +5,6 @@
     xorg.xev 
 
     # new barrier
-    input-leap
-    lan-mouse
     deskflow
 
     kdePackages.kdeconnect-kde
