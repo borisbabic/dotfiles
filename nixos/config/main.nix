@@ -148,11 +148,6 @@ in {
       enable = true;
     };
   };
-  services.locate = {
-    enable = true;
-    interval = "hourly";
-    localuser = "root";
-  };
   services.printing.enable = true;
   services.avahi.enable = true;
   services.avahi.nssmdns4 = true;

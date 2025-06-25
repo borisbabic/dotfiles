@@ -32,7 +32,7 @@ let
   utilities = with pkgs; [
 
     # arandr
-    bluedevil
+    kdePackages.bluedevil
     # flameshot # screenshot
     # hplip TEMP
     # lxqt.pcmanfm-qt
