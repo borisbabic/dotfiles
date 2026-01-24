@@ -1,220 +1,176 @@
 # Edit this configuration file to define what should be installed on
-
+# your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
 
-let
-  #secrets = import ./secrets.nix;
-  #master-nixpkgs = import (pkgs.fetchFromGitHub {
-    #owner = "nixos";
-    #repo = "nixpkgs";
-    #rev = "006a699e693da92bc9f31775a7e0825a33a5063c";
-    #sha256 = "107zlpwiqarpn4klmklrps28b77k9azqiax3vvf584zh60ccwpjv";
-  #}) {
-    #config.allowUnfree = true;
-  #};
-  openPorts = [
-    5900 # virtscreen vnc
-  ];
-  openPortRanges = [
-    { from = 1714; to = 1764; }
-  ];
-in {
-  environment.systemPackages = with pkgs; [
-
-    # vokoscreen #screencast
-    # barrier
-
-    dict
-    yarn #node pacakge manager
-    shellcheck
-    jshon
-    # thefuck
-    # viber
-    # openvpn
-    docker-compose
-    gitAndTools.pre-commit
-    #steam
-    # ngrok
-    jq
-    discord
-    #virtscreen
-    #arandr # for use with virtscreen
-
-    et # very simple timer
-
-    # numix-gtk-theme
-    # numix-sx-gtk-theme
-    # numix-icon-theme
-    # numix-cursor-theme
-    # steam
-
-    # ntfs3g
-    #pulseaudio-dlna NOT BUILDING
-    ripgrep
-    # winetricks
-    # protontricks
-    cloudflared
-    #soundwire
-
-   microsoft-edge
-    unzip
-    # gnumake
-    stylua
-    # screen
-    # lazygit
-    # copyq
-  ];
+{
   imports =
-    [
-        #./kde.nix
-        ./xorg.nix
-        ./nonguipackages.nix
-        ./xpackages.nix
-        #./custom_packages/njuskalo-service.nix
-        ./direnv.nix
-        #./hyprland.nix
-        #./boris.nix
+    [ # Include the results of the hardware scan.
+      ./cosmic.nix
     ];
 
-  networking = {
-    hostName = "nixos"; # Define your hostname.
-#wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-    networkmanager.enable = true;
-    firewall.allowedUDPPorts = openPorts;
-    firewall.allowedTCPPorts = openPorts;
-    firewall.allowedUDPPortRanges = openPortRanges;
-    firewall.allowedTCPPortRanges = openPortRanges;
-    nameservers = ["1.1.1.1" "8.8.8.8" "8.8.4.4" "9.9.9.9"];
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use latest kernel.
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  networking.hostName = "nixos"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Set your time zone.
+  time.timeZone = "Europe/Zagreb";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "hr_HR.UTF-8";
+    LC_IDENTIFICATION = "hr_HR.UTF-8";
+    LC_MEASUREMENT = "hr_HR.UTF-8";
+    LC_MONETARY = "hr_HR.UTF-8";
+    LC_NAME = "hr_HR.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "hr_HR.UTF-8";
+    LC_TELEPHONE = "hr_HR.UTF-8";
+    LC_TIME = "hr_HR.UTF-8";
   };
 
-  hardware.graphics.enable32Bit = true; # for steam, maybe?
-  services.pulseaudio.support32Bit = true; # for steam
+  # {
+  #   # Enable the COSMIC login manager
+  #   services.displayManager.cosmic-greeter.enable = true;
 
-  #console.font = "Lat2-Terminus16";
-# Select internationalisation properties.
-  # i18n = {
-    # consoleFont = "Lat2-Terminus16";
-#   consoleKeyMap = "us";
-#   defaultLocale = "en_US.UTF-8";
-  # };
+  #   # Enable the COSMIC desktop environment
+  #   services.desktopManager.cosmic.enable = true;
+  # }
 
-# Set your time zone.
-  time.timeZone = "Europe/Sarajevo";
+  # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
+  # services.xserver.enable = true;
 
+  # Enable the KDE Plasma Desktop Environment.
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
-# Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  services.transmission = {
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "us,hr";
+    variant = "";
+  };
+
+  services.keyd = {
     enable = true;
-    settings = {
-      rpc-whitelist = "127.0.0.1";
-    };
-  };
+    keyboards = {
+      # Replace "0000:0000" with the ID you found in step 1
+      default = {
 
-  services.ratbagd.enable = true;
-  #services.unclutter = {
-    #enable = true;
-    #package = pkgs.unclutter-xfixes;
-  #};
+        ids = [ "*" ];
+        settings = {
 
-#Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.boris = {
-    isNormalUser = true;
-    extraGroups = [ 
-      "wheel"
-      "networkmanager"
-      "libvirtd"
-      "transmission"
-      "docker"
-      "video" # for brightness
-      "input" # keyboard backlight
-      "adbusers"
-    ]; 
-    uid = 1000;
-    shell = "/run/current-system/sw/bin/zsh";
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "overlay2";
-  };
-
-  programs = {
-    mtr.enable = true;
-    zsh.enable = true;
-    java = {
-      enable = true;
-    };
-  };
-  services.printing.enable = true;
-  services.avahi.enable = true;
-  services.avahi.nssmdns4 = true;
-  services.printing.drivers = [ pkgs.gutenprintBin ];
-  #services.njuskalo = {
-    #enable = false;
-    #email.username = "novaplatforma@gmail.com";
-    #email.password = secrets.novaplatformaPassword;
-    #email.recipient = "boris.ivan.babic@gmail.com";
-    #urls = {
-      #switchRabljeno700Do1400 = "https://www.njuskalo.hr/nintendo-switch?locationIds=1153&price[min]=700&price[max]=1400&condition[new]=1&condition[used]=1";
-    #};
-  #};
-
-  #virtualisation.virtualbox = {
-    #host.enable =  true;
-  #};
-  /*virtualisation.libvirtd = {*/
-    /*enable = true;*/
-    /*enableKVM = true;*/
-  /*};*/
-  nixpkgs.config = {
-    allowUnfree = true; 
-    /*chromium = {*/
-      /*enablePepperFlash = true; # Chromium's non-NSAPI alternative to Adobe Flash*/
-    /*};*/
-  };
-  fonts = {
-    packages = [ pkgs.powerline-fonts pkgs.terminus_font pkgs.roboto pkgs.roboto-slab pkgs.emojione ];
-    fontconfig = {
-      defaultFonts = {
-        monospace = ["Source Code Pro for Powerline" "Roboto Mono for Powerline"];
-        sansSerif = ["Roboto"];
-        serif = ["Roboto Slab"];
+          main = {
+            capslock = "esc";
+          };
+        };
+      };
+      cheapo = {
+        ids = ["c0f4:0201:5ab70009" ];
+        settings = {
+          main = {
+            esc = "grave";
+            insert = "sysrq"; # In keyd/Linux, 'sysrq' is the code for PrintScreen
+          };
+        };
       };
     };
   };
-  # programs.qt5ct.enable = true;
-  #programs.command-not-found.enable = true;
 
-   nixpkgs.config.permittedInsecurePackages = [
-    "deskflow-1.18.0"
-    "dotnet-sdk-6.0.428"
-    #"python2.7-certifi-2021.10.8"
-    "samba-3.6.25"
-    "p7zip-16.02"
-   ];
-  boot.kernel.sysctl = {
-    "vm.swappiness" = 11;
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Enable sound with pipewire.
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
   };
-  /*nixpkgs.config.packageOverrides = pkgs: {*/
-    /*maven = pkgs.maven.override { jdk = pkgs.jdk9; };*/
-  /*};*/
-  nix.nixPath = [
-    "nixpkgs=/etc/nixos/nixpkgs/"
-    "nixos-config=/etc/nixos/configuration.nix"
-    "nixpkgs-overlays=/etc/nixos/config/overlays-compat/" # https://nixos.wiki/wiki/Overlays#Using_nixpkgs.overlays_from_configuration.nix_as_.3Cnixpkgs-overlays.3E_in_your_NIX_PATH
+
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.boris = {
+    isNormalUser = true;
+    description = "Boris";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = with pkgs; [
+      kdePackages.kate
+    #  thunderbird
+    ];
+  };
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    zed-editor
+    neovim
+    stow
+    git
+    spotify
+  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+  #  wget
   ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  boot.tmp.cleanOnBoot = true;
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "boris";
-  services.desktopManager.plasma6.enable = true;
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-  networking.extraHosts =
-    ''
-      157.90.156.81 dokku
-    '';
+  # List services that you want to enable:
+
+  # Enable the OpenSSH daemon.
+  # services.openssh.enable = true;
+
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "25.11"; # Did you read the comment?
+
 }
