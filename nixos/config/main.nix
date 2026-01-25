@@ -119,6 +119,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.boris = {
     isNormalUser = true;
@@ -128,6 +135,7 @@
       kdePackages.kate
     #  thunderbird
     ];
+    shell = "/run/current-system/sw/bin/zsh";
   };
 
   # Install firefox.

@@ -103,4 +103,8 @@ in
     # postgresql
   ];
   services.atd.enable = true;
+
+  # lets devenv manage binary caches
+  nix.settings.trusted-users = [ "root" "boris" ];
+
 }
