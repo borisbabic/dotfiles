@@ -191,8 +191,11 @@ alias ll="dir"
 #### typo aliases
 alias got="git "
 
-alias dokku="ssh -t dokku@borisbabic.top "
-alias dokku_old="ssh -t dokku@128.140.59.147 "
+alias s="kitten ssh ";
+alias dokku="ssh -t dokku@dtop "
+alias dokku_old="ssh -t dokku@borisbabic.top "
+alias dokku_older="ssh -t dokku@128.140.59.147 "
+
 if [ -f ~/.shell_work ]; then #work specific stuff
 	. ~/.shell_work
 fi
