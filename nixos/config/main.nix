@@ -8,6 +8,9 @@
   imports =
     [ # Include the results of the hardware scan.
       ./cosmic.nix
+      ./gaming.nix
+      ./nonguipackages.nix
+      ./15irx10.nix
     ];
 
   # Bootloader.
@@ -86,7 +89,8 @@
         settings = {
           main = {
             esc = "grave";
-            insert = "sysrq"; # In keyd/Linux, 'sysrq' is the code for PrintScreen
+            compose = "sysrq"; # In keyd/Linux, 'sysrq' is the code for PrintScreen
+            insert = "play";
           };
         };
       };
@@ -136,10 +140,10 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     zed-editor
-    neovim
-    stow
-    git
+    chatterino7
+    discord
     spotify
+    # stremio
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];

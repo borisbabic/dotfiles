@@ -1,32 +1,32 @@
 { config, pkgs, ... }:
-let 
-  languages = with pkgs; [
-    erlang
-    elixir
-    jre
-    nodejs
-    php
-    python3Full
-    ruby
-    scala
-    go
-  ];
-  nodePkgs = with pkgs; [
-    #nodePackages.bower
-    nodePackages.grunt-cli
-  ];
+let
+  # languages = with pkgs; [
+  #   erlang
+  #   elixir
+  #   jre
+  #   nodejs
+  #   php
+  #   python3Full
+  #   ruby
+  #   scala
+  #   go
+  # ];
+  # nodePkgs = with pkgs; [
+  #   #nodePackages.bower
+  #   nodePackages.grunt-cli
+  # ];
 
-  pythonPkgs = with pkgs; [
-    python3Packages.pip
-    python3Packages.setuptools
-    python3Packages.twine # for publishing/updating packages: twine upload dist/*
-    python3Packages.pylint
-    # python3Packages.autopep8
-  ];
-  luaPkgs = with pkgs.luaPackages; [
-    lua
-    luacheck
-  ];
+  # pythonPkgs = with pkgs; [
+  #   python3Packages.pip
+  #   python3Packages.setuptools
+  #   python3Packages.twine # for publishing/updating packages: twine upload dist/*
+  #   python3Packages.pylint
+  #   # python3Packages.autopep8
+  # ];
+  # luaPkgs = with pkgs.luaPackages; [
+  #   lua
+  #   luacheck
+  # ];
   # gstreamerPlugins = with pkgs.gst_all_1; [
   #   gst-plugins-bad
   #   gst-plugins-base #removed?
@@ -34,25 +34,27 @@ let
   #   gst-plugins-ugly
   #
   # ];
- 
-in 
+
+in
 {
-  programs.adb.enable = true;
+  # programs.adb.enable = true;
   environment.systemPackages = with pkgs; [
 
     #beets
     bat # better cat
-    cloc 
+    cloc
     coreutils
     cpufrequtils
     # emacs
+    devenv
+    direnv
     eza # better ls
     exfat
     expect # provides unbuffer which allows you to do something like `unbuffer command | tee file` and preserve color
 
     fd # find alternative
-    #   _                      _            _     _       _          _   _     _     
-    #  | |_ _   _ _ __ _ __   | |_ _____  _| |_  (_)_ __ | |_ ___   | |_| |__ (_)___ 
+    #   _                      _            _     _       _          _   _     _
+    #  | |_ _   _ _ __ _ __   | |_ _____  _| |_  (_)_ __ | |_ ___   | |_| |__ (_)___
     #  | __| | | | '__| '_ \  | __/ _ \ \/ / __| | | '_ \| __/ _ \  | __| '_ \| / __|
     #  | |_| |_| | |  | | | | | ||  __/>  <| |_  | | | | | || (_) | | |_| | | | \__ \
     #   \__|\__,_|_|  |_| |_|  \__\___/_/\_\\__| |_|_| |_|\__\___/   \__|_| |_|_|___/
@@ -72,6 +74,7 @@ in
     multitail
     ncdu # du cli browser
     neovim
+    nix-search-cli
     nmap
     # nox
     # p7zip abandoned
@@ -98,7 +101,6 @@ in
 
     gnupg
     # postgresql
-  ] ++ languages ++ nodePkgs ++ pythonPkgs ++ luaPkgs ++ [] ;
+  ];
   services.atd.enable = true;
 }
-
