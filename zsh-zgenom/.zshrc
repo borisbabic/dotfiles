@@ -11,30 +11,30 @@ alias killbg='kill ${${(v)jobstates##*:*:}%=*}' # http://stackoverflow.com/quest
 #keybindings
 bindkey '^U' backward-kill-line #fixes ctrl u behavoir
 
-if [  -f ~/.zgen/zgen.zsh ];  then
-    source ~/.zgen/zgen.zsh
-    if ! zgen saved; then
-        zgen oh-my-zsh
-        zgen oh-my-zsh plugins/git
-        zgen oh-my-zsh plugins/sudo
-        zgen oh-my-zsh plugins/command-not-found
+if [  -f ~/.zgenom/zgenom.zsh ];  then
+    source ~/.zgenom/zgenom.zsh
+    if ! zgenom saved; then
+        zgenom oh-my-zsh
+        zgenom oh-my-zsh plugins/git
+        zgenom oh-my-zsh plugins/sudo
+        zgenom oh-my-zsh plugins/command-not-found
 
-        zgen load zsh-users/zsh-syntax-highlighting
-        zgen load zsh-users/zsh-completions
-        zgen load zsh-users/zsh-history-substring-search
-        zgen load zsh-users/zsh-autosuggestions
+        zgenom load zsh-users/zsh-syntax-highlighting
+        zgenom load zsh-users/zsh-completions
+        zgenom load zsh-users/zsh-history-substring-search
+        zgenom load zsh-users/zsh-autosuggestions
 
-        zgen load Tarrasch/zsh-colors
+        zgenom load Tarrasch/zsh-colors
 
         export TERM="xterm-256color"
         POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
         DEFAULT_USER=boris #used for some themes - removes user part
         POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time context dir rbenv vcs status)
-        zgen load bhilburn/powerlevel9k powerlevel9k
+        zgenom load bhilburn/powerlevel9k powerlevel9k
 
     fi
-else 
-    echo 'Install zgen. Run git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"'
+else
+    echo 'Install zgenom. Run git clone https://github.com/tarjoilija/zgen.git "${HOME}/.zgen"'
 fi
 
 
