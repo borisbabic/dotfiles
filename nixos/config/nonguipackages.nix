@@ -95,8 +95,6 @@ in
     wget
     which
     zsh
-
-
     pgcli
 
     gnupg

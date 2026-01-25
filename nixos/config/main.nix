@@ -132,7 +132,7 @@
     description = "Boris";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
+      # kdePackages.kate
     #  thunderbird
     ];
     shell = "/run/current-system/sw/bin/zsh";
@@ -150,6 +150,7 @@
     zed-editor
     chatterino7
     discord
+    kitty
     spotify
     # stremio
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
