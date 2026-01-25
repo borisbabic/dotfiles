@@ -15,14 +15,29 @@
     nvidiaBusId = "PCI:1@0:0:0";
   };
 
+  services.undervolt = {
+    enable = true;
+    coreOffset = -120;
+    # cacheOffset = -120;
+  };
+
+  specialisation.no-undervolt.configuration = {
+    system.nixos.tags = ["no-undervolt"];
+    services.undervolt = {
+      enable = lib.mkForce false;
+      coreOffset = lib.mkForce 0;
+      # cacheOffset = lib.mkForce 0;
+    };
+  };
+
   specialisation.on-the-go.configuration = {
     system.nixos.tags = ["on-the-go"];
-      hardware.nvidia.prime = {
-        offload = {
-          enable = lib.mkForce true;
-          enableOffloadCmd = lib.mkForce true;
-        };
-        sync.enable = lib.mkForce false;
+    hardware.nvidia.prime = {
+      offload = {
+        enable = lib.mkForce true;
+        enableOffloadCmd = lib.mkForce true;
       };
+      sync.enable = lib.mkForce false;
+    };
   };
 }
