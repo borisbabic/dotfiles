@@ -18,7 +18,24 @@
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "stremio-pr": "stremio-pr"
+      }
+    },
+    "stremio-pr": {
+      "locked": {
+        "lastModified": 1768097932,
+        "narHash": "sha256-hCUvwOTgUfcCeJiYp8jJ+Dap9DpXGI8WgkvxW7IaNVk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1955ba843793bdc1812c4eaa7c80aa4800f47e3c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/460557/head",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     }
   },

@@ -1,10 +1,15 @@
-{pkgs, ...}:
+{pkgs,...}:
 {
-
-  environment.systemPackages = with pkgs; [
-    stremio
-  ];
-  nixpkgs.config.permittedInsecurePackages = [
-    "qtwebengine-5.15.19"
-  ];
+  systemd.user.services.stremio = {
+      description = "Stremio Service Daemon";
+      after = [ "network.target" ];
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.stremio-service}/bin/stremio-service";
+        Restart = "always";
+      };
+    };
+    environment.systemPackages = with pkgs; [
+      stremio-service
+    ];
 }
