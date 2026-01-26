@@ -17,8 +17,7 @@
 
   services.undervolt = {
     enable = true;
-    coreOffset = -120;
-    # cacheOffset = -120;
+    coreOffset = -50;
   };
 
   specialisation.no-undervolt.configuration = {
@@ -26,7 +25,6 @@
     services.undervolt = {
       enable = lib.mkForce false;
       coreOffset = lib.mkForce 0;
-      # cacheOffset = lib.mkForce 0;
     };
   };
 
