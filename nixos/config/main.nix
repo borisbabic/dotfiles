@@ -11,7 +11,7 @@
       ./gaming.nix
       ./nonguipackages.nix
       ./15irx10.nix
-      ./stremio.nix
+      # ./stremio.nix
     ];
 
   # Bootloader.
