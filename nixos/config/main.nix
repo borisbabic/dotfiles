@@ -21,7 +21,7 @@
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -141,6 +141,11 @@
     shell = "/run/current-system/sw/bin/zsh";
   };
 
+  environment.shellAliases = {
+    rebuild="sudo nixos-rebuild --flake=/home/boris/dotfiles/nixos/\\#${config.networking.hostName} ";
+  };
+
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -150,6 +155,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # language server for nix for zed
+    nixd
     zed-editor
     chatterino7
     discord
