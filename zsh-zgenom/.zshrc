@@ -10,6 +10,9 @@ alias killbg='kill ${${(v)jobstates##*:*:}%=*}' # http://stackoverflow.com/quest
 
 #keybindings
 bindkey '^U' backward-kill-line #fixes ctrl u behavoir
+if [  -f ~/.zoxide.zsh ];  then
+    source ~/.zoxide.zsh
+fi
 
 if [  -f ~/.zgenom/zgenom.zsh ];  then
     source ~/.zgenom/zgenom.zsh
