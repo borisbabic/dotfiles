@@ -166,10 +166,12 @@
     nixd
     zed-editor
     chatterino7
-    discord
+    webcord-vencord
+    # discord
     kitty
+    albert
     spotify
-    brave
+    # brave
     # task manager / system monitor
     mission-center
     # stremio
