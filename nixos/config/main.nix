@@ -12,6 +12,7 @@
       ./nonguipackages.nix
       ./15irx10.nix
       ./stremio.nix
+      # ./gpupassthrough.nix
     ];
 
   # Bootloader.
