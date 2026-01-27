@@ -169,7 +169,7 @@
     webcord-vencord
     # discord
     kitty
-    albert
+    # albert
     spotify
     # brave
     # task manager / system monitor

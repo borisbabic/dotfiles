@@ -94,7 +94,11 @@ in
     usbutils #lsusb and co
     wget
     which
+    yazi
     zsh
+    zoxide
+
+    # file manage
     pgcli
 
     gnupg
