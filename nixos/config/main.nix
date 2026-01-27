@@ -163,6 +163,7 @@
     discord
     kitty
     spotify
+    brave
     # task manager / system monitor
     mission-center
     # stremio
