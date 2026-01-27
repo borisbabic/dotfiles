@@ -12,9 +12,13 @@
       ./nonguipackages.nix
       ./15irx10.nix
       ./stremio.nix
-      # ./hyprland.nix
+      ./hyprland.nix
       # ./gpupassthrough.nix
     ];
+  environment.sessionVariables = {
+    # Tell XWayland apps (like Steam) not to scale themselves
+    "GDK_SCALE" = "1";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
