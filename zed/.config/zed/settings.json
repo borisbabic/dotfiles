@@ -27,6 +27,14 @@
     "light": "One Light",
     "dark": "One Dark",
   },
+  "lsp": {
+    "hyprland": {
+      "binary": {
+        "ignore_system_version": false,
+        "path": "/run/current-system/sw/bin/hyprls",
+      },
+    },
+  },
   "languages": {
     "Elixir": {
       "language_servers": ["expert", "!lexical", "!elixir-ls", "!next-ls"],
