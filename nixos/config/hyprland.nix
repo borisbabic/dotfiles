@@ -15,13 +15,22 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
+  environment.sessionVariables = {
+    # Tell XWayland apps (like Steam) not to scale themselves
+    "NIXOS_OZONE_WL" = "1";
+  };
+
   environment.systemPackages = with pkgs; [
     inputs.hyprsplit.packages.${stdenv.hostPlatform.system}.hyprsplit
     # clipboard manager
-    clipse
+    # clipse
+    wl-clipboard
     #lsp
     hyprls
     hyprlock
+
+    #launcher
+    vicinae
     hyprlauncher
     hyprsunset
     hyprpolkitagent
