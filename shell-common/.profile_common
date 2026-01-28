@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+if command -v nvim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='nvim'
+elif command -v neovim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='neovim'
+elif command -v gvim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='gvim -v'
+elif command -v vim >/dev/null 2>/dev/null; then
+	export VIM_COMMAND='vim'
+fi
+
+if [ ! -z "$VIM_COMMAND" ]; then
+	export EDITOR="$VIM_COMMAND"
+elif command -v emacs >/dev/null 2>/dev/null; then
+	export EDITOR='emacs'
+else
+	export EDITOR='nano'
+fi
