@@ -18,12 +18,13 @@
   environment.sessionVariables = {
     # Tell XWayland apps (like Steam) not to scale themselves
     "NIXOS_OZONE_WL" = "1";
+    # for grimblast, otherwise it saves in ~/Pictures
+    "XDG_SCREENSHOTS_DIR" = "$HOME/Pictures/Screenshots";
   };
 
   environment.systemPackages = with pkgs; [
     inputs.hyprsplit.packages.${stdenv.hostPlatform.system}.hyprsplit
-    # clipboard manager
-    # clipse
+    grimblast
     wl-clipboard
     #lsp
     hyprls
