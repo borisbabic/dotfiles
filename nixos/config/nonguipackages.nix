@@ -37,6 +37,9 @@ let
 
 in
 {
+  programs.yazi = {
+    enable = true;
+  };
   # programs.adb.enable = true;
   environment.systemPackages = with pkgs; [
 
@@ -81,6 +84,7 @@ in
     parted
     # patchelf
     # pwgen # generate password
+    ripgrep
     rsync
     shared-mime-info
     speedtest-cli
@@ -94,7 +98,6 @@ in
     usbutils #lsusb and co
     wget
     which
-    yazi
     zsh
     zoxide
 

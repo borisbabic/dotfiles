@@ -175,6 +175,8 @@
     # task manager / system monitor
     mission-center
     # stremio
+    # provides nix-locate which can find libraries
+    nix-index
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
