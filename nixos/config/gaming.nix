@@ -5,7 +5,18 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+  };
+  programs.gamemode = {
+    enable = true;
+  };
   environment.systemPackages = with pkgs; [
+    mangohud
+    steam-tui
+    steamcmd
+    gamescope-wsi
     bottles
     lutris
   ];
