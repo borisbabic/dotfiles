@@ -7,13 +7,15 @@
       url = "github:shezdy/hyprsplit";
       inputs.hyprland.follows = "hyprland";
     };
+    nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
   };
-  outputs = { self, nixpkgs, stremio-pr, ... }@inputs:
+  outputs = { self, nix-flatpak, nixpkgs, stremio-pr, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.legion5.nix
+        nix-flatpak.nixosModules.nix-flatpak
         {
               nixpkgs.overlays = [
                 (final: prev: {
