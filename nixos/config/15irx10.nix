@@ -15,18 +15,18 @@
     nvidiaBusId = "PCI:1@0:0:0";
   };
 
-  services.undervolt = {
-    enable = true;
-    coreOffset = -50;
-  };
+  # services.undervolt = {
+  #   enable = true;
+  #   coreOffset = -50;
+  # };
 
-  specialisation.no-undervolt.configuration = {
-    system.nixos.tags = ["no-undervolt"];
-    services.undervolt = {
-      enable = lib.mkForce false;
-      coreOffset = lib.mkForce 0;
-    };
-  };
+  # specialisation.no-undervolt.configuration = {
+  #   system.nixos.tags = ["no-undervolt"];
+  #   services.undervolt = {
+  #     enable = lib.mkForce false;
+  #     coreOffset = lib.mkForce 0;
+  #   };
+  # };
 
   specialisation.on-the-go.configuration = {
     system.nixos.tags = ["on-the-go"];
