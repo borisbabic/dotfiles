@@ -15,6 +15,16 @@
     nvidiaBusId = "PCI:1@0:0:0";
   };
 
+  fileSystems."/boot/windows" = {
+    device = "/dev/disk/by-uuid/32E6-6700";
+    fsType = "vfat";
+  };
+  boot.loader.systemd-boot.extraEntries = {
+    "windows.conf" = ''
+      title Windows
+      efi /windows/EFI/Microsoft/Boot/bootmgfw.efi
+    '';
+  };
   # services.undervolt = {
   #   enable = true;
   #   coreOffset = -50;
