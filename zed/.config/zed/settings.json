@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "terminal": {
-    "dock": "bottom",
+    "dock": "right",
   },
   "project_panel": {
     "hide_hidden": false,
