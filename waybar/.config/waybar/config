@@ -5,7 +5,7 @@
 
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray"],
+  "modules-right": ["pulseaudio", "backlight", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray"],
 
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -83,6 +83,15 @@
       "format": "󰢮  {}",
       "interval": 5,
       "on-click": "kitty -e nvtop"
+  },
+
+  "backlight": {
+      "device": "intel_backlight", // Replace with your result from the command above
+      "format": "{icon}  {percent}%",
+      "format-icons": ["󰃞", "󰃟", "󰃠"],
+      "on-scroll-up": "brightnessctl set 1%+",
+      "on-scroll-down": "brightnessctl set 1%-",
+      "min-length": 6
   },
 
   "mpris": {

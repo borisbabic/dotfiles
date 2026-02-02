@@ -5,6 +5,10 @@
 { config, pkgs, lib, ... }:
 
 {
+  users.users.boris.extraGroups = ["video"];
+  environment.systemPackages = with pkgs; [
+    brightnessctl
+  ];
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
   hardware.nvidia.open = true;

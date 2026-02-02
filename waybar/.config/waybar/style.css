@@ -153,3 +153,8 @@ window#waybar {
 #temperature {
     border-radius: 0 15px 15px 0;
 } /* Rounded right edge */
+
+#backlight {
+    color: #f9e2af; /* Yellow */
+    padding: 0 10px;
+}
