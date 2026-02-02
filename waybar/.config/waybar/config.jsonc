@@ -1,9 +1,8 @@
 [
+  // main monitor
   {
+    "output": "HDMI-A-2",
     "include": ["./modules.jsonc"],
-    "layer": "top",
-    "position": "top",
-    "height": 32,
 
     "modules-left": [
       "hyprland/workspaces",
@@ -25,5 +24,39 @@
       "tray",
       "custom/notification"
     ]
+  },
+  // built-in
+  {
+    "output": "eDP-1",
+    "include": ["./modules.jsonc"],
+
+    "modules-left": [
+      "hyprland/workspaces",
+      "privacy",
+      "custom/weather",
+      "mpris"
+    ],
+    "modules-right": [
+      "clock",
+      "pulseaudio",
+      "backlight",
+      "network",
+      "custom/gpu",
+      "power-profiles-daemon",
+      "battery",
+      "cpu",
+      "memory",
+      "temperature",
+      "tray",
+      "custom/notification"
+    ]
+  },
+  // vertical
+  {
+    "output": "DP-2",
+    "include": ["./modules.jsonc"],
+    "modules-left": ["hyprland/workspaces", "privacy", "custom/weather"],
+    "modules-center": ["clock"],
+    "modules-right": ["tray", "custom/notification"]
   }
 ]
