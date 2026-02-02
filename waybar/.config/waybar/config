@@ -5,7 +5,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "power-profiles-daemon", "battery", "cpu", "memory", "temperature", "tray"],
+  "modules-right": ["pulseaudio", "network", "power-profiles-daemon", "custom/gpu", "battery", "cpu", "memory", "temperature", "tray"],
 
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -61,12 +61,12 @@
 
   "cpu": {
     "format": "  {usage}%",
-    "on-click": "missioncenter"
+    "on-click": "kitty -e btop"
   },
 
   "memory": {
     "format": "󰍛  {used}GiB",
-    "on-click": "missioncenter"
+    "on-click": "kitty -e btop"
   },
 
   "temperature": {
@@ -75,7 +75,14 @@
       "format-critical": "{icon} {temperatureC}°C",
       "format": "{icon} {temperatureC}°C",
       "format-icons": ["", "", ""],
-      "on-click": "missioncenter"
+      "on-click": "kitty -e btop"
+  },
+
+  "custom/gpu": {
+      "exec": "nvidia-smi --query-gpu=utilization.gpu,temperature.gpu,memory.used --format=csv,noheader,nounits | awk -F', ' '{print $1\"% \"$2\"°C \"$3\"MB\"}'",
+      "format": "󰢮  {}",
+      "interval": 5,
+      "on-click": "kitty -e nvtop"
   },
 
   "tray": {

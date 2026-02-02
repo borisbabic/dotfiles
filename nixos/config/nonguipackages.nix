@@ -68,7 +68,10 @@ in
     git
     glances # monitoring, shows more stuff than htop
     hdparm
+    btop
     htop
+    # for graphics
+    nvtopPackages.full
     inotify-tools
     # aspell #spellcheck, usefull with emacs
     # aspellDicts.en

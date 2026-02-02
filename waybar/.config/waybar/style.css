@@ -120,3 +120,8 @@ window#waybar {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
     color: #ffffff;
 }
+
+#custom-gpu {
+    color: #89dceb; /* Sky Blue / Cyan */
+    padding: 0 10px;
+}
