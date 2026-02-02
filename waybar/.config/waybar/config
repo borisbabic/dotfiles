@@ -5,7 +5,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "battery", "cpu", "memory", "temperature", "tray"],
+  "modules-right": ["pulseaudio", "network", "power-profiles-daemon", "battery", "cpu", "memory", "temperature", "tray"],
 
   "hyprland/workspaces": {
     "disable-scroll": false,
@@ -39,5 +39,17 @@
 
   "tray": {
     "spacing": 10
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
   }
 }
