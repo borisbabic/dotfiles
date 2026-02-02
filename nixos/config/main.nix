@@ -182,6 +182,15 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   ];
 
+  fonts.packages = with pkgs; [
+    # Standard Nerd Fonts (includes icons for almost everything)
+    nerd-fonts.symbols-only
+    nerd-fonts.fira-code
+
+    # Or specifically Font Awesome if that's what your config uses
+    font-awesome
+  ];
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Some programs need SUID wrappers, can be configured further or are
