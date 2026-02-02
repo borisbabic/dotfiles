@@ -1,0 +1,29 @@
+[
+  {
+    "include": ["./modules.jsonc"],
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+
+    "modules-left": [
+      "hyprland/workspaces",
+      "privacy",
+      "custom/weather",
+      "mpris"
+    ],
+    "modules-center": ["clock"],
+    "modules-right": [
+      "pulseaudio",
+      "backlight",
+      "network",
+      "custom/gpu",
+      "power-profiles-daemon",
+      "battery",
+      "cpu",
+      "memory",
+      "temperature",
+      "tray",
+      "custom/notification"
+    ]
+  }
+]
