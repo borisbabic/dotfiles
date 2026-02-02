@@ -13,6 +13,7 @@
       ./15irx10.nix
       ./stremio.nix
       ./hyprland.nix
+      ./hsguru.nix
       # ./gpupassthrough.nix
     ];
   environment.sessionVariables = {
