@@ -172,3 +172,12 @@ window#waybar {
     color: #fab387; /* Orange */
     padding: 0 10px;
 }
+
+#clock {
+    color: #cba6f7; /* Mauve/Purple */
+    background-color: #313244;
+    padding: 0 15px;
+    margin: 4px;
+    border-radius: 15px;
+    font-weight: bold;
+}

@@ -3,8 +3,8 @@
   "position": "top",
   "height": 32,
 
-  "modules-left": ["hyprland/workspaces", "mpris"],
-  "modules-center": ["clock", "custom/weather"],
+  "modules-left": ["hyprland/workspaces",  "custom/weather", "mpris"],
+  "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "backlight", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray", "custom/notification"],
 
   "hyprland/workspaces": {
@@ -15,8 +15,21 @@
   },
 
   "clock": {
-    "format": "  {:%H:%M}",
-    "tooltip-format": "󰃭  {:%A, %d %B %Y}"
+      "format": "  {:%H:%M  󰃭  %A, %d %B}",
+      "tooltip-format": "<tt><small>{calendar}</small></tt>",
+      "calendar": {
+          "mode": "year",
+          "mode-mon-col": 3,
+          "on-scroll": 1,
+          "format": {
+              "months": "<span color='#ffead3'><b>{}</b></span>",
+              "days": "<span color='#ecc6d9'><b>{}</b></span>",
+              "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+              "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+              "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+          }
+      },
+      "on-click": "gsimplecal"
   },
 
   "pulseaudio": {
@@ -142,4 +155,5 @@
   "tray": {
     "spacing": 10
   }
+
 }
