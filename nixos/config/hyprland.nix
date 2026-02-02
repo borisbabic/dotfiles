@@ -51,6 +51,10 @@
     ### Waybar stuff
     waybar
     wttrbar
+    waybar-mpris
+
+    # helps with steam games recognixing my monitor
+    xrandr
   ];
   xdg.portal = {
     enable = true;
