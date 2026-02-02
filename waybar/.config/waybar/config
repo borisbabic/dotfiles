@@ -8,37 +8,31 @@
   "modules-right": ["pulseaudio", "network", "power-profiles-daemon", "battery", "cpu", "memory", "temperature", "tray"],
 
   "hyprland/workspaces": {
-    "disable-scroll": false,
-    "all-outputs": false
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{name}", // Just show the number
+    "on-click": "activate"
   },
 
   "clock": {
-    "format": "{:%H:%M}",
-    "tooltip-format": "{:%A, %d %B %Y}"
+    "format": "  {:%H:%M}",
+    "tooltip-format": "󰃭  {:%A, %d %B %Y}"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol"
   },
 
   "network": {
-    "format-wifi": "{signalStrength}%",
-    "format-ethernet": " Connected",
-    "format-disconnected": " Offline"
-  },
-
-  "battery": {
-    "format": "{capacity}%",
-    "format-charging": "{capacity}%",
-    "format-full": "{capacity}%"
-  },
-
-  "cpu": {
-    "format": "{usage}%"
-  },
-
-  "memory": {
-    "format": "{used}MB"
-  },
-
-  "tray": {
-    "spacing": 10
+    "format-wifi": "  {signalStrength}%",
+    "format-ethernet": "󰈀  Connected",
+    "format-disconnected": "󰖪  Offline",
+    "on-click": "nm-connection-editor"
   },
 
   "power-profiles-daemon": {
@@ -51,5 +45,40 @@
       "balanced": "",
       "power-saver": ""
     }
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "on-click": "missioncenter"
+  },
+
+  "memory": {
+    "format": "󰍛  {used}GiB",
+    "on-click": "missioncenter"
+  },
+
+  "temperature": {
+      "thermal-zone": 2,
+      "critical-threshold": 80,
+      "format-critical": "{icon} {temperatureC}°C",
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": ["", "", ""],
+      "on-click": "missioncenter"
+  },
+
+  "tray": {
+    "spacing": 10
   }
 }

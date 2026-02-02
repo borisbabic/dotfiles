@@ -1,0 +1,122 @@
+/* General spacing for all modules */
+#pulseaudio,
+#network,
+#power-profiles-daemon,
+#battery,
+#cpu,
+#memory,
+#temperature {
+    padding: 0 10px;
+}
+
+/* Temperature Colors */
+#temperature {
+    color: #94e2d5; /* Teal (Cool) */
+}
+
+#temperature.critical {
+    color: #f38ba8; /* Red (Hot) */
+}
+
+/* Battery Colors */
+#battery {
+    color: #a6e3a1; /* Green (Healthy) */
+}
+
+#battery.charging,
+#battery.plugged {
+    color: #f9e2af; /* Yellow (Charging) */
+}
+
+#battery.warning:not(.charging) {
+    color: #fab387; /* Orange */
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8; /* Red */
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Power Profile Colors */
+#power-profiles-daemon.performance {
+    color: #f38ba8; /* Red */
+}
+
+#power-profiles-daemon.balanced {
+    color: #89b4fa; /* Blue */
+}
+
+#power-profiles-daemon.power-saver {
+    color: #a6e3a1; /* Green */
+}
+
+/* CPU & Memory */
+#cpu {
+    color: #cba6f7; /* Mauve */
+}
+
+#memory {
+    color: #f5c2e7; /* Pink */
+}
+
+/* Animation for critical battery */
+@keyframes blink {
+    to {
+        background-color: #f38ba8;
+        color: #11111b;
+    }
+}
+
+/* Container for the workspaces */
+#workspaces {
+    background-color: #313244; /* Darker background for the group */
+    margin: 4px;
+    padding: 0 5px;
+    border-radius: 16px;
+}
+
+/* Base style for every workspace button */
+#workspaces button {
+    padding: 0 10px;
+    color: #cdd6f4; /* Subtle off-white */
+    background-color: transparent;
+    border-radius: 16px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* Style for the active workspace */
+#workspaces button.active {
+    color: #11111b; /* Dark text for contrast */
+    background-color: #89b4fa; /* Bright Blue highlight */
+    padding: 0 15px; /* Slightly wider to look "active" */
+    font-weight: bold;
+}
+
+/* Style for workspaces that have open windows but aren't focused */
+#workspaces button.occupied {
+    color: #f5e0dc; /* Rosewater tint */
+}
+
+/* Hover effect */
+#workspaces button:hover {
+    background-color: rgba(137, 180, 250, 0.2); /* Faint blue tint */
+    box-shadow: inherit;
+    text-shadow: inherit;
+}
+
+/* Style for workspaces requesting attention (e.g., a notification) */
+#workspaces button.urgent {
+    background-color: #f38ba8; /* Red */
+    color: #11111b;
+}
+
+window#waybar {
+    background-color: rgb(30, 30, 46); /* Semi-transparent dark */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
