@@ -4,7 +4,7 @@
   "height": 32,
 
   "modules-left": ["hyprland/workspaces", "mpris"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "custom/weather"],
   "modules-right": ["pulseaudio", "backlight", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray", "custom/notification"],
 
   "hyprland/workspaces": {
@@ -129,6 +129,14 @@
       "on-click": "swaync-client -t -sw",
       "on-click-right": "swaync-client -d -sw",
       "escape": true
+  },
+
+  "custom/weather": {
+      "format": "{}°",
+      "tooltip": true,
+      "interval": 3600,
+      "exec": "wttrbar",
+      "return-type": "json"
   },
 
   "tray": {

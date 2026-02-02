@@ -163,3 +163,12 @@ window#waybar {
     color: #f5c2e7; /* Pink */
     padding: 0 10px;
 }
+
+#custom-weather.sunny {
+    background-color: yellow;
+}
+
+#custom-weather {
+    color: #fab387; /* Orange */
+    padding: 0 10px;
+}

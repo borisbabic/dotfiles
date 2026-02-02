@@ -40,15 +40,16 @@
     pipewire
     # terminal
     swaynotificationcenter
+    libnotify
     # screensharing
     pipewire
     wireplumber
     # bar
-    waybar
     qt5.qtwayland
     qt6.qtwayland
 
-    swaynotificationcenter
-    libnotify
+    ### Waybar stuff
+    waybar
+    wttrbar
   ];
 }
