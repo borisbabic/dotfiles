@@ -100,6 +100,7 @@
   },
 
   "mpris": {
+    "player": "spotify",
     "format": "{player_icon} {dynamic}",
     "format-paused": "{status_icon} <i>{dynamic}</i>",
     "player-icons": {
@@ -109,11 +110,10 @@
     "status-icons": {
       "paused": "",
     },
-    "on-click": "playerctl play-pause",
-    "on-scroll-up": "playerctl next",
-    "on-scroll-down": "playerctl previous",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
     "dynamic-len": 35, // Cuts off long song titles
-    "ignored-players": ["firefox"], // Prevents browser videos from taking over
   },
   "custom/notification": {
     "tooltip": false,
