@@ -158,3 +158,8 @@ window#waybar {
     color: #f9e2af; /* Yellow */
     padding: 0 10px;
 }
+
+#custom-notification {
+    color: #f5c2e7; /* Pink */
+    padding: 0 10px;
+}

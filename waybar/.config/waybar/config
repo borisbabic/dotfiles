@@ -5,7 +5,7 @@
 
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "backlight", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray"],
+  "modules-right": ["pulseaudio", "backlight", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray", "custom/notification"],
 
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -109,6 +109,26 @@
       "on-scroll-down": "playerctl previous",
       "dynamic-len": 35, // Cuts off long song titles
       "ignored-players": ["firefox"] // Prevents browser videos from taking over
+  },
+  "custom/notification": {
+      "tooltip": false,
+      "format": "{icon}",
+      "format-icons": {
+          "notification": "<span foreground='red'><sup></sup></span>",
+          "none": "",
+          "dnd-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-none": "",
+          "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "inhibited-none": "",
+          "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+          "dnd-inhibited-none": ""
+      },
+      "return-type": "json",
+      "exec-if": "which swaync-client",
+      "exec": "swaync-client -swb",
+      "on-click": "swaync-client -t -sw",
+      "on-click-right": "swaync-client -d -sw",
+      "escape": true
   },
 
   "tray": {
