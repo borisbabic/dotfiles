@@ -3,7 +3,7 @@
   "position": "top",
   "height": 32,
 
-  "modules-left": ["hyprland/workspaces",  "custom/weather", "mpris"],
+  "modules-left": ["hyprland/workspaces", "privacy", "custom/weather", "mpris"],
   "modules-center": ["clock"],
   "modules-right": ["pulseaudio", "backlight", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray", "custom/notification"],
 
@@ -152,8 +152,28 @@
       "return-type": "json"
   },
 
+  "privacy": {
+      "icon-spacing": 4,
+      "icon-size": 18,
+      "ignore": [
+        {
+          "type": "screenshare",
+          "name": "obs"
+        }
+      ],
+      "nodes": [
+          {
+              "type": "audio-in",
+              "tooltip": true
+          },
+          {
+              "type": "screenshare",
+              "tooltip": true
+          }
+      ]
+  },
+
   "tray": {
     "spacing": 10
   }
-
 }
