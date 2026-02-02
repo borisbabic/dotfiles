@@ -19,16 +19,18 @@
     nvidiaBusId = "PCI:1@0:0:0";
   };
 
-  fileSystems."/boot/windows" = {
-    device = "/dev/disk/by-uuid/32E6-6700";
-    fsType = "vfat";
-  };
-  boot.loader.systemd-boot.extraEntries = {
-    "windows.conf" = ''
-      title Windows
-      efi /windows/EFI/Microsoft/Boot/bootmgfw.efi
-    '';
-  };
+  # fileSystems."/boot/windows" = {
+  #   device = "/dev/disk/by-uuid/32E6-6700";
+  #   fsType = "vfat";
+  # };
+  # boot.loader.systemd-boot.extraEntries = {
+  #   "windows.conf" = ''
+  #     title Windows
+  #     sort-key 0
+  #     efi /windows/EFI/Microsoft/Boot/bootmgfw.efi
+  #   '';
+  # };
+  # boot.loader.systemd-boot.configurationLimit = 20;
   # services.undervolt = {
   #   enable = true;
   #   coreOffset = -50;
