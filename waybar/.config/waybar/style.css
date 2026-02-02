@@ -125,3 +125,31 @@ window#waybar {
     color: #89dceb; /* Sky Blue / Cyan */
     padding: 0 10px;
 }
+
+#mpris {
+    color: #a6e3a1; /* Spotify Green */
+    background-color: rgba(49, 50, 68, 0.5); /* Subtle dark background */
+    padding: 0 15px;
+    border-radius: 15px;
+    margin: 4px;
+}
+
+#mpris.paused {
+    color: #9399b2; /* Greyed out when paused */
+}
+/* This groups multiple modules into one visual "bubble" */
+#cpu,
+#memory,
+#custom-gpu,
+#temperature {
+    background-color: #313244;
+    padding: 0 8px;
+    margin: 4px 0;
+}
+
+#cpu {
+    border-radius: 15px 0 0 15px;
+} /* Rounded left edge */
+#temperature {
+    border-radius: 0 15px 15px 0;
+} /* Rounded right edge */

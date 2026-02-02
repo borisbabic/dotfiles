@@ -3,9 +3,9 @@
   "position": "top",
   "height": 32,
 
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "network", "power-profiles-daemon", "custom/gpu", "battery", "cpu", "memory", "temperature", "tray"],
+  "modules-right": ["pulseaudio", "network", "custom/gpu", "power-profiles-daemon",  "battery", "cpu", "memory", "temperature", "tray"],
 
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -83,6 +83,23 @@
       "format": "󰢮  {}",
       "interval": 5,
       "on-click": "kitty -e nvtop"
+  },
+
+  "mpris": {
+      "format": "{player_icon} {dynamic}",
+      "format-paused": "{status_icon} <i>{dynamic}</i>",
+      "player-icons": {
+          "default": "▶",
+          "spotify": ""
+      },
+      "status-icons": {
+          "paused": ""
+      },
+      "on-click": "playerctl play-pause",
+      "on-scroll-up": "playerctl next",
+      "on-scroll-down": "playerctl previous",
+      "dynamic-len": 35, // Cuts off long song titles
+      "ignored-players": ["firefox"] // Prevents browser videos from taking over
   },
 
   "tray": {
