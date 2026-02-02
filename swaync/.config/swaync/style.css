@@ -1,0 +1,75 @@
+@define-color bg #1e1e2e; /* Base background */
+@define-color mantle #181825; /* Darker background for widgets */
+@define-color green #a6e3a1; /* Your Spotify color */
+@define-color mauve #cba6f7; /* Your Clock color */
+@define-color surface #313244; /* Your Pill background */
+@define-color text #cdd6f4;
+
+* {
+    font-family: "FiraCode Nerd Font";
+    font-size: 14px;
+}
+
+/* The entire sidebar container */
+.control-center {
+    background: @bg; /* Matches Waybar transparency */
+    border: 2px solid @surface;
+    border-radius: 15px;
+    margin: 10px;
+    color: @text;
+}
+
+/* Individual Notifications */
+.notification-row {
+    outline: none;
+    margin: 10px;
+    padding: 0;
+}
+
+.notification {
+    background: @surface;
+    border: 1px solid @mauve; /* Gives it a subtle glow */
+    border-radius: 12px;
+    padding: 10px;
+}
+
+/* The title at the top of the center */
+.control-center-title {
+    color: @mauve;
+    font-size: 20px;
+    margin: 15px;
+}
+
+/* The 'Clear All' and 'DND' buttons */
+.widget-title button {
+    background: @surface;
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: @text;
+}
+
+.widget-title button:hover {
+    background: @green;
+    color: @bg;
+}
+
+/* Buttons inside notifications */
+.notification-action {
+    background: @mantle;
+    border: 1px solid @surface;
+    border-radius: 8px;
+    color: @text;
+    margin: 5px;
+}
+/* Individual Notifications */
+.notification {
+    background: #313244;
+    border: 1px solid #45475a; /* Subtle border */
+    border-radius: 12px;
+    margin: 8px;
+}
+
+/* Highlight the notification when it's "Critical" or hovered */
+.notification:hover {
+    border-color: #f38ba8; /* Red highlight on hover */
+}
