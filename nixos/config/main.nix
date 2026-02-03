@@ -53,7 +53,7 @@
     LC_NUMERIC = "en_US.UTF-8";
     LC_PAPER = "hr_HR.UTF-8";
     LC_TELEPHONE = "hr_HR.UTF-8";
-    LC_TIME = "hr_HR.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   # {
