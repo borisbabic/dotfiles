@@ -8,6 +8,7 @@
       dankKDEConnect.enable = true;
       commandRunner.enable = true;
       emojiLauncher.enable = true;
+      powerUsagePlugin.enable = true;
     };
     systemd = {
       enable = true;             # Systemd service for auto-start

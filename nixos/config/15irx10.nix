@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];
+  hardware.bluetooth.enable = true;
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
   hardware.nvidia.open = true;

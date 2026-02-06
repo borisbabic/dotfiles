@@ -44,7 +44,7 @@
     # hyprshutdown
     pipewire
     # terminal
-    swaynotificationcenter
+    # swaynotificationcenter
     libnotify
     # screensharing
     pipewire
