@@ -1,6 +1,15 @@
 {
   "commandRunner": {
-    "enabled": true
+    "enabled": true,
+    "noTrigger": true,
+    "trigger": "",
+    "maxHistoryItems": 20,
+    "history": [
+      "pavucontrol",
+      "pkill chromiu",
+      "pkill firefox",
+      "firefox"
+    ]
   },
   "dankKDEConnect": {
     "enabled": true
@@ -9,5 +18,8 @@
     "enabled": true,
     "noTrigger": false,
     "trigger": ":"
+  },
+  "powerUsagePlugin": {
+    "enabled": true
   }
 }
