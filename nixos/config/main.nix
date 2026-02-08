@@ -15,6 +15,7 @@
       ./hyprland.nix
       ./hsguru.nix
       ./deck_tracker.nix
+      ./virt.nix
       # ./gpupassthrough.nix
     ];
   environment.sessionVariables = {
