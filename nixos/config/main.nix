@@ -14,6 +14,7 @@
       ./stremio.nix
       ./hyprland.nix
       ./hsguru.nix
+      ./deck_tracker.nix
       # ./gpupassthrough.nix
     ];
   environment.sessionVariables = {
@@ -163,6 +164,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    jetbrains.rider
+    bitwarden-desktop
     # language server for nix for zed
     nixd
     zed-editor
