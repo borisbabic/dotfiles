@@ -195,6 +195,11 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  services.clutch-notifier = {
+    enable = true;
+    minutesRemaining = 8;
+  };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

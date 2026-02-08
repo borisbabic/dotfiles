@@ -33,6 +33,26 @@
         "type": "github"
       }
     },
+    "clutch-notifier": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1770520512,
+        "narHash": "sha256-w060RyAGhXyICKa/WU6EHxgY2XySofAWJbUyCdSAbEc=",
+        "owner": "borisbabic",
+        "repo": "clutch-notifier",
+        "rev": "38918f61080a0a9ffa4a948550c840502a3bdc5a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "borisbabic",
+        "repo": "clutch-notifier",
+        "type": "github"
+      }
+    },
     "dms-plugin-registry": {
       "inputs": {
         "nixpkgs": [
@@ -503,6 +523,7 @@
     },
     "root": {
       "inputs": {
+        "clutch-notifier": "clutch-notifier",
         "dms-plugin-registry": "dms-plugin-registry",
         "hyprland": "hyprland",
         "hyprsplit": "hyprsplit",

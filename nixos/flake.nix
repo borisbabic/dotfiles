@@ -16,8 +16,12 @@
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    clutch-notifier = {
+      url = "github:borisbabic/clutch-notifier";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -27,6 +31,7 @@
       modules = [
         ./configuration.legion5.nix
         sops-nix.nixosModules.sops
+        clutch-notifier.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         {
               nixpkgs.overlays = [
