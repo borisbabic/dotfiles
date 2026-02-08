@@ -63,7 +63,16 @@
   # This option can sometimes help with "black screen" resume issues
   # by preserving video memory in /tmp
   hardware.nvidia.powerManagement.finegrained = false;
-  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  boot.kernelParams = [
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+    # "nvidia-drm.modeset=1"
+    # "nvidia_drm.fbdev=1"
+  ];
+  boot.blacklistedKernelModules = [
+  # ram temp sensor that messes up hibernate
+  "spd5118"
+  ];
   ###### </fix hibernate, suggested by gemini>
 
 }
