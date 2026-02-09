@@ -20,8 +20,12 @@
       url = "github:borisbabic/clutch-notifier";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-mvisor = {
+      url = "github:fillon/nix-mvisor";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, nix-mvisor, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
