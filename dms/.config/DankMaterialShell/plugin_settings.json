@@ -5,6 +5,7 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "virtm",
       "pavucontrol",
       "pkill chromiu",
       "pkill firefox",

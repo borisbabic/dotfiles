@@ -316,7 +316,7 @@
       "bitdepth": 10
     },
     "HDMI-A-2": {
-      "disabled": true
+      "disabled": false
     }
   },
   "barConfigs": [
