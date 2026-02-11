@@ -25,6 +25,23 @@
     gamescope-wsi
     bottles
     lutris
+    # find a better home
+    (pkgs.writeShellScriptBin "sunshine-prep" ''
+        # Arguments: $1=Width, $2=Height, $3=FPS
+        WIDTH=''${1:-2560}
+        HEIGHT=''${2:-1600}
+        FPS=''${3:-60}
+
+        # Note: We use 'auto' for position and '1' for scale (tablet apps usually handle scaling)
+        ${pkgs.hyprland}/bin/hyprctl keyword monitor SUNSHINE-1,''${WIDTH}x''${HEIGHT}@''${FPS},auto,1
+
+        # 3. (Optional) Force focus or move a workspace there
+        # ${pkgs.hyprland}/bin/hyprctl dispatch moveworkspacetooutput 10 SUNSHINE-1
+      '')
+
+      (pkgs.writeShellScriptBin "sunshine-undo" ''
+        ${pkgs.hyprland}/bin/hyprctl keyword monitor SUNSHINE-1, disable
+      '')
   ];
   environment.sessionVariables = {
     # Force Steam to stop trying to be smart

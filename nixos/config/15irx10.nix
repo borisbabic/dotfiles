@@ -10,7 +10,19 @@
     brightnessctl
   ];
   hardware.bluetooth.enable = true;
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages =  with pkgs; [
+      intel-media-driver
+    ];
+  };
+  hardware.opengl.extraPackages = [
+    pkgs.nvidia-vaapi-driver
+  ];
+  environment.variables = {
+    NVD_BACKEND = "direct";
+    LIBVA_DRIVER_NAME = "nvidia";
+  };
   services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
   hardware.nvidia.open = true;
   hardware.nvidia.modesetting.enable = true;
