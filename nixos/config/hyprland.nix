@@ -27,6 +27,8 @@
     "XDG_SCREENSHOTS_DIR" = "$HOME/Pictures/Screenshots";
   };
 
+  services.blueman.enable = true;
+
   environment.systemPackages = with pkgs; [
     inputs.hyprsplit.packages.${stdenv.hostPlatform.system}.hyprsplit
     grimblast

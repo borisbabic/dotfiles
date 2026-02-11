@@ -81,10 +81,10 @@
     # "nvidia-drm.modeset=1"
     # "nvidia_drm.fbdev=1"
   ];
-  boot.blacklistedKernelModules = [
-  # ram temp sensor that messes up hibernate
-  "spd5118"
-  ];
+  # boot.blacklistedKernelModules = [
+  # # ram temp sensor that messes up hibernate
+  # "spd5118"
+  # ];
   ###### </fix hibernate, suggested by gemini>
 
 }
