@@ -166,6 +166,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     jetbrains.rider
+    super-productivity
     bitwarden-desktop
     # language server for nix for zed
     nixd
