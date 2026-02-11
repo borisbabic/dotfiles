@@ -5,6 +5,12 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "nix-shell -p brave --run brave",
+      "nix-shell -p discord --run discord",
+      "zededitor ~/projects/hsguru",
+      "poweroff",
+      "reboot",
+      "try discord --run discord",
       "virtm",
       "pavucontrol",
       "pkill chromiu",

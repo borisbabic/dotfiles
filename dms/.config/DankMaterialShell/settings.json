@@ -209,7 +209,11 @@
   "wifiNetworkPins": {},
   "bluetoothDevicePins": {},
   "audioInputDevicePins": {},
-  "audioOutputDevicePins": {},
+  "audioOutputDevicePins": {
+    "preferredOutput": [
+      "alsa_output.usb-Dell_Inc_AWPRO_H_Wireless_Game_0000000000000000-00.analog-stereo"
+    ]
+  },
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
@@ -308,8 +312,15 @@
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
   "displayNameMode": "system",
-  "screenPreferences": {},
-  "showOnLastDisplay": {},
+  "screenPreferences": {
+    "dock": [
+      "all"
+    ],
+    "wallpaper": []
+  },
+  "showOnLastDisplay": {
+    "dock": true
+  },
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
     "eDP-1": {
