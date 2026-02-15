@@ -81,6 +81,14 @@
     # "nvidia-drm.modeset=1"
     # "nvidia_drm.fbdev=1"
   ];
+
+  boot.kernel.sysfs = {
+    module.zswap.parameters = {
+      enabled = true;
+      zpool = "zsmalloc";
+      compressor = "zstd";
+    };
+  };
   # boot.blacklistedKernelModules = [
   # # ram temp sensor that messes up hibernate
   # "spd5118"
