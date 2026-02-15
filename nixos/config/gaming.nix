@@ -22,6 +22,7 @@
     mangohud
     steam-tui
     steamcmd
+    osu-lazer-bin
     gamescope-wsi
     bottles
     lutris

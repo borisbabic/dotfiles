@@ -66,6 +66,7 @@
       };
       sync.enable = lib.mkForce false;
     };
+    hardware.nvidia.powerManagement.finegrained = lib.mkForce true;
   };
   # try to fix wifi issue. Suggested by gemini
   hardware.enableRedistributableFirmware = true;
