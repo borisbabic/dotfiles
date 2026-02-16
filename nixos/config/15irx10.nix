@@ -90,6 +90,11 @@
       compressor = "zstd";
     };
   };
+  # Disable integrated camera
+  services.udev.extraRules = ''
+    # Disable specific USB device
+    SUBSYSTEM=="usb", ATTR{idVendor}=="04f2", ATTR{idProduct}=="b83e", ATTR{authorized}="0"
+  '';
   # boot.blacklistedKernelModules = [
   # # ram temp sensor that messes up hibernate
   # "spd5118"
