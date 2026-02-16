@@ -190,6 +190,7 @@
     pavucontrol
     playerctl
     chromium
+    motrix
   ];
 
   programs.obs-studio.enableVirtualCamera = true;
