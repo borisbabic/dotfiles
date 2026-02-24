@@ -2,10 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, userHome, ... }:
 
 {
   users.users.boris.extraGroups = ["video"];
+  services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];

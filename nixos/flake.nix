@@ -24,8 +24,9 @@
       url = "github:fillon/nix-mvisor";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, nix-mvisor, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, nix-mvisor, hyprdynamicmonitors, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -36,6 +37,7 @@
         ./configuration.legion5.nix
         sops-nix.nixosModules.sops
         clutch-notifier.nixosModules.default
+        hyprdynamicmonitors.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         {
               nixpkgs.overlays = [

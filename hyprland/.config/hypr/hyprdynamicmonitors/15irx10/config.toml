@@ -1,0 +1,38 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.conf"
+
+[power_events]
+
+[power_events.dbus_query_object]
+path = "/org/freedesktop/UPower/devices/line_power_ADP0"
+
+[[power_events.dbus_signal_match_rules]]
+object_path = "/org/freedesktop/UPower/devices/line_power_ADP0"
+
+
+[profiles.desktop_mode]
+config_file = "$HOME/.config/hypr/hyprdynamicmonitors/15irx10/hyprconfigs/desktop_mode.go.tmpl"
+config_file_type = "template"
+[profiles.desktop_mode.conditions]
+
+[[profiles.desktop_mode.conditions.required_monitors]]
+description = "EDO EF10QBC64.C"
+monitor_tag = "laptop"
+
+[[profiles.desktop_mode.conditions.required_monitors]]
+description = "Dell Inc. DELL S2725QS 9Z5B364"
+monitor_tag = "main"
+
+[[profiles.desktop_mode.conditions.required_monitors]]
+description = "Dell Inc. DELL P2715Q V7WP95C1506L"
+monitor_tag = "vertical"
+
+
+[profiles.laptop_only]
+config_file = "$HOME/.config/hypr/hyprdynamicmonitors/15irx10/hyprconfigs/laptop_only.go.tmpl"
+config_file_type = "template"
+[profiles.laptop_only.conditions]
+
+[[profiles.laptop_only.conditions.required_monitors]]
+description = "EDO EF10QBC64.C"
+monitor_tag = "laptop"
