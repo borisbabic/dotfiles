@@ -23,13 +23,16 @@
     NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";
   };
-  services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
-  hardware.nvidia.open = true;
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.prime = {
-    sync.enable = true;
-    intelBusId = "PCI:0@0:2:0";
-    nvidiaBusId = "PCI:1@0:0:0";
+  services.xserver.videoDrivers = [ "nvidia"];
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+    prime = {
+      sync.enable = true;
+      intelBusId = "PCI:0@0:2:0";
+      nvidiaBusId = "PCI:1@0:0:0";
+    };
+    powerManagement.finegrained = false;
   };
 
   # fileSystems."/boot/windows" = {
@@ -70,18 +73,6 @@
   };
   # try to fix wifi issue. Suggested by gemini
   hardware.enableRedistributableFirmware = true;
-
-  ###### <fix hibernate, suggested by gemini>
-  hardware.nvidia.powerManagement.enable = true;
-  # This option can sometimes help with "black screen" resume issues
-  # by preserving video memory in /tmp
-  hardware.nvidia.powerManagement.finegrained = false;
-  boot.kernelParams = [
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
-    "nvidia.NVreg_TemporaryFilePath=/var/tmp"
-    # "nvidia-drm.modeset=1"
-    # "nvidia_drm.fbdev=1"
-  ];
 
   boot.kernel.sysfs = {
     module.zswap.parameters = {
