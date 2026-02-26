@@ -173,7 +173,6 @@
     zed-editor
     chatterino7
     # discord rich presence
-    arrpc
     webcord-vencord
     # discord
     kitty

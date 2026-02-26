@@ -25,8 +25,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, nix-mvisor, hyprdynamicmonitors, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, nix-mvisor, home-manager, hyprdynamicmonitors, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -38,17 +42,23 @@
         sops-nix.nixosModules.sops
         clutch-notifier.nixosModules.default
         hyprdynamicmonitors.nixosModules.default
+        home-manager.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  stremio-service = (import stremio-pr {
-                    system = prev.stdenv.hostPlatform.system;
-                    config.allowUnfree = true;
-                  }).stremio-service;
-                })
-              ];
-            }
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            users.boris = ./home/boris.nix;
+          };
+          nixpkgs.overlays = [
+            (final: prev: {
+              stremio-service = (import stremio-pr {
+                system = prev.stdenv.hostPlatform.system;
+                config.allowUnfree = true;
+              }).stremio-service;
+            })
+          ];
+        }
       ];
     };
   };
