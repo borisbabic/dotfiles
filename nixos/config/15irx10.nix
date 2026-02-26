@@ -7,6 +7,10 @@
 {
   users.users.boris.extraGroups = ["video"];
   services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
+  services.logind = {
+    lidSwitch = "suspend";
+    lidSwitchExternalPower = "suspend";
+  };
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];
@@ -21,13 +25,15 @@
     pkgs.nvidia-vaapi-driver
   ];
   environment.variables = {
-    NVD_BACKEND = "direct";
+    # gemini says can cause issues
+    # NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";
   };
   services.xserver.videoDrivers = [ "nvidia"];
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
+    powerManagement.enable = true;
     prime = {
       sync.enable = true;
       intelBusId = "PCI:0@0:2:0";
@@ -35,6 +41,11 @@
     };
     powerManagement.finegrained = false;
   };
+
+  boot.kernelParams = [
+	  "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+  ];
+
 
   # fileSystems."/boot/windows" = {
   #   device = "/dev/disk/by-uuid/32E6-6700";
@@ -92,5 +103,6 @@
   # "spd5118"
   # ];
   ###### </fix hibernate, suggested by gemini>
+
 
 }
