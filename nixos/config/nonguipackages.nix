@@ -40,13 +40,15 @@ in
   programs.yazi = {
     enable = true;
   };
+
   # programs.adb.enable = true;
   environment.systemPackages = with pkgs; [
 
     #beets
     bat # better cat
     cloc
-    coreutils
+    coreutils-prefixed
+    uutils-coreutils-noprefix
     cpufrequtils
     # emacs
     devenv
