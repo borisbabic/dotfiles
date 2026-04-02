@@ -5,4 +5,9 @@
   services.arrpc = {
     enable = true;
   };
+  # systray proxy
+  # enables wine systrays to be in regular wayland systray
+  services.xembed-sni-proxy = {
+    enable = true;
+  };
 }
