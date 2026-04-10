@@ -26,8 +26,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, hyprdynamicmonitors, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, hyprdynamicmonitors, mangowm, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -36,6 +40,7 @@
       };
       modules = [
         ./configuration.legion5.nix
+        mangowm.nixosModules.mango
         sops-nix.nixosModules.sops
         clutch-notifier.nixosModules.default
         hyprdynamicmonitors.nixosModules.default

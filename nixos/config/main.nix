@@ -18,6 +18,7 @@
       ./virt.nix
       # ./gpupassthrough.nix
     ];
+  programs.mango.enable = true;
   environment.sessionVariables = {
     # Tell XWayland apps (like Steam) not to scale themselves
     "GDK_SCALE" = "1";
