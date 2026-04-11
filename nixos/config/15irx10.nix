@@ -5,6 +5,10 @@
 { pkgs, lib, userHome, ... }:
 
 {
+  # Use latest kernel.
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest;
+
   users.users.boris.extraGroups = ["video"];
   services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
   services.logind = {
