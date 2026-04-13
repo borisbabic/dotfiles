@@ -10,4 +10,12 @@
   services.xembed-sni-proxy = {
     enable = true;
   };
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+    # plugins = [
+    #   pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+    # ];
+  };
 }

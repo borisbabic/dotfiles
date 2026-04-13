@@ -9,8 +9,9 @@ return {
         "sql-formatter",
         "lua-language-server",
         "json-lsp",
-        "expert",
-        "stylua",
+        "nixd",
+        "tailwindcss",
+        "expert"
       },
     },
   },

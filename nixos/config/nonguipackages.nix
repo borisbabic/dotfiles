@@ -1,16 +1,14 @@
 { config, pkgs, ... }:
 let
-  # languages = with pkgs; [
-  #   erlang
-  #   elixir
-  #   jre
-  #   nodejs
-  #   php
-  #   python3Full
-  #   ruby
-  #   scala
-  #   go
-  # ];
+  for_lazyvim = with pkgs; [
+    lazygit
+    gcc
+    unzip
+    luarocks
+    python3
+    tree-sitter
+    shfmt
+  ];
   # nodePkgs = with pkgs; [
   #   #nodePackages.bower
   #   nodePackages.grunt-cli
@@ -81,7 +79,6 @@ in
     lolcat # fabulously color output
     multitail
     ncdu # du cli browser
-    neovim
     nix-search-cli
     nmap
     # nox
@@ -111,7 +108,7 @@ in
 
     gnupg
     # postgresql
-  ];
+  ] ++ for_lazyvim;
   services.atd.enable = true;
 
   # lets devenv manage binary caches
