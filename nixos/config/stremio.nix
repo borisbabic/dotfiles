@@ -3,7 +3,7 @@
   systemd.user.services.stremio = {
     description = "Stremio Service Daemon";
     after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = [ "default.target" ];
     serviceConfig = {
       ExecStart = "${pkgs.stremio-service}/bin/stremio-service";
       Restart = "always";
