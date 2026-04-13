@@ -283,10 +283,8 @@ layerrule=animation_type_open:zoom,layer_name:kitty
 layerrule=animation_type_close:zoom,layer_name:kitty
 
 # autostart
-exec-once=uwsm app -- webcord
-exec-once=uwsm app -- firefox
-exec-once=uwsm app -- chatterino
+exec-once=webcord
+exec-once=firefox
+exec-once=chatterino
 
 source=~/.config/mango/dms.conf
-
-source=./dms/cursor.conf
