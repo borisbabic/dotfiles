@@ -5,21 +5,31 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
-      "nix-shell -p brave --run brave",
-      "nix-shell -p discord --run discord",
-      "zededitor ~/projects/hsguru",
-      "poweroff",
+      "gamescope",
       "reboot",
-      "try discord --run discord",
-      "virtm",
-      "pavucontrol",
-      "pkill chromiu",
-      "pkill firefox",
-      "firefox"
+      "nix-shell -p brave --run brave",
+      "nix-shell -p chrome --run chrome",
+      "brave",
+      "downloads",
+      "poweroff",
+      "nix-shell -p discord --run discord",
+      "nix run github:jacopone/antigravity-nix",
+      "hsguru",
+      "pkill Webcord",
+      "reboo",
+      "suspen",
+      "systemctl suspend",
+      "pkill superproductivity",
+      "zeditor ~/dotfiles",
+      "zed ~/dotfiles",
+      "hyprctl reload",
+      "systemctl suspent",
+      "zededitor ~/projects/hsguru"
     ]
   },
   "dankKDEConnect": {
-    "enabled": true
+    "enabled": true,
+    "selectedDeviceId": "5931a82b903c4de781bf781a7f22d9af"
   },
   "emojiLauncher": {
     "enabled": true,
@@ -27,6 +37,18 @@
     "trigger": ":"
   },
   "powerUsagePlugin": {
+    "enabled": true
+  },
+  "airQuality": {
+    "enabled": true
+  },
+  "dankBatteryAlerts": {
+    "enabled": false
+  },
+  "dankGifSearch": {
+    "enabled": true
+  },
+  "dmsLenovoBatterySettings": {
     "enabled": true
   }
 }
