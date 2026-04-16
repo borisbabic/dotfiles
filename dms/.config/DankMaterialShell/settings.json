@@ -833,6 +833,11 @@
   },
   "clipboardEnterToPaste": true,
   "launcherPluginVisibility": {},
-  "launcherPluginOrder": [],
+  "launcherPluginOrder": [
+    "dms_settings_search",
+    "commandRunner",
+    "emojiLauncher",
+    "dankGifSearch"
+  ],
   "configVersion": 5
 }
