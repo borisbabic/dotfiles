@@ -5,6 +5,7 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "dms ipc call brightness increment 5",
       "nix-shell -p brave --run brave",
       "gamescope",
       "reboot",
@@ -23,8 +24,7 @@
       "zeditor ~/dotfiles",
       "zed ~/dotfiles",
       "hyprctl reload",
-      "systemctl suspent",
-      "zededitor ~/projects/hsguru"
+      "systemctl suspent"
     ]
   },
   "dankKDEConnect": {

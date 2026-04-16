@@ -290,7 +290,7 @@
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": true,
   "matugenTemplateEmacs": true,
-  "matugenTemplateZed": true,
+  "matugenTemplateZed": false,
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
