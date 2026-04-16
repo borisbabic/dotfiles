@@ -2,13 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, userHome, ... }:
+{ pkgs, lib, userHome, config, ... }:
 
 {
   # Use latest kernel.
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest;
-
+  boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+  services.thermald.enable = lib.mkDefault true;
+  # also enables auto tuning
+  powerManagement.powertop.enable = true;
   users.users.boris.extraGroups = ["video"];
   services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
   services.logind = {
@@ -17,6 +20,7 @@
   };
   environment.systemPackages = with pkgs; [
     brightnessctl
+    lenovo-legion
   ];
   hardware.bluetooth.enable = true;
   hardware.graphics = {
@@ -47,7 +51,7 @@
   };
 
   boot.kernelParams = [
-	  "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+    "nvidia.NVreg_TemporaryFilePath=/var/tmp"
   ];
 
 
