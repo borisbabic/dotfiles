@@ -92,11 +92,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773142806,
-        "narHash": "sha256-LCucRiPA3m6i7OM0rB+iT2oeFzIa008xxa4xkBkD/aU=",
+        "lastModified": 1776304179,
+        "narHash": "sha256-rFn/bGvQ3ikSKJAuEXA+3MLxTtGuScnLXW09HQmAcaU=",
         "owner": "AvengeMedia",
         "repo": "dms-plugin-registry",
-        "rev": "08e551b79aef5bd534b3e97b032bd3b282d7c99c",
+        "rev": "7a4914895c9a84d5e300d5160aa4e8c5acab3ee7",
         "type": "github"
       },
       "original": {
@@ -600,11 +600,11 @@
         "scenefx": "scenefx"
       },
       "locked": {
-        "lastModified": 1775461179,
-        "narHash": "sha256-4vvuk6tl8M2wuW3VJU9Uwc3HCrL95cSJImEODNNQEy8=",
+        "lastModified": 1776131149,
+        "narHash": "sha256-HyiRKRGZhxVHPide+dBAkVIOYlbhGvI4TewXXAiLs8o=",
         "owner": "mangowm",
         "repo": "mango",
-        "rev": "e83a9dff820ce2215ecbbbea7d617d24d0825174",
+        "rev": "eb51499ec7f72b1e135176fdd6dde6794bde7cd7",
         "type": "github"
       },
       "original": {
