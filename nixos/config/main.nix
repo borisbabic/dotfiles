@@ -97,7 +97,8 @@
         settings = {
 
           main = {
-            capslock = "esc";
+            capslock = "overload(control, esc)";
+            # capslock = "esc";
           };
         };
       };
@@ -105,7 +106,8 @@
         ids = ["c0f4:0201:5ab70009" ];
         settings = {
           main = {
-            capslock = "esc";
+            capslock = "overload(control, esc)";
+            # capslock = "esc";
             esc = "grave";
             compose = "sysrq"; # In keyd/Linux, 'sysrq' is the code for PrintScreen
             insert = "play";
