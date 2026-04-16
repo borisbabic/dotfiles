@@ -18,4 +18,5 @@
     #   pkgs.vimPlugins.nvim-treesitter.withAllGrammars
     # ];
   };
+  services.kdeconnect.enable = true;
 }

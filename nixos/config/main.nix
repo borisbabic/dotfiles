@@ -28,6 +28,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.udev.extraRules = ''
+    KERNEL=="hidraw*", ATTRS{idVendor}=="3837", ATTRS{idProduct}=="4016", MODE="0660", TAG+="uaccess"
+  ''; 
+
   # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -68,6 +72,8 @@
   # {
   #   # Enable the COSMIC login manager
   #   services.displayManager.cosmic-greeter.enable = true;
+
+
 
   #   # Enable the COSMIC desktop environment
   #   services.desktopManager.cosmic.enable = true;
