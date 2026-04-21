@@ -10,8 +10,10 @@
   boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
   services.thermald.enable = lib.mkDefault true;
-  # also enables auto tuning
-  powerManagement.powertop.enable = true;
+  # DO NOT ENABLE
+  # MESSES WITH DONGLES
+  # BOTH FOR HEADSET MX3
+  # powerManagement.powertop.enable = true;
   users.users.boris.extraGroups = ["video"];
   services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
   services.logind = {
