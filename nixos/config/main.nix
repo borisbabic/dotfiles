@@ -223,6 +223,9 @@
   '';
   security.polkit.enable = true;
 
+  systemd.services.ni-daemon.serviceConfig = {
+    CPUWeight = 50;
+  };
   fonts.packages = with pkgs; [
     # Standard Nerd Fonts (includes icons for almost everything)
     nerd-fonts.symbols-only

@@ -40,6 +40,10 @@
     LIBVA_DRIVER_NAME = "nvidia";
   };
   services.xserver.videoDrivers = [ "nvidia"];
+  nix.settings = {
+    max-jobs = 4;
+    cores = 3;
+  };
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
