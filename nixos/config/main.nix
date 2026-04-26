@@ -177,9 +177,15 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  services.udev.packages = [ pkgs.via pkgs.vial  pkgs.qmk-udev-rules ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    vial
+    via
+    qmk
+    qmk-udev-rules
     jetbrains.rider
     super-productivity
     bitwarden-desktop
