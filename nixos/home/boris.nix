@@ -19,4 +19,9 @@
     # ];
   };
   services.kdeconnect.enable = true;
+
+  programs.calibre = {
+    enable = true;
+
+  };
 }
