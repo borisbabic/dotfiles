@@ -216,6 +216,7 @@
     pavucontrol
     playerctl
     chromium
+    comma
     motrix
   ];
 
