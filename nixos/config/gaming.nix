@@ -24,7 +24,7 @@
     steamcmd
     osu-lazer-bin
     gamescope-wsi
-    bottles
+    # bottles
     lutris
     # find a better home
     (pkgs.writeShellScriptBin "sunshine-prep" ''

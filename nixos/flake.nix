@@ -61,6 +61,12 @@
                 config.allowUnfree = true;
               }).stremio-service;
             })
+            # workaround for issue on unstable
+            (_: prev: {
+              openldap = prev.openldap.overrideAttrs {
+                doCheck = !prev.stdenv.hostPlatform.isi686;
+              };
+            })
           ];
         }
       ];

@@ -104,7 +104,7 @@ in
     zoxide
 
     # file manage
-    pgcli
+    # pgcli
 
     gnupg
     # postgresql
