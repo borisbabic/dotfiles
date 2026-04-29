@@ -2,12 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, userHome, config, ... }:
+{ pkgs, lib, userHome, config, nix, ... }:
 
 {
+  # for cachyos kernels
+  nix.settings.substituters = [ "https://cache.garnix.io" ];
+  nix.settings.trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
   # Use latest kernel.
   #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest;
+
+  boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v4;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
   services.thermald.enable = lib.mkDefault true;
   # DO NOT ENABLE
