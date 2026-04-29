@@ -306,5 +306,3 @@ exec-once=uwsm app -- spotify
 source=~/.config/mango/dms.conf
 
 source=./dms/cursor.conf
-
-source=./dms/outputs.conf
