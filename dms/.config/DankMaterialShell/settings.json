@@ -398,10 +398,14 @@
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
     "eDP-1": {
-      "bitdepth": 10
+      "colorManagement": "dcip3"
     },
     "HDMI-A-2": {
-      "disabled": false
+      "disabled": false,
+      "colorManagement": "auto"
+    },
+    "DP-2": {
+      "colorManagement": "auto"
     }
   },
   "displayProfiles": {
@@ -426,10 +430,24 @@
         "createdAt": 1775916557870,
         "updatedAt": 1775916557870
       }
+    },
+    "hyprland": {
+      "profile_1777021102106_xm28q2": {
+        "id": "profile_1777021102106_xm28q2",
+        "name": "Desktop",
+        "outputSet": [
+          "DP-2",
+          "HDMI-A-2",
+          "eDP-1"
+        ],
+        "createdAt": 1777021102106,
+        "updatedAt": 1777021102106
+      }
     }
   },
   "activeDisplayProfile": {
-    "dwl": "profile_1775836707264_w9bitc"
+    "dwl": "profile_1775836707264_w9bitc",
+    "hyprland": "profile_1777021102106_xm28q2"
   },
   "displayProfileAutoSelect": false,
   "displayShowDisconnected": false,

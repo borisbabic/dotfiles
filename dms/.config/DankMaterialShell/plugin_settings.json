@@ -5,10 +5,10 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
-      "dms ipc call brightness increment 5",
       "nix-shell -p brave --run brave",
-      "gamescope",
       "reboot",
+      "dms ipc call brightness increment 5",
+      "gamescope",
       "nix-shell -p chrome --run chrome",
       "brave",
       "downloads",
@@ -34,7 +34,8 @@
   "emojiLauncher": {
     "enabled": true,
     "noTrigger": false,
-    "trigger": ":"
+    "trigger": ":",
+    "recentEmojis": "𝔴"
   },
   "powerUsagePlugin": {
     "enabled": true
