@@ -23,6 +23,7 @@
     steam-tui
     steamcmd
     osu-lazer-bin
+    heroic
     gamescope-wsi
     # bottles
     lutris
