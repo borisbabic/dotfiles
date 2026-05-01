@@ -20,9 +20,10 @@
   # powerManagement.powertop.enable = true;
   users.users.boris.extraGroups = ["video"];
   services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
-  services.logind = {
-    lidSwitch = "suspend";
-    lidSwitchExternalPower = "suspend";
+
+  services.logind.settings.Login = {
+    HandleLidSwitchExternalPower = "suspend";
+    HandleLidSwitch = "suspend";
   };
   environment.systemPackages = with pkgs; [
     brightnessctl
@@ -33,11 +34,9 @@
     enable = true;
     extraPackages =  with pkgs; [
       intel-media-driver
+      nvidia-vaapi-driver
     ];
   };
-  hardware.opengl.extraPackages = [
-    pkgs.nvidia-vaapi-driver
-  ];
   environment.variables = {
     # gemini says can cause issues
     # NVD_BACKEND = "direct";
