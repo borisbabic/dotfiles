@@ -142,7 +142,7 @@
   "audioScrollMode": "volume",
   "audioWheelScrollAmount": 5,
   "clockCompactMode": false,
-  "focusedWindowCompactMode": false,
+  "focusedWindowCompactMode": true,
   "runningAppsCompactMode": true,
   "barMaxVisibleApps": 0,
   "barMaxVisibleRunningApps": 0,
@@ -482,10 +482,10 @@
       "leftWidgets": [
         "launcherButton",
         "workspaceSwitcher",
+        "music",
         "focusedWindow"
       ],
       "centerWidgets": [
-        "music",
         "clock",
         "weather",
         {
@@ -503,15 +503,6 @@
           "enabled": true
         },
         {
-          "id": "clipboard",
-          "enabled": true
-        },
-        {
-          "id": "cpuTemp",
-          "enabled": true,
-          "minimumWidth": true
-        },
-        {
           "id": "cpuUsage",
           "enabled": true
         },
@@ -521,15 +512,19 @@
           "showSwap": true
         },
         {
-          "id": "notificationButton",
-          "enabled": true
-        },
-        {
           "id": "powerUsagePlugin",
           "enabled": true
         },
         {
           "id": "dankKDEConnect",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
+          "enabled": true
+        },
+        {
+          "id": "notificationButton",
           "enabled": true
         },
         {
@@ -560,10 +555,10 @@
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 1,
       "fontScale": 1,
-      "autoHide": false,
-      "autoHideDelay": 250,
+      "autoHide": true,
+      "autoHideDelay": 500,
       "showOnWindowsOpen": true,
-      "openOnOverview": false,
+      "openOnOverview": true,
       "visible": true,
       "popupGapsAuto": true,
       "popupGapsManual": 4,
@@ -612,10 +607,6 @@
           "enabled": true
         },
         {
-          "id": "clipboard",
-          "enabled": true
-        },
-        {
           "id": "cpuTemp",
           "enabled": true,
           "minimumWidth": true
@@ -630,15 +621,15 @@
           "showSwap": true
         },
         {
-          "id": "notificationButton",
-          "enabled": true
-        },
-        {
-          "id": "powerUsagePlugin",
-          "enabled": true
-        },
-        {
           "id": "dankKDEConnect",
+          "enabled": true
+        },
+        {
+          "id": "clipboard",
+          "enabled": true
+        },
+        {
+          "id": "notificationButton",
           "enabled": true
         },
         {
