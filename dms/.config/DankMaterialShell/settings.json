@@ -398,11 +398,16 @@
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {
     "eDP-1": {
-      "colorManagement": "dcip3"
+      "colorManagement": "auto",
+      "disabled": false,
+      "bitdepth": 10,
+      "sdrSaturation": 1.5
     },
     "HDMI-A-2": {
       "disabled": false,
-      "colorManagement": "auto"
+      "colorManagement": "auto",
+      "bitdepth": 10,
+      "sdrSaturation": 1.5
     },
     "DP-2": {
       "colorManagement": "auto"
@@ -442,6 +447,15 @@
         ],
         "createdAt": 1777021102106,
         "updatedAt": 1777021102106
+      },
+      "profile_1777609757845_u2tsa1": {
+        "id": "profile_1777609757845_u2tsa1",
+        "name": "Laptop Only",
+        "outputSet": [
+          "eDP-1"
+        ],
+        "createdAt": 1777609757845,
+        "updatedAt": 1777609757845
       }
     }
   },
