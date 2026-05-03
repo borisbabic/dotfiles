@@ -14,6 +14,7 @@
       ./stremio.nix
       ./hyprland.nix
       ./hsguru.nix
+      ./dell_audio_toggle.nix
       # ./deck_tracker.nix
       ./virt.nix
       # ./gpupassthrough.nix
