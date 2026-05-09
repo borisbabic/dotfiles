@@ -54,7 +54,7 @@
             users.boris = ./home/boris.nix;
           };
           nixpkgs.overlays = [
-            nix-cachyos-kernel.overlays.pinned
+            nix-cachyos-kernel.overlays.default
             (final: prev: {
               stremio-service = (import stremio-pr {
                 system = prev.stdenv.hostPlatform.system;

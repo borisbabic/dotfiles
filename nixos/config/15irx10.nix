@@ -4,6 +4,9 @@
 
 { pkgs, lib, userHome, config, nix, ... }:
 
+# to disable battery charge limit do the following:
+# sudo legion_cli --donotexpecthwmon batteryconservation-disable
+
 {
   # for cachyos kernels
   nix.settings.substituters = [ "https://cache.garnix.io" ];
@@ -62,7 +65,6 @@
   boot.kernelParams = [
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
   ];
-
 
   # fileSystems."/boot/windows" = {
   #   device = "/dev/disk/by-uuid/32E6-6700";
