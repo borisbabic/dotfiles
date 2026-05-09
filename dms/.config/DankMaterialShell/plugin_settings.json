@@ -35,7 +35,7 @@
     "enabled": true,
     "noTrigger": false,
     "trigger": ":",
-    "recentEmojis": "🙃,𝔴"
+    "recentEmojis": "𝔴,🙄,😂,🙃"
   },
   "powerUsagePlugin": {
     "enabled": true
@@ -44,12 +44,21 @@
     "enabled": true
   },
   "dankBatteryAlerts": {
-    "enabled": false
+    "enabled": true
   },
   "dankGifSearch": {
     "enabled": true
   },
   "dmsLenovoBatterySettings": {
     "enabled": true
+  },
+  "dankHyprlandWindows": {
+    "enabled": true
+  },
+  "dankLauncherKeys": {
+    "enabled": true
+  },
+  "simpleAudioControl": {
+    "enabled": false
   }
 }
