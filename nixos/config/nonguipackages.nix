@@ -7,6 +7,7 @@ let
     luarocks
     python3
     tree-sitter
+    lua-language-server
     shfmt
   ];
   # nodePkgs = with pkgs; [

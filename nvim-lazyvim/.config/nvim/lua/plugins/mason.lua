@@ -7,10 +7,10 @@ return {
         "prettier",
         "shellcheck",
         "sql-formatter",
-        "lua-language-server",
+        -- "lua-language-server",
         "json-lsp",
-        "nixd",
-        "tailwindcss",
+        -- "nixd",
+        -- "tailwindcss",
         "expert"
       },
     },
