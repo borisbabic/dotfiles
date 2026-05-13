@@ -12,7 +12,9 @@
 
 require("monitors")
 require("dms")
+hs = require("hyprsplit")
 require("keybinds")
+require("looks")
 
 
 -------------------

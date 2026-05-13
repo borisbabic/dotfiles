@@ -4,3 +4,6 @@
 [submodule "nixos/nixpkgs"]
 	path = nixos/nixpkgs
 	url = ssh://git@github.com/borisbabic/nixpkgs
+[submodule "hyprland-lua/.config/hypr/hyprsplit"]
+	path = hyprland-lua/.config/hypr/hyprsplit
+	url = https://github.com/shezdy/hyprsplit

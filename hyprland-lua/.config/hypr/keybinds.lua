@@ -19,8 +19,9 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT +  F", hl.dsp.window.float({ action = "toggle", internal = true }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 -- MIGHT NOT WORK:
--- hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({ action = "toggle", internal = true, client = "active"}))
+-- hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({internal = false, client = "0 2"}))
 hl.bind(mainMod .. " + SHIFT + P", function ()
   hl.dispatch(hl.dsp.window.float({action = "toggle"}))
   hl.dispatch(hl.dsp.window.pin())
@@ -34,17 +35,34 @@ for _, dir in ipairs({"left", "right", "up", "down"}) do
 end
 
 
+
+local function follow_if_emptying(dispatcher, args)
+  return function()
+    local ws = hl.get_active_special_workspace() or hl.get_active_workspace()
+    args.follow = ws ~= nil and ws.windows < 2
+    hl.dispatch(dispatcher(args))
+  end
+end
+
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-for i = 1, 10 do
+--
+for i = 1, 9 do
     local key = i % 10 -- 10 maps to key 0
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    -- hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+    -- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + " .. key,             hs.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     follow_if_emptying(hs.dsp.window.move, {workspace = i}))
 end
+
+
+hl.bind("SUPER + " .. "g", hs.dsp.grab_rogue_windows())
+hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + SHIFT + S", follow_if_emptying(hl.dsp.window.move, {workspace="special:magic"}))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

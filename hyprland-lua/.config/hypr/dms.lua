@@ -21,7 +21,7 @@ for keys, exec in pairs({
   ["comma"] = "settings toggle",
   ["N"] = "widget toggle notificationButton",
   ["TAB"] = "hypr toggleOverview",
-  ["W"] = "hypr toggleOverview",
+  ["W"] = "widget toggle weather",
   ["O"] = "hypr toggle overview",
   ["L"] = "lock lock",
 }) do
