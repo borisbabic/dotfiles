@@ -10,11 +10,12 @@
 -- require("myColors")
 
 
+HS = require("hyprsplit")
+require("keybinds")
 require("monitors")
 require("dms")
-hs = require("hyprsplit")
-require("keybinds")
 require("looks")
+require("autostart")
 
 
 -------------------
