@@ -36,11 +36,11 @@ end
 
 
 
-local function follow_if_emptying(dispatcher, args)
+local function move_window_to(workspace)
   return function()
     local ws = hl.get_active_special_workspace() or hl.get_active_workspace()
-    args.follow = ws ~= nil and ws.windows < 2
-    hl.dispatch(dispatcher(args))
+    local follow = ws ~= nil and ws.windows < 2
+    hl.dispatch(HS.dsp.window.move({workspace = workspace, follow = follow}))
   end
 end
 
@@ -51,18 +51,19 @@ for i = 1, 9 do
     local key = i % 10 -- 10 maps to key 0
     -- hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     -- hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
-    hl.bind(mainMod .. " + " .. key,             hs.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     follow_if_emptying(hs.dsp.window.move, {workspace = i}))
+    hl.bind(mainMod .. " + " .. key,             HS.dsp.focus({ workspace = i}))
+    hl.bind(mainMod .. " + SHIFT + " .. key,     move_window_to(i))
 end
 
 
-hl.bind("SUPER + " .. "g", hs.dsp.grab_rogue_windows())
-hl.bind("SUPER + " .. "d", hs.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+hl.bind("SUPER + " .. "g", HS.dsp.grab_rogue_windows())
+hl.bind("SUPER + " .. "d", HS.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
 
 
+hl.bind("ALT + ALT_R + C", hl.dsp.exec_cmd("chatterino"), {release = true})
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", follow_if_emptying(hl.dsp.window.move, {workspace="special:magic"}))
+hl.bind(mainMod .. " + SHIFT + S", move_window_to("special:magic"))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
