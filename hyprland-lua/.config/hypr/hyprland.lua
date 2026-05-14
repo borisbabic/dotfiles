@@ -108,6 +108,9 @@ hl.config({
 ----------------
 
 hl.config({
+    cursor = {
+      no_hardware_cursors = true
+    },
     misc = {
         focus_on_activate = true,
         force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
