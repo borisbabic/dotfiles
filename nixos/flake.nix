@@ -13,6 +13,13 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms = {
+      #url = "path:/home/boris/projects/DankMaterialShell";
+      # url = "github:borisbabic/DankMaterialShell";
+      # url = "github:AvengeMedia/DankMaterialShell/pull/2419/head";
+      url = "github:AvengeMedia/DankMaterialShell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     dms-plugin-registry = {
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,7 +39,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, hyprdynamicmonitors, mangowm, nix-cachyos-kernel, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, hyprdynamicmonitors, mangowm, nix-cachyos-kernel, dms, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {

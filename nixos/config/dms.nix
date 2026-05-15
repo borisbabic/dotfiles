@@ -1,8 +1,20 @@
 { inputs, pkgs, ... }:
+# let
+  # patched = pkgs.dms-shell.overrideAttrs (oldAttrs: {
+  #   src = pkgs.fetchFromGitHub {
+  #     owner = "borisbabic";
+  #     repo = "DankMaterialShell";
+  #     rev = "master";
+  #     hash = "sha256-wy0zsZBV1pOkpLIVl5cDGmQYPz+53mDZ8kS/zHVZgB4=";
+  #   };
+  # }); in
 {
-  imports = [inputs.dms-plugin-registry.modules.default ];
+  imports = [
+    inputs.dms-plugin-registry.modules.default
+    inputs.dms.nixosModules.dank-material-shell
+  ];
   programs.dsearch.enable = true;
-  programs.dms-shell = {
+  programs.dank-material-shell = {
     enable = true;
     plugins = {
       dankKDEConnect.enable = true;
