@@ -12,16 +12,16 @@ local menu        = variables.menu
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
-local closeWindowBind = hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SHIFT +  F", hl.dsp.window.float({ action = "toggle", internal = true }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SHIFT + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
--- MIGHT NOT WORK:
--- hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({internal = false, client = "0 2"}))
+hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({internal = 0, client = 2}))
 hl.bind(mainMod .. " + SHIFT + P", function ()
   hl.dispatch(hl.dsp.window.float({action = "toggle"}))
   hl.dispatch(hl.dsp.window.pin())
@@ -72,7 +72,15 @@ hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-
+-- hl.bind(mainMod .. " + SHIFT + mouse:273", hl.dsp.window.resize(), { mouse = true, prop = {keep_aspect_ratio = true }})
+hl.bind(mainMod .. " + SHIFT + mouse:273", function()
+  local active = hl.get_active_window()
+  if active ~= nil then
+    hl.dispatch(hl.dsp.window.set_prop({prop = "keep_aspect_ratio", value = "1"}))
+    hl.dispatch(hl.dsp.window.resize())
+  end
+end, { mouse = true})
+hl.bind(mainMod .. " + SHIFT + mouse:273", hl.dsp.window.set_prop({prop = "keep_aspect_ratio", value = "0"}), { mouse = true, release = true})
 -- Laptop multimedia keys for volume and LCD brightness
 -- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 -- hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),      { locked = true, repeating = true })
