@@ -27,4 +27,7 @@
   programs.calibre = {
     enable = true;
   };
+  programs.vesktop = {
+    enable = true;
+  };
 }
