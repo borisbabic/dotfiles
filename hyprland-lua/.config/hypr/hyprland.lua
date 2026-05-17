@@ -10,6 +10,7 @@
 -- require("myColors")
 
 
+UTIL = require("util")
 HS = require("hyprsplit")
 require("keybinds")
 require("monitors")
