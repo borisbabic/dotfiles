@@ -20,14 +20,6 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-  services.hyprdynamicmonitors = {
-    enable = true;
-    mode = "user";
-    installExamples = true;
-    systemdTarget = "graphical-session.target";
-    # package = inputs.hyprdynamicmonitors.packages.${pkgs.stdenv.hostPlatform.system}.hyprdynamicmonitors;
-  };
-
   environment.sessionVariables = {
     # Tell XWayland apps (like Steam) not to scale themselves
     "NIXOS_OZONE_WL" = "1";
@@ -38,8 +30,6 @@
   services.blueman.enable = true;
 
   environment.systemPackages = with pkgs; [
-    inputs.hyprsplit.packages.${stdenv.hostPlatform.system}.hyprsplit
-    inputs.hyprdynamicmonitors.packages.${stdenv.hostPlatform.system}.default
     grimblast
     wl-clipboard
     #lsp
@@ -47,7 +37,6 @@
     hyprlock
 
     #launcher
-    vicinae
     hyprlauncher
     hyprsunset
     hyprpolkitagent

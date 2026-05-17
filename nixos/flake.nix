@@ -4,10 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
     stremio-pr.url = "github:NixOS/nixpkgs/pull/460557/head";
-    hyprsplit = {
-      url = "github:shezdy/hyprsplit";
-      inputs.hyprland.follows = "hyprland";
-    };
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -29,7 +25,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprdynamicmonitors.url = "github:fiffeek/hyprdynamicmonitors";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, hyprdynamicmonitors, mangowm, nix-cachyos-kernel, dms, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager,  mangowm, nix-cachyos-kernel, dms, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -51,7 +46,6 @@
         mangowm.nixosModules.mango
         sops-nix.nixosModules.sops
         clutch-notifier.nixosModules.default
-        hyprdynamicmonitors.nixosModules.default
         home-manager.nixosModules.default
         nix-flatpak.nixosModules.nix-flatpak
         {

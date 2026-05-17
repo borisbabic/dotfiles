@@ -22,8 +22,6 @@
   # BOTH FOR HEADSET MX3
   # powerManagement.powertop.enable = true;
   users.users.boris.extraGroups = ["video"];
-  services.hyprdynamicmonitors.configFile = "${userHome}/.config/hypr/hyprdynamicmonitors/15irx10/config.toml";
-
   services.logind.settings.Login = {
     HandleLidSwitchExternalPower = "suspend";
     HandleLidSwitch = "suspend";
