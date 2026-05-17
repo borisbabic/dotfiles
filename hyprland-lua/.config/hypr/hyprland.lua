@@ -121,7 +121,8 @@ hl.config({
       force_zero_scaling = true
     },
     render = {
-      cm_auto_hdr = true
+      direct_scanout = 2,
+      cm_auto_hdr = 1
     }
 })
 hl.env("GDK_SCALE", "2")
@@ -218,5 +219,26 @@ hl.window_rule({
   name = "floating windows",
   match = {title = "^(Picture-in-Picture)$"},
   pin = true,
+  no_follow_mouse = true,
+  focus_on_activate = false,
   float = true
+})
+
+hl.window_rule({
+  match = {
+    title = "^(HearthstoneOverlay)$"
+  },
+  float = true,
+  no_focus = true,
+  focus_on_activate = false,
+  no_follow_mouse = true,
+  force_rgbx = true,
+  opaque = false,
+  no_shadow = true,
+  no_dim = true,
+  no_anim = true,
+  no_blur = true,
+  no_vrr = true,
+  xray = true,
+  no_initial_focus = true
 })
