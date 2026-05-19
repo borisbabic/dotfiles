@@ -66,11 +66,13 @@ local function auto_start()
 
   exec("chatterino", ids.vertical .. "5 silent")
   exec("whatsapp-electron", ids.vertical .. "5 silent")
+  exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
   exec("spotify", ids.vertical .. "3 silent")
   exec("vesktop", ids.vertical .. "3")
   exec("kitty -d ~/dotfiles nvim", ids.hdmi .. "4 silent")
   exec("kitty -d ~/projects/hsguru nvim", ids.hdmi .. "2 silent")
   exec("firefox", ids.hdmi .. "1")
+
 end
 
 

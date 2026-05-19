@@ -242,3 +242,10 @@ hl.window_rule({
   xray = true,
   no_initial_focus = true
 })
+hl.window_rule({
+  match = {
+    title = "^(Battle.net - Friends)"
+  },
+  no_follow_mouse = true
+
+})
