@@ -132,6 +132,7 @@ hl.bind(mainMod .. " + ALT  + b", hl.dsp.exec_cmd(shieldBase .. "am start -a and
 for keys, keyevent in pairs({
   ["s"] = "com.stremio.one",
   ["y"] = "io.gh.reisxd.tizentube.cobalt",
+  ["t"] = "twitch.android.app"
 }) do
-  hl.bind(mainMod ..  " + "  .. keys, hl.dsp.exec_cmd(shieldBase .. "monkey -p " .. keyevent .. " -c android.intent.category.LAUNCHER 1"))
+  hl.bind(mainMod ..  " + ALT + "  .. keys, hl.dsp.exec_cmd(shieldBase .. "monkey -p " .. keyevent .. " -c android.intent.category.LAUNCHER 1"))
 end
