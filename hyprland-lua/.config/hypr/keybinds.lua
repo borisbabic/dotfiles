@@ -108,7 +108,8 @@ for keys, keyevent in pairs({
   hl.bind(mainMod ..  " + "  .. keys, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent), {locked = true})
 end
 
-for keys, keyevent in pairs({
+for key, keyevent in pairs({
+  ["w"] = "KEYCODE_WAKEUP",
   ["up"] = "19",
   ["down"] = "20",
   ["left"] = "21",
@@ -118,13 +119,22 @@ for keys, keyevent in pairs({
   ["backspace"] = "4",
   ["kp_home"] = "3",
   ["home"] = "3",
+  -- Passthrough
+  ["CTRL + backspace"] = "67",
+  ["CTRL + return"] = "66",
+  ["CTRL + space"] = "62",
   -- app switcer
   ["kp_end"] = "187",
   ["end"] = "187",
   ["tab"] = "61",
   ["SHIFT + tab"]  = "143"
 }) do
-  hl.bind(mainMod .. " + ALT + "  .. keys, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent))
+  hl.bind(mainMod .. " + ALT + "  .. key, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent))
+end
+
+for i = string.byte("a"), string.byte("z") do
+    local letter = string.char(i)
+    hl.bind(mainMod .. " + CTRL + ALT + " .. letter, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. (i - 68)))
 end
 
 -- opens url from clipboard on shield's browser

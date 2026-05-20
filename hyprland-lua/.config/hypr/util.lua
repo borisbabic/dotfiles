@@ -27,7 +27,7 @@ local function serializeTable(val, name, skipnewlines, depth)
 
     return tmp
 end
-local notif = function(text_or_table, duration) 
+local notif = function(text_or_table, duration)
 
   local text = text_or_table
   if type(text_or_table)  == "table" then
