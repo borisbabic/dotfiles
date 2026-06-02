@@ -7,7 +7,7 @@ end)
 
 hl.layer_rule({
      name  = "dms-layer-rule",
-     match = { namespace = "^(dms)$" },
+     match = { namespace = "^(dms)" },
      no_anim = true,
 })
 

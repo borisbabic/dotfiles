@@ -65,6 +65,9 @@ hl.bind("ALT + ALT_R + C", hl.dsp.exec_cmd("chatterino"), {release = true})
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", move_window_to("special:magic"))
 
+hl.bind(mainMod .. " + G",         hl.dsp.workspace.toggle_special("game"))
+hl.bind(mainMod .. " + SHIFT + G", move_window_to("special:game"))
+
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))

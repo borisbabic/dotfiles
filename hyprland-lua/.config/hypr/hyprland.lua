@@ -174,7 +174,7 @@ hl.device({
 
 -- Example window rules that are useful
 
-local suppressMaximizeRule = hl.window_rule({
+hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",
     match = { class = ".*" },
@@ -244,8 +244,24 @@ hl.window_rule({
 })
 hl.window_rule({
   match = {
-    title = "^(Battle.net - Friends)"
+    title = "^(Battle.net - Friends)$"
   },
   no_follow_mouse = true
 
+})
+
+hl.window_rule({
+  match = {
+    title = "^(Hearthstone Deck Tracker)$"
+  },
+  focus_on_activate = false,
+  no_follow_mouse = true
+})
+
+hl.window_rule({
+  match = {
+    title = "^(ToastWindow)$"
+  },
+  focus_on_activate = false,
+  no_follow_mouse = true
 })
