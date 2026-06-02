@@ -9,58 +9,58 @@
 #done
 
 if [ -d ~/projects/hearthstone_hdt_linux/bin ]; then
-	export PATH=$PATH:~/projects/hearthstone_hdt_linux/bin
+  export PATH=$PATH:~/projects/hearthstone_hdt_linux/bin
 fi
 if [ -d ~/bin ]; then
-	export PATH=$PATH:~/bin
+  export PATH=$PATH:~/bin
 fi
 
 if [ -d ~/.local/bin ]; then
-	export PATH=$PATH:~/.local/bin
+  export PATH=$PATH:~/.local/bin
 fi
 
 if [ -d ~/programs/bin/ ]; then
-	export PATH=$PATH:~/programs/bin
+  export PATH=$PATH:~/programs/bin
 fi
 
 #gopath and bin handling
 CUSTOM_GO_HOME=~/go
 CUSTOM_GO_BIN=$CUSTOM_GO_HOME/bin
 if [ -d $CUSTOM_GO_HOME ]; then
-	export GOPATH=$CUSTOM_GO_HOME
-	if [ -d $CUSTOM_GO_BIN ]; then
-		export PATH=$PATH:$CUSTOM_GO_BIN
-	fi
+  export GOPATH=$CUSTOM_GO_HOME
+  if [ -d $CUSTOM_GO_BIN ]; then
+    export PATH=$PATH:$CUSTOM_GO_BIN
+  fi
 fi
 
 #install python programs as the user
 CUSTOM_PIP_HOME=~/programs/pip
 CUSTOM_PIP_BIN=$CUSTOM_PIP_HOME/bin
 if [ -d $CUSTOM_PIP_HOME ]; then
-	export PYTHONUSERBASE=$CUSTOM_PIP_HOME
-	if [ -d $CUSTOM_PIP_BIN ]; then
-		export PATH=$PATH:$CUSTOM_PIP_BIN
-	fi
+  export PYTHONUSERBASE=$CUSTOM_PIP_HOME
+  if [ -d $CUSTOM_PIP_BIN ]; then
+    export PATH=$PATH:$CUSTOM_PIP_BIN
+  fi
 fi
 
 #install gem programs as the user
 CUSTOM_GEM_HOME=~/programs/gem
 CUSTOM_GEM_BIN=$CUSTOM_GEM_HOME/bin
 if [ -d $CUSTOM_GEM_HOME ]; then
-	export GEM_HOME=$CUSTOM_GEM_HOME
-	if [ -d $CUSTOM_GEM_BIN ]; then
-		export PATH=$PATH:$CUSTOM_GEM_BIN
-	fi
+  export GEM_HOME=$CUSTOM_GEM_HOME
+  if [ -d $CUSTOM_GEM_BIN ]; then
+    export PATH=$PATH:$CUSTOM_GEM_BIN
+  fi
 fi
 
 #install composer programs as the user
 CUSTOM_COMPOSER_HOME=~/programs/composer
 CUSTOM_COMPOSER_BIN=$CUSTOM_COMPOSER_HOME/vendor/bin
 if [ -d $CUSTOM_COMPOSER_HOME ]; then
-	export COMPOSER_HOME=$CUSTOM_COMPOSER_HOME
-	if [ -d $CUSTOM_COMPOSER_BIN ]; then
-		export PATH=$PATH:$CUSTOM_COMPOSER_BIN
-	fi
+  export COMPOSER_HOME=$CUSTOM_COMPOSER_HOME
+  if [ -d $CUSTOM_COMPOSER_BIN ]; then
+    export PATH=$PATH:$CUSTOM_COMPOSER_BIN
+  fi
 fi
 
 #install npm programs as the user
@@ -74,7 +74,7 @@ export PATH=$PATH:$CUSTOM_NPM_BIN
 CUSTOM_YARN_HOME=~/.yarn
 CUSTOM_YARN_BIN=$CUSTOM_YARN_HOME/bin
 if [ -d $CUSTOM_YARN_BIN ]; then
-	export PATH=$PATH:$CUSTOM_YARN_BIN
+  export PATH=$PATH:$CUSTOM_YARN_BIN
 fi
 
 #DOTNET_TOOLS_DIR=~/.dotnet/tools
@@ -94,58 +94,58 @@ alias repent="fuck"
 #### functions
 
 function mdcd {
-	mkdir -p $@
-	for last; do true; done
-	cd $last
+  mkdir -p $@
+  for last; do true; done
+  cd $last
 }
 
 function get_container_name {
-	matching=$(docker ps | awk '{ print($NF)}' | grep $1)
-	num=$(echo $matching | wc -l | xargs)
-	if [ "$num" -ne "1" ]; then
-		return 1
-	else
-		echo $matching
-	fi
+  matching=$(docker ps | awk '{ print($NF)}' | grep $1)
+  num=$(echo $matching | wc -l | xargs)
+  if [ "$num" -ne "1" ]; then
+    return 1
+  else
+    echo $matching
+  fi
 }
 
 function dx {
-	container_arg=$1
-	container=$(get_container_name $1)
-	if [ -z "$container" ]; then
-		echo "Couldn't find the correct container. Ensure it's running or try to be more specific"
-		return
-	fi
-	shift #removes container
-	to_exec="$@"
-	if [ -z "$to_exec" ]; then
-		to_exec="/bin/bash "
-	fi
-	eval "docker exec -it $container $to_exec" #security schmecurity
+  container_arg=$1
+  container=$(get_container_name $1)
+  if [ -z "$container" ]; then
+    echo "Couldn't find the correct container. Ensure it's running or try to be more specific"
+    return
+  fi
+  shift #removes container
+  to_exec="$@"
+  if [ -z "$to_exec" ]; then
+    to_exec="/bin/bash "
+  fi
+  eval "docker exec -it $container $to_exec" #security schmecurity
 }
 
 function git_ignore_all {
-	echo "$(git status --porcelain | grep '^??' | cut -c4-)" >>.gitignore
-	# source:
-	# http://stackoverflow.com/questions/11542687/git-how-to-ignore-all-present-untracked-files
+  echo "$(git status --porcelain | grep '^??' | cut -c4-)" >>.gitignore
+  # source:
+  # http://stackoverflow.com/questions/11542687/git-how-to-ignore-all-present-untracked-files
 }
 
 function to_upper {
-	echo $(echo "$@" | tr '[:lower:]' '[:upper:]')
+  echo $(echo "$@" | tr '[:lower:]' '[:upper:]')
 }
 
 function to_lower {
-	echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
+  echo $(echo "$@" | tr '[:upper:]' '[:lower:]')
 }
 
 function fabsay {
-	echo "$@" | figlet | lolcat
+  echo "$@" | figlet | lolcat
 }
 
 function get_nixpkgs_location {
-	DEFAULT='/etc/nixos/nixpkgs'
-	FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/')
-	[ -d "$FROM_NIX_PATH" ] && echo "$FROM_NIX_PATH" || echo "$DEFAULT"
+  DEFAULT='/etc/nixos/nixpkgs'
+  FROM_NIX_PATH=$(echo "$NIX_PATH" | sed -E 's/.*?nixpkgs=(.*?):.*?/\1/')
+  [ -d "$FROM_NIX_PATH" ] && echo "$FROM_NIX_PATH" || echo "$DEFAULT"
 }
 
 #### aliases
@@ -172,15 +172,19 @@ alias ll="dir"
 #### typo aliases
 alias got="git "
 
-alias s="kitten ssh ";
+alias s="kitten ssh "
 alias dokku="ssh -t dokku@dtop "
 alias dokku_old="ssh -t dokku@borisbabic.top "
 alias dokku_older="ssh -t dokku@128.140.59.147 "
 
 if [ -f ~/.shell_work ]; then #work specific stuff
-	. ~/.shell_work
+  . ~/.shell_work
 fi
 
 if [ -f ~/.shell_device ]; then #device specific stuff
-	. ~/.shell_device
+  . ~/.shell_device
+fi
+
+if [ -f ~/.profile_common ]; then #device specific stuff
+  . ~/.profile_common
 fi
