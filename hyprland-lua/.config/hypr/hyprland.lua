@@ -8,6 +8,9 @@
 -- You can (and should!!) split this configuration into multiple files
 -- Create your files separately and then require them like this:
 -- require("myColors")
+--
+--
+-- https://vinitlee.github.io/hl-docs/reference/hl/HL.API.html
 
 
 UTIL = require("util")
@@ -93,6 +96,7 @@ hl.config({
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
     master = {
+        mfact = 0.67,
         new_status = "slave",
     },
 })
