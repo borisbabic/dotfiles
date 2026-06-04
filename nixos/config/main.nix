@@ -187,6 +187,17 @@
   nixpkgs.config.allowUnfree = true;
 
   services.udev.packages = [ pkgs.via pkgs.vial  pkgs.qmk-udev-rules ];
+  # services.qbittorrent = {
+  #   enable = true;
+  #   serverConfig = {
+  #     Preferences = {
+  #       WebUI = {
+  #         Username = "admin";
+  #         Password_PBKDF2 = "ZI0gTrBXamY4tBZOO0a8Ag==:VRVh13qT4IVVcJ+0mw9Gq+38G2JAKvqOfYzGiojE6OwsVaM5NZxTYHF4av3NMRGkuIwcW2YgYEMEtIwD5rq0uw==";
+  #       };
+  #     };
+  #   };
+  # };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -198,13 +209,12 @@
     jetbrains.rider
     super-productivity
     bitwarden-desktop
+    qbittorrent-enhanced
     # language server for nix for zed
     nixd
     zed-editor
     chatterino7
-    # discord rich presence
     webcord-vencord
-    # discord
     kitty
     # albert
     spotify
@@ -284,5 +294,9 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11"; # Did you read the comment?
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
 
 }
