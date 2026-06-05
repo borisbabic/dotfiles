@@ -10,6 +10,11 @@ hl.layer_rule({
      match = { namespace = "^(dms)" },
      no_anim = true,
 })
+hl.window_rule({
+  name= "quickshell-floating-window",
+  match = { class = "^(com.danklinux.dms)$"},
+  float = true
+})
 
 local mainMod = require("variables").mainMod
 
@@ -55,3 +60,7 @@ for keys, exec in pairs({
 }) do
   hl.bind(keys, hl.dsp.exec_cmd("dms screenshot " .. exec))
 end
+require("dms.colors")
+require("dms.layout")
+require("dms.windowrules")
+
