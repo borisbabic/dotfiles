@@ -63,15 +63,17 @@ set_dp2_options()
 -- primarily for steam games
 hl.on("monitor.added", function(monitor)
   set_dp2_options()
+  UTIL.notify(monitor.name)
   if "HDMI-A-2" == monitor.name then
-    hl.exec_cmd("xrandr --output HDMI-A-2 --primary")
+    hl.exec_cmd("sleep 10 && xrandr --output HDMI-A-2 --primary")
   end
 end)
 hl.on("monitor.removed", function(monitor)
   set_dp2_options()
+  UTIL.notify(monitor.name)
   local laptop_monitor = hl.get_monitor("eDP-1")
   if "HDMI-A-2" == monitor.name and laptop_monitor and laptop_monitor.id == 0 then
-    hl.exec_cmd("xrandr --output eDP-1 --primary")
+    hl.exec_cmd("sleep 10 && xrandr --output eDP-1 --primary")
   end
 end)
 
