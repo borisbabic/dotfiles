@@ -14,7 +14,7 @@ end
 --   UTIL.notify(monitor_text, 20000)
 -- end)
 --
-local function auto_start_ids_from_monitors()  
+local function auto_start_ids_from_monitors()
 
   local edp1 = hl.get_monitor("eDP-1")
   local dp2 = hl.get_monitor("DP-2")

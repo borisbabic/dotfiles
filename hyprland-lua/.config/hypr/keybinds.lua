@@ -22,6 +22,7 @@ hl.bind(mainMod .. " + SHIFT + CTRL + X", hl.dsp.exec_cmd("hyprctl kill"))
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({internal = 0, client = 2}))
+hl.bind(mainMod .. " + CTRL + SHIFT + L", hl.dsp.window.resize({x = 2560/1.6, y =1600/1.6}))
 hl.bind(mainMod .. " + SHIFT + P", function ()
   hl.dispatch(hl.dsp.window.float({action = "toggle"}))
   hl.dispatch(hl.dsp.window.pin())
@@ -56,8 +57,8 @@ for i = 1, 9 do
 end
 
 
-hl.bind("SUPER + " .. "g", HS.dsp.grab_rogue_windows())
-hl.bind("SUPER + " .. "d", HS.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+hl.bind(mainMod .. "+ G", HS.dsp.grab_rogue_windows())
+hl.bind(mainMod ..  " + SHIFT + D", HS.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
 
 
 hl.bind("ALT + ALT_R + C", hl.dsp.exec_cmd("chatterino"), {release = true})
