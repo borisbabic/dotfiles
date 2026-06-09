@@ -26,7 +26,7 @@ local function auto_start_ids_from_monitors()
     hdmi = hdmi and hdmi.id or laptop_id
   }
 end
-local function auto_start_ids() 
+local function auto_start_ids()
   local monitors = hl.get_monitors()
   local ids  = {
     laptop = 0,
@@ -67,11 +67,11 @@ local function auto_start()
   exec("chatterino", ids.vertical .. "5 silent")
   exec("whatsapp-electron", ids.vertical .. "5 silent")
   exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
-  exec("spotify", ids.vertical .. "3 silent")
   exec("vesktop", ids.vertical .. "3")
-  exec("kitty -d ~/dotfiles nvim", ids.hdmi .. "4 silent")
-  exec("kitty -d ~/projects/hsguru nvim", ids.hdmi .. "2 silent")
+  exec("kitty -d ~/dotfiles direnv exec ~/dotfiles nvim", ids.hdmi .. "4 silent")
+  exec("kitty -d ~/projects/hsguru direnv exec ~/projects/hsguru nvim", ids.hdmi .. "2 silent")
   exec("firefox", ids.hdmi .. "1")
+  exec("spotify", ids.vertical .. "3 silent")
 
 end
 
