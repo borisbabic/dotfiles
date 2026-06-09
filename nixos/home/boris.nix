@@ -10,16 +10,6 @@
   services.xembed-sni-proxy = {
     enable = true;
   };
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    withRuby = false;
-    withPython3 = false;
-    # plugins = [
-    #   pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-    # ];
-  };
   services.kdeconnect.enable = true;
 
   programs.nix-index.enable = true;

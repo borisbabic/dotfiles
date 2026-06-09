@@ -299,4 +299,12 @@
     "electron-39.8.10"
   ];
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
+  };
+
 }
