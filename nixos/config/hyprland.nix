@@ -61,6 +61,7 @@
     # helps with steam games recognixing my monitor
     xrandr
   ];
+  xdg.icons.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];

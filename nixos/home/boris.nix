@@ -30,7 +30,7 @@
   programs.vesktop = {
     enable = true;
   };
-  home.file.".config/hypr/.luarc.json" = {
+  home.file."dotfiles/.luarc.json" = {
     text = builtins.toJSON {
       workspace = {
         library = [

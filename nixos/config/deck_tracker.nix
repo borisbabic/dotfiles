@@ -41,7 +41,7 @@ in
 
   # programs.adb.enable = true;
   nixpkgs.config.android_sdk.accept_license = true;
-  users.users.boris.extraGroups = ["kvm" "adb"];
+  users.users.boris.extraGroups = ["kvm" "adb" "adbusers"];
   # services.udev.packages = [
   #   pkgs.android-udev-rules
   # ];
