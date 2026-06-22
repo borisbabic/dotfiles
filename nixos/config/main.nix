@@ -202,10 +202,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # <keyboard config>
     vial
     via
     qmk
     qmk-udev-rules
+    # </keyboard config>
     jetbrains.rider
     super-productivity
     bitwarden-desktop
@@ -229,8 +231,9 @@
     pavucontrol
     playerctl
     chromium
+    brave
     comma
-    motrix
+    smplayer
   ];
 
   programs.obs-studio.enableVirtualCamera = true;
