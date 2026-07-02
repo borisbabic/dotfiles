@@ -1,0 +1,7 @@
+new_tab db
+cd ~/projects/hsguru
+launch --hold env TERM=xterm-256color kitty +kitten ssh hsguru -t 'sudo -u postgres tmux new -A'
+new_tab dokku
+cd ~/projects/hsguru
+launch --hold env TERM=xterm-256color kitty +kitten ssh dtop -t 'sudo -u dokku tmux new -A'
+focus

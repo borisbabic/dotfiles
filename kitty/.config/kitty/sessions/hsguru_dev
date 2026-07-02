@@ -1,0 +1,7 @@
+new_tab devenv
+cd ~/projects/hsguru
+launch bash -c 'direnv exec . devenv up  ; zsh -i'
+new_tab iex
+cd ~/projects/hsguru
+launch bash -c 'POOL_SIZE=1 direnv exec . iex -S mix phx.server ; zsh -i'
+focus

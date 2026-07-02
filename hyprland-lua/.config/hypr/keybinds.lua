@@ -59,6 +59,10 @@ end
 
 hl.bind(mainMod .. "+ G", HS.dsp.grab_rogue_windows())
 hl.bind(mainMod ..  " + SHIFT + D", HS.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+hl.bind(mainMod .. " + CTRL + D", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_dev", {workspace = "22"}))
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_remote", {workspace = "13"}))
+hl.bind(mainMod .. " + CTRL + SHIFT + D", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_dev"))
+hl.bind(mainMod .. " + CTRL + SHIFT + R", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_remote"))
 
 
 hl.bind("ALT + ALT_R + C", hl.dsp.exec_cmd("chatterino"), {release = true})

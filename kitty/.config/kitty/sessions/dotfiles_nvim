@@ -1,0 +1,2 @@
+cd ~/dotfiles/
+launch bash -c 'nvim ; zsh -i'

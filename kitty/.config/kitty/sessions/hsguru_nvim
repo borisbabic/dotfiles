@@ -1,0 +1,2 @@
+cd ~/projects/hsguru
+launch bash -c 'POOL_SIZE=1 direnv exec . nvim lib/util.ex ; zsh -i'
