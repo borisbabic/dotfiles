@@ -5,26 +5,26 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "vek",
+      "civila",
       "nix-shell -p brave --run brave",
-      "reboot",
-      "dms ipc call brightness increment 5",
-      "gamescope",
-      "nix-shell -p chrome --run chrome",
-      "brave",
-      "downloads",
       "poweroff",
-      "nix-shell -p discord --run discord",
-      "nix run github:jacopone/antigravity-nix",
-      "hsguru",
-      "pkill Webcord",
-      "reboo",
-      "suspen",
-      "systemctl suspend",
-      "pkill superproductivity",
-      "zeditor ~/dotfiles",
-      "zed ~/dotfiles",
+      "kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_dev",
+      "kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim",
+      "kitty --session ~/dotfiles/.kitty/config/kitty/sessions/hsguru_nvim",
+      "kitty --session ~/dotfiles/kitty/.config/kitty/",
+      "kitty -d ~/projects/hsguru direnv exec ~/projects/hsguru nvim",
+      "kitty -d ~/dotfiles direnv exec ~/dotfiles nvim",
+      "kitty -d ~/dotfiles nvim",
+      "kitty nvim",
+      "kitty -c nvim",
+      "kitty -d ~/projects/hsguru zsh -c direnv exec ~/projects/hsguru nvim",
+      "cnr",
       "hyprctl reload",
-      "systemctl suspent"
+      ", brave",
+      ", vesktop",
+      "hyprctl kill",
+      "kitty -d ~/projects/hsguru"
     ]
   },
   "dankKDEConnect": {
@@ -35,7 +35,7 @@
     "enabled": true,
     "noTrigger": false,
     "trigger": ":",
-    "recentEmojis": "𝔴,🙄,😂,🙃"
+    "recentEmojis": "🎉,😢,🥲,∞,¹,🎊,💯,🙃,𝔴,🙄,😂"
   },
   "powerUsagePlugin": {
     "enabled": true
