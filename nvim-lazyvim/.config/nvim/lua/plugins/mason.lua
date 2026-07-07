@@ -8,6 +8,7 @@ return {
         "shellcheck",
         "sql-formatter",
         -- "lua-language-server",
+        "qmlls",
         "json-lsp",
         -- "nixd",
         -- "tailwindcss",
