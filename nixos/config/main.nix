@@ -126,6 +126,16 @@
     };
   };
 
+  # Optional, but makes sure that when you type the make palm rejection work with keyd
+  # https://github.com/rvaiya/keyd/issues/723
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Serial Keyboards]
+    MatchUdevType=keyboard
+    MatchName=keyd virtual keyboard
+    AttrKeyboardIntegration=internal
+  '';
+
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -234,6 +244,9 @@
     brave
     comma
     smplayer
+    # dropdbox sync
+    # for org files
+    maestral-gui
   ];
 
   programs.obs-studio.enableVirtualCamera = true;

@@ -61,18 +61,25 @@ local function auto_start_ids()
   return ids
 end
 
+local start_social = true
+
 local function auto_start()
   local ids = auto_start_ids()
 
-  exec("chatterino", ids.vertical .. "5 silent")
-  exec("whatsapp-electron", ids.vertical .. "5 silent")
-  exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
-  exec("vesktop", ids.vertical .. "3")
-  exec("kitty -d ~/dotfiles direnv exec ~/dotfiles nvim", ids.hdmi .. "4 silent")
-  exec("kitty -d ~/projects/hsguru direnv exec ~/projects/hsguru nvim", ids.hdmi .. "2 silent")
+  hl.exec_cmd("systemctl --user start xembed-sni-proxy.service")
+  if start_social then
+    exec("vesktop", ids.vertical .. "3 silent")
+    exec("whatsapp-electron", ids.vertical .. "5 silent")
+    exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
+  end
+  exec("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/dotfiles_nvim", ids.hdmi .. "4 silent")
+  exec("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim", ids.hdmi .. "2 silent")
   exec("firefox", ids.hdmi .. "1")
-  exec("spotify", ids.vertical .. "3 silent")
-
+  if start_social then
+    exec("chatterino", ids.vertical .. "3 silent")
+  end
+  exec("spotify", ids.vertical .. "5 silent")
+  exec("maestral_qt", ids.vertical .. "7 silent")
 end
 
 
