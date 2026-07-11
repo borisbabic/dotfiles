@@ -236,7 +236,7 @@ hl.window_rule({
     pin = true,
     no_focus = true,
     focus_on_activate = false,
-    opacity = 0.6,
+    opacity = 0.5,
     no_follow_mouse = true,
     force_rgbx = false,
     no_shadow = true,
@@ -249,10 +249,10 @@ hl.window_rule({
 })
 hl.window_rule({
     match = {
-        title = "^(Battle.net - Friends)$"
+        title = "^(Battle.net.*)$"
     },
-    no_follow_mouse = true
-
+    no_follow_mouse = true,
+    focus_on_activate = false
 })
 
 hl.window_rule({
