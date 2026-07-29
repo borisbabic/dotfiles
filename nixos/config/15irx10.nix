@@ -103,12 +103,10 @@
   # try to fix wifi issue. Suggested by gemini
   hardware.enableRedistributableFirmware = true;
 
-  boot.kernel.sysfs = {
-    module.zswap.parameters = {
-      enabled = true;
-      zpool = "zsmalloc";
-      compressor = "zstd";
-    };
+  boot.zswap = {
+    enable = true;
+    zpool = "zsmalloc";
+    compressor = "zstd";
   };
   # Disable integrated camera
   services.udev.extraRules = ''
