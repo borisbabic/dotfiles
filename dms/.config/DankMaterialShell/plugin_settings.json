@@ -5,6 +5,10 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "pkill firestone",
+      "pkill beam",
+      "vlc",
+      ", wf-recorder -g \"$(slurp)\" -f ~/Videos/recording.mp4",
       "vek",
       "civila",
       "nix-shell -p brave --run brave",
@@ -20,11 +24,7 @@
       "kitty -c nvim",
       "kitty -d ~/projects/hsguru zsh -c direnv exec ~/projects/hsguru nvim",
       "cnr",
-      "hyprctl reload",
-      ", brave",
-      ", vesktop",
-      "hyprctl kill",
-      "kitty -d ~/projects/hsguru"
+      "hyprctl reload"
     ]
   },
   "dankKDEConnect": {
@@ -35,7 +35,7 @@
     "enabled": true,
     "noTrigger": false,
     "trigger": ":",
-    "recentEmojis": "🎉,😢,🥲,∞,¹,🎊,💯,🙃,𝔴,🙄,😂"
+    "recentEmojis": "🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,🙃,𝔴,🙄,😂"
   },
   "powerUsagePlugin": {
     "enabled": true
@@ -60,5 +60,21 @@
   },
   "simpleAudioControl": {
     "enabled": false
+  },
+  "dmsconky": {
+    "addedApps": [
+      {
+        "exec": "env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/17",
+        "icon": "lutris_firestone-standalone-script",
+        "name": "Firestone Standalone (script)"
+      }
+    ],
+    "particleSize": 8,
+    "particleCount": 150,
+    "particleOpacity": 1,
+    "musicPlayerPath": "/usr/local/bin/splayer",
+    "appSize": 80,
+    "widgetHeight": 522,
+    "widgetWidth": 298
   }
 }

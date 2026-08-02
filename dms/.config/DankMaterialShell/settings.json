@@ -864,6 +864,11 @@
           "enabled": true
         },
         {
+          "id": "cpuTemp",
+          "enabled": true,
+          "minimumWidth": true
+        },
+        {
           "id": "clipboard",
           "enabled": true
         },
