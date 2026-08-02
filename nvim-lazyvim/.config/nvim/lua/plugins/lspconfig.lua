@@ -5,7 +5,8 @@ return {
       servers = {
         lua_ls = {
           mason = false
-        }
+        },
+        nixd = {},
       }
     }
   }
