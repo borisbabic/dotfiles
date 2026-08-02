@@ -29,6 +29,8 @@ for keys, exec in pairs({
   ["W"] = "widget toggle weather",
   ["O"] = "hypr toggle overview",
   ["L"] = "lock lock",
+  ["A"] = "bar toggleAutoHide id laptop_bar",
+  ["CTRL + A"] = "bar toggleAutoHide id dell_bar"
 }) do
   hl.bind(mainMod .. " + " .. keys, hl.dsp.exec_cmd("dms ipc call " .. exec))
 end

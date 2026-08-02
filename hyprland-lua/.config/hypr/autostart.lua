@@ -70,7 +70,7 @@ local function auto_start()
   if start_social then
     exec("vesktop", ids.vertical .. "3 silent")
     exec("whatsapp-electron", ids.vertical .. "5 silent")
-    exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
+    -- exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
   end
   exec("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/dotfiles_nvim", ids.hdmi .. "4 silent")
   exec("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim", ids.hdmi .. "2 silent")

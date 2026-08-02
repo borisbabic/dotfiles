@@ -23,6 +23,7 @@ hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + CTRL + F", hl.dsp.window.fullscreen_state({internal = 0, client = 2}))
 hl.bind(mainMod .. " + CTRL + SHIFT + L", hl.dsp.window.resize({x = 2560/1.6, y =1600/1.6}))
+hl.bind(mainMod .. " + CTRL + P", hl.dsp.window.pin())
 hl.bind(mainMod .. " + SHIFT + P", function ()
   hl.dispatch(hl.dsp.window.float({action = "toggle"}))
   hl.dispatch(hl.dsp.window.pin())
@@ -59,6 +60,7 @@ end
 
 hl.bind(mainMod .. "+ G", HS.dsp.grab_rogue_windows())
 hl.bind(mainMod ..  " + SHIFT + D", HS.dsp.workspace.swap_monitors({ monitor1 = "current", monitor2 = "+1" }))
+hl.bind(mainMod .. " + CTRL + H", hl.dsp.exec_cmd("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/17"))
 hl.bind(mainMod .. " + CTRL + D", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_dev", {workspace = "22"}))
 hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_remote", {workspace = "13"}))
 hl.bind(mainMod .. " + CTRL + SHIFT + D", hl.dsp.exec_cmd("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_dev"))
