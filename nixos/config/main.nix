@@ -223,7 +223,9 @@
     bitwarden-desktop
     qbittorrent-enhanced
     # language server for nix for zed
+    nil
     nixd
+    claude-code
     zed-editor
     chatterino7
     webcord-vencord
