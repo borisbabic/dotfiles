@@ -55,6 +55,28 @@
           };
           nixpkgs.overlays = [
             (final: prev: {
+                chatterino7 = let noOverride =
+                  prev.lib.versionAtLeast prev.chatterino7.version "7.5.6";
+                in
+                prev.lib.warnIf noOverride ''
+                    chatterino7 >= 7.5.6 is now in nixpkgs, the override can be removed
+                ''
+                (if noOverride then
+                  prev.chatterino7
+                else
+                  prev.chatterino7.overrideAttrs (old: {
+                    version = "nightly-master";
+                    src = prev.fetchFromGitHub {
+                      owner = "seventv";
+                      repo = "chatterino7";
+                      rev = "b4628fa7eb5619b0f9a1bc59593450b5915d46d7";
+                      fetchSubmodules = true;
+                      hash = "sha256-M3gMhjqgR7VwxtcixpvbqqTLsbNgNZqJ81rb4aNZkTs=";
+                    };
+                  })
+                );
+              })
+            (final: prev: {
               stremio-service = (import stremio-pr {
                 system = prev.stdenv.hostPlatform.system;
                 config.allowUnfree = true;

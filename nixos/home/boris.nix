@@ -32,4 +32,13 @@
       };
     };
   };
+  home.file.".local/share/chatterino/Plugins/chatterino-auto-translate" = {
+    source = pkgs.fetchFromGitHub {
+      owner = "MrMalvic";
+      repo = "chatterino-auto-translate";
+      rev = "d73ee8b";  # e.g., "v1.0.0" or full commit sha
+      hash = "sha256-vKt6SC2s5UbY5oJjpxdFez54iiVVn3EU6wI8zf1CNg0="; # Replace after first build attempt
+    };
+    recursive = true;
+  };
 }
