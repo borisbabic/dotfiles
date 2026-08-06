@@ -41,4 +41,18 @@
     };
     recursive = true;
   };
+
+  home.file.".config/streamlink/config.twitch" = {
+    text = ''
+      twitch-low-latency
+      twitch-supported-codecs=h265,h264,av1
+    '';
+  };
+  home.file.".config/streamlink/config" = {
+    text = ''
+      player=vlc
+      player-args=--no-one-instance
+      player-no-close
+    '';
+  };
 }

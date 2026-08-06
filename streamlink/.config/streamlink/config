@@ -1,0 +1,3 @@
+player=vlc
+player-args=--no-one-instance
+player-no-close

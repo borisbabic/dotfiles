@@ -228,6 +228,8 @@
     claude-code
     zed-editor
     chatterino7
+    streamlink
+    streamlink-twitch-gui-bin
     webcord-vencord
     kitty
     # albert
