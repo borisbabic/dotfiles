@@ -247,11 +247,17 @@
     chromium
     brave
     comma
-    smplayer
+    mpv
+    vlc
     # dropdbox sync
     # for org files
     maestral-gui
   ];
+
+  services.ollama = {
+    enable = true;
+    package = pkgs.ollama-cuda;
+  };
 
   programs.obs-studio.enableVirtualCamera = true;
   programs.obs-studio = {
