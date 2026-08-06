@@ -53,6 +53,11 @@
       player=vlc
       player-args=--no-one-instance
       player-no-close
-    '';
+  '';
+   };
+
+  programs.antigravity = {
+    enable = true;
+    mutableExtensionsDir = true;
   };
 }
