@@ -177,6 +177,15 @@ alias dokku="ssh -t dokku@dtop "
 alias dokku_old="ssh -t dokku@borisbabic.top "
 alias dokku_older="ssh -t dokku@128.140.59.147 "
 
+# yazi helper
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd <"$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  command rm -f -- "$tmp"
+}
+
 if [ -f ~/.shell_work ]; then #work specific stuff
   . ~/.shell_work
 fi
