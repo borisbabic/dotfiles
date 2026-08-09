@@ -1,23 +1,32 @@
-{pkgs, ...} :
 
+{ pkgs, ... }:
+
+# let
+#   androidComposition = pkgs.androidenv.composeAndroidPackages {
+#     buildToolsVersions = [ "34.0.0" ];
+#     platformVersions = [ "34" ];
+#     abiVersions = [ "x86_64" ];
+#     includeEmulator = true;
+#     includeSources = true;
+#     includeSystemImages = true;
+#   };
+# in
 {
   environment.systemPackages = with pkgs; [
     jdk
     android-tools
-    android-studio-full
+    # android-studio-tools
+    # android-studio-full
+    # androidComposition.androidsdk
     gradle
-    antigravity
+    scrcpy
   ];
   services.envfs.enable = true;
+  programs.nix-ld.enable = true;
 
-  programs.adb.enable = true;
+  # environment.sessionVariables = {
+  #   ANDROID_SDK_ROOT = "${androidComposition.androidsdk}/libexec/android-sdk";
+  # };
   nixpkgs.config.android_sdk.accept_license = true;
   users.users.boris.extraGroups = ["kvm" "adb" "adbusers"];
-  services.udev.packages = [
-    pkgs.android-udev-rules
-  ];
-  home.antigravity = {
-    enable = true;
-    mutableExtensionsDir = true;
-  };
 }

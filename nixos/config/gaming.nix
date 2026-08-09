@@ -60,6 +60,7 @@
     ];
     packages = [
       {appId = "com.nvidia.geforcenow"; origin = "nvidia-gfn"; }
+      {appId = "com.google.AndroidStudio"; origin = "flathub"; }
     ];
     overrides = {
       "com.nvidia.geforcenow" = {
