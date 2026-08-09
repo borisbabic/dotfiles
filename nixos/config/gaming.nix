@@ -1,4 +1,88 @@
 { config, pkgs, ... }:
+let
+  hypr-prioritize-monitor = pkgs.writeShellApplication {
+    name = "hypr-prioritize-monitor";
+
+    # Include awk and coreutils explicitly in PATH for safety
+    runtimeInputs = with pkgs; [
+      gawk
+      coreutils
+    ];
+
+    text = ''
+      set -euo pipefail
+
+      # 1. Ensure target monitor argument is provided
+      if [ -z "''${1:-}" ]; then
+          echo "Error: No target monitor specified." >&2
+          echo "Usage: $0 <monitor_name>" >&2
+          exit 1
+      fi
+
+      TARGET_MONITOR="$1"
+      HYPRCTL="${pkgs.hyprland}/bin/hyprctl"
+
+      # 2. Check if hyprctl binary exists at path
+      if [ ! -x "$HYPRCTL" ]; then
+          echo "Error: hyprctl binary not found at $HYPRCTL" >&2
+          exit 1
+      fi
+
+      # Fetch current monitors output
+      MONITORS_OUTPUT="$("$HYPRCTL" monitors 2>/dev/null)"
+
+      # 3. Parse monitor names using AWK
+      MAPFILE=()
+      while IFS= read -r line; do
+          MAPFILE+=("$line")
+      done < <(echo "$MONITORS_OUTPUT" | awk '/^Monitor / {print $2}')
+
+      # Check if target monitor exists in the list
+      TARGET_INDEX=-1
+      for i in "''${!MAPFILE[@]}"; do
+          if [[ "''${MAPFILE[$i]}" == "$TARGET_MONITOR" ]]; then
+              TARGET_INDEX=$i
+              break
+          fi
+      done
+
+      # 4. Exit if monitor is not found
+      if [ "$TARGET_INDEX" -eq -1 ]; then
+          echo "Error: Monitor '$TARGET_MONITOR' not found in hyprctl monitors." >&2
+          exit 1
+      fi
+
+      # If target is the first monitor, no preceding monitors exist to process
+      if [ "$TARGET_INDEX" -eq 0 ]; then
+          echo "Target monitor '$TARGET_MONITOR' is the first monitor. No preceding monitors to cycle."
+          exit 0
+      fi
+
+      # 5. Extract preceding monitors
+      PRECEDING_MONITORS=("''${MAPFILE[@]:0:$TARGET_INDEX}")
+
+      echo "Found target monitor '$TARGET_MONITOR'."
+      echo "Preceding monitors to cycle: ''${PRECEDING_MONITORS[*]}"
+
+      # 6. Disable preceding monitors using Hyprland Lua API
+      for mon in "''${PRECEDING_MONITORS[@]}"; do
+          echo "Disabling $mon..."
+          "$HYPRCTL" eval "hl.monitor({ output = \"$mon\", disabled = true })" >/dev/null
+      done
+
+      # Pause to allow compositor to complete display topology updates
+      sleep 0.5
+
+      # 7. Re-enable preceding monitors
+      for mon in "''${PRECEDING_MONITORS[@]}"; do
+          echo "Re-enabling $mon..."
+          "$HYPRCTL" eval "hl.monitor({ output = \"$mon\", disabled = false })" >/dev/null
+      done
+
+      echo "Done!"
+    '';
+  };
+  in
 {
   programs.steam = {
     enable = true;
@@ -44,6 +128,8 @@
       (pkgs.writeShellScriptBin "sunshine-undo" ''
         ${pkgs.hyprland}/bin/hyprctl keyword monitor SUNSHINE-1, disable
       '')
+
+    hypr-prioritize-monitor
   ];
   environment.sessionVariables = {
     # Force Steam to stop trying to be smart
