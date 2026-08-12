@@ -1,2 +1,2 @@
 cd ~/dotfiles/
-launch bash -c 'nvim ; zsh -i'
+launch bash -c 'nvim nixos/config/main.nix hyprland-lua/.config/hypr/hyprland.lua ; zsh -i'
