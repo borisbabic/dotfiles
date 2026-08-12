@@ -5,6 +5,9 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "pkill firefix",
+      "luyt",
+      "pkill brave",
       "pkill firestone",
       "pkill beam",
       "vlc",
@@ -21,10 +24,7 @@
       "kitty -d ~/dotfiles direnv exec ~/dotfiles nvim",
       "kitty -d ~/dotfiles nvim",
       "kitty nvim",
-      "kitty -c nvim",
-      "kitty -d ~/projects/hsguru zsh -c direnv exec ~/projects/hsguru nvim",
-      "cnr",
-      "hyprctl reload"
+      "kitty -c nvim"
     ]
   },
   "dankKDEConnect": {
@@ -35,7 +35,7 @@
     "enabled": true,
     "noTrigger": false,
     "trigger": ":",
-    "recentEmojis": "🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,🙃,𝔴,🙄,😂"
+    "recentEmojis": "🤓,🙃,🙄,🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,𝔴,😂"
   },
   "powerUsagePlugin": {
     "enabled": true
@@ -75,6 +75,7 @@
     "musicPlayerPath": "/usr/local/bin/splayer",
     "appSize": 80,
     "widgetHeight": 522,
-    "widgetWidth": 298
+    "widgetWidth": 298,
+    "enabled": true
   }
 }
