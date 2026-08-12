@@ -8,7 +8,6 @@
     deskflow
 
     kdePackages.kdeconnect-kde
-    kdePackages.yakuake
     kdePackages.dolphin-plugins
     xorg.xkill
     #compton

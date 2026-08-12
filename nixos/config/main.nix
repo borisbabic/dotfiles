@@ -11,11 +11,12 @@
       ./gaming.nix
       ./nonguipackages.nix
       ./15irx10.nix
-      ./stremio.nix
+      #./stremio.nix
       ./hyprland.nix
       ./hsguru.nix
       ./dell_audio_toggle.nix
       ./android_dev.nix
+      # ./trackt-scrobbler/module.nix
       # ./deck_tracker.nix
       ./virt.nix
       # ./gpupassthrough.nix
@@ -213,6 +214,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # for kde connect browsing files, according to geminibrowsing files, according to gemini?
+    sshfs
     # <keyboard config>
     vial
     via
@@ -232,6 +235,7 @@
     streamlink
     streamlink-twitch-gui-bin
     webcord-vencord
+    jq
     kitty
     # albert
     spotify
@@ -251,6 +255,7 @@
     mpv
     vlc
     # dropdbox sync
+    stremio-linux-shell
     # for org files
     maestral-gui
   ];
