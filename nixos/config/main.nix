@@ -287,14 +287,26 @@
   systemd.services.ni-daemon.serviceConfig = {
     CPUWeight = 50;
   };
-  fonts.packages = with pkgs; [
-    # Standard Nerd Fonts (includes icons for almost everything)
-    nerd-fonts.symbols-only
-    nerd-fonts.fira-code
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.symbols-only
+      nerd-fonts.fira-code
+      fira-code
+      fira-code-symbols
+      font-awesome
 
-    # Or specifically Font Awesome if that's what your config uses
-    font-awesome
-  ];
+      roboto
+      roboto-slab
+    ];
+    fontconfig = {
+      antialias = true;
+      defaultFonts = {
+        monospace = ["Fira Code" "Roboto Mono for Powerline" "Roboto Mono"];
+        sansSerif = ["Fira Sans" "Roboto"];
+        #serif = ["Roboto Slab"];
+      };
+    };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.clutch-notifier = {
