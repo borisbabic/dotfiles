@@ -21,7 +21,6 @@
       ./virt.nix
       # ./gpupassthrough.nix
     ];
-  programs.mango.enable = true;
   environment.sessionVariables = {
     # Tell XWayland apps (like Steam) not to scale themselves
     "GDK_SCALE" = "1";
@@ -260,10 +259,10 @@
     maestral-gui
   ];
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-cuda;
+  # };
 
   programs.obs-studio.enableVirtualCamera = true;
   programs.obs-studio = {

@@ -28,12 +28,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mangowm = {
-      url = "github:mangowm/mango";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager,  mangowm, dms, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, dms, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {
@@ -42,7 +38,6 @@
       };
       modules = [
         ./configuration.legion5.nix
-        mangowm.nixosModules.mango
         sops-nix.nixosModules.sops
         clutch-notifier.nixosModules.default
         home-manager.nixosModules.default
@@ -76,6 +71,21 @@
                   })
                 );
               })
+            # (final: prev: {
+            #     antigravity-ide = let noOverride =
+            #       prev.lib.versionAtLeast prev.antigravity-ide.version "2.5.5";
+            #     in
+            #     prev.lib.warnIf noOverride ''
+            #         antigravity-ide>= 2.5.5 is now in nixpkgs, the override can be removed
+            #     ''
+            #     (if noOverride then
+            #       prev.antigravity-ide
+            #     else
+            #       prev.antigravity-ide.overrideAttrs (old: {
+            #         version = "2.5.5";
+            #       })
+            #     );
+            #   })
             (final: prev: {
               stremio-service = (import stremio-pr {
                 system = prev.stdenv.hostPlatform.system;
