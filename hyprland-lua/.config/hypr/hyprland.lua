@@ -12,7 +12,6 @@
 --
 -- https://vinitlee.github.io/hl-docs/reference/hl/HL.API.html
 
-
 UTIL = require("util")
 HS = require("hyprsplit")
 require("keybinds")
@@ -20,7 +19,6 @@ require("monitors")
 require("dms")
 require("looks")
 require("autostart")
-
 
 -------------------
 ---- AUTOSTART ----
@@ -37,7 +35,6 @@ require("autostart")
 --   hl.exec_cmd("waybar & hyprpaper & firefox")
 -- end)
 
-
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
@@ -46,7 +43,6 @@ require("autostart")
 
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
-
 
 -----------------------
 ----- PERMISSIONS -----
@@ -66,46 +62,44 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
-
-
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
 -- uncomment all if you wish to use that.
 hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
 hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
 hl.window_rule({
-    name        = "no-gaps-wtv1",
-    match       = { float = false, workspace = "w[tv1]" },
-    border_size = 0,
-    rounding    = 0,
+	name = "no-gaps-wtv1",
+	match = { float = false, workspace = "w[tv1]" },
+	border_size = 0,
+	rounding = 0,
 })
 hl.window_rule({
-    name        = "no-gaps-f1",
-    match       = { float = false, workspace = "f[1]" },
-    border_size = 0,
-    rounding    = 0,
+	name = "no-gaps-f1",
+	match = { float = false, workspace = "f[1]" },
+	border_size = 0,
+	rounding = 0,
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
-    dwindle = {
-        preserve_split = true, -- You probably want this
-    },
+	dwindle = {
+		preserve_split = true, -- You probably want this
+	},
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
 hl.config({
-    master = {
-        mfact = 0.67,
-        new_status = "slave",
-    },
+	master = {
+		mfact = 0.67,
+		new_status = "slave",
+	},
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Scrolling-Layout/ for more
 hl.config({
-    scrolling = {
-        fullscreen_on_one_column = true,
-    },
+	scrolling = {
+		fullscreen_on_one_column = true,
+	},
 })
 
 ----------------
@@ -113,61 +107,58 @@ hl.config({
 ----------------
 
 hl.config({
-    cursor = {
-        no_hardware_cursors = true
-    },
-    misc = {
-        focus_on_activate       = true,
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
-    },
-    xwayland = {
-        force_zero_scaling = true
-    },
-    render = {
-        direct_scanout = 2,
-        cm_auto_hdr = 1
-    }
+	cursor = {
+		no_hardware_cursors = true,
+	},
+	misc = {
+		focus_on_activate = true,
+		force_default_wallpaper = -1, -- Set to 0 or 1 to disable the anime mascot wallpapers
+		disable_hyprland_logo = false, -- If true disables the random hyprland logo / anime girl background. :(
+	},
+	xwayland = {
+		force_zero_scaling = true,
+	},
+	render = {
+		direct_scanout = 2,
+		cm_auto_hdr = 1,
+	},
 })
 hl.env("GDK_SCALE", "2")
-
 
 ---------------
 ---- INPUT ----
 ---------------
 
 hl.config({
-    input = {
-        kb_layout    = "us",
-        kb_variant   = "",
-        kb_model     = "",
-        kb_options   = "",
-        kb_rules     = "",
+	input = {
+		kb_layout = "us",
+		kb_variant = "",
+		kb_model = "",
+		kb_options = "",
+		kb_rules = "",
 
-        follow_mouse = 1,
+		follow_mouse = 1,
 
-        sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
 
-        touchpad     = {
-            natural_scroll = true,
-        },
-    },
+		touchpad = {
+			natural_scroll = true,
+		},
+	},
 })
 
 hl.gesture({
-    fingers = 3,
-    direction = "horizontal",
-    action = "workspace"
+	fingers = 3,
+	direction = "horizontal",
+	action = "workspace",
 })
 
 -- Example per-device config
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/ for more
 hl.device({
-    name        = "epic-mouse-v1",
-    sensitivity = -0.5,
+	name = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
-
-
 
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
@@ -179,27 +170,27 @@ hl.device({
 -- Example window rules that are useful
 
 hl.window_rule({
-    -- Ignore maximize requests from all apps. You'll probably like this.
-    name           = "suppress-maximize-events",
-    match          = { class = ".*" },
+	-- Ignore maximize requests from all apps. You'll probably like this.
+	name = "suppress-maximize-events",
+	match = { class = ".*" },
 
-    suppress_event = "maximize",
+	suppress_event = "maximize",
 })
 -- suppressMaximizeRule:set_enabled(false)
 
 hl.window_rule({
-    -- Fix some dragging issues with XWayland
-    name     = "fix-xwayland-drags",
-    match    = {
-        class      = "^$",
-        title      = "^$",
-        xwayland   = true,
-        float      = true,
-        fullscreen = false,
-        pin        = false,
-    },
+	-- Fix some dragging issues with XWayland
+	name = "fix-xwayland-drags",
+	match = {
+		class = "^$",
+		title = "^$",
+		xwayland = true,
+		float = true,
+		fullscreen = false,
+		pin = false,
+	},
 
-    no_focus = true,
+	no_focus = true,
 })
 
 -- Layer rules also return a handle.
@@ -212,61 +203,68 @@ hl.window_rule({
 
 -- Hyprland-run windowrule
 hl.window_rule({
-    name  = "move-hyprland-run",
-    match = { class = "hyprland-run" },
+	name = "move-hyprland-run",
+	match = { class = "hyprland-run" },
 
-    move  = "20 monitor_h-120",
-    float = true,
+	move = "20 monitor_h-120",
+	float = true,
 })
 
 hl.window_rule({
-    name = "floating windows",
-    match = { title = "^(Picture-in-Picture)$" },
-    pin = true,
-    no_follow_mouse = true,
-    focus_on_activate = false,
-    float = true
+	name = "floating windows",
+	match = { title = "^(Picture-in-Picture)$" },
+	pin = true,
+	no_follow_mouse = true,
+	focus_on_activate = false,
+	float = true,
 })
 
 hl.window_rule({
-    match = {
-        title = "^(HearthstoneOverlay)$"
-    },
-    float = true,
-    pin = true,
-    no_focus = true,
-    focus_on_activate = false,
-    opacity = 0.5,
-    no_follow_mouse = true,
-    force_rgbx = false,
-    no_shadow = true,
-    no_dim = true,
-    no_anim = true,
-    no_blur = true,
-    no_vrr = true,
-    xray = true,
-    no_initial_focus = true
+	match = {
+		title = "^(HearthstoneOverlay)$",
+	},
+	float = true,
+	pin = true,
+	no_focus = true,
+	focus_on_activate = false,
+	opacity = 0.5,
+	no_follow_mouse = true,
+	force_rgbx = false,
+	no_shadow = true,
+	no_dim = true,
+	no_anim = true,
+	no_blur = true,
+	no_vrr = true,
+	xray = true,
+	no_initial_focus = true,
 })
 hl.window_rule({
-    match = {
-        title = "^(Battle.net.*)$"
-    },
-    no_follow_mouse = true,
-    focus_on_activate = false
-})
-
-hl.window_rule({
-    match = {
-        title = "^(Hearthstone Deck Tracker)$"
-    },
-    focus_on_activate = false,
-    no_follow_mouse = true
+	match = {
+		title = "^(Battle.net.*)$",
+	},
+	no_follow_mouse = true,
+	focus_on_activate = false,
 })
 
 hl.window_rule({
-    match = {
-        title = "^(ToastWindow)$"
-    },
-    focus_on_activate = false,
-    no_follow_mouse = true
+	match = {
+		title = "^(Hearthstone Deck Tracker)$",
+	},
+	focus_on_activate = false,
+	no_follow_mouse = true,
+})
+
+hl.window_rule({
+	match = {
+		title = "^(ToastWindow)$",
+	},
+	focus_on_activate = false,
+	no_follow_mouse = true,
+})
+
+hl.window_rule({
+	match = {
+		class = "^(com.stremio.Stremio)$",
+	},
+	fullscreen_state = "0 2",
 })
