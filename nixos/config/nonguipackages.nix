@@ -75,6 +75,7 @@ in
     # for graphics
     nvtopPackages.full
     inotify-tools
+    lsof
     jq
     # aspell #spellcheck, usefull with emacs
     # aspellDicts.en
