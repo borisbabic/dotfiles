@@ -4,6 +4,7 @@
 
 local variables = require("variables")
 local shieldIP = variables.shieldIP
+local shieldADBDevice = variables.shieldADBDevice
 local mainMod = variables.mainMod
 local terminal = variables.terminal
 local fileManager = variables.fileManager
@@ -133,7 +134,7 @@ end
 hl.bind(mainMod .. " + SHIFT + RETURN", ANTI_GRAVITY_RUN)
 
 -----SHIELD
-local shieldBase = "adb connect " .. shieldIP .. " && adb shell "
+local shieldBase = "adb connect " .. shieldIP .. " && adb -s " .. shieldADBDevice .. " shell "
 for keys, keyevent in pairs({
 	["XF86AudioPause"] = "85",
 	["XF86AudioPlay"] = "85",
