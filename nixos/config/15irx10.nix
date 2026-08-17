@@ -102,42 +102,47 @@
     hardware.nvidia.powerManagement.finegrained = lib.mkForce true;
   };
 
-  # --- Battery Specialisation ---
-  specialisation."on-battery".configuration = {
-    system.nixos.tags = [ "on-battery" ];
-
-    # 1. Force PCIe ASPM and NVMe Latency Management
-    boot.kernelParams = [
-      "pcie_aspm=force"                           # Force ASPM on ports marked "Disabled"
-      "pcie_aspm.policy=powersave"
-      "nvme_core.default_ps_max_latency_us=5500" # Force NVMe into deep sleep states
-    ];
-
-    # 2. Strict Power Limits & Disabling CPU Turbo
-    services.power-profiles-daemon.enable = false;
-    services.tlp = {
-      enable = true;
-      settings = {
-        CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
-        CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-        CPU_BOOST_ON_BAT = 0;
-        CPU_HWP_DYN_BOOST_ON_BAT = 0;
-        PLATFORM_PROFILE_ON_BAT = "low-power";
-      };
-    };
-
-    # 4. Force Nvidia dGPU into Runtime D3 (D3cold Power Off)
-    hardware.nvidia = {
-      powerManagement.enable = lib.mkForce true;
-      powerManagement.finegrained = lib.mkForce true; # Allows complete dGPU power-off (D3cold)
-      dynamicBoost.enable = false;
-      prime = {
-        sync.enable = lib.mkForce false;
-        offload.enable = lib.mkForce true;
-        offload.enableOffloadCmd = lib.mkForce true;
-      };
-    };
+  services.power-profiles-daemon.enable = false;
+  services.tuned = {
+    enable = true;
   };
+
+  # --- Battery Specialisation ---
+  # specialisation."on-battery".configuration = {
+  #   system.nixos.tags = [ "on-battery" ];
+  #
+  #   # 1. Force PCIe ASPM and NVMe Latency Management
+  #   boot.kernelParams = [
+  #     "pcie_aspm=force"                           # Force ASPM on ports marked "Disabled"
+  #     "pcie_aspm.policy=powersave"
+  #     "nvme_core.default_ps_max_latency_us=5500" # Force NVMe into deep sleep states
+  #   ];
+  #
+  #   # 2. Strict Power Limits & Disabling CPU Turbo
+  #   services.power-profiles-daemon.enable = false;
+  #   services.tlp = {
+  #     enable = true;
+  #     settings = {
+  #       CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  #       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #       CPU_BOOST_ON_BAT = 0;
+  #       CPU_HWP_DYN_BOOST_ON_BAT = 0;
+  #       PLATFORM_PROFILE_ON_BAT = "low-power";
+  #     };
+  #   };
+  #
+  #   # 4. Force Nvidia dGPU into Runtime D3 (D3cold Power Off)
+  #   hardware.nvidia = {
+  #     powerManagement.enable = lib.mkForce true;
+  #     powerManagement.finegrained = lib.mkForce true; # Allows complete dGPU power-off (D3cold)
+  #     dynamicBoost.enable = false;
+  #     prime = {
+  #       sync.enable = lib.mkForce false;
+  #       offload.enable = lib.mkForce true;
+  #       offload.enableOffloadCmd = lib.mkForce true;
+  #     };
+  #   };
+  # };
   # try to fix wifi issue. Suggested by gemini
   hardware.enableRedistributableFirmware = true;
 
