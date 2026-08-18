@@ -11,7 +11,7 @@
   # Use latest kernel.
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   #
-  programs.coolercontrol.enable = true;
+  # programs.coolercontrol.enable = true;
   # boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v4;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];

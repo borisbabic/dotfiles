@@ -6,7 +6,8 @@
   # Enable the COSMIC desktop environment
   services.desktopManager.cosmic.enable = true;
   # slight performance
-  services.system76-scheduler.enable = true;
+  # cause stop jobs on reboot
+  # services.system76-scheduler.enable = true;
   # enables clipboard, but opens the clipboard to everything
   environment.sessionVariables.COSMIC_DATA_CONTROL_ENABLED = 1;
 }

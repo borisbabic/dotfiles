@@ -2,9 +2,10 @@
 { config, pkgs, ... }:
 {
   home.stateVersion = "25.11"; # Did you read the comment?
-  services.arrpc = {
-    enable = true;
-  };
+  # not worth the 1-200 mb ram :shrug:
+  # services.arrpc = {
+  #   enable = true;
+  # };
   # systray proxy
   # enables wine systrays to be in regular wayland systray
   services.xembed-sni-proxy = {
