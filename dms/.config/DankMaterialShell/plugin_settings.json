@@ -5,6 +5,8 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "hyprsysteminfo",
+      "hyprsystemino",
       "pkill firefix",
       "luyt",
       "pkill brave",
@@ -22,9 +24,7 @@
       "kitty --session ~/dotfiles/kitty/.config/kitty/",
       "kitty -d ~/projects/hsguru direnv exec ~/projects/hsguru nvim",
       "kitty -d ~/dotfiles direnv exec ~/dotfiles nvim",
-      "kitty -d ~/dotfiles nvim",
-      "kitty nvim",
-      "kitty -c nvim"
+      "kitty -d ~/dotfiles nvim"
     ]
   },
   "dankKDEConnect": {
@@ -77,5 +77,8 @@
     "widgetHeight": 522,
     "widgetWidth": 298,
     "enabled": true
+  },
+  "dankCalendar": {
+    "enabled": false
   }
 }

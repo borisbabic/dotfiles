@@ -1,0 +1,52 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "airQuality": {
+      "repo": "https://github.com/szabolcsf/dms-air-quality",
+      "commit": "aff8f56bc8bce96d6d5bbe9df388b4ea57aa8544"
+    },
+    "dankBatteryAlerts": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankBatteryAlerts",
+      "commit": "141841fc85e01494df6d217bd5a27c65da87256d"
+    },
+    "dankDesktopWeather": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankDesktopWeather",
+      "commit": "141841fc85e01494df6d217bd5a27c65da87256d"
+    },
+    "dankGifSearch": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankGifSearch",
+      "commit": "141841fc85e01494df6d217bd5a27c65da87256d"
+    },
+    "dankHyprlandWindows": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankHyprlandWindows",
+      "commit": "141841fc85e01494df6d217bd5a27c65da87256d"
+    },
+    "dankLauncherKeys": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankLauncherKeys",
+      "commit": "141841fc85e01494df6d217bd5a27c65da87256d"
+    },
+    "dankStickerSearch": {
+      "repo": "https://github.com/AvengeMedia/dms-plugins",
+      "path": "DankStickerSearch",
+      "commit": "141841fc85e01494df6d217bd5a27c65da87256d"
+    },
+    "dmsLenovoBatterySettings": {
+      "repo": "https://github.com/neoscaler/dms-lenovo-battery-settings",
+      "commit": "3cbed7f4d0c944eba1b05ed55d5ad88709bcae0d"
+    },
+    "nvidiaGpuMonitor": {
+      "repo": "https://github.com/TEJASJONDHALE/dms-nvidia-gpu-monitor",
+      "commit": "58123831e7bbe04a1aa54c11c172d91f08a8a6f9"
+    },
+    "simpleAudioControl": {
+      "repo": "https://github.com/Dadangdut33/dms-plugins",
+      "path": "SimpleAudioControl",
+      "commit": "2777243d14fdbe184dbf18907097909c086e2179"
+    }
+  }
+}
