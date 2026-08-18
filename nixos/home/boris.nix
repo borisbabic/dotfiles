@@ -20,21 +20,6 @@
   programs.vesktop = {
     enable = true;
   };
-  # home.file.".config/uwsm/env-hyprland" = {
-  #   text = ''
-  #     export AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/renderD128"
-  #   '';
-  # };
-  specialisation = {
-    on-the-go.configuration = {
-      home.file.".config/uwsm/env-hyprland" = {
-        text = ''
-          export AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/renderD128"
-        '';
-      };
-
-    };
-  };
   home.file."dotfiles/.luarc.json" = {
     text = builtins.toJSON {
       workspace = {

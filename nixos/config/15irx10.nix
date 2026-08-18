@@ -11,6 +11,7 @@
   # Use latest kernel.
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   #
+  programs.coolercontrol.enable = true;
   # boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v4;
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
@@ -38,7 +39,7 @@
       nvidia-vaapi-driver
     ];
   };
-  environment.sessionVariables = {
+  environment.variables = {
     # gemini says can cause issues
     # NVD_BACKEND = "direct";
     LIBVA_DRIVER_NAME = "nvidia";
@@ -91,37 +92,14 @@
 
   specialisation.on-the-go.configuration = {
     system.nixos.tags = ["on-the-go"];
-    hardware.nvidia =  {
-      powerManagement.enable = lib.mkForce true;
-      powerManagement.finegrained = lib.mkForce true;
-      prime = {
-        offload = {
-          enable = lib.mkForce true;
-          enableOffloadCmd = lib.mkForce true;
-        };
-        sync.enable = lib.mkForce false;
+    hardware.nvidia.prime = {
+      offload = {
+        enable = lib.mkForce true;
+        enableOffloadCmd = lib.mkForce true;
       };
+      sync.enable = lib.mkForce false;
     };
-    # for dms and hyprland, use the intel gpu
-    environment.sessionVariables = {
-      # tell hyprland to use intel
-      AQ_DRM_DEVICES = "/dev/dri/card1:/dev/dri/renderD128";
-      # Force Mesa/Gallium and Vulkan to only see the Intel GPU
-      DRI_PRIME = "0";
-      MESA_LOADER_DRIVER_OVERRIDE = "iris";
-      VK_ICD_FILENAMES = "/run/opengl-driver/share/vulkan/icd.d/intel_icd.x86_64.json";
-      # Prevent hardware probe scanning from opening secondary render nodes
-      LIBVA_DRIVER_NAME = lib.mkForce "iHD";
-      __GLX_VENDOR_LIBRARY_NAME = "mesa";
-      VDPAU_DRIVER = "va_gl";
-      CHROME_EXTRA_ARGS = "--gpu-preference=0 --disable-vulkan --dsiable-gpu";
-      ELECTRON_EXTRA_ARGS = "--gpu-preference=0 --disable-vulkan --dsiable-gpu";
-    };
-    
-    # # If your greeter runs as a systemd service, export it system-wide
-    # systemd.extraConfig = ''
-    #   DefaultEnvironment="AQ_DRM_DEVICES=/dev/dri/by-path/pci-0000:00:02.0-card"
-    # '';
+    hardware.nvidia.powerManagement.finegrained = lib.mkForce true;
   };
 
   services.power-profiles-daemon.enable = false;
