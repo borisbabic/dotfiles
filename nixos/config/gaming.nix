@@ -102,6 +102,10 @@ let
     capSysAdmin = true;
     openFirewall = true;
   };
+  hardware.uinput.enable = true;
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
   environment.systemPackages = with pkgs; [
     mangohud
     steam-tui
