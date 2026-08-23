@@ -61,7 +61,7 @@
     enable = true;
   };
   programs.antigravity = {
-    package = pkgs.antigravity-ide;
+    # package = pkgs.antigravity-ide;
     enable = true;
     mutableExtensionsDir = true;
   };

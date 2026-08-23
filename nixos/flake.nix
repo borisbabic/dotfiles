@@ -1,5 +1,9 @@
 {
   inputs = {
+    dms-plugin-calendar = {
+      url = "github:alcxyz/DankCalendar";
+      flake = true;
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
     stremio-pr.url = "github:NixOS/nixpkgs/pull/460557/head";

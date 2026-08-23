@@ -91,6 +91,22 @@
         "type": "github"
       }
     },
+    "dms-plugin-calendar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1783070555,
+        "narHash": "sha256-VtiBjO+XzihoRTGPe6l4WoK9onaj/BGmy4Xmj5BhE7I=",
+        "owner": "alcxyz",
+        "repo": "DankCalendar",
+        "rev": "0d204e8450cc9c6d832fa8a092d6b282deea4c0b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "alcxyz",
+        "repo": "DankCalendar",
+        "type": "github"
+      }
+    },
     "dms-plugin-registry": {
       "inputs": {
         "nixpkgs": [
@@ -556,6 +572,7 @@
       "inputs": {
         "clutch-notifier": "clutch-notifier",
         "dms": "dms",
+        "dms-plugin-calendar": "dms-plugin-calendar",
         "dms-plugin-registry": "dms-plugin-registry",
         "home-manager": "home-manager",
         "hyprland": "hyprland",

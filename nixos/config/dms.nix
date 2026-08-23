@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 # let
   # patched = pkgs.dms-shell.overrideAttrs (oldAttrs: {
   #   src = pkgs.fetchFromGitHub {
@@ -21,6 +21,10 @@
       commandRunner.enable = true;
       emojiLauncher.enable = true;
       powerUsagePlugin.enable = true;
+      dankCalendar = {
+        enable = true;
+        src = lib.mkForce inputs.dms-plugin-calendar;
+      };
     };
     systemd = {
       enable = true;             # Systemd service for auto-start
