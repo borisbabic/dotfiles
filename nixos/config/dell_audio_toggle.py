@@ -10,6 +10,7 @@ OFF_SIG = b'\x08\xc0\x09\x03\x00\x01\xdd\x1e'
 ON_SIG = b'\x08\xc0\x09\x03\x00\x01\xcc\x0f'
 ANALOG_NAME = "Built-in Audio"
 HEADSET_NAME = "AWPRO H Wireless Game"
+WIRED_HEADSET_NAME = "AWPRO H Wired Game"
 HDMI_NAME = "HDMI"
 
 
@@ -30,9 +31,7 @@ def find_sink(names):
             if n in s["name"]:
                 return s
 
-def set_sink(names):
-    sink = find_sink(names)
-
+def set_sink():
     print(f"SINKS {sink}")
     if sink:
         print(f"DEBUG: Attempting to switch to {sink["name"]} ({sink["id"]})")
@@ -47,6 +46,11 @@ def set_sink(names):
     else:
         print(f"ERROR: Could not find any sinks for {names}")
         print(f"ERROR: Availabe {sinks}")
+
+def find_and_set_sink(names):
+    sink = find_sink(names)
+    set_sink(sink)
+
 
 ### Example snippet from wpctl status
 # Audio
@@ -115,13 +119,12 @@ def find_hid_node():
 
 
 def main():
-    sink_dict = parse_wpctl_status()
-    print(sink_dict)
     while True:
         node = find_hid_node()
         if node:
             # This print will show up in journalctl
             print(f"INFO: Monitoring {node} for Alienware Pro signals...")
+            print("Adsfasdf")
             old = None
             try:
                 with open(node, 'rb') as f:
@@ -129,15 +132,22 @@ def main():
                         # Read one byte at a time to find the start of a signal
                         # This handles alignment issues better than f.read(8)
                         chunk = f.read(8)
-                        if not chunk:
-                            break
+                        wired_sink = find_sink([WIRED_HEADSET_NAME])
 
-                        if ON_SIG in chunk and old != "on":
-                            old = "on"
-                            set_sink([HEADSET_NAME])
-                        elif OFF_SIG in chunk and old != "off":
-                            old = "off"
-                            set_sink([HDMI_NAME, ANALOG_NAME])
+                        wired_available = wired_sink 
+                        wireless_available = chunk and ON_SIG in chunk
+                        use_fallback = not wired_available and not wireless_available
+
+                        if wired_available and old != "wired":
+                            old = "wired"
+                            set_sink(wired_sink)
+
+                        elif wireless_available and old != "wireless":
+                            old = "wireless"
+                            find_and_set_sink([HEADSET_NAME])
+                        elif use_fallback and old != "fallback":
+                            old = "fallback"
+                            find_and_set_sink([HDMI_NAME, ANALOG_NAME])
                         time.sleep(0.1)
             except (PermissionError, FileNotFoundError) as e:
                 print(f"ERROR: {e}. Retrying in 5s...")
