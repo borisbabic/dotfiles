@@ -283,7 +283,7 @@ hl.window_rule({
 
 hl.window_rule({
 	match = {
-		class = "firestone",
+		class = "^(firestone standalone.exe)",
 		-- class = "^(firestone standalone.exe)$",
 		-- title = "^(Battlegrounds)$",
 	},

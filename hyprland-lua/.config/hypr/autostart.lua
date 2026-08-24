@@ -75,7 +75,8 @@ local function auto_start()
 	exec("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/dotfiles_nvim", ids.hdmi .. "4 silent")
 	exec("kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim", ids.hdmi .. "2 silent")
 	exec("firefox", ids.hdmi .. "1")
-	exec("stremio", ids.hdmi .. "1")
+	-- prefer stremio web, stremio interferes with play/pause
+	-- exec("stremio", ids.hdmi .. "1")
 	exec("spotify", ids.vertical .. "5 silent")
 	exec("maestral_qt", ids.vertical .. "7 silent")
 end
