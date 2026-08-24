@@ -137,6 +137,10 @@
   # try to fix wifi issue. Suggested by gemini
   hardware.enableRedistributableFirmware = true;
 
+  services.lact = {
+    enable = true;
+  };
+
   boot.zswap = {
     enable = true;
     zpool = "zsmalloc";

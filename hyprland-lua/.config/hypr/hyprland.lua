@@ -18,6 +18,7 @@ require("keybinds")
 require("monitors")
 require("dms")
 require("looks")
+-- UTIL.notify(os.getenv("AQ_DRM_DEVICES"))
 require("autostart")
 
 -------------------
@@ -44,6 +45,9 @@ require("autostart")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 
+-- Put it on legion integrated
+-- hl.env("AQ_DRM_DEVICES", "/dev/dri/card1:/dev/dri/card0")
+--
 -----------------------
 ----- PERMISSIONS -----
 -----------------------
@@ -212,7 +216,7 @@ hl.window_rule({
 
 hl.window_rule({
 	name = "floating windows",
-	match = { title = "^(Picture-in-Picture)$" },
+	match = { title = "^(Picture.in.[Pp]icture)$" },
 	pin = true,
 	no_follow_mouse = true,
 	focus_on_activate = false,
@@ -267,4 +271,21 @@ hl.window_rule({
 		class = "^(com.stremio.Stremio)$",
 	},
 	fullscreen_state = "0 2",
+})
+
+hl.window_rule({
+	match = {
+		class = "^(firestone standalone.exe)$",
+		title = "^(Battlegrounds)$",
+	},
+	float = 0,
+})
+
+hl.window_rule({
+	match = {
+		class = "firestone",
+		-- class = "^(firestone standalone.exe)$",
+		-- title = "^(Battlegrounds)$",
+	},
+	float = "0",
 })

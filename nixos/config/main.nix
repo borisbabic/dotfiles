@@ -11,7 +11,7 @@
       ./gaming.nix
       ./nonguipackages.nix
       ./15irx10.nix
-      #./stremio.nix
+      ./stremio.nix
       ./hyprland.nix
       ./hsguru.nix
       ./dell_audio_toggle.nix
@@ -113,7 +113,7 @@
         };
       };
       cheapo = {
-        ids = ["c0f4:0201:5ab70009" ];
+        ids = ["c0f4:0201:5ab70009" "c0f4:0201:3ec255d9" ];
         settings = {
           main = {
             # capslock = "overload(control, esc)";
