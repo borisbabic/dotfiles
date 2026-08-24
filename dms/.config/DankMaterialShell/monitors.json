@@ -5,21 +5,20 @@
       "id": "profile_1775836707264_w9bitc",
       "name": "Desktop Mode",
       "outputs": {
-        "HDMI-A-2": {
-          "mode": "3840x2160@120.000",
+        "eDP-1": {
+          "mode": "2560x1600@165.000",
           "position": {
             "x": 0,
-            "y": 266
+            "y": 1440
           },
-          "scale": 1.5,
+          "scale": 1.6015625,
           "transform": "Normal",
-          "vrr": false,
+          "vrr": true,
           "disabled": false,
           "hyprland": {
-            "disabled": false,
-            "colorManagement": "auto",
             "bitdepth": 10,
-            "sdrSaturation": 1.5
+            "sdrSaturation": 1.5,
+            "vrrFullscreenOnly": true
           }
         },
         "DP-2": {
@@ -32,25 +31,22 @@
           "transform": "90",
           "vrr": false,
           "disabled": false,
-          "hyprland": {
-            "colorManagement": "auto"
-          }
+          "hyprland": {}
         },
-        "eDP-1": {
-          "mode": "2560x1600@165.000",
+        "HDMI-A-2": {
+          "mode": "3840x2160@120.000",
           "position": {
-            "x": 374,
-            "y": 1706
+            "x": 0,
+            "y": 0
           },
           "scale": 1.5,
           "transform": "Normal",
           "vrr": false,
           "disabled": false,
           "hyprland": {
-            "colorManagement": "auto",
-            "disabled": false,
             "bitdepth": 10,
-            "sdrSaturation": 1.5
+            "sdrSaturation": 1.5,
+            "vrrFullscreenOnly": true
           }
         }
       }

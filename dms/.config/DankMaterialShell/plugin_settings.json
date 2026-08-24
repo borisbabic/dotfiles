@@ -5,6 +5,8 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "pkill chromium",
+      "pkill firefox",
       "hyprsysteminfo",
       "hyprsystemino",
       "pkill firefix",
@@ -22,9 +24,7 @@
       "kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim",
       "kitty --session ~/dotfiles/.kitty/config/kitty/sessions/hsguru_nvim",
       "kitty --session ~/dotfiles/kitty/.config/kitty/",
-      "kitty -d ~/projects/hsguru direnv exec ~/projects/hsguru nvim",
-      "kitty -d ~/dotfiles direnv exec ~/dotfiles nvim",
-      "kitty -d ~/dotfiles nvim"
+      "kitty -d ~/projects/hsguru direnv exec ~/projects/hsguru nvim"
     ]
   },
   "dankKDEConnect": {
@@ -35,7 +35,7 @@
     "enabled": true,
     "noTrigger": false,
     "trigger": ":",
-    "recentEmojis": "🤓,🙃,🙄,🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,𝔴,😂"
+    "recentEmojis": "🙄,🤷,🤓,🙃,🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,𝔴,😂"
   },
   "powerUsagePlugin": {
     "enabled": true
@@ -79,6 +79,6 @@
     "enabled": true
   },
   "dankCalendar": {
-    "enabled": false
+    "enabled": true
   }
 }
