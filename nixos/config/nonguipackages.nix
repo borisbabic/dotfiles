@@ -72,18 +72,19 @@ in
     hdparm
     btop
     htop
-    # for graphics
-    nvtopPackages.full
     inotify-tools
     jq
     # aspell #spellcheck, usefull with emacs
     # aspellDicts.en
     lshw
+    lsof
     lolcat # fabulously color output
     multitail
     ncdu # du cli browser
     nix-search-cli
     nmap
+    # for graphics
+    nvtopPackages.full
     # nox
     # p7zip abandoned
     parted
