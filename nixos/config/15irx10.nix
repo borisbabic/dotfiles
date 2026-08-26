@@ -28,7 +28,11 @@
     HandleLidSwitchExternalPower = "suspend";
     HandleLidSwitch = "suspend";
   };
+  services.scx = {
+    enable = true;
+  };
   environment.systemPackages = with pkgs; [
+    scx.full
     powertop
     brightnessctl
     lenovo-legion
