@@ -42,11 +42,6 @@
       nvidia-vaapi-driver
     ];
   };
-  environment.variables = {
-    # gemini says can cause issues
-    # NVD_BACKEND = "direct";
-    LIBVA_DRIVER_NAME = "nvidia";
-  };
   services.xserver.videoDrivers = [ "nvidia"];
   nix.settings = {
     max-jobs = 4;
@@ -64,8 +59,11 @@
     powerManagement.finegrained = false;
   };
 
+  boot.initrd.kernelModules = [ "xe" ];
   boot.kernelParams = [
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+    "i915.force_probe=!a788"
+    "xe.force_probe=a788"
   ];
 
   # fileSystems."/boot/windows" = {
@@ -81,6 +79,16 @@
   # };
   # boot.loader.systemd-boot.configurationLimit = 20;
 
+  specialisation.i915.configuration = {
+    system.nixos.tags = [ "i915" ];
+    boot.initrd.kernelModules = lib.mkForce [ "i915" ];
+    boot.kernelParams = lib.mkForce [
+      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+      # Disables PSR and FBC to prevent the Firefox hang under i915
+      "i915.enable_psr=0"
+      "i915.enable_fbc=0"
+    ];
+  };
   specialisation.on-the-go.configuration = {
     system.nixos.tags = ["on-the-go"];
     hardware.nvidia.prime = {
