@@ -136,12 +136,12 @@ let
 
     hypr-prioritize-monitor
   ];
+  boot.kernelModules = [ "ntsync" ];
   environment.sessionVariables = {
     # Force Steam to stop trying to be smart
     "STEAM_FORCE_DESKTOPUI_SCALING" = "1.0";
     # Tell XWayland apps (like Steam) not to scale themselves
     "GDK_SCALE" = "1";
-    "dfas" = "adsfa";
   };
   services.flatpak ={
     enable = true;
