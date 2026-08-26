@@ -29,10 +29,18 @@
     HandleLidSwitch = "suspend";
   };
   services.scx = {
+    enable = false;
+  };
+  services.scx-loader = {
     enable = true;
+    # Pulls the default TOML policies for gaming, power saving, etc.
+    config = {
+      default_sched = "scx_bpfland";
+    };
   };
   environment.systemPackages = with pkgs; [
     scx.full
+    scx-loader
     powertop
     brightnessctl
     lenovo-legion
