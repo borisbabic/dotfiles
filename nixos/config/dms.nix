@@ -39,7 +39,7 @@
     enableCalendarEvents = true;       # Calendar integration (khal)
   };
   services.displayManager.dms-greeter = {
-    enable = true;
+    enable = false;
     configHome = "/home/boris";
     configFiles = [
       "/home/boris/.config/DankMaterialShell/settings.json"

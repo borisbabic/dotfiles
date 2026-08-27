@@ -2,6 +2,7 @@
 {
   imports = [
     ./dms.nix
+    ./greetd.nix
   ];
   programs.uwsm.enable = true;
   # programs.regreet.enable = true;
