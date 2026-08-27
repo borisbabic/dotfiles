@@ -178,7 +178,7 @@
   users.users.boris = {
     isNormalUser = true;
     description = "Boris";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "plugdev" "keyd" "netdev" ];
     packages = with pkgs; [
       # kdePackages.kate
     #  thunderbird
