@@ -74,9 +74,10 @@
 
   boot.initrd.kernelModules = [ "xe" ];
   boot.kernelParams = [
+    "i915.enable_psr=0"
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
-    "i915.force_probe=!a788"
-    "xe.force_probe=a788"
+    # "i915.force_probe=!a788"
+    # "xe.force_probe=a788"
   ];
 
   # fileSystems."/boot/windows" = {
@@ -91,17 +92,16 @@
   #   '';
   # };
   # boot.loader.systemd-boot.configurationLimit = 20;
-
-  specialisation.i915.configuration = {
-    system.nixos.tags = [ "i915" ];
-    boot.initrd.kernelModules = lib.mkForce [ "i915" ];
-    boot.kernelParams = lib.mkForce [
-      "nvidia.NVreg_TemporaryFilePath=/var/tmp"
-      # Disables PSR and FBC to prevent the Firefox hang under i915
-      "i915.enable_psr=0"
-      "i915.enable_fbc=0"
-    ];
-  };
+  # specialisation.i915.configuration = {
+  #   system.nixos.tags = [ "i915" ];
+  #   boot.initrd.kernelModules = lib.mkForce [ "i915" ];
+  #   boot.kernelParams = lib.mkForce [
+  #     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+  #     # Disables PSR and FBC to prevent the Firefox hang under i915
+  #     "i915.enable_psr=0"
+  #     "i915.enable_fbc=0"
+  #   ];
+  # };
   specialisation.on-the-go.configuration = {
     system.nixos.tags = ["on-the-go"];
     hardware.nvidia.prime = {
@@ -158,9 +158,9 @@
   # try to fix wifi issue. Suggested by gemini
   hardware.enableRedistributableFirmware = true;
 
-  services.lact = {
-    enable = true;
-  };
+  # services.lact = {
+  #   enable = true;
+  # };
 
   boot.zswap = {
     enable = true;
