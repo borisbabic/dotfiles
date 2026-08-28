@@ -9,7 +9,7 @@
 
 {
   imports = [
-    ./undervolt.nix
+    # ./undervolt.nix
   ];
   # Use latest kernel.
   #boot.kernelPackages = pkgs.linuxPackages_latest;
