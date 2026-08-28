@@ -3,13 +3,28 @@
   ...
 }: let
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
-  hyprland-session = "${pkgs.hyprland}/share/wayland-sessions/hyprland-uwsm.desktop";
+  usbId = "046d:082d";
+  usbSerial = "BAE99B5F";
+  hyprland-session = "${pkgs.hyprland}/share/wayland-sessions/";
+  tuigreet_command="${tuigreet} --time --remember --remember-session --sessions ${hyprland-session}";
+  command = ''
+    if ${pkgs.usbutils}/bin/lsusb -d ${usbId} | grep -i iserial | grep "${usbSerial}"; then 
+      exec uwsm start hyprland-uwsm.desktop
+    else
+      exec ${tuigreet_command}
+    fi
+  '';
 in {
+  environment.systemPackages = [ pkgs.usbutils ];
   services.greetd = {
     enable = true;
     settings = {
+        # initial_session = {
+        # command = command;
+        # user = "greeter";
+      # };
       default_session = {
-        command = "${tuigreet} --time --remember --remember-session --sessions ${hyprland-session}";
+        command = tuigreet_command;
         user = "greeter";
       };
     };
