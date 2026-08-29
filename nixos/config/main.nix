@@ -22,6 +22,8 @@
       # ./gpupassthrough.nix
     ];
   environment.sessionVariables = {
+    # Need TERMINAL set for opening .desktop with Terminal=true, ie for yazi
+    "TERMINAl" = "kitty";
     # Tell XWayland apps (like Steam) not to scale themselves
     "GDK_SCALE" = "1";
   };
@@ -179,10 +181,6 @@
     isNormalUser = true;
     description = "Boris";
     extraGroups = [ "networkmanager" "wheel" "input" "plugdev" "keyd" "netdev" ];
-    packages = with pkgs; [
-      # kdePackages.kate
-    #  thunderbird
-    ];
     shell = "/run/current-system/sw/bin/zsh";
   };
 
@@ -213,6 +211,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # hack because glib has a hardcoded list of terminals
+    # specific motivation being show in folder in firefox
+    (pkgs.writeShellScriptBin "xterm" ''
+      exec kitty "$@"
+    '')
     # for kde connect browsing files, according to geminibrowsing files, according to gemini?
     sshfs
     # <keyboard config>
