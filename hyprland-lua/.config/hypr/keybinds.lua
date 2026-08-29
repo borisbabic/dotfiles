@@ -93,13 +93,14 @@ hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- hl.bind(mainMod .. " + SHIFT + mouse:273", hl.dsp.window.resize(), { mouse = true, prop = {keep_aspect_ratio = true }})
-hl.bind(mainMod .. " + SHIFT + mouse:273", function()
-	local active = hl.get_active_window()
-	if active ~= nil then
-		hl.dispatch(hl.dsp.window.set_prop({ prop = "keep_aspect_ratio", value = "1" }))
-		hl.dispatch(hl.dsp.window.resize())
-	end
-end, { mouse = true })
+hl.bind(mainMod .. " + SHIFT + mouse:273", hl.dsp.window.resize({ keep_aspect_ratio = true }), { mouse = true })
+-- hl.bind(mainMod .. " + SHIFT + mouse:273", function()
+-- 	local active = hl.get_active_window()
+-- 	if active ~= nil then
+-- 		hl.dispatch(hl.dsp.window.set_prop({ prop = "keep_aspect_ratio", value = "1" }))
+-- 		hl.dispatch(hl.dsp.window.resize())
+-- 	end
+-- end, { mouse = true })
 hl.bind(
 	mainMod .. " + SHIFT + mouse:273",
 	hl.dsp.window.set_prop({ prop = "keep_aspect_ratio", value = "0" }),
@@ -132,6 +133,15 @@ ANTI_GRAVITY_RUN = function()
 	}))
 end
 hl.bind(mainMod .. " + SHIFT + RETURN", ANTI_GRAVITY_RUN)
+
+GEFORCE_NOW_SEND_KEY_DOWN = function()
+	hl.dispatch(hl.dsp.send_shortcut({
+		mods = "shift",
+		key = "code:31",
+		window = "class:^(GeForceNOW)",
+	}))
+end
+hl.bind(mainMod .. " + ALT + SHIFT + G", GEFORCE_NOW_SEND_KEY_DOWN)
 
 -----SHIELD
 local shieldBase = "adb connect " .. shieldIP .. " && adb -s " .. shieldADBDevice .. " shell "
