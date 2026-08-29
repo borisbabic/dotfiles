@@ -114,6 +114,22 @@
           };
         };
       };
+      yunzi = {
+        ids = [
+          "3151:4015:00f22947"
+          "3151:4015:0de75e68"
+          "3151:4015:8e165d75"
+          "3151:4015:c251562f"
+          "3151:4015:f335a20d"
+        ];
+        settings = {
+          main = {
+            capslock = "esc";
+            insert = "play";
+            rightalt = "sysrq"; # PrintScreen
+          };
+        };
+      };
       cheapo = {
         ids = ["c0f4:0201:5ab70009" "c0f4:0201:3ec255d9" ];
         settings = {
@@ -230,6 +246,7 @@
     qbittorrent-enhanced
     # language server for nix for zed
     nil
+    statix
     nixd
     claude-code
     zed-editor
