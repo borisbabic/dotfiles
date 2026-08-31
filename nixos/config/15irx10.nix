@@ -60,20 +60,40 @@
     max-jobs = 4;
     cores = 3;
   };
+  # hardware.nvidia = {
+  #   open = true;
+  #   modesetting.enable = true;
+  #   powerManagement.enable = true;
+  #   prime = {
+  #     sync.enable = true;
+  #     intelBusId = "PCI:0@0:2:0";
+  #     nvidiaBusId = "PCI:1@0:0:0";
+  #   };
+  #   powerManagement.finegrained = false;
+  # };
+
   hardware.nvidia = {
     open = true;
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
     prime = {
-      sync.enable = true;
+      # sync supposedly doesn't work with wayland? Huh? :shrug:
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
       intelBusId = "PCI:0@0:2:0";
       nvidiaBusId = "PCI:1@0:0:0";
     };
-    powerManagement.finegrained = false;
   };
-
   boot.initrd.kernelModules = [ "xe" ];
   boot.kernelParams = [
+    "i915.enable_guc=3"
+    "i915.enable_sagv=0"
+    "i915.enable_fbc=0"
     "i915.enable_psr=0"
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
     # "i915.force_probe=!a788"
@@ -102,17 +122,17 @@
   #     "i915.enable_fbc=0"
   #   ];
   # };
-  specialisation.on-the-go.configuration = {
-    system.nixos.tags = ["on-the-go"];
-    hardware.nvidia.prime = {
-      offload = {
-        enable = lib.mkForce true;
-        enableOffloadCmd = lib.mkForce true;
-      };
-      sync.enable = lib.mkForce false;
-    };
-    hardware.nvidia.powerManagement.finegrained = lib.mkForce true;
-  };
+  # specialisation.on-the-go.configuration = {
+  #   system.nixos.tags = ["on-the-go"];
+  #   hardware.nvidia.prime = {
+  #     offload = {
+  #       enable = lib.mkForce true;
+  #       enableOffloadCmd = lib.mkForce true;
+  #     };
+  #     sync.enable = lib.mkForce false;
+  #   };
+  #   hardware.nvidia.powerManagement.finegrained = lib.mkForce true;
+  # };
 
   services.power-profiles-daemon.enable = false;
   services.tuned = {

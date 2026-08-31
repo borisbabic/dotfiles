@@ -18,7 +18,7 @@
       ./android_dev.nix
       # ./trackt-scrobbler/module.nix
       # ./deck_tracker.nix
-      ./virt.nix
+      # ./virt.nix
       # ./gpupassthrough.nix
     ];
   environment.sessionVariables = {
@@ -44,6 +44,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  networking.firewall.allowedTCPPorts = [
+    # calibre
+    9090
+  ];
   networking.networkmanager.enable = true;
   networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
   services.resolved = {
@@ -348,7 +352,6 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
