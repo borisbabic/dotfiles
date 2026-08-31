@@ -29,13 +29,13 @@
   },
   "dankKDEConnect": {
     "enabled": true,
-    "selectedDeviceId": "5931a82b903c4de781bf781a7f22d9af"
+    "selectedDeviceId": ""
   },
   "emojiLauncher": {
     "enabled": true,
     "noTrigger": false,
     "trigger": ":",
-    "recentEmojis": "🙄,🤷,🤓,🙃,🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,𝔴,😂"
+    "recentEmojis": "🙃,😝,🤷‍♂️,🤷,🙄,🤓,🪙,™️,😅,🎉,😢,🥲,∞,¹,🎊,💯,𝔴,😂"
   },
   "powerUsagePlugin": {
     "enabled": true

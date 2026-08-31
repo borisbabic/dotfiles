@@ -225,7 +225,7 @@
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 1,
       "fontScale": 1,
-      "autoHide": false,
+      "autoHide": true,
       "autoHideDelay": 500,
       "showOnWindowsOpen": true,
       "openOnOverview": true,

@@ -104,6 +104,100 @@
           }
         }
       }
+    },
+    {
+      "id": "auto_1f80f63b",
+      "name": "",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2560x1600@165.000",
+          "position": {
+            "x": 0,
+            "y": 1440
+          },
+          "scale": 1.6015625,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {
+            "bitdepth": 10,
+            "sdrSaturation": 1.5,
+            "vrrFullscreenOnly": true
+          }
+        },
+        "DP-2": {
+          "mode": "3840x2160@30.000",
+          "position": {
+            "x": 2560,
+            "y": 0
+          },
+          "scale": 2,
+          "transform": "90",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {}
+        }
+      }
+    },
+    {
+      "id": "auto_23b970fb",
+      "name": "",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2560x1600@165.000",
+          "position": {
+            "x": 0,
+            "y": 1440
+          },
+          "scale": 1.6015625,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {
+            "bitdepth": 10,
+            "sdrSaturation": 1.5,
+            "vrrFullscreenOnly": true
+          }
+        },
+        "HDMI-A-2": {
+          "mode": "3840x2160@120.000",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "scale": 1.5,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {
+            "bitdepth": 10,
+            "sdrSaturation": 1.5,
+            "vrrFullscreenOnly": true
+          }
+        }
+      }
+    },
+    {
+      "id": "auto_5af6115",
+      "name": "",
+      "outputs": {
+        "eDP-1": {
+          "mode": "2560x1600@165.000",
+          "position": {
+            "x": 0,
+            "y": 1440
+          },
+          "scale": 1.6015625,
+          "transform": "Normal",
+          "vrr": false,
+          "disabled": false,
+          "hyprland": {
+            "bitdepth": 10,
+            "sdrSaturation": 1.5,
+            "vrrFullscreenOnly": true
+          }
+        }
+      }
     }
   ]
 }
