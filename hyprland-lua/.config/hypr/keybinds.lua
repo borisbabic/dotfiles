@@ -155,8 +155,24 @@ for keys, keyevent in pairs({
 	hl.bind(mainMod .. " + " .. keys, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent), { locked = true })
 end
 
-for key, keyevent in pairs({
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.submap("resize"))
+
+-- Start a submap called "resize".
+hl.define_submap("resize", function()
+	-- Set repeating binds for resizing the active window.
+	hl.bind("right", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+	hl.bind("left", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+	hl.bind("up", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
+	hl.bind("down", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+
+	-- Use `reset` to go back to the global submap
+	hl.bind("escape", hl.dsp.submap("reset"))
+end)
+
+local shield_keys = {
 	["w"] = "KEYCODE_WAKEUP",
+	-- capslock
+	["GRAVE"] = "115",
 	["up"] = "19",
 	["down"] = "20",
 	["left"] = "21",
@@ -175,7 +191,9 @@ for key, keyevent in pairs({
 	["end"] = "187",
 	["tab"] = "61",
 	["SHIFT + tab"] = "143",
-}) do
+}
+
+for key, keyevent in pairs(shield_keys) do
 	hl.bind(mainMod .. " + ALT + " .. key, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent))
 end
 
@@ -183,6 +201,23 @@ for i = string.byte("a"), string.byte("z") do
 	local letter = string.char(i)
 	hl.bind(mainMod .. " + CTRL + ALT + " .. letter, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. (i - 68)))
 end
+
+hl.bind(mainMod .. " + CTRL + ALT + SHIFT + A", hl.dsp.submap("android_tv"))
+
+-- Start a submap called "resize".
+hl.define_submap("android_tv", function()
+	for key, keyevent in pairs(shield_keys) do
+		hl.bind(key, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent))
+	end
+
+	for i = string.byte("a"), string.byte("z") do
+		local letter = string.char(i)
+		hl.bind(letter, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. (i - 68)))
+	end
+
+	-- Use `reset` to go back to the global submap
+	hl.bind("escape", hl.dsp.submap("reset"))
+end)
 
 -- opens url from clipboard on shield's browser
 hl.bind(
