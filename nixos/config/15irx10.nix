@@ -96,6 +96,8 @@
     "i915.enable_fbc=0"
     "i915.enable_psr=0"
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
+    # modern software sleep, faster, can be more battery wasting 
+    "mem_sleep_default=s2idle"
     # "i915.force_probe=!a788"
     # "xe.force_probe=a788"
   ];
