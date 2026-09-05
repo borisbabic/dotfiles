@@ -5,8 +5,10 @@
   tuigreet = "${pkgs.tuigreet}/bin/tuigreet";
   usbId = "046d:082d";
   usbSerial = "BAE99B5F";
+  # from gemini
+  sessionDirs = "/run/current-system/sw/share/wayland-sessions:/run/current-system/sw/share/xsessions";
   hyprland-session = "${pkgs.hyprland}/share/wayland-sessions/";
-  tuigreet_command="${tuigreet} --time --remember --remember-session --sessions ${hyprland-session}";
+  tuigreet_command="${tuigreet} --time --remember --remember-session --sessions ${sessionDirs}";
   command = ''
     if ${pkgs.usbutils}/bin/lsusb -d ${usbId} | grep -i iserial | grep "${usbSerial}"; then 
       exec uwsm start hyprland-uwsm.desktop
