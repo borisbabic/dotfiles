@@ -5,20 +5,20 @@
       flake = true;
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
     stremio-pr.url = "github:NixOS/nixpkgs/pull/460557/head";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    dms = {
-      #url = "path:/home/boris/projects/DankMaterialShell";
-      # url = "github:borisbabic/DankMaterialShell";
-      # url = "github:AvengeMedia/DankMaterialShell/pull/2419/head";
-      url = "github:AvengeMedia/DankMaterialShell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # dms = {
+    #   #url = "path:/home/boris/projects/DankMaterialShell";
+    #   # url = "github:borisbabic/DankMaterialShell";
+    #   # url = "github:AvengeMedia/DankMaterialShell/pull/2419/head";
+    #   url = "github:AvengeMedia/DankMaterialShell";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     dms-plugin-registry = {
       url = "github:AvengeMedia/dms-plugin-registry";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +33,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, dms, ... }@inputs:
+  outputs = { self, sops-nix, nix-flatpak, nixpkgs, stremio-pr, clutch-notifier, home-manager, ... }@inputs:
     {
     nixosConfigurations.nixos-legion5 = nixpkgs.lib.nixosSystem {
       specialArgs = {

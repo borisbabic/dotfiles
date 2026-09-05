@@ -11,10 +11,10 @@
 {
   imports = [
     inputs.dms-plugin-registry.nixosModules.default 
-    inputs.dms.nixosModules.dank-material-shell
+    # inputs.dms.nixosModules.dank-material-shell
   ];
   programs.dsearch.enable = true;
-  programs.dank-material-shell = {
+  programs.dms-shell = {
     enable = true;
     plugins = {
       dankKDEConnect.enable = true;
@@ -28,7 +28,7 @@
     };
     systemd = {
       enable = true;             # Systemd service for auto-start
-      target = "graphical.target";
+      target = "graphical-session.target";
       restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
     };
     enableSystemMonitoring = true;     # System monitoring widgets (dgop)
