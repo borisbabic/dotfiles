@@ -5,3 +5,6 @@ new_tab dokku
 cd ~/projects/hsguru
 launch --hold env TERM=xterm-256color kitty +kitten ssh dtop -t 'sudo -u dokku tmux new -A'
 focus
+new_tab dr
+cd ~/projects/datareaper
+launch --hold env TERM=xterm-256color kitty +kitten ssh dr -t 'tmux attach || tmux new'
