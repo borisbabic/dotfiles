@@ -1,10 +1,10 @@
 {
   inputs = {
-    dms-plugin-calendar = {
-      url = "github:alcxyz/DankCalendar";
-      flake = true;
-    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    dank-calendar = {
+      url = "github:/AvengeMedia/dankcalendar";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     antigravity-nix = {
       url = "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";

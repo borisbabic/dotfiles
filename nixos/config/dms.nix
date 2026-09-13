@@ -10,9 +10,11 @@
   # }); in
 {
   imports = [
-    inputs.dms-plugin-registry.nixosModules.default 
+    inputs.dms-plugin-registry.nixosModules.default
+    inputs.dank-calendar.nixosModules.default
     # inputs.dms.nixosModules.dank-material-shell
   ];
+  programs.dank-calendar.enable = true;
   programs.dsearch.enable = true;
   programs.dms-shell = {
     enable = true;
@@ -21,10 +23,6 @@
       commandRunner.enable = true;
       emojiLauncher.enable = true;
       powerUsagePlugin.enable = true;
-      dankCalendar = {
-        enable = true;
-        src = lib.mkForce inputs.dms-plugin-calendar;
-      };
     };
     systemd = {
       enable = true;             # Systemd service for auto-start
@@ -34,7 +32,7 @@
     enableVPN = true;                  # VPN management widget
     enableDynamicTheming = true;       # Wallpaper-based theming (matugen)
     enableAudioWavelength = true;      # Audio visualizer (cava)
-    enableCalendarEvents = true;       # Calendar integration (khal)
+    # enableCalendarEvents = true;       # Calendar integration (khal)
   };
   services.displayManager.dms-greeter = {
     enable = false;
