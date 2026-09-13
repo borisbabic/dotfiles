@@ -38,7 +38,18 @@
       default_sched = "scx_bpfland";
     };
   };
+  services.cardwired = { 
+    enable = true;
+    settings = {
+      battery_auto_switch = true;
+      external_display_auto_switch = true;
+      experimental_nvidia_block = true;
+      battery_auto_switch_mode = "smart";
+    };
+  };
+  services.hardware.openrgb.enable = true;
   environment.systemPackages = with pkgs; [
+    openrgb-with-all-plugins
     scx.full
     scx-loader
     powertop
@@ -89,7 +100,7 @@
       nvidiaBusId = "PCI:1@0:0:0";
     };
   };
-  boot.initrd.kernelModules = [ "xe" ];
+  boot.initrd.kernelModules = [ "i915" ];
   boot.kernelParams = [
     "i915.enable_guc=3"
     "i915.enable_sagv=0"
