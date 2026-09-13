@@ -25,7 +25,7 @@
       powerUsagePlugin.enable = true;
     };
     systemd = {
-      enable = true;             # Systemd service for auto-start
+      enable = false;             # Systemd service for auto-start
       # target = "graphical-session.target";
       restartIfChanged = true;   # Auto-restart dms.service when dms-shell changes
     };

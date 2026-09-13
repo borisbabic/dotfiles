@@ -16,6 +16,9 @@
       ./hsguru.nix
       ./dell_audio_toggle.nix
       ./android_dev.nix
+      ./mango.nix
+      ./niri.nix
+      ./umbriel.nix
       # ./trackt-scrobbler/module.nix
       # ./deck_tracker.nix
       # ./virt.nix

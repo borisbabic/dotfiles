@@ -39,12 +39,12 @@
     };
   };
   services.cardwired = { 
-    enable = true;
+    enable = false;
     settings = {
-      battery_auto_switch = true;
+      battery_auto_switch = false;
       external_display_auto_switch = true;
       experimental_nvidia_block = true;
-      battery_auto_switch_mode = "smart";
+      battery_auto_switch_mode = "hybrid";
     };
   };
   services.hardware.openrgb.enable = true;
