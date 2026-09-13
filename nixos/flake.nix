@@ -5,6 +5,10 @@
       flake = true;
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    antigravity-nix = {
+      url = "github:jacopone/antigravity-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     # hyprland.url = "github:hyprwm/Hyprland";
     stremio-pr.url = "github:NixOS/nixpkgs/pull/460557/head";
     nix-flatpak.url = "github:gmodena/nix-flatpak?ref=latest";
@@ -53,6 +57,7 @@
             users.boris = ./home/boris.nix;
           };
           nixpkgs.overlays = [
+            inputs.antigravity-nix.overlays.default
             (final: prev: {
                 chatterino7 = let noOverride =
                   prev.lib.versionAtLeast prev.chatterino7.version "7.5.6";
