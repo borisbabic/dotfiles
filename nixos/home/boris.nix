@@ -57,11 +57,15 @@
   '';
    };
 
+  home.packages = with pkgs; [
+    google-antigravity
+  ];
   programs.antigravity-cli = {
     enable = true;
+    package = pkgs.google-antigravity-cli;
   };
   programs.antigravity = {
-    # package = pkgs.antigravity-ide;
+    package = pkgs.google-antigravity-ide;
     enable = true;
     mutableExtensionsDir = true;
   };

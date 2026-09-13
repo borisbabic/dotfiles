@@ -102,7 +102,6 @@
     layout = "us,hr";
     variant = "";
   };
-
   services.keyd = {
     enable = true;
     keyboards = {
@@ -120,11 +119,18 @@
       };
       yunzi = {
         ids = [
+          # wired
           "3151:4015:00f22947"
           "3151:4015:0de75e68"
           "3151:4015:8e165d75"
           "3151:4015:c251562f"
           "3151:4015:f335a20d"
+          # wireless
+          "3151:4011:a2a3d108"
+          "3151:4011:59783b6a"
+          "3151:4011:e9545600"
+          "3151:4011:acb87de2"
+          "3151:4011:5b3db59a"
         ];
         settings = {
           main = {
@@ -231,6 +237,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    ## noise cancelection stuff
+    easyeffects
+    deepfilternet
     # hack because glib has a hardcoded list of terminals
     # specific motivation being show in folder in firefox
     (pkgs.writeShellScriptBin "xterm" ''
@@ -256,7 +265,6 @@
     zed-editor
     chatterino7
     streamlink
-    streamlink-twitch-gui-bin
     webcord-vencord
     jq
     kitty
@@ -274,7 +282,6 @@
     playerctl
     chromium
     brave
-    comma
     mpv
     vlc
     # dropdbox sync
@@ -288,9 +295,10 @@
   #   package = pkgs.ollama-cuda;
   # };
 
-  programs.obs-studio.enableVirtualCamera = true;
+  programs.comma.enable = true;
   programs.obs-studio = {
     enable = true;
+    enableVirtualCamera = true;
     package = pkgs.obs-studio.override {
       cudaSupport = true;
     };
