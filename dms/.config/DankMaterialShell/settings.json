@@ -1,16 +1,12 @@
 {
-  "currentThemeName": "blue",
   "widgetBackgroundColor": "s",
   "cornerRadius": 12,
-  "hyprlandLayoutGapsOverride": 0,
-  "hyprlandLayoutRadiusOverride": 12,
-  "hyprlandLayoutBorderSize": 0,
-  "calendarBackend": "dankcal",
+  "hyprlandLayoutGapsOverride": -2,
+  "hyprlandLayoutGapsOutOverride": 0,
+  "hyprlandLayoutBorderSize": 1,
+  "hyprlandResizeOnBorder": true,
   "showSeconds": true,
-  "nightModeEnabled": false,
   "barElevationEnabled": false,
-  "wallpaperFillMode": "Fit",
-  "batteryPillPercentSign": false,
   "controlCenterShowMicPercent": true,
   "controlCenterWidgets": [
     {
@@ -63,6 +59,8 @@
     }
   ],
   "showWorkspaceIndex": true,
+  "workspaceUnfocusedMonitorSeparateAppearance": true,
+  "workspaceUnfocusedMonitorColorMode": "secondary",
   "focusedWindowCompactMode": true,
   "runningAppsCurrentWorkspace": false,
   "appIdSubstitutions": [],
@@ -93,13 +91,13 @@
   "launcherLogoColorOverride": "primary",
   "textRenderType": 1,
   "batteryCriticalThreshold": 8,
+  "lowerDisplayRefreshRateOnBattery": true,
   "launchPrefix": "uwsm app -- ",
-  "gtkThemingEnabled": false,
-  "qtThemingEnabled": false,
   "terminalsAlwaysDark": true,
   "matugenTemplateZed": false,
   "showDock": true,
   "dockSmartAutoHide": true,
+  "notificationShowTimeoutBar": true,
   "osdPowerProfileEnabled": true,
   "powerMenuActions": [
     "reboot",
@@ -108,14 +106,17 @@
     "lock",
     "suspend",
     "restart",
-    "hibernate"
+    "hibernate",
+    "softreboot"
   ],
   "customPowerActionHibernate": "systemctl reboot --boot-loader-entry=auto-windows",
   "screenPreferences": {
     "dock": [
       "all"
     ],
-    "wallpaper": []
+    "wallpaper": [
+      "all"
+    ]
   },
   "showOnLastDisplay": {
     "dock": true
@@ -213,12 +214,12 @@
           "showDoNotDisturbIcon": false
         }
       ],
-      "spacing": 4,
-      "innerPadding": 4,
+      "spacing": 0,
+      "innerPadding": -3,
       "bottomGap": 0,
       "transparency": 1,
       "widgetTransparency": 1,
-      "squareCorners": false,
+      "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
@@ -232,7 +233,7 @@
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 1,
       "fontScale": 1,
-      "autoHide": true,
+      "autoHide": false,
       "autoHideDelay": 500,
       "showOnWindowsOpen": true,
       "openOnOverview": true,
@@ -246,7 +247,15 @@
       "shadowIntensity": 0,
       "shadowOpacity": 60,
       "shadowColorMode": "text",
-      "shadowCustomColor": "#000000"
+      "shadowCustomColor": "#000000",
+      "widgetPadding": 8,
+      "removeWidgetPadding": false,
+      "maximizeWidgetText": false,
+      "maximizeWidgetIcons": false,
+      "batteryColorMode": "level",
+      "island": false,
+      "islandReserveThickness": 40,
+      "attachToScreenEdge": false
     },
     {
       "id": "dell_bar",
@@ -318,16 +327,16 @@
           "enabled": true
         }
       ],
-      "spacing": 4,
+      "spacing": 0,
       "innerPadding": 4,
       "bottomGap": 0,
       "transparency": 1,
       "widgetTransparency": 1,
-      "squareCorners": false,
+      "squareCorners": true,
       "noBackground": false,
-      "gothCornersEnabled": false,
+      "gothCornersEnabled": true,
       "gothCornerRadiusOverride": false,
-      "gothCornerRadiusValue": 12,
+      "gothCornerRadiusValue": 11,
       "borderEnabled": false,
       "borderColor": "surfaceText",
       "borderOpacity": 1,
@@ -351,7 +360,13 @@
       "shadowIntensity": 0,
       "shadowOpacity": 60,
       "shadowColorMode": "text",
-      "shadowCustomColor": "#000000"
+      "shadowCustomColor": "#000000",
+      "barInsetPadding": 5,
+      "widgetPadding": 8,
+      "iconScale": 1,
+      "barLengthPadding": 0,
+      "batteryColorMode": "level",
+      "attachToScreenEdge": false
     },
     {
       "id": "vertical_bar",
@@ -401,12 +416,12 @@
           "enabled": true
         }
       ],
-      "spacing": 4,
-      "innerPadding": 4,
+      "spacing": 0,
+      "innerPadding": -1,
       "bottomGap": 0,
       "transparency": 1,
       "widgetTransparency": 1,
-      "squareCorners": false,
+      "squareCorners": true,
       "noBackground": false,
       "gothCornersEnabled": false,
       "gothCornerRadiusOverride": false,
@@ -419,7 +434,7 @@
       "widgetOutlineColor": "primary",
       "widgetOutlineOpacity": 1,
       "widgetOutlineThickness": 1,
-      "widgetPadding": 8,
+      "widgetPadding": 6,
       "maximizeWidgetIcons": false,
       "maximizeWidgetText": false,
       "removeWidgetPadding": false,
@@ -439,9 +454,38 @@
       "shadowIntensity": 0,
       "shadowOpacity": 60,
       "shadowColorMode": "text",
-      "shadowCustomColor": "#000000"
+      "shadowCustomColor": "#000000",
+      "island": false,
+      "islandFloating": false,
+      "attachToScreenEdge": false
     }
   ],
+  "desktopClockCustomColor": {
+    "r": 1,
+    "g": 1,
+    "b": 1,
+    "a": 1,
+    "hsvHue": -1,
+    "hsvSaturation": 0,
+    "hsvValue": 1,
+    "hslHue": -1,
+    "hslSaturation": 0,
+    "hslLightness": 1,
+    "valid": true
+  },
+  "systemMonitorCustomColor": {
+    "r": 1,
+    "g": 1,
+    "b": 1,
+    "a": 1,
+    "hsvHue": -1,
+    "hsvSaturation": 0,
+    "hsvValue": 1,
+    "hslHue": -1,
+    "hslSaturation": 0,
+    "hslLightness": 1,
+    "valid": true
+  },
   "desktopWidgetInstances": [
     {
       "id": "dw_1776076555447_3c982706w",
@@ -453,7 +497,13 @@
           "all"
         ],
         "showOnOverlay": false,
-        "viewMode": "detailed"
+        "viewMode": "detailed",
+        "clickThrough": false,
+        "showPressure": true,
+        "showHourlyForecast": true,
+        "hourlyCount": 6,
+        "syncPositionAcrossScreens": true,
+        "backgroundOpacity": 80
       }
     },
     {
@@ -484,16 +534,17 @@
         "displayPreferences": [
           "all"
         ]
-      }
+      },
+      "group": null
     },
     {
       "id": "dw_1776076563690_qz8rhuime",
       "widgetType": "desktopClock",
       "name": "Desktop Clock",
-      "enabled": false,
+      "enabled": true,
       "config": {
         "style": "digital",
-        "transparency": 0.8,
+        "transparency": 0,
         "colorMode": "primary",
         "customColor": "#ffffff",
         "showDate": true,
@@ -502,8 +553,10 @@
         "displayPreferences": [
           "all"
         ],
-        "showDigitalSeconds": true
-      }
+        "showDigitalSeconds": true,
+        "syncPositionAcrossScreens": true
+      },
+      "group": null
     },
     {
       "id": "dw_1785368656968_9zq904wog",
@@ -545,6 +598,7 @@
     "emojiLauncher",
     "dankGifSearch"
   ],
-  "configVersion": 18,
-  "closeNiriOverviewOnWindowFocus": true
+  "barInsetPaddingShared": 6,
+  "barInsetPaddingSyncAll": true,
+  "configVersion": 18
 }

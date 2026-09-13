@@ -80,5 +80,8 @@
   },
   "dankCalendar": {
     "enabled": true
+  },
+  "dankDesktopWeather": {
+    "enabled": true
   }
 }

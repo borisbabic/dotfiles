@@ -61,5 +61,6 @@ for keys, exec in pairs({
 	hl.bind(keys, hl.dsp.exec_cmd("dms screenshot " .. exec))
 end
 require("dms.colors")
+require("dms.cursor")
 require("dms.layout")
 require("dms.windowrules")
