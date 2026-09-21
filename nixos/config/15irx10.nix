@@ -38,13 +38,16 @@
       default_sched = "scx_bpfland";
     };
   };
+
+  # disable it by default
+  systemd.services.cardwired.wantedBy = lib.mkForce [];
   services.cardwired = { 
-    enable = false;
+    enable = true;
     settings = {
       battery_auto_switch = false;
       external_display_auto_switch = true;
       experimental_nvidia_block = true;
-      battery_auto_switch_mode = "hybrid";
+      battery_auto_switch_mode = "smart";
     };
   };
   services.hardware.openrgb.enable = true;
@@ -103,7 +106,7 @@
   boot.initrd.kernelModules = [ "i915" ];
   boot.kernelParams = [
     "i915.enable_guc=3"
-    "i915.enable_sagv=0"
+    #"i915.enable_sagv=0"
     "i915.enable_fbc=0"
     "i915.enable_psr=0"
     "nvidia.NVreg_TemporaryFilePath=/var/tmp"
