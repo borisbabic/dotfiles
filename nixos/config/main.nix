@@ -307,6 +307,9 @@
     };
     plugins = with pkgs.obs-studio-plugins; [
       obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vkcapture
+      obs-vaapi
     ];
   };
   boot.extraModulePackages = with config.boot.kernelPackages; [
