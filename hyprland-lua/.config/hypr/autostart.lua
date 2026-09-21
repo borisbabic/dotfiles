@@ -1,5 +1,9 @@
-local function exec(cmd, workspace)
-	hl.exec_cmd("uwsm app -- " .. cmd, { workspace = workspace or 1 })
+local function exec(cmd, workspace, pre_launch)
+	local pre_launch_prefix = ""
+	if pre_launch then
+		pre_launch_prefix = pre_launch .. " && "
+	end
+	hl.exec_cmd(pre_launch_prefix .. "uwsm app -- " .. cmd, { workspace = workspace or 1 })
 end
 
 -- hl.on("monitor.added", function(monitor)
@@ -66,8 +70,11 @@ local function auto_start()
 	local ids = auto_start_ids()
 
 	hl.exec_cmd("systemctl --user start xembed-sni-proxy.service")
+
 	if start_social then
-		exec("chatterino", ids.vertical .. "3 silent")
+		-- some stupid audio shit due to the headset dongle causes chatterino to not launch until it's resolved
+		-- could probably turn off notif as an alternative
+		exec("chatterino", ids.vertical .. "3 silent", "sleep 10")
 		exec("vesktop", ids.vertical .. "3 silent")
 		exec("whatsapp-electron", ids.vertical .. "5 silent")
 		-- exec("env LUTRIS_SKIP_INIT=1 lutris lutris:rungameid/3", ids.vertical .. "5 silent")
