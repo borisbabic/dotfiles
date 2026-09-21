@@ -73,9 +73,9 @@
                     src = prev.fetchFromGitHub {
                       owner = "seventv";
                       repo = "chatterino7";
-                      rev = "b4628fa7eb5619b0f9a1bc59593450b5915d46d7";
+                      rev = "752cabc4398f552caae31c38b529990093816424";
                       fetchSubmodules = true;
-                      hash = "sha256-M3gMhjqgR7VwxtcixpvbqqTLsbNgNZqJ81rb4aNZkTs=";
+                      hash = "sha256-NbdvKUynXABuMdWHEjRg3OstbMnyL7iUf8KIWgMJXm8=";
                     };
                   })
                 );
