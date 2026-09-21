@@ -1,10 +1,15 @@
 {
   "widgetBackgroundColor": "s",
   "cornerRadius": 12,
+  "niriLayoutGapsOverride": 0,
   "hyprlandLayoutGapsOverride": -2,
   "hyprlandLayoutGapsOutOverride": 0,
   "hyprlandLayoutBorderSize": 1,
   "hyprlandResizeOnBorder": true,
+  "mangoLayoutGapsOverride": 4,
+  "mangoLayoutGapsOutOverride": 0,
+  "mangoLayoutRadiusOverride": 6,
+  "mangoLayoutBorderSize": 1,
   "showSeconds": true,
   "barElevationEnabled": false,
   "controlCenterShowMicPercent": true,
@@ -120,6 +125,34 @@
   },
   "showOnLastDisplay": {
     "dock": true
+  },
+  "displayPreviousRefreshModes": {
+    "hyprland": {
+      "eDP-1": {
+        "mode": "2560x1600@165.000"
+      },
+      "EDO EF10QBC64.C Unknown": {
+        "mode": "2560x1600@165.000"
+      },
+      "EDO EF10QBC64.C": {
+        "mode": "2560x1600@165.000"
+      },
+      "desc:EDO EF10QBC64.C": {
+        "mode": "2560x1600@165.000"
+      },
+      "HDMI-A-2": {
+        "mode": "3840x2160@120.000"
+      },
+      "Dell Inc. DELL S2725QS 9Z5B364": {
+        "mode": "3840x2160@120.000"
+      },
+      "Dell Inc. DELL S2725QS": {
+        "mode": "3840x2160@120.000"
+      },
+      "desc:Dell Inc. DELL S2725QS 9Z5B364": {
+        "mode": "3840x2160@120.000"
+      }
+    }
   },
   "displayProfileAutoSelect": true,
   "barConfigs": [
@@ -589,6 +622,9 @@
     },
     "dms_qr_generator": {
       "trigger": "qrg"
+    },
+    "dms_power": {
+      "trigger": "pw"
     }
   },
   "clipboardEnterToPaste": true,

@@ -13,25 +13,12 @@
           },
           "scale": 1.6015625,
           "transform": "Normal",
-          "vrr": true,
-          "disabled": false,
-          "hyprland": {
-            "bitdepth": 10,
-            "sdrSaturation": 1.5,
-            "vrrFullscreenOnly": true
-          }
-        },
-        "DP-2": {
-          "mode": "3840x2160@30.000",
-          "position": {
-            "x": 2560,
-            "y": 0
-          },
-          "scale": 2,
-          "transform": "90",
           "vrr": false,
           "disabled": false,
-          "hyprland": {}
+          "hyprland": {
+            "sdrSaturation": 1.5,
+            "bitdepth": 10
+          }
         },
         "HDMI-A-2": {
           "mode": "3840x2160@120.000",
@@ -44,10 +31,21 @@
           "vrr": false,
           "disabled": false,
           "hyprland": {
-            "bitdepth": 10,
             "sdrSaturation": 1.5,
-            "vrrFullscreenOnly": true
+            "bitdepth": 10
           }
+        },
+        "DP-2": {
+          "mode": "3840x2160@30.000",
+          "position": {
+            "x": 2560,
+            "y": 0
+          },
+          "scale": 2,
+          "transform": "90",
+          "vrr": false,
+          "disabled": true,
+          "hyprland": {}
         }
       }
     },
