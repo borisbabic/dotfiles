@@ -1,0 +1,5 @@
+# System environment
+The system is on nixos. Take that into account for utilities, ex don't use pip for python. comma, ie `,` is present on the system and can be used for commands that aren't installed, ex `, command` if `command` isn't installed
+# Elixir Execution
+- For elixir commands like mix use `direnv exec` . For `mix test` also override the environment variable `MIX_ENV` to `test`
+
