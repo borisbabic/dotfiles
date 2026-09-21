@@ -9,8 +9,8 @@ in
 {
   systemd.user.services.alienware-switcher = {
     description = "Alienware Headset Audio Switcher";
-    wantedBy = [ "graphical-session.target" ];
-    partOf = [ "graphical-session.target" ];
+    # wantedBy = [ "graphical-session.target" ];
+    # partOf = [ "graphical-session.target" ];
     path = [ pkgs.libnotify pkgs.wireplumber ];
     serviceConfig = {
       ExecStart = "${headset-switcher}";
