@@ -124,6 +124,18 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
+hl.bind(
+	mainMod .. " + XF86AudioRaiseVolume ",
+	hl.dsp.exec_cmd(" nix run github:Tenzer/alga -- volume up "),
+	{ locked = true }
+)
+
+hl.bind(
+	mainMod .. " + XF86AudioLowerVolume ",
+	hl.dsp.exec_cmd(" nix run github:Tenzer/alga -- volume down "),
+	{ locked = true }
+)
+
 -- Send shortcuts to specific programs
 ANTI_GRAVITY_RUN = function()
 	hl.dispatch(hl.dsp.send_shortcut({
@@ -152,7 +164,11 @@ for keys, keyevent in pairs({
 	["XF86AudioRaiseVolume"] = "24",
 	["XF86AudioLowerVolume"] = "25",
 }) do
-	hl.bind(mainMod .. " + " .. keys, hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent), { locked = true })
+	hl.bind(
+		mainMod .. " + ALT + " .. keys,
+		hl.dsp.exec_cmd(shieldBase .. "input keyevent " .. keyevent),
+		{ locked = true }
+	)
 end
 
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.submap("resize"))
