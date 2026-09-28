@@ -60,6 +60,9 @@
   home.packages = with pkgs; [
     google-antigravity
   ];
+  programs.claude-code = {
+    enable = true;
+  };
   programs.antigravity-cli = {
     enable = true;
     package = pkgs.google-antigravity-cli;

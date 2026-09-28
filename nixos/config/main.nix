@@ -7,7 +7,7 @@
 {
   imports =
     [
-      ./cosmic.nix
+      #./cosmic.nix
       ./gaming.nix
       ./nonguipackages.nix
       ./15irx10.nix
@@ -16,9 +16,10 @@
       ./hsguru.nix
       ./dell_audio_toggle.nix
       ./android_dev.nix
-      ./mango.nix
-      ./niri.nix
-      ./umbriel.nix
+      #./mango.nix
+      #./niri.nix
+      ./plasma.nix
+      #./umbriel.nix
       # ./trackt-scrobbler/module.nix
       # ./deck_tracker.nix
       # ./virt.nix
@@ -284,6 +285,7 @@
     pavucontrol
     playerctl
     chromium
+    google-chrome
     brave
     mpv
     vlc
