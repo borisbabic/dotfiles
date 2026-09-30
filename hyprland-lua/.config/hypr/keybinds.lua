@@ -35,7 +35,14 @@ end)
 -- Directional keybinds
 for _, dir in ipairs({ "left", "right", "up", "down" }) do
 	hl.bind(mainMod .. " + " .. dir, hl.dsp.focus({ direction = dir }))
-	hl.bind(mainMod .. " + SHIFT + " .. dir, hl.dsp.window.move({ direction = dir }))
+	hl.bind(mainMod .. " + SHIFT + " .. dir, function()
+		local win = hl.get_active_window()
+		if win and 2 == win.fullscreen then
+			hl.dispatch(hl.dsp.window.move({ monitor = dir }))
+		else
+			hl.dispatch(hl.dsp.window.move({ direction = dir }))
+		end
+	end)
 end
 
 local function move_window_to(workspace)
