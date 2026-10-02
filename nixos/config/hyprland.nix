@@ -54,6 +54,9 @@
     qt5.qtwayland
     qt6.qtwayland
 
+
+    # qt themeing
+    inputs.hyprqt6engine.packages.${pkgs.stdenv.hostPlatform.system}.default
     ### Waybar stuff
     waybar
     wttrbar
