@@ -286,6 +286,7 @@
     playerctl
     chromium
     google-chrome
+    telegram-desktop
     brave
     mpv
     vlc

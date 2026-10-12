@@ -108,11 +108,17 @@ let
     game-devices-udev-rules
   ];
   environment.systemPackages = with pkgs; [
+    wineWow64Packages.stagingFull
     mangohud
     steam-tui
     steamcmd
     osu-lazer-bin
-    heroic
+    (heroic.override {
+      extraPkgs = pkgs': with pkgs'; [
+        gamescope
+        gamemode
+      ];
+    })
     gamescope-wsi
     # bottles
     lutris
