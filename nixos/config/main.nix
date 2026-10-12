@@ -392,5 +392,10 @@
     withRuby = false;
     withPython3 = false;
   };
-
+  systemd.oomd = {
+    enable = true;
+    enableRootSlice = true;
+    enableUserSlices = true;
+    enableSystemSlice = true;
+  };
 }
