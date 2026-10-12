@@ -1,0 +1,3 @@
+cd ~/Projects/HSGuruDeckTracker/
+launch bash -c 'nvim app/src/main/java/com/hsguru/decktracker/MainActivity.kt'
+
