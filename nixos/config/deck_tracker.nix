@@ -32,7 +32,7 @@ in
   environment.systemPackages = with pkgs; [
     jdk
     android-tools
-    android-studio-full
+    #android-studio-full
     gradle
     dotnet-combined
     # dotnet-dotnet-sdk_10

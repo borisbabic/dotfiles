@@ -257,7 +257,7 @@
     qmk
     qmk-udev-rules
     # </keyboard config>
-    jetbrains.rider
+    # jetbrains.rider
     super-productivity
     bitwarden-desktop
     qbittorrent-enhanced

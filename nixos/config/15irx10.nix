@@ -198,12 +198,13 @@
   #   enable = true;
   # };
 
+  # should do some tests
+  # https://www.enricopesce.it/zram-zswap-linux-swap-configuration/
   boot.zswap = {
     enable = true;
     zpool = "zsmalloc";
     compressor = "zstd";
   };
-  boot.kernel.sysctl."vm.swappiness" = 100;
   # Disable integrated camera
   services.udev.extraRules = ''
     # Disable specific USB device

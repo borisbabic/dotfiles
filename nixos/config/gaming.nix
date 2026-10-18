@@ -112,6 +112,7 @@ let
     mangohud
     steam-tui
     steamcmd
+    # goverlay
     osu-lazer-bin
     (heroic.override {
       extraPkgs = pkgs': with pkgs'; [
