@@ -203,6 +203,7 @@
     zpool = "zsmalloc";
     compressor = "zstd";
   };
+  boot.kernel.sysctl."vm.swappiness" = 100;
   # Disable integrated camera
   services.udev.extraRules = ''
     # Disable specific USB device
