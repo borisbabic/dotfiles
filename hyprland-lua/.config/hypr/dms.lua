@@ -64,3 +64,19 @@ require("dms.colors")
 require("dms.cursor")
 require("dms.layout")
 require("dms.windowrules")
+
+hl.gesture({
+	fingers = 3,
+	direction = "down",
+	action = function()
+		hl.exec_cmd("dms ipc call hypr openOverview")
+	end,
+})
+
+hl.gesture({
+	fingers = 3,
+	direction = "up",
+	action = function()
+		hl.exec_cmd("dms ipc call hypr closeOverview")
+	end,
+})
