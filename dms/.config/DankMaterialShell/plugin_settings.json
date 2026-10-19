@@ -5,6 +5,7 @@
     "trigger": "",
     "maxHistoryItems": 20,
     "history": [
+      "nvidia-offload heroic-launcher",
       "nvidia-offload obs",
       "nvidia-run obs",
       "pkill chromium",
@@ -23,8 +24,7 @@
       "nix-shell -p brave --run brave",
       "poweroff",
       "kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_dev",
-      "kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim",
-      "kitty --session ~/dotfiles/.kitty/config/kitty/sessions/hsguru_nvim"
+      "kitty --session ~/dotfiles/kitty/.config/kitty/sessions/hsguru_nvim"
     ]
   },
   "dankKDEConnect": {
@@ -82,6 +82,9 @@
     "enabled": true
   },
   "dankDesktopWeather": {
+    "enabled": true
+  },
+  "claudeCodeUsage": {
     "enabled": true
   }
 }

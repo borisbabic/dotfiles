@@ -5,6 +5,10 @@
       "repo": "https://github.com/szabolcsf/dms-air-quality",
       "commit": "aff8f56bc8bce96d6d5bbe9df388b4ea57aa8544"
     },
+    "claudeCodeUsage": {
+      "repo": "https://github.com/titeya/dms-claudecode",
+      "commit": "20a936f20c4785647a8317c9f60e7b168ca25b5b"
+    },
     "dankBatteryAlerts": {
       "repo": "https://github.com/AvengeMedia/dms-plugins",
       "path": "DankBatteryAlerts",

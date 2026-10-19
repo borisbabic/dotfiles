@@ -9,43 +9,17 @@
           "mode": "2560x1600@165.000",
           "position": {
             "x": 0,
-            "y": 1440
+            "y": 0
           },
-          "scale": 1.6015625,
+          "scale": 1.6,
           "transform": "Normal",
           "vrr": false,
           "disabled": false,
           "hyprland": {
             "sdrSaturation": 1.5,
-            "bitdepth": 10
+            "bitdepth": 10,
+            "colorManagement": "auto"
           }
-        },
-        "HDMI-A-2": {
-          "mode": "3840x2160@120.000",
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "scale": 1.5,
-          "transform": "Normal",
-          "vrr": false,
-          "disabled": false,
-          "hyprland": {
-            "sdrSaturation": 1.5,
-            "bitdepth": 10
-          }
-        },
-        "DP-2": {
-          "mode": "3840x2160@30.000",
-          "position": {
-            "x": 2560,
-            "y": 0
-          },
-          "scale": 2,
-          "transform": "90",
-          "vrr": false,
-          "disabled": true,
-          "hyprland": {}
         }
       }
     },

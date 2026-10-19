@@ -139,22 +139,9 @@
       },
       "desc:EDO EF10QBC64.C": {
         "mode": "2560x1600@165.000"
-      },
-      "HDMI-A-2": {
-        "mode": "3840x2160@120.000"
-      },
-      "Dell Inc. DELL S2725QS 9Z5B364": {
-        "mode": "3840x2160@120.000"
-      },
-      "Dell Inc. DELL S2725QS": {
-        "mode": "3840x2160@120.000"
-      },
-      "desc:Dell Inc. DELL S2725QS 9Z5B364": {
-        "mode": "3840x2160@120.000"
       }
     }
   },
-  "displayProfileAutoSelect": true,
   "barConfigs": [
     {
       "id": "laptop_bar",
@@ -187,6 +174,10 @@
         }
       ],
       "rightWidgets": [
+        {
+          "id": "claudeCodeUsage",
+          "enabled": true
+        },
         {
           "id": "systemTray",
           "enabled": true,
@@ -285,7 +276,6 @@
       "removeWidgetPadding": false,
       "maximizeWidgetText": false,
       "maximizeWidgetIcons": false,
-      "batteryColorMode": "level",
       "island": false,
       "islandReserveThickness": 40,
       "attachToScreenEdge": false
@@ -321,6 +311,10 @@
         }
       ],
       "rightWidgets": [
+        {
+          "id": "claudeCodeUsage",
+          "enabled": true
+        },
         {
           "id": "systemTray",
           "enabled": true
