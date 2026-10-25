@@ -295,6 +295,7 @@
     stremio-linux-shell
     # for org files
     maestral-gui
+    ffmpeg-full
   ];
 
   # services.ollama = {
