@@ -19,10 +19,10 @@
   programs.dms-shell = {
     enable = true;
     plugins = {
-      dankKDEConnect.enable = true;
-      commandRunner.enable = true;
-      emojiLauncher.enable = true;
-      powerUsagePlugin.enable = true;
+      #dankKDEConnect.enable = true;
+      #commandRunner.enable = true;
+      #emojiLauncher.enable = true;
+      #powerUsagePlugin.enable = true;
     };
     systemd = {
       enable = false;             # Systemd service for auto-start

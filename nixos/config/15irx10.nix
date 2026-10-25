@@ -7,6 +7,16 @@
 # to disable battery charge limit do the following:
 # sudo legion_cli --donotexpecthwmon batteryconservation-disable
 
+let withEmptyModuleCerts = 
+  pkg:
+         pkg.overrideAttrs (old: {
+          postFixup = (old.postFixup or "") + ''
+            for ko in $(find $out/lib/modules -name '*.ko*' ! -name '*.cer'); do
+              touch "''${ko%.ko*}.ko.cer"
+            done
+          '';
+        });
+  in
 {
   imports = [
     # ./undervolt.nix
@@ -16,7 +26,11 @@
   #
   # programs.coolercontrol.enable = true;
   # boot.kernelPackages = pkgs.linuxKernel.packagesFor pkgs.cachyosKernels.linux-cachyos-latest-lto-x86_64-v4;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest.extend (
+    _: prev: {
+      lenovo-legion-module = withEmptyModuleCerts prev.lenovo-legion-module;
+    }
+  );
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
   services.thermald.enable = lib.mkDefault true;
   # DO NOT ENABLE

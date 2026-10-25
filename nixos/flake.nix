@@ -61,6 +61,27 @@
             users.boris = ./home/boris.nix;
           };
           nixpkgs.overlays = [
+            # (final: prev: {
+            #     heroic = let noOverride =
+            #       prev.lib.versionAtLeast prev.heroic.version "2.22.4";
+            #     in
+            #     prev.lib.warnIf noOverride ''
+            #         heroic >= 2.22.4 is now in nixpkgs, the override can be removed
+            #     ''
+            #     (if noOverride then
+            #       prev.heroic
+            #     else
+            #       prev.heroic.overrideAttrs (old: {
+            #         version = "2.22.4";
+            #         src = prev.fetchFromGitHub {
+            #           owner = "Heroic-Games-Launcher";
+            #           repo = "HeroicGamesLauncher";
+            #           tag = "v2.22.4";
+            #           hash = "sha256-3P2u2Pzle3KpYPehfJXGrqg3OAxUrTIlUH3yiWBDPpg=";
+            #         };
+            #       })
+            #     );
+            #   })
             inputs.antigravity-nix.overlays.default
             (final: prev: {
                 chatterino7 = let noOverride =
