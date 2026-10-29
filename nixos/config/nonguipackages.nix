@@ -66,12 +66,16 @@ in
     # figlet # see above
     file
     fzf #fuzzy search
-    # gcc
     git
-    glances # monitoring, shows more stuff than htop
     hdparm
+    # <system monitors>
+    glances # monitoring, shows more stuff than htop
+    # provides dgop
+    dux-gop
     btop
     htop
+    # </system monitors>
+
     inotify-tools
     jq
     # aspell #spellcheck, usefull with emacs
